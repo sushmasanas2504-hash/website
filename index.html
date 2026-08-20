@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lalbaug Masalawale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --saffron:#E8470A; --deep-red:#7a1f1f; --gold:#C9880A; --success:#00A896; --error:#D32F2F;
+  --cream:#FFF6EC; --border:#EAD9C4; --text-dark:#2B1A0E; --text-mid:#8A7563; --white:#fff;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{font-family:'Noto Sans Devanagari','Poppins',sans-serif; background:var(--cream); color:var(--text-dark); min-height:100vh; padding-bottom:70px}
+input,select,textarea,button{font-family:inherit}
+.page{display:none}
+.page.active{display:block}
+.header{background:var(--deep-red); color:#fff; padding:14px 16px; display:flex; align-items:center; gap:10px; position:sticky; top:0; z-index:60}
+.header-logo{width:38px; height:38px; border-radius:50%; object-fit:cover; background:#fff}
+:root{
+  --saffron:#E8470A; --saffron-light:#FF7A3D; --deep-red:#7a1f1f; --gold:#C9880A; --success:#00A896; --error:#D32F2F;
+  --cream:#FFF6EC; --border:#EAD9C4; --text-dark:#2B1A0E; --text-mid:#8A7563; --white:#fff;
+  --shadow-sm:0 2px 8px rgba(122,31,31,.08); --shadow-md:0 4px 16px rgba(122,31,31,.12);
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{font-family:'Noto Sans Devanagari','Poppins',sans-serif; background:var(--cream); color:var(--text-dark); min-height:100vh; padding-bottom:76px; -webkit-tap-highlight-color:transparent}
+input,select,textarea,button{font-family:inherit}
+.page{display:none}
+.page.active{display:block; animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0} to{opacity:1}}
+.header{background:linear-gradient(135deg,var(--deep-red),#5c1616); color:#fff; padding:16px; display:flex; align-items:center; gap:12px; position:sticky; top:0; z-index:60; box-shadow:var(--shadow-md)}
+.header-logo{width:40px; height:40px; border-radius:50%; object-fit:cover; background:#fff; border:2px solid rgba(255,255,255,.5)}
+.header-title{font-weight:800; font-size:16px; flex:1; letter-spacing:.2px}
+.cart-btn{position:relative; background:rgba(255,255,255,.15); border:none; color:#fff; font-size:19px; cursor:pointer; width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center}
+.cart-badge{position:absolute; top:-3px; right:-4px; background:var(--saffron-light); color:#fff; font-size:9.5px; font-weight:800; padding:2px 6px; border-radius:10px; min-width:16px; text-align:center; border:2px solid #7a1f1f}
+.scroll-body{padding:16px}
+.cat-tabs{display:flex; gap:8px; overflow-x:auto; padding:12px 16px; background:#fff; border-bottom:1.5px solid var(--border); position:sticky; top:72px; z-index:55; scrollbar-width:none}
+.cat-tabs::-webkit-scrollbar{display:none}
+.cat-tab{flex-shrink:0; padding:8px 16px; border-radius:20px; font-size:12.5px; font-weight:700; background:var(--cream); border:1.5px solid var(--border); cursor:pointer; white-space:nowrap; transition:.15s}
+.cat-tab.on{background:var(--saffron); color:#fff; border-color:var(--saffron); box-shadow:0 3px 10px rgba(232,71,10,.35)}
+.prod-grid{display:grid; grid-template-columns:1fr 1fr; gap:13px}
+.prod-card{background:#fff; border:1px solid var(--border); border-radius:16px; padding:11px; text-align:center; box-shadow:var(--shadow-sm); transition:.15s}
+.prod-photo{width:100%; aspect-ratio:1; border-radius:12px; object-fit:cover; background:var(--cream); margin-bottom:8px}
+.prod-photo-ph{width:100%; aspect-ratio:1; border-radius:12px; background:linear-gradient(135deg,var(--cream),#FCE9D3); display:flex; align-items:center; justify-content:center; font-size:30px; margin-bottom:8px}
+.prod-name{font-size:13px; font-weight:700; line-height:1.35; margin-bottom:3px; min-height:35px}
+.prod-price{font-size:13px; color:var(--saffron); font-weight:800}
+.add-btn{width:100%; margin-top:8px; padding:9px; background:var(--saffron); color:#fff; border:none; border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; box-shadow:0 3px 8px rgba(232,71,10,.25)}
+.qty-ctrl{display:flex; align-items:center; justify-content:center; gap:10px; margin-top:8px; background:var(--cream); border-radius:10px; padding:5px}
+.qty-ctrl button{width:26px; height:26px; border-radius:7px; border:none; background:var(--saffron); color:#fff; font-weight:800; cursor:pointer; font-size:14px}
+.qty-ctrl span{font-weight:800; font-size:13.5px; min-width:18px; text-align:center}
+.btn{width:100%; padding:14px; border:none; border-radius:14px; font-weight:800; font-size:14.5px; cursor:pointer; margin-top:9px; letter-spacing:.2px}
+.btn-p{background:linear-gradient(135deg,var(--saffron),var(--saffron-light)); color:#fff; box-shadow:0 4px 14px rgba(232,71,10,.35)}
+.btn-s{background:#fff; color:var(--text-dark); border:1.5px solid var(--border)}
+.form-group{margin-bottom:15px}
+.form-group label{display:block; font-size:12.5px; font-weight:700; margin-bottom:6px; color:var(--text-dark)}
+.form-group input, .form-group select, .form-group textarea{width:100%; padding:12px 14px; border:1.5px solid var(--border); border-radius:12px; font-size:14px; background:#fff; transition:.15s}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{outline:none; border-color:var(--saffron); box-shadow:0 0 0 3px rgba(232,71,10,.1)}
+.cart-row{display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--border); border-radius:14px; padding:12px; margin-bottom:11px; box-shadow:var(--shadow-sm)}
+.order-card{background:#fff; border:1px solid var(--border); border-radius:14px; padding:13px; margin-bottom:11px; box-shadow:var(--shadow-sm)}
+.bottom-nav{position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1.5px solid var(--border); display:flex; z-index:60; box-shadow:0 -4px 14px rgba(122,31,31,.08); padding-bottom:env(safe-area-inset-bottom)}
+.bn-item{flex:1; text-align:center; padding:10px 4px 8px; cursor:pointer; font-size:10.5px; color:var(--text-mid); font-weight:600; transition:.15s}
+.bn-item.on{color:var(--saffron); font-weight:800}
+.bn-ico{font-size:20px; display:block; margin-bottom:3px}
+.back-btn{background:rgba(255,255,255,.15); border:none; color:#fff; font-size:18px; cursor:pointer; width:36px; height:36px; border-radius:50%}
+.toggle-row{display:flex; gap:10px; margin-bottom:16px}
+.toggle-opt{flex:1; padding:13px; text-align:center; border:1.5px solid var(--border); border-radius:14px; cursor:pointer; font-size:13.5px; font-weight:700; background:#fff; transition:.15s}
+.toggle-opt.on{background:linear-gradient(135deg,var(--saffron),var(--saffron-light)); color:#fff; border-color:var(--saffron); box-shadow:0 4px 12px rgba(232,71,10,.3)}
+.msg{font-size:12.5px; margin-top:9px; padding:9px 12px; border-radius:10px; display:none; font-weight:600}
+.msg.show{display:block}
+.msg.e{background:#FDECEA; color:var(--error)}
+.msg.s{background:#E6F7F5; color:var(--success)}
+.status-badge{display:inline-block; padding:4px 12px; border-radius:20px; font-size:10.5px; font-weight:800}
+.st-placed{background:#FFF3CD; color:#8A6D00}
+.st-confirmed{background:#D6EAF8; color:#1565C0}
+.st-ready{background:#E1D5F5; color:#5B2D8E}
+.st-out{background:#FDE0C8; color:var(--saffron)}
+.st-completed{background:#D4EFDF; color:#1E7B4E}
+.st-cancelled{background:#FADBD8; color:var(--error)}
+#toast{position:fixed; bottom:84px; left:50%; transform:translateX(-50%) translateY(20px); background:rgba(43,26,14,.94); color:#fff; padding:11px 22px; border-radius:28px; font-size:13px; font-weight:600; z-index:9999; opacity:0; transition:.3s; pointer-events:none; white-space:nowrap; max-width:92vw; text-align:center; box-shadow:0 6px 20px rgba(0,0,0,.25)}
+#toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+.spinner{display:inline-block; width:18px; height:18px; border:2.5px solid rgba(0,0,0,.12); border-top-color:var(--saffron); border-radius:50%; animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty{text-align:center; padding:48px 20px; color:var(--text-mid)}
+.empty-ico{font-size:40px; margin-bottom:10px; opacity:.6}
+.moverlay{display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:flex-end; justify-content:center}
+.moverlay.open{display:flex}
+.modal{background:#fff; border-radius:20px 20px 0 0; width:100%; max-width:480px; max-height:88vh; overflow-y:auto; padding:20px; position:relative}
+.mclose{position:absolute; top:14px; right:14px; background:none; border:none; font-size:20px; cursor:pointer; color:var(--text-mid)}
+.mtitle{font-weight:800; font-size:16px; margin-bottom:14px}
+.section-title{font-weight:800; font-size:15px; margin-bottom:10px; display:flex; align-items:center; gap:6px}
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- HOME / CATALOG -->
+<div class="page active" id="pHome">
+  <div class="header">
+    <img class="header-logo" id="homeLogoImg" src="" style="display:none"/>
+    <div class="header-title" id="storeNameHeader">🌶️ Lalbaug Masalawale</div>
+    <button class="cart-btn" onclick="goPage('pCart')">🛒<span class="cart-badge" id="cartBadge" style="display:none">0</span></button>
+  </div>
+  <div style="display:flex;gap:6px;padding:12px 16px 0">
+    <div class="toggle-opt on" id="modeProductsBtn" onclick="setHomeMode('products')" style="padding:9px 4px;font-size:11.5px">📦 Products</div>
+    <div class="toggle-opt" id="modeIngredientsBtn" onclick="setHomeMode('ingredients')" style="padding:9px 4px;font-size:11.5px">🌿 Ingredients</div>
+    <div class="toggle-opt" id="modeRecipesBtn" onclick="setHomeMode('recipes')" style="padding:9px 4px;font-size:11.5px">🍲 Recipes</div>
+  </div>
+  <div class="cat-tabs" id="catTabs"></div>
+  <div class="scroll-body">
+    <div class="prod-grid" id="prodGrid"></div>
+    <div class="prod-grid" id="ingredientGrid" style="display:none"></div>
+    <div class="prod-grid" id="recipeGrid" style="display:none"></div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="page" id="pCart">
+
+  <div class="header">
+    <button class="back-btn" onclick="goPage('pHome')">←</button>
+    <div class="header-title">🛒 माझी Cart</div>
+  </div>
+  <div class="scroll-body">
+    <div id="cartList"></div>
+    <div id="cartTotalWrap" style="display:none">
+      <div style="display:flex;justify-content:space-between;font-weight:800;font-size:15px;padding:12px 0;border-top:2px solid var(--border);margin-top:8px">
+        <span>एकूण</span><span id="cartTotal">₹0</span>
+      </div>
+      <button class="btn btn-p" onclick="goPage('pCheckout')">पुढे जा — Checkout</button>
+    </div>
+  </div>
+</div>
+
+<!-- RECIPE QTY PICKER -->
+<div class="moverlay" id="mRecipeQty">
+  <div class="modal" style="max-width:420px">
+    <button class="mclose" onclick="closeM('mRecipeQty')">✕</button>
+    <p class="mtitle" id="recipeQtyTitle">🍲 Recipe</p>
+    <div style="font-size:12px;color:var(--text-mid);margin:-6px 0 16px">किती किलो हवे ते सांगा — किंमत आपोआप calculate होईल.</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px">
+      <button onclick="stepRecipeKg(-0.5)" style="width:38px;height:38px;border-radius:10px;border:none;background:var(--saffron);color:#fff;font-weight:800;font-size:17px;cursor:pointer">−</button>
+      <input type="number" id="recipeKgInp" value="1" min="0.25" step="0.25" oninput="updateRecipeKgPrice()" style="width:100px;text-align:center;padding:10px;border:1.5px solid var(--saffron);border-radius:10px;font-weight:800;font-size:16px"/>
+      <button onclick="stepRecipeKg(0.5)" style="width:38px;height:38px;border-radius:10px;border:none;background:var(--saffron);color:#fff;font-weight:800;font-size:17px;cursor:pointer">+</button>
+      <span style="font-weight:700;color:var(--text-mid)">किलो</span>
+    </div>
+    <div style="background:var(--cream);border-radius:12px;padding:12px;margin-bottom:14px;text-align:center">
+      <div style="font-size:11.5px;color:var(--text-mid)">एकूण किंमत</div>
+      <div style="font-size:22px;font-weight:800;color:var(--saffron)" id="recipeCalcPrice">₹0</div>
+    </div>
+    <div id="recipeIngrBreakdown" style="font-size:11px;color:var(--text-mid);margin-bottom:14px;line-height:1.8"></div>
+    <button class="btn btn-p" onclick="confirmAddRecipeToCart()">🛒 Cart मध्ये टाका</button>
+  </div>
+</div>
+
+<!-- INGREDIENT QTY PICKER -->
+<div class="moverlay" id="mIngrQty">
+  <div class="modal" style="max-width:420px">
+    <button class="mclose" onclick="closeM('mIngrQty')">✕</button>
+    <p class="mtitle" id="ingrQtyTitle">🌿 Ingredient</p>
+    <div style="font-size:12px;color:var(--text-mid);margin:-6px 0 16px">किती किलो हवे ते सांगा — किंमत आपोआप calculate होईल.</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px">
+      <button onclick="stepIngrKg(-0.25)" style="width:38px;height:38px;border-radius:10px;border:none;background:var(--saffron);color:#fff;font-weight:800;font-size:17px;cursor:pointer">−</button>
+      <input type="number" id="ingrKgInp" value="0.5" min="0.05" step="0.05" oninput="updateIngrKgPrice()" style="width:100px;text-align:center;padding:10px;border:1.5px solid var(--saffron);border-radius:10px;font-weight:800;font-size:16px"/>
+      <button onclick="stepIngrKg(0.25)" style="width:38px;height:38px;border-radius:10px;border:none;background:var(--saffron);color:#fff;font-weight:800;font-size:17px;cursor:pointer">+</button>
+      <span style="font-weight:700;color:var(--text-mid)">किलो</span>
+    </div>
+    <div style="background:var(--cream);border-radius:12px;padding:12px;margin-bottom:14px;text-align:center">
+      <div style="font-size:11.5px;color:var(--text-mid)">एकूण किंमत</div>
+      <div style="font-size:22px;font-weight:800;color:var(--saffron)" id="ingrCalcPrice">₹0</div>
+    </div>
+    <button class="btn btn-p" onclick="confirmAddIngredientToCart()">🛒 Cart मध्ये टाका</button>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<div class="page" id="pCheckout">
+  <div class="header">
+    <button class="back-btn" onclick="goPage('pCart')">←</button>
+    <div class="header-title">✅ Checkout</div>
+  </div>
+  <div class="scroll-body">
+    <div class="form-group"><label>तुमचे नाव</label><input type="text" id="custName" placeholder="पूर्ण नाव"/></div>
+    <div class="form-group"><label>मोबाईल नंबर</label><input type="tel" id="custPhone" placeholder="10 अंकी मोबाईल नंबर"/></div>
+
+    <div class="toggle-row">
+      <div class="toggle-opt on" id="toggleDelivery" onclick="setDeliveryType('delivery')">🚚 Delivery</div>
+      <div class="toggle-opt" id="togglePickup" onclick="setDeliveryType('pickup')">🏪 Pickup</div>
+    </div>
+
+    <div id="deliveryFields">
+      <div class="form-group"><label>पूर्ण पत्ता</label><textarea id="custAddress" placeholder="घर क्र., गल्ली, भाग, शहर, पिन कोड" style="min-height:80px"></textarea></div>
+    </div>
+    <div id="pickupFields" style="display:none">
+      <div class="form-group"><label>Pickup दुकान निवडा</label><select id="pickupShopSel"></select></div>
+    </div>
+
+    <div class="form-group"><label>टीप <span style="color:var(--text-mid);font-weight:400">(पर्यायी)</span></label><textarea id="orderNotes" placeholder="काही खास सूचना असल्यास..." style="min-height:50px"></textarea></div>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:14px;box-shadow:var(--shadow-sm)">
+      <div class="section-title">🧾 Order Summary</div>
+      <div id="checkoutSummary" style="font-size:12px;color:var(--text-mid)"></div>
+      <div style="display:flex;justify-content:space-between;font-weight:800;font-size:14px;padding-top:8px;margin-top:6px;border-top:1px solid var(--border)">
+        <span>एकूण</span><span id="checkoutTotal">₹0</span>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--text-mid);margin-bottom:10px">💵 Payment: दुकानात किंवा delivery वेळी Cash/UPI ने करा. आत्ता online payment करण्याची गरज नाही.</div>
+    <button class="btn btn-p" onclick="placeOrder()">✅ Order Place करा</button>
+    <div class="msg" id="checkoutMsg"></div>
+  </div>
+</div>
+
+<!-- ORDER PLACED CONFIRMATION -->
+<div class="page" id="pOrderPlaced">
+  <div class="scroll-body" style="text-align:center;padding-top:60px">
+    <div style="font-size:56px;margin-bottom:12px">✅</div>
+    <div style="font-weight:800;font-size:18px;margin-bottom:6px">Order Place झाला!</div>
+    <div style="font-size:13px;color:var(--text-mid);margin-bottom:20px" id="orderPlacedMsg"></div>
+    <button class="btn btn-p" onclick="goPage('pMyOrders')">माझे Orders पहा</button>
+    <button class="btn btn-s" onclick="goPage('pHome')">Shopping सुरू ठेवा</button>
+  </div>
+</div>
+
+<!-- MY ORDERS -->
+<div class="page" id="pMyOrders">
+  <div class="header">
+    <div class="header-title">📦 माझे Orders</div>
+  </div>
+  <div class="scroll-body">
+    <div class="form-group">
+      <label>मोबाईल नंबर टाका</label>
+      <div style="display:flex;gap:8px">
+        <input type="tel" id="lookupPhone" placeholder="10 अंकी मोबाईल नंबर"/>
+        <button class="btn btn-p" style="width:auto;margin-top:0;padding:11px 18px" onclick="lookupOrders()">शोधा</button>
+      </div>
+    </div>
+    <div id="myOrdersList"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="pAbout">
+  <div class="header"><div class="header-title">ℹ️ About Us</div></div>
+  <div class="scroll-body">
+    <div id="aboutContent" style="font-size:13.5px;line-height:1.9;white-space:pre-wrap"></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="pContact">
+  <div class="header"><div class="header-title">📞 Contact</div></div>
+  <div class="scroll-body">
+    <div id="contactContent"></div>
+  </div>
+</div>
+
+<!-- TERMS -->
+<div class="page" id="pTerms">
+  <div class="header"><div class="header-title">📄 Terms & Conditions</div></div>
+  <div class="scroll-body">
+    <div id="termsContent" style="font-size:13px;line-height:1.9;white-space:pre-wrap;color:var(--text-mid)"></div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <div class="bn-item on" id="bnHome" onclick="goPage('pHome')"><span class="bn-ico">🏠</span>Home</div>
+  <div class="bn-item" id="bnOrders" onclick="goPage('pMyOrders')"><span class="bn-ico">📦</span>Orders</div>
+  <div class="bn-item" id="bnAbout" onclick="goPage('pAbout')"><span class="bn-ico">ℹ️</span>About</div>
+  <div class="bn-item" id="bnContact" onclick="goPage('pContact')"><span class="bn-ico">📞</span>Contact</div>
+  <div class="bn-item" id="bnTerms" onclick="goPage('pTerms')"><span class="bn-ico">📄</span>Terms</div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, getDoc, getDocs, addDoc, collection, query, where, orderBy, limit, serverTimestamp, onSnapshot }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAyUBjstgyGlhdnkl0n_be1iewHxh2Z3FQ",
+  authDomain: "lalbaugmasalawale.firebaseapp.com",
+  projectId: "lalbaugmasalawale",
+  storageBucket: "lalbaugmasalawale.firebasestorage.app",
+  messagingSenderId: "594235623374",
+  appId: "1:594235623374:web:24adfc90e87553a93f8d9f"
+};
+const fbApp = initializeApp(firebaseConfig);
+const db = getFirestore(fbApp);
+
+const $ = id => document.getElementById(id);
+let toastTimer = null;
+function toast(msg, dur=2600){
+  const el=$('toast'); if(!el) return;
+  if(toastTimer) clearTimeout(toastTimer);
+  el.textContent = msg;
+  el.classList.add('show');
+  toastTimer = setTimeout(()=>{ el.classList.remove('show'); toastTimer=null; }, dur);
+}
+function showMsg(id,txt,cls){ const e=$(id); if(!e) return; e.textContent=txt; e.className='msg show '+cls; }
+function hideMsg(id){ const e=$(id); if(e){ e.textContent=''; e.className='msg'; } }
+function withTimeout(promise, ms=8000, label='ऑपरेशन'){
+  return Promise.race([promise, new Promise((_,rej)=>setTimeout(()=>rej(new Error(label+' timeout — इंटरनेट तपासा')), ms))]);
+}
+function openM(id){ const e=$(id); if(e) e.classList.add('open'); }
+function closeM(id){ const e=$(id); if(e) e.classList.remove('open'); }
+
+// ─── STATE ────────────────────────────────────────────────────
+let products = [];
+let categories = [];
+let shops = [];
+let recipes = [];
+let homeMode = 'products'; // 'products' | 'recipes'
+let _pickedRecipe = null;
+let cart = JSON.parse(localStorage.getItem('lm_cart')||'[]');
+let deliveryType = 'delivery';
+let activeCategory = 'सर्व';
+
+function saveCart(){ localStorage.setItem('lm_cart', JSON.stringify(cart)); updateCartBadge(); }
+function updateCartBadge(){
+  const count = cart.reduce((s,i)=>s+i.qty,0);
+  const badge=$('cartBadge');
+  if(count>0){ badge.style.display=''; badge.textContent=count; } else { badge.style.display='none'; }
+}
+
+window.goPage = function(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const page=$(id); if(page) page.classList.add('active');
+  window.scrollTo(0,0);
+  document.querySelectorAll('.bn-item').forEach(el=>el.classList.remove('on'));
+  const navMap = {pHome:'bnHome', pMyOrders:'bnOrders', pAbout:'bnAbout', pContact:'bnContact', pTerms:'bnTerms'};
+  if(navMap[id]) $(navMap[id]).classList.add('on');
+  if(id==='pCart') renderCart();
+  if(id==='pCheckout') renderCheckout();
+};
+
+// ─── LOAD STORE DATA ──────────────────────────────────────────
+async function loadStoreInfo(){
+  try{
+    const snap = await getDoc(doc(db,'settings','storeInfo'));
+    const d = snap.exists() ? snap.data() : {};
+    if(d.logo){ $('homeLogoImg').src=d.logo; $('homeLogoImg').style.display=''; }
+    $('aboutContent').textContent = d.about || 'लवकरच माहिती जोडली जाईल.';
+    $('termsContent').textContent = d.terms || 'लवकरच अटी व शर्ती जोडल्या जातील.';
+    $('contactContent').innerHTML = `
+      <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:16px;font-size:13.5px;line-height:2.2">
+        ${d.contactPhone?`📞 <a href="tel:${d.contactPhone}" style="color:var(--text-dark);text-decoration:none">${d.contactPhone}</a><br/>`:''}
+        ${d.whatsapp?`📱 <a href="https://wa.me/${d.whatsapp.replace(/[^0-9]/g,'')}" style="color:var(--success);text-decoration:none;font-weight:700">WhatsApp वर संपर्क करा</a><br/>`:''}
+        ${d.email?`✉️ <a href="mailto:${d.email}" style="color:var(--text-dark);text-decoration:none">${d.email}</a>`:''}
+      </div>`;
+  } catch(e){ console.warn('loadStoreInfo:', e.message); }
+}
+
+async function loadCategories(){
+  try{
+    const snap = await getDoc(doc(db,'settings','categories'));
+    categories = snap.exists() ? (snap.data().list||[]) : [];
+  } catch(e){ categories=[]; }
+  renderCatTabs();
+}
+
+function renderCatTabs(){
+  const wrap=$('catTabs'); if(!wrap) return;
+  const all = ['सर्व', ...categories];
+  wrap.innerHTML = all.map(c=>`<div class="cat-tab ${activeCategory===c?'on':''}" onclick="setCategory('${c.replace(/'/g,"\\'")}')">${c}</div>`).join('');
+}
+window.setCategory = function(c){ activeCategory=c; renderCatTabs(); renderProductGrid(); };
+
+async function loadProducts(){
+  $('prodGrid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px"><span class="spinner"></span></div>';
+  try{
+    const snap = await getDocs(collection(db,'products'));
+    products = snap.docs.map(d=>({id:d.id,...d.data()})).filter(p=>p.active!==false);
+    products.sort((a,b)=>(a.order??999999)-(b.order??999999) || a.name.localeCompare(b.name));
+    renderProductGrid();
+  } catch(e){ $('prodGrid').innerHTML = `<div class="empty" style="grid-column:1/-1">${e.message}</div>`; }
+}
+
+// ─── MASALA RECIPES & INGREDIENTS (customer side) ──────────────
+let ingredientPrices = {}; // {name: pricePerKg} — used to calculate recipe prices live
+let ingredientsList = [];  // full list, for direct-purchase browsing
+let _pickedIngredient = null;
+
+async function loadRecipesAndIngredients(){
+  try{
+    const [recSnap, ingSnap] = await Promise.all([getDocs(collection(db,'recipes')), getDocs(collection(db,'ingredients'))]);
+    recipes = recSnap.docs.map(d=>({id:d.id,...d.data()})).filter(r=>r.active!==false);
+    recipes.sort((a,b)=>a.name.localeCompare(b.name));
+    ingredientsList = ingSnap.docs.map(d=>({id:d.id,...d.data()})).filter(i=>i.active!==false);
+    ingredientsList.sort((a,b)=>a.name.localeCompare(b.name));
+    ingredientPrices = {};
+    ingredientsList.forEach(v=>{ ingredientPrices[v.name]=v.pricePerKg||0; });
+  } catch(e){ console.warn('loadRecipesAndIngredients:', e.message); recipes=[]; ingredientsList=[]; }
+}
+
+window.setHomeMode = function(mode){
+  homeMode = mode;
+  $('modeProductsBtn').classList.toggle('on', mode==='products');
+  $('modeIngredientsBtn').classList.toggle('on', mode==='ingredients');
+  $('modeRecipesBtn').classList.toggle('on', mode==='recipes');
+  $('catTabs').style.display = mode==='products' ? '' : 'none';
+  $('prodGrid').style.display = mode==='products' ? '' : 'none';
+  $('ingredientGrid').style.display = mode==='ingredients' ? '' : 'none';
+  $('recipeGrid').style.display = mode==='recipes' ? '' : 'none';
+  if(mode==='ingredients') renderIngredientGrid();
+  if(mode==='recipes') renderRecipeGrid();
+};
+
+function renderIngredientGrid(){
+  const grid=$('ingredientGrid');
+  if(!ingredientsList.length){
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-ico">🌿</div>कोणतेही ingredients उपलब्ध नाहीत</div>`;
+    return;
+  }
+  grid.innerHTML = ingredientsList.map(ing=>`
+    <div class="prod-card">
+      <div class="prod-photo-ph">🌿</div>
+      <div class="prod-name">${ing.name}</div>
+      <div class="prod-price">₹${ing.pricePerKg} / kg</div>
+      <button class="add-btn" onclick="openIngrQtyPicker('${ing.id}')">⚖️ किलो निवडा</button>
+    </div>`).join('');
+}
+
+window.openIngrQtyPicker = function(id){
+  const ing = ingredientsList.find(x=>x.id===id); if(!ing) return;
+  _pickedIngredient = ing;
+  $('ingrQtyTitle').textContent = '🌿 '+ing.name;
+  $('ingrKgInp').value = '0.5';
+  updateIngrKgPrice();
+  openM('mIngrQty');
+};
+
+window.stepIngrKg = function(delta){
+  const inp=$('ingrKgInp'); if(!inp) return;
+  let v=(parseFloat(inp.value)||0.5)+delta;
+  if(v<0.05) v=0.05;
+  inp.value = Math.round(v*100)/100;
+  updateIngrKgPrice();
+};
+
+window.updateIngrKgPrice = function(){
+  if(!_pickedIngredient) return;
+  const kg = parseFloat($('ingrKgInp')?.value)||0;
+  $('ingrCalcPrice').textContent = '₹'+(kg*_pickedIngredient.pricePerKg).toFixed(2);
+};
+
+window.confirmAddIngredientToCart = function(){
+  if(!_pickedIngredient) return;
+  const kg = parseFloat($('ingrKgInp')?.value);
+  if(!kg || kg<=0){ toast('❌ योग्य किलो प्रमाण टाका'); return; }
+  const total = kg * _pickedIngredient.pricePerKg;
+  cart.push({
+    productId: _pickedIngredient.id, name: _pickedIngredient.name+' ('+kg+' किलो)',
+    price: Math.round(total*100)/100, unit:'', qty:1, isIngredient:true
+  });
+  saveCart();
+  closeM('mIngrQty');
+  toast('✅ '+_pickedIngredient.name+' Cart मध्ये टाकले');
+  _pickedIngredient = null;
+};
+
+function calcRecipePrice(recipe, kg){
+  const ingCost = (recipe.ingredients||[]).reduce((sum,ing)=>{
+    const rate = ingredientPrices[ing.name]||0;
+    return sum + (ing.qtyPerKg/1000) * kg * rate;
+  }, 0);
+  const kutCost = (recipe.kutnavalPerKg||0) * kg;
+  return ingCost + kutCost;
+}
+
+function renderRecipeGrid(){
+  const grid=$('recipeGrid');
+  if(!recipes.length){
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-ico">🍲</div>कोणतेही recipes उपलब्ध नाहीत</div>`;
+    return;
+  }
+  grid.innerHTML = recipes.map(r=>{
+    const priceFor1kg = calcRecipePrice(r, 1);
+    return `<div class="prod-card">
+      ${r.photo?`<img src="${r.photo}" class="prod-photo"/>`:'<div class="prod-photo-ph">🍲</div>'}
+      <div class="prod-name">${r.name}</div>
+      <div class="prod-price">~₹${priceFor1kg.toFixed(0)} / kg पासून</div>
+      <button class="add-btn" onclick="openRecipeQtyPicker('${r.id}')">⚖️ किलो निवडा</button>
+    </div>`;
+  }).join('');
+}
+
+window.openRecipeQtyPicker = function(id){
+  const r = recipes.find(x=>x.id===id); if(!r) return;
+  _pickedRecipe = r;
+  $('recipeQtyTitle').textContent = '🍲 '+r.name;
+  $('recipeKgInp').value = '1';
+  updateRecipeKgPrice();
+  openM('mRecipeQty');
+};
+
+window.stepRecipeKg = function(delta){
+  const inp=$('recipeKgInp'); if(!inp) return;
+  let v=(parseFloat(inp.value)||1)+delta;
+  if(v<0.25) v=0.25;
+  inp.value = Math.round(v*100)/100;
+  updateRecipeKgPrice();
+};
+
+window.updateRecipeKgPrice = function(){
+  if(!_pickedRecipe) return;
+  const kg = parseFloat($('recipeKgInp')?.value)||0;
+  const total = calcRecipePrice(_pickedRecipe, kg);
+  $('recipeCalcPrice').textContent = '₹'+total.toFixed(2);
+  const breakdown = (_pickedRecipe.ingredients||[]).map(ing=>{
+    const grams = Math.round(ing.qtyPerKg * kg);
+    return `${ing.name}: ${grams}g`;
+  }).join(' · ');
+  $('recipeIngrBreakdown').textContent = breakdown;
+};
+
+window.confirmAddRecipeToCart = function(){
+  if(!_pickedRecipe) return;
+  const kg = parseFloat($('recipeKgInp')?.value);
+  if(!kg || kg<=0){ toast('❌ योग्य किलो प्रमाण टाका'); return; }
+  const total = calcRecipePrice(_pickedRecipe, kg);
+  cart.push({
+    productId: _pickedRecipe.id, name: _pickedRecipe.name+' ('+kg+' किलो)',
+    price: Math.round(total*100)/100, unit:'', qty:1, isRecipe:true
+  });
+  saveCart();
+  closeM('mRecipeQty');
+  toast('✅ '+_pickedRecipe.name+' Cart मध्ये टाकले');
+  _pickedRecipe = null;
+};
+
+function renderProductGrid(){
+  const grid=$('prodGrid');
+  const filtered = activeCategory==='सर्व' ? products : products.filter(p=>p.category===activeCategory);
+  if(!filtered.length){
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-ico">🧂</div>कोणतेही products नाहीत</div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(p=>{
+    const inCart = cart.find(c=>c.productId===p.id && !c.isRecipe && !c.isIngredient);
+    return `<div class="prod-card">
+      ${p.photo?`<img src="${p.photo}" class="prod-photo"/>`:'<div class="prod-photo-ph">🧂</div>'}
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-price">₹${p.price} / ${p.unit||''}</div>
+      ${inCart
+        ? `<div class="qty-ctrl"><button onclick="changeQty('${p.id}',-1)">−</button><span>${inCart.qty}</span><button onclick="changeQty('${p.id}',1)">+</button></div>`
+        : `<button class="add-btn" onclick="addToCart('${p.id}')">+ Cart मध्ये टाका</button>`}
+    </div>`;
+  }).join('');
+}
+
+window.addToCart = function(id){
+  const p = products.find(x=>x.id===id); if(!p) return;
+  cart.push({productId:id, name:p.name, price:p.price, unit:p.unit, qty:1});
+  saveCart();
+  renderProductGrid();
+  toast('✅ '+p.name+' Cart मध्ये टाकले');
+};
+window.changeQty = function(id, delta){
+  const item = cart.find(c=>c.productId===id && !c.isRecipe && !c.isIngredient); if(!item) return;
+  item.qty += delta;
+  if(item.qty<=0) cart = cart.filter(c=>c!==item);
+  saveCart();
+  renderProductGrid();
+  if($('pCart').classList.contains('active')) renderCart();
+};
+
+window.removeCartItem = function(index){
+  cart.splice(index,1);
+  saveCart();
+  renderProductGrid();
+  renderRecipeGrid();
+  renderCart();
+};
+
+// ─── CART ─────────────────────────────────────────────────────
+function renderCart(){
+  const list=$('cartList');
+  if(!cart.length){
+    list.innerHTML = `<div class="empty"><div class="empty-ico">🛒</div>तुमची cart रिकामी आहे</div>`;
+    $('cartTotalWrap').style.display='none';
+    return;
+  }
+  list.innerHTML = cart.map((it,i)=>`
+    <div class="cart-row">
+      <div style="flex:1">
+        <div style="font-weight:700;font-size:13px">${it.name}</div>
+        ${it.isRecipe?'<div style="font-size:11px;color:var(--text-mid)">🍲 Custom Recipe</div>':it.isIngredient?'<div style="font-size:11px;color:var(--text-mid)">🌿 वजनानुसार</div>':`<div style="font-size:11px;color:var(--text-mid)">₹${it.price} / ${it.unit||''}</div>`}
+      </div>
+      ${(it.isRecipe||it.isIngredient)
+        ? `<button onclick="removeCartItem(${i})" style="background:none;border:1.5px solid var(--error);color:var(--error);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12px;font-weight:700">✕ काढा</button>`
+        : `<div class="qty-ctrl" style="margin-top:0"><button onclick="changeQty('${it.productId}',-1)">−</button><span>${it.qty}</span><button onclick="changeQty('${it.productId}',1)">+</button></div>`}
+      <div style="font-weight:800;font-size:13px;min-width:50px;text-align:right">₹${(it.price*it.qty).toFixed(2)}</div>
+    </div>`).join('');
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  $('cartTotal').textContent = '₹'+total.toFixed(2);
+  $('cartTotalWrap').style.display='';
+}
+
+// ─── CHECKOUT ─────────────────────────────────────────────────
+window.setDeliveryType = function(t){
+  deliveryType = t;
+  $('toggleDelivery').classList.toggle('on', t==='delivery');
+  $('togglePickup').classList.toggle('on', t==='pickup');
+  $('deliveryFields').style.display = t==='delivery' ? '' : 'none';
+  $('pickupFields').style.display = t==='pickup' ? '' : 'none';
+};
+
+async function renderCheckout(){
+  if(!cart.length){ goPage('pCart'); return; }
+  const savedName = localStorage.getItem('lm_custName');
+  const savedPhone = localStorage.getItem('lm_custPhone');
+  if(savedName) $('custName').value = savedName;
+  if(savedPhone) $('custPhone').value = savedPhone;
+
+  if(!shops.length){
+    try{
+      const snap = await getDocs(collection(db,'shops'));
+      shops = snap.docs.map(d=>({id:d.id,...d.data()})).filter(s=>s.active!==false);
+    } catch(e){ shops=[]; }
+  }
+  $('pickupShopSel').innerHTML = shops.map(s=>`<option value="${s.id}">${s.name}</option>`).join('') || '<option value="">कोणतेही दुकान उपलब्ध नाही</option>';
+
+  $('checkoutSummary').innerHTML = cart.map(it=>`<div style="display:flex;justify-content:space-between;padding:2px 0">${it.name}${(it.isRecipe||it.isIngredient)?'':' × '+it.qty}<span>₹${(it.price*it.qty).toFixed(2)}</span></div>`).join('');
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  $('checkoutTotal').textContent = '₹'+total.toFixed(2);
+  hideMsg('checkoutMsg');
+}
+
+window.placeOrder = async function(){
+  const name = $('custName').value.trim();
+  const phone = $('custPhone').value.trim();
+  if(!name){ showMsg('checkoutMsg','❌ तुमचे नाव टाका','e'); return; }
+  if(!/^\d{10}$/.test(phone)){ showMsg('checkoutMsg','❌ योग्य 10 अंकी मोबाईल नंबर टाका','e'); return; }
+  if(deliveryType==='delivery' && !$('custAddress').value.trim()){ showMsg('checkoutMsg','❌ पूर्ण पत्ता टाका','e'); return; }
+  if(deliveryType==='pickup' && !$('pickupShopSel').value){ showMsg('checkoutMsg','❌ Pickup दुकान निवडा','e'); return; }
+
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const order = {
+    customerName: name, customerPhone: phone,
+    items: cart.map(it=>({productId:it.productId, name:it.name, price:it.price, qty:it.qty})),
+    deliveryType, totalAmount: total, status: 'placed',
+    notes: $('orderNotes').value.trim(),
+    createdAt: new Date()
+  };
+  if(deliveryType==='delivery'){ order.address = $('custAddress').value.trim(); }
+  else{
+    const shop = shops.find(s=>s.id===$('pickupShopSel').value);
+    order.pickupShopId = shop?.id||''; order.pickupShopName = shop?.name||'';
+  }
+
+  showMsg('checkoutMsg','⏳ Order पाठवत आहोत...','s');
+  try{
+    order.createdAt = serverTimestamp();
+    await withTimeout(addDoc(collection(db,'orders'), order), 10000, 'Order पाठवणे');
+    localStorage.setItem('lm_custName', name);
+    localStorage.setItem('lm_custPhone', phone);
+    cart = [];
+    saveCart();
+    $('orderPlacedMsg').textContent = `तुमचा order यशस्वीरित्या नोंदवला गेला आहे. ${deliveryType==='pickup'?'दुकानातून घेऊन जा':'तुमच्या पत्त्यावर पोहोचवला जाईल'} — स्थिती "माझे Orders" मध्ये पाहू शकता.`;
+    goPage('pOrderPlaced');
+  } catch(e){ showMsg('checkoutMsg','❌ '+e.message,'e'); }
+};
+
+// ─── MY ORDERS (phone lookup — see note in firestore.rules about this) ──
+const ORDER_STATUS_LABELS = { placed:'🟡 Placed', confirmed:'🔵 Confirmed', ready:'🟣 Ready', out:'🟠 Out for Delivery / Ready for Pickup', completed:'🟢 पूर्ण झाले', cancelled:'🔴 रद्द झाले' };
+const ORDER_STATUS_CLASS = { placed:'st-placed', confirmed:'st-confirmed', ready:'st-ready', out:'st-out', completed:'st-completed', cancelled:'st-cancelled' };
+let unsubMyOrders = null; // live listener — status updates from staff appear instantly, no re-search needed
+
+function renderMyOrdersList(orders){
+  const list=$('myOrdersList');
+  if(!orders.length){ list.innerHTML = `<div class="empty"><div class="empty-ico">📦</div>या नंबरवर कोणतेही orders सापडले नाहीत</div>`; return; }
+  list.innerHTML = orders.map(o=>{
+    const dt = o.createdAt?.toDate ? o.createdAt.toDate() : new Date();
+    const dstr = dt.toLocaleDateString('en-IN')+' '+dt.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+    const itemsStr = (o.items||[]).map(it=>`${it.name} × ${it.qty}`).join(', ');
+    return `<div class="order-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <span style="font-size:11px;color:var(--text-mid)">${dstr}</span>
+        <span class="status-badge ${ORDER_STATUS_CLASS[o.status]||''}">${ORDER_STATUS_LABELS[o.status]||o.status}</span>
+      </div>
+      <div style="font-size:12.5px;color:var(--text-dark);margin-bottom:6px">${itemsStr}</div>
+      <div style="display:flex;justify-content:space-between;font-weight:800;font-size:13.5px;padding-top:8px;border-top:1px dashed var(--border)">
+        <span style="font-weight:700;color:var(--text-mid);font-size:12px">${o.deliveryType==='pickup'?'🏪 '+( o.pickupShopName||'Pickup'):'🚚 Delivery'}</span><span style="color:var(--saffron)">₹${o.totalAmount||0}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+window.lookupOrders = function(){
+  const phone = $('lookupPhone').value.trim();
+  if(!/^\d{10}$/.test(phone)){ toast('❌ योग्य 10 अंकी मोबाईल नंबर टाका'); return; }
+  localStorage.setItem('lm_custPhone', phone);
+  const list=$('myOrdersList');
+  list.innerHTML = '<div style="text-align:center;padding:24px"><span class="spinner"></span></div>';
+  if(unsubMyOrders){ unsubMyOrders(); unsubMyOrders=null; }
+  try{
+    const q = query(collection(db,'orders'), where('customerPhone','==',phone), orderBy('createdAt','desc'), limit(50));
+    unsubMyOrders = onSnapshot(q, snap=>{
+      renderMyOrdersList(snap.docs.map(d=>({id:d.id,...d.data()})));
+    }, e=>{ list.innerHTML = `<div class="msg show e">${e.message}</div>`; });
+  } catch(e){ list.innerHTML = `<div class="msg show e">${e.message}</div>`; }
+};
+
+// ─── INIT ─────────────────────────────────────────────────────
+(async function init(){
+  updateCartBadge();
+  const savedPhone = localStorage.getItem('lm_custPhone');
+  if(savedPhone) $('lookupPhone').value = savedPhone;
+  await Promise.all([loadStoreInfo(), loadCategories(), loadProducts(), loadRecipesAndIngredients()]);
+})();
+</script>
+</body>
+</html>
