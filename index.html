@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lalbaug Masalawale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --saffron:#E8470A; --deep-red:#7a1f1f; --gold:#C9880A; --success:#00A896; --error:#D32F2F;
+  --cream:#FFF6EC; --border:#EAD9C4; --text-dark:#2B1A0E; --text-mid:#8A7563; --white:#fff;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{font-family:'Noto Sans Devanagari','Poppins',sans-serif; background:var(--cream); color:var(--text-dark); min-height:100vh; padding-bottom:70px}
+input,select,textarea,button{font-family:inherit}
+.page{display:none}
+.page.active{display:block}
+.header{background:var(--deep-red); color:#fff; padding:14px 16px; display:flex; align-items:center; gap:10px; position:sticky; top:0; z-index:60}
+.header-logo{width:38px; height:38px; border-radius:50%; object-fit:cover; background:#fff}
+.header-title{font-weight:800; font-size:15px; flex:1}
+.cart-btn{position:relative; background:none; border:none; color:#fff; font-size:20px; cursor:pointer}
+.cart-badge{position:absolute; top:-4px; right:-6px; background:var(--saffron); color:#fff; font-size:9px; font-weight:800; padding:1px 5px; border-radius:10px; min-width:15px; text-align:center}
+.scroll-body{padding:16px}
+.cat-tabs{display:flex; gap:8px; overflow-x:auto; padding:12px 16px; background:#fff; border-bottom:1.5px solid var(--border); position:sticky; top:62px; z-index:55}
+.cat-tab{flex-shrink:0; padding:7px 14px; border-radius:20px; font-size:12px; font-weight:700; background:var(--cream); border:1.5px solid var(--border); cursor:pointer; white-space:nowrap}
+.cat-tab.on{background:var(--saffron); color:#fff; border-color:var(--saffron)}
+.prod-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.prod-card{background:#fff; border:1.5px solid var(--border); border-radius:14px; padding:10px; text-align:center}
+.prod-photo{width:100%; aspect-ratio:1; border-radius:10px; object-fit:cover; background:var(--cream); margin-bottom:6px}
+.prod-photo-ph{width:100%; aspect-ratio:1; border-radius:10px; background:var(--cream); display:flex; align-items:center; justify-content:center; font-size:26px; margin-bottom:6px}
+.prod-name{font-size:12.5px; font-weight:700; line-height:1.3; margin-bottom:2px}
+.prod-price{font-size:12px; color:var(--saffron); font-weight:800}
+.add-btn{width:100%; margin-top:6px; padding:7px; background:var(--saffron); color:#fff; border:none; border-radius:8px; font-size:11.5px; font-weight:700; cursor:pointer}
+.qty-ctrl{display:flex; align-items:center; justify-content:center; gap:8px; margin-top:6px}
+.qty-ctrl button{width:26px; height:26px; border-radius:6px; border:1.5px solid var(--saffron); background:#fff; color:var(--saffron); font-weight:800; cursor:pointer}
+.qty-ctrl span{font-weight:800; font-size:13px; min-width:18px; text-align:center}
+.btn{width:100%; padding:13px; border:none; border-radius:12px; font-weight:700; font-size:14px; cursor:pointer; margin-top:8px}
+.btn-p{background:var(--saffron); color:#fff}
+.btn-s{background:#fff; color:var(--text-dark); border:1.5px solid var(--border)}
+.form-group{margin-bottom:14px}
+.form-group label{display:block; font-size:12.5px; font-weight:700; margin-bottom:5px}
+.form-group input, .form-group select, .form-group textarea{width:100%; padding:11px 13px; border:1.5px solid var(--border); border-radius:10px; font-size:14px; background:#fff}
+.cart-row{display:flex; align-items:center; gap:10px; background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:10px; margin-bottom:10px}
+.bottom-nav{position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1.5px solid var(--border); display:flex; z-index:60}
+.bn-item{flex:1; text-align:center; padding:10px 4px; cursor:pointer; font-size:10.5px; color:var(--text-mid)}
+.bn-item.on{color:var(--saffron); font-weight:700}
+.bn-ico{font-size:19px; display:block; margin-bottom:2px}
+.back-btn{background:none; border:none; color:#fff; font-size:19px; cursor:pointer}
+.toggle-row{display:flex; gap:8px; margin-bottom:14px}
+.toggle-opt{flex:1; padding:12px; text-align:center; border:1.5px solid var(--border); border-radius:12px; cursor:pointer; font-size:13px; font-weight:700; background:#fff}
+.toggle-opt.on{background:var(--saffron); color:#fff; border-color:var(--saffron)}
+.msg{font-size:12.5px; margin-top:8px; padding:8px 10px; border-radius:8px; display:none}
+.msg.show{display:block}
+.msg.e{background:#FDECEA; color:var(--error)}
+.msg.s{background:#E6F7F5; color:var(--success)}
+.status-badge{display:inline-block; padding:3px 10px; border-radius:20px; font-size:10.5px; font-weight:700}
+.st-placed{background:#FFF3CD; color:#8A6D00}
+.st-confirmed{background:#D6EAF8; color:#1565C0}
+.st-ready{background:#E1D5F5; color:#5B2D8E}
+.st-out{background:#FDE0C8; color:var(--saffron)}
+.st-completed{background:#D4EFDF; color:#1E7B4E}
+.st-cancelled{background:#FADBD8; color:var(--error)}
+#toast{position:fixed; bottom:78px; left:50%; transform:translateX(-50%) translateY(20px); background:rgba(42,18,0,.92); color:#fff; padding:10px 20px; border-radius:28px; font-size:13px; font-weight:600; z-index:9999; opacity:0; transition:.3s; pointer-events:none; white-space:nowrap; max-width:92vw; text-align:center}
+#toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+.spinner{display:inline-block; width:16px; height:16px; border:2.5px solid rgba(0,0,0,.15); border-top-color:var(--saffron); border-radius:50%; animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty{text-align:center; padding:40px 20px; color:var(--text-mid)}
+.empty-ico{font-size:36px; margin-bottom:8px}
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- HOME / CATALOG -->
+<div class="page active" id="pHome">
+  <div class="header">
+    <img class="header-logo" id="homeLogoImg" src="" style="display:none"/>
+    <div class="header-title" id="storeNameHeader">🌶️ Lalbaug Masalawale</div>
+    <button class="cart-btn" onclick="goPage('pCart')">🛒<span class="cart-badge" id="cartBadge" style="display:none">0</span></button>
+  </div>
+  <div class="cat-tabs" id="catTabs"></div>
+  <div class="scroll-body">
+    <div class="prod-grid" id="prodGrid"></div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="page" id="pCart">
+  <div class="header">
+    <button class="back-btn" onclick="goPage('pHome')">←</button>
+    <div class="header-title">🛒 माझी Cart</div>
+  </div>
+  <div class="scroll-body">
+    <div id="cartList"></div>
+    <div id="cartTotalWrap" style="display:none">
+      <div style="display:flex;justify-content:space-between;font-weight:800;font-size:15px;padding:12px 0;border-top:2px solid var(--border);margin-top:8px">
+        <span>एकूण</span><span id="cartTotal">₹0</span>
+      </div>
+      <button class="btn btn-p" onclick="goPage('pCheckout')">पुढे जा — Checkout</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<div class="page" id="pCheckout">
+  <div class="header">
+    <button class="back-btn" onclick="goPage('pCart')">←</button>
+    <div class="header-title">✅ Checkout</div>
+  </div>
+  <div class="scroll-body">
+    <div class="form-group"><label>तुमचे नाव</label><input type="text" id="custName" placeholder="पूर्ण नाव"/></div>
+    <div class="form-group"><label>मोबाईल नंबर</label><input type="tel" id="custPhone" placeholder="10 अंकी मोबाईल नंबर"/></div>
+
+    <div class="toggle-row">
+      <div class="toggle-opt on" id="toggleDelivery" onclick="setDeliveryType('delivery')">🚚 Delivery</div>
+      <div class="toggle-opt" id="togglePickup" onclick="setDeliveryType('pickup')">🏪 Pickup</div>
+    </div>
+
+    <div id="deliveryFields">
+      <div class="form-group"><label>पूर्ण पत्ता</label><textarea id="custAddress" placeholder="घर क्र., गल्ली, भाग, शहर, पिन कोड" style="min-height:80px"></textarea></div>
+    </div>
+    <div id="pickupFields" style="display:none">
+      <div class="form-group"><label>Pickup दुकान निवडा</label><select id="pickupShopSel"></select></div>
+    </div>
+
+    <div class="form-group"><label>टीप <span style="color:var(--text-mid);font-weight:400">(पर्यायी)</span></label><textarea id="orderNotes" placeholder="काही खास सूचना असल्यास..." style="min-height:50px"></textarea></div>
+
+    <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:12px;margin-bottom:14px">
+      <div style="font-weight:800;font-size:13px;margin-bottom:6px">Order Summary</div>
+      <div id="checkoutSummary" style="font-size:12px;color:var(--text-mid)"></div>
+      <div style="display:flex;justify-content:space-between;font-weight:800;font-size:14px;padding-top:8px;margin-top:6px;border-top:1px solid var(--border)">
+        <span>एकूण</span><span id="checkoutTotal">₹0</span>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--text-mid);margin-bottom:10px">💵 Payment: दुकानात किंवा delivery वेळी Cash/UPI ने करा. आत्ता online payment करण्याची गरज नाही.</div>
+    <button class="btn btn-p" onclick="placeOrder()">✅ Order Place करा</button>
+    <div class="msg" id="checkoutMsg"></div>
+  </div>
+</div>
+
+<!-- ORDER PLACED CONFIRMATION -->
+<div class="page" id="pOrderPlaced">
+  <div class="scroll-body" style="text-align:center;padding-top:60px">
+    <div style="font-size:56px;margin-bottom:12px">✅</div>
+    <div style="font-weight:800;font-size:18px;margin-bottom:6px">Order Place झाला!</div>
+    <div style="font-size:13px;color:var(--text-mid);margin-bottom:20px" id="orderPlacedMsg"></div>
+    <button class="btn btn-p" onclick="goPage('pMyOrders')">माझे Orders पहा</button>
+    <button class="btn btn-s" onclick="goPage('pHome')">Shopping सुरू ठेवा</button>
+  </div>
+</div>
+
+<!-- MY ORDERS -->
+<div class="page" id="pMyOrders">
+  <div class="header">
+    <div class="header-title">📦 माझे Orders</div>
+  </div>
+  <div class="scroll-body">
+    <div class="form-group">
+      <label>मोबाईल नंबर टाका</label>
+      <div style="display:flex;gap:8px">
+        <input type="tel" id="lookupPhone" placeholder="10 अंकी मोबाईल नंबर"/>
+        <button class="btn btn-p" style="width:auto;margin-top:0;padding:11px 18px" onclick="lookupOrders()">शोधा</button>
+      </div>
+    </div>
+    <div id="myOrdersList"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="pAbout">
+  <div class="header"><div class="header-title">ℹ️ About Us</div></div>
+  <div class="scroll-body">
+    <div id="aboutContent" style="font-size:13.5px;line-height:1.9;white-space:pre-wrap"></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="pContact">
+  <div class="header"><div class="header-title">📞 Contact</div></div>
+  <div class="scroll-body">
+    <div id="contactContent"></div>
+  </div>
+</div>
+
+<!-- TERMS -->
+<div class="page" id="pTerms">
+  <div class="header"><div class="header-title">📄 Terms & Conditions</div></div>
+  <div class="scroll-body">
+    <div id="termsContent" style="font-size:13px;line-height:1.9;white-space:pre-wrap;color:var(--text-mid)"></div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <div class="bn-item on" id="bnHome" onclick="goPage('pHome')"><span class="bn-ico">🏠</span>Home</div>
+  <div class="bn-item" id="bnOrders" onclick="goPage('pMyOrders')"><span class="bn-ico">📦</span>Orders</div>
+  <div class="bn-item" id="bnAbout" onclick="goPage('pAbout')"><span class="bn-ico">ℹ️</span>About</div>
+  <div class="bn-item" id="bnContact" onclick="goPage('pContact')"><span class="bn-ico">📞</span>Contact</div>
+  <div class="bn-item" id="bnTerms" onclick="goPage('pTerms')"><span class="bn-ico">📄</span>Terms</div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, getDoc, getDocs, addDoc, collection, query, where, orderBy, limit, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAyUBjstgyGlhdnkl0n_be1iewHxh2Z3FQ",
+  authDomain: "lalbaugmasalawale.firebaseapp.com",
+  projectId: "lalbaugmasalawale",
+  storageBucket: "lalbaugmasalawale.firebasestorage.app",
+  messagingSenderId: "594235623374",
+  appId: "1:594235623374:web:24adfc90e87553a93f8d9f"
+};
+const fbApp = initializeApp(firebaseConfig);
+const db = getFirestore(fbApp);
+
+const $ = id => document.getElementById(id);
+let toastTimer = null;
+function toast(msg, dur=2600){
+  const el=$('toast'); if(!el) return;
+  if(toastTimer) clearTimeout(toastTimer);
+  el.textContent = msg;
+  el.classList.add('show');
+  toastTimer = setTimeout(()=>{ el.classList.remove('show'); toastTimer=null; }, dur);
+}
+function showMsg(id,txt,cls){ const e=$(id); if(!e) return; e.textContent=txt; e.className='msg show '+cls; }
+function hideMsg(id){ const e=$(id); if(e){ e.textContent=''; e.className='msg'; } }
+function withTimeout(promise, ms=8000, label='ऑपरेशन'){
+  return Promise.race([promise, new Promise((_,rej)=>setTimeout(()=>rej(new Error(label+' timeout — इंटरनेट तपासा')), ms))]);
+}
+
+// ─── STATE ────────────────────────────────────────────────────
+let products = [];
+let categories = [];
+let shops = [];
+let cart = JSON.parse(localStorage.getItem('lm_cart')||'[]');
+let deliveryType = 'delivery';
+let activeCategory = 'सर्व';
+
+function saveCart(){ localStorage.setItem('lm_cart', JSON.stringify(cart)); updateCartBadge(); }
+function updateCartBadge(){
+  const count = cart.reduce((s,i)=>s+i.qty,0);
+  const badge=$('cartBadge');
+  if(count>0){ badge.style.display=''; badge.textContent=count; } else { badge.style.display='none'; }
+}
+
+window.goPage = function(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const page=$(id); if(page) page.classList.add('active');
+  window.scrollTo(0,0);
+  document.querySelectorAll('.bn-item').forEach(el=>el.classList.remove('on'));
+  const navMap = {pHome:'bnHome', pMyOrders:'bnOrders', pAbout:'bnAbout', pContact:'bnContact', pTerms:'bnTerms'};
+  if(navMap[id]) $(navMap[id]).classList.add('on');
+  if(id==='pCart') renderCart();
+  if(id==='pCheckout') renderCheckout();
+};
+
+// ─── LOAD STORE DATA ──────────────────────────────────────────
+async function loadStoreInfo(){
+  try{
+    const snap = await getDoc(doc(db,'settings','storeInfo'));
+    const d = snap.exists() ? snap.data() : {};
+    if(d.logo){ $('homeLogoImg').src=d.logo; $('homeLogoImg').style.display=''; }
+    $('aboutContent').textContent = d.about || 'लवकरच माहिती जोडली जाईल.';
+    $('termsContent').textContent = d.terms || 'लवकरच अटी व शर्ती जोडल्या जातील.';
+    $('contactContent').innerHTML = `
+      <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:16px;font-size:13.5px;line-height:2.2">
+        ${d.contactPhone?`📞 <a href="tel:${d.contactPhone}" style="color:var(--text-dark);text-decoration:none">${d.contactPhone}</a><br/>`:''}
+        ${d.whatsapp?`📱 <a href="https://wa.me/${d.whatsapp.replace(/[^0-9]/g,'')}" style="color:var(--success);text-decoration:none;font-weight:700">WhatsApp वर संपर्क करा</a><br/>`:''}
+        ${d.email?`✉️ <a href="mailto:${d.email}" style="color:var(--text-dark);text-decoration:none">${d.email}</a>`:''}
+      </div>`;
+  } catch(e){ console.warn('loadStoreInfo:', e.message); }
+}
+
+async function loadCategories(){
+  try{
+    const snap = await getDoc(doc(db,'settings','categories'));
+    categories = snap.exists() ? (snap.data().list||[]) : [];
+  } catch(e){ categories=[]; }
+  renderCatTabs();
+}
+
+function renderCatTabs(){
+  const wrap=$('catTabs'); if(!wrap) return;
+  const all = ['सर्व', ...categories];
+  wrap.innerHTML = all.map(c=>`<div class="cat-tab ${activeCategory===c?'on':''}" onclick="setCategory('${c.replace(/'/g,"\\'")}')">${c}</div>`).join('');
+}
+window.setCategory = function(c){ activeCategory=c; renderCatTabs(); renderProductGrid(); };
+
+async function loadProducts(){
+  $('prodGrid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px"><span class="spinner"></span></div>';
+  try{
+    const snap = await getDocs(collection(db,'products'));
+    products = snap.docs.map(d=>({id:d.id,...d.data()})).filter(p=>p.active!==false);
+    products.sort((a,b)=>(a.order??999999)-(b.order??999999) || a.name.localeCompare(b.name));
+    renderProductGrid();
+  } catch(e){ $('prodGrid').innerHTML = `<div class="empty" style="grid-column:1/-1">${e.message}</div>`; }
+}
+
+function renderProductGrid(){
+  const grid=$('prodGrid');
+  const filtered = activeCategory==='सर्व' ? products : products.filter(p=>p.category===activeCategory);
+  if(!filtered.length){
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-ico">🧂</div>कोणतेही products नाहीत</div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(p=>{
+    const inCart = cart.find(c=>c.productId===p.id);
+    return `<div class="prod-card">
+      ${p.photo?`<img src="${p.photo}" class="prod-photo"/>`:'<div class="prod-photo-ph">🧂</div>'}
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-price">₹${p.price} / ${p.unit||''}</div>
+      ${inCart
+        ? `<div class="qty-ctrl"><button onclick="changeQty('${p.id}',-1)">−</button><span>${inCart.qty}</span><button onclick="changeQty('${p.id}',1)">+</button></div>`
+        : `<button class="add-btn" onclick="addToCart('${p.id}')">+ Cart मध्ये टाका</button>`}
+    </div>`;
+  }).join('');
+}
+
+window.addToCart = function(id){
+  const p = products.find(x=>x.id===id); if(!p) return;
+  cart.push({productId:id, name:p.name, price:p.price, unit:p.unit, qty:1});
+  saveCart();
+  renderProductGrid();
+  toast('✅ '+p.name+' Cart मध्ये टाकले');
+};
+window.changeQty = function(id, delta){
+  const item = cart.find(c=>c.productId===id); if(!item) return;
+  item.qty += delta;
+  if(item.qty<=0) cart = cart.filter(c=>c.productId!==id);
+  saveCart();
+  renderProductGrid();
+  if($('pCart').classList.contains('active')) renderCart();
+};
+
+// ─── CART ─────────────────────────────────────────────────────
+function renderCart(){
+  const list=$('cartList');
+  if(!cart.length){
+    list.innerHTML = `<div class="empty"><div class="empty-ico">🛒</div>तुमची cart रिकामी आहे</div>`;
+    $('cartTotalWrap').style.display='none';
+    return;
+  }
+  list.innerHTML = cart.map(it=>`
+    <div class="cart-row">
+      <div style="flex:1">
+        <div style="font-weight:700;font-size:13px">${it.name}</div>
+        <div style="font-size:11px;color:var(--text-mid)">₹${it.price} / ${it.unit||''}</div>
+      </div>
+      <div class="qty-ctrl" style="margin-top:0"><button onclick="changeQty('${it.productId}',-1)">−</button><span>${it.qty}</span><button onclick="changeQty('${it.productId}',1)">+</button></div>
+      <div style="font-weight:800;font-size:13px;min-width:50px;text-align:right">₹${(it.price*it.qty).toFixed(2)}</div>
+    </div>`).join('');
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  $('cartTotal').textContent = '₹'+total.toFixed(2);
+  $('cartTotalWrap').style.display='';
+}
+
+// ─── CHECKOUT ─────────────────────────────────────────────────
+window.setDeliveryType = function(t){
+  deliveryType = t;
+  $('toggleDelivery').classList.toggle('on', t==='delivery');
+  $('togglePickup').classList.toggle('on', t==='pickup');
+  $('deliveryFields').style.display = t==='delivery' ? '' : 'none';
+  $('pickupFields').style.display = t==='pickup' ? '' : 'none';
+};
+
+async function renderCheckout(){
+  if(!cart.length){ goPage('pCart'); return; }
+  const savedName = localStorage.getItem('lm_custName');
+  const savedPhone = localStorage.getItem('lm_custPhone');
+  if(savedName) $('custName').value = savedName;
+  if(savedPhone) $('custPhone').value = savedPhone;
+
+  if(!shops.length){
+    try{
+      const snap = await getDocs(collection(db,'shops'));
+      shops = snap.docs.map(d=>({id:d.id,...d.data()})).filter(s=>s.active!==false);
+    } catch(e){ shops=[]; }
+  }
+  $('pickupShopSel').innerHTML = shops.map(s=>`<option value="${s.id}">${s.name}</option>`).join('') || '<option value="">कोणतेही दुकान उपलब्ध नाही</option>';
+
+  $('checkoutSummary').innerHTML = cart.map(it=>`<div style="display:flex;justify-content:space-between;padding:2px 0">${it.name} × ${it.qty}<span>₹${(it.price*it.qty).toFixed(2)}</span></div>`).join('');
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  $('checkoutTotal').textContent = '₹'+total.toFixed(2);
+  hideMsg('checkoutMsg');
+}
+
+window.placeOrder = async function(){
+  const name = $('custName').value.trim();
+  const phone = $('custPhone').value.trim();
+  if(!name){ showMsg('checkoutMsg','❌ तुमचे नाव टाका','e'); return; }
+  if(!/^\d{10}$/.test(phone)){ showMsg('checkoutMsg','❌ योग्य 10 अंकी मोबाईल नंबर टाका','e'); return; }
+  if(deliveryType==='delivery' && !$('custAddress').value.trim()){ showMsg('checkoutMsg','❌ पूर्ण पत्ता टाका','e'); return; }
+  if(deliveryType==='pickup' && !$('pickupShopSel').value){ showMsg('checkoutMsg','❌ Pickup दुकान निवडा','e'); return; }
+
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const order = {
+    customerName: name, customerPhone: phone,
+    items: cart.map(it=>({productId:it.productId, name:it.name, price:it.price, qty:it.qty})),
+    deliveryType, totalAmount: total, status: 'placed',
+    notes: $('orderNotes').value.trim(),
+    createdAt: new Date()
+  };
+  if(deliveryType==='delivery'){ order.address = $('custAddress').value.trim(); }
+  else{
+    const shop = shops.find(s=>s.id===$('pickupShopSel').value);
+    order.pickupShopId = shop?.id||''; order.pickupShopName = shop?.name||'';
+  }
+
+  showMsg('checkoutMsg','⏳ Order पाठवत आहोत...','s');
+  try{
+    order.createdAt = serverTimestamp();
+    await withTimeout(addDoc(collection(db,'orders'), order), 10000, 'Order पाठवणे');
+    localStorage.setItem('lm_custName', name);
+    localStorage.setItem('lm_custPhone', phone);
+    cart = [];
+    saveCart();
+    $('orderPlacedMsg').textContent = `तुमचा order यशस्वीरित्या नोंदवला गेला आहे. ${deliveryType==='pickup'?'दुकानातून घेऊन जा':'तुमच्या पत्त्यावर पोहोचवला जाईल'} — स्थिती "माझे Orders" मध्ये पाहू शकता.`;
+    goPage('pOrderPlaced');
+  } catch(e){ showMsg('checkoutMsg','❌ '+e.message,'e'); }
+};
+
+// ─── MY ORDERS (phone lookup — see note in firestore.rules about this) ──
+const ORDER_STATUS_LABELS = { placed:'🟡 Placed', confirmed:'🔵 Confirmed', ready:'🟣 Ready', out:'🟠 Out for Delivery / Ready for Pickup', completed:'🟢 पूर्ण झाले', cancelled:'🔴 रद्द झाले' };
+const ORDER_STATUS_CLASS = { placed:'st-placed', confirmed:'st-confirmed', ready:'st-ready', out:'st-out', completed:'st-completed', cancelled:'st-cancelled' };
+
+window.lookupOrders = async function(){
+  const phone = $('lookupPhone').value.trim();
+  if(!/^\d{10}$/.test(phone)){ toast('❌ योग्य 10 अंकी मोबाईल नंबर टाका'); return; }
+  localStorage.setItem('lm_custPhone', phone);
+  const list=$('myOrdersList');
+  list.innerHTML = '<div style="text-align:center;padding:24px"><span class="spinner"></span></div>';
+  try{
+    const snap = await getDocs(query(collection(db,'orders'), where('customerPhone','==',phone), orderBy('createdAt','desc'), limit(50)));
+    const orders = snap.docs.map(d=>({id:d.id,...d.data()}));
+    if(!orders.length){ list.innerHTML = `<div class="empty"><div class="empty-ico">📦</div>या नंबरवर कोणतेही orders सापडले नाहीत</div>`; return; }
+    list.innerHTML = orders.map(o=>{
+      const dt = o.createdAt?.toDate ? o.createdAt.toDate() : new Date();
+      const dstr = dt.toLocaleDateString('en-IN')+' '+dt.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+      const itemsStr = (o.items||[]).map(it=>`${it.name} × ${it.qty}`).join(', ');
+      return `<div class="cart-row" style="flex-direction:column;align-items:stretch;gap:6px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:11px;color:var(--text-mid)">${dstr}</span>
+          <span class="status-badge ${ORDER_STATUS_CLASS[o.status]||''}">${ORDER_STATUS_LABELS[o.status]||o.status}</span>
+        </div>
+        <div style="font-size:12.5px">${itemsStr}</div>
+        <div style="display:flex;justify-content:space-between;font-weight:800;font-size:13px">
+          <span>${o.deliveryType==='pickup'?'🏪 '+( o.pickupShopName||'Pickup'):'🚚 Delivery'}</span><span>₹${o.totalAmount||0}</span>
+        </div>
+      </div>`;
+    }).join('');
+  } catch(e){ list.innerHTML = `<div class="msg show e">${e.message}</div>`; }
+};
+
+// ─── INIT ─────────────────────────────────────────────────────
+(async function init(){
+  updateCartBadge();
+  const savedPhone = localStorage.getItem('lm_custPhone');
+  if(savedPhone) $('lookupPhone').value = savedPhone;
+  await Promise.all([loadStoreInfo(), loadCategories(), loadProducts()]);
+})();
+</script>
+</body>
+</html>
