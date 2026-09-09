@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>SHUDH MASALE — Lalbaug Masalawale | Est. 1990</title>
+<meta name="description" content="Shuddh Masale, Swaad Jo Yaad Rahe. 100% Pure & Natural Spices, Stone Pounded, Direct from Indian Farms."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --maroon: #681116;
+  --maroon-dark: #46090D;
+  --deep-red: #8B1B22;
+  --spice-brown: #8A3B08;
+  --spice-brown-hover: #A2450A;
+  --saffron: #D45124;
+  --saffron-bright: #E8501A;
+  --gold: #C9880A;
+  --gold-light: #EFC879;
+  --cream: #FAF5ED;
+  --cream-card: #FFFFFF;
+  --cream-soft: #F4EAD9;
+  --border: #E8DAC6;
+  --border-dark: #D4C0A8;
+  --text-dark: #2C180E;
+  --text-mid: #6E5B4D;
+  --text-muted: #9E8978;
+  --success: #1E7B4E;
+  --error: #C0292B;
+  --shadow-sm: 0 2px 8px rgba(92, 16, 20, 0.06);
+  --shadow-md: 0 6px 18px rgba(92, 16, 20, 0.1);
+  --shadow-lg: 0 12px 32px rgba(92, 16, 20, 0.15);
+  --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  min-height: 100vh;
+  padding-bottom: 70px;
+  overflow-x: hidden;
+}
+
+/* ─── 1. TOP ANNOUNCEMENT BAR (Screenshot 1) ─── */
+.top-announcement {
+  background: var(--maroon-dark);
+  color: #F8E9D2;
+  font-size: 11.5px;
+  padding: 7px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(201, 136, 10, 0.3);
+}
+.ann-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.ann-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+.ann-item span.icon { color: var(--gold-light); }
+.ann-sep { opacity: 0.35; }
+.ann-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--gold-light);
+  white-space: nowrap;
+}
+
+/* ─── 2. MAIN HEADER (Screenshot 1) ─── */
+.site-header {
+  background: #FFF;
+  border-bottom: 1.5px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  box-shadow: var(--shadow-sm);
+}
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Authentic Crest Logo */
+.brand-logo-crest {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.crest-badge {
+  background: linear-gradient(145deg, #7A1A22, #47080B);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 6px 14px;
+  text-align: center;
+  color: #FFF;
+  box-shadow: 0 4px 10px rgba(92,16,20,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.crest-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 1.2px;
+  line-height: 1;
+  color: #FFF9F0;
+}
+.crest-sub {
+  font-size: 7.5px;
+  letter-spacing: 1.5px;
+  color: var(--gold-light);
+  font-weight: 700;
+  margin-top: 2px;
+  border-top: 1px solid rgba(201,136,10,0.5);
+  padding-top: 1px;
+  width: 100%;
+}
+.brand-name-block {
+  display: flex;
+  flex-direction: column;
+}
+.brand-heading-main {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--maroon);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+.brand-slogan-sub {
+  font-size: 10px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: none;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+@media (min-width: 960px) {
+  .nav-menu { display: flex; }
+}
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.nav-menu a:hover, .nav-menu a.active {
+  color: var(--maroon);
+}
+.nav-menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--maroon);
+}
+
+/* Header Right Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lang-switch-pill {
+  display: flex;
+  background: var(--cream-soft);
+  border: 1.5px solid var(--border-dark);
+  border-radius: 20px;
+  padding: 2px;
+}
+.lang-btn {
+  border: none;
+  background: none;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-mid);
+  cursor: pointer;
+  border-radius: 16px;
+  transition: var(--transition);
+}
+.lang-btn.active {
+  background: var(--maroon);
+  color: #FFF;
+}
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-dark);
+  font-size: 16px;
+  position: relative;
+  transition: var(--transition);
+}
+.icon-btn:hover {
+  background: #FFF;
+  border-color: var(--gold);
+}
+.cart-badge-count {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background: var(--maroon);
+  color: #FFF;
+  font-size: 9.5px;
+  font-weight: 800;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* ─── 3. HERO SECTION (Screenshot 1) ─── */
+.hero-wrapper {
+  position: relative;
+  background: #F8EFE2 url('public/images/spices/hero_banner.jpg') no-repeat center right;
+  background-size: cover;
+  border-bottom: 2px solid var(--border);
+  overflow: hidden;
+  padding: 45px 18px 55px;
+}
+.hero-overlay-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(250,245,237,0.95) 0%, rgba(250,245,237,0.85) 50%, rgba(250,245,237,0.2) 100%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+}
+@media (min-width: 860px) {
+  .hero-inner { grid-template-columns: 1.1fr 0.9fr; }
+}
+.hero-text-col {
+  max-width: 580px;
+}
+.hero-title-main {
+  font-family: 'Playfair Display', 'Cinzel', serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--maroon);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+@media (min-width: 640px) {
+  .hero-title-main { font-size: 46px; }
+}
+.hero-subtitle-p {
+  font-size: 14.5px;
+  color: var(--text-mid);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+.btn-shop-now {
+  background: var(--maroon);
+  color: #FFF;
+  border: 1.5px solid var(--gold);
+  padding: 13px 30px;
+  border-radius: 30px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(92,16,20,0.3);
+  transition: var(--transition);
+}
+.btn-shop-now:hover {
+  background: var(--deep-red);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(92,16,20,0.4);
+}
+.hero-packets-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-packets-img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--gold-light);
+}
+
+/* ─── 4. TRUST BADGES STRIP (Screenshot 1) ─── */
+.trust-strip {
+  background: #FFF;
+  border-bottom: 1.5px solid var(--border);
+  padding: 18px 12px;
+}
+.trust-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .trust-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .trust-grid { grid-template-columns: repeat(6, 1fr); }
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: left;
+}
+.trust-ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFF;
+  border: 1.5px solid var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--maroon);
+  flex-shrink: 0;
+}
+.trust-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.25;
+}
+
+/* ─── 5. SHOP BY CATEGORY (Screenshot 1 Circular Bowls) ─── */
+.section-category-bowls {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 38px 18px 24px;
+}
+.section-ornate-header {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.floret-decor {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 5px;
+  margin-bottom: 4px;
+}
+.section-heading-text {
+  font-family: 'Playfair Display', 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--maroon);
+  letter-spacing: 0.6px;
+}
+.bowls-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  justify-content: flex-start;
+  scrollbar-width: thin;
+}
+@media (min-width: 960px) {
+  .bowls-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    overflow: visible;
+  }
+}
+.bowl-card {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.bowl-card:hover { transform: translateY(-4px); }
+.bowl-img-wrap {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 3px solid var(--gold-light);
+  background: #FFF;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(92,16,20,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.bowl-card:hover .bowl-img-wrap, .bowl-card.active .bowl-img-wrap {
+  border-color: var(--saffron);
+  box-shadow: 0 8px 20px rgba(212,81,36,0.3);
+  transform: scale(1.06);
+}
+.bowl-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bowl-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-top: 8px;
+  line-height: 1.25;
+}
+
+/* ─── 6. PRODUCTS CATALOG (Screenshot 2 exact match) ─── */
+.catalog-page-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px 18px 50px;
+}
+.catalog-breadcrumbs-bar {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.catalog-big-title {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--text-dark);
+}
+.catalog-crumb {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 2px;
+}
+
+.catalog-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+@media (min-width: 920px) {
+  .catalog-layout-grid { grid-template-columns: 240px 1fr; }
+}
+
+/* Left Sidebar with exact Brown Pills (Screenshot 2) */
+.left-filter-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.filter-group-card {
+  margin-bottom: 8px;
+}
+.pill-header-brown {
+  background: var(--spice-brown);
+  color: #FFF;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(138,59,8,0.25);
+}
+.filter-items-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 6px;
+}
+.filter-item-li {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+.filter-item-li:hover, .filter-item-li.active {
+  color: var(--maroon);
+  background: #FFF;
+  font-weight: 700;
+}
+.filter-item-li::before {
+  content: '•';
+  color: var(--spice-brown);
+  font-size: 14px;
+}
+
+/* Bestseller mini card (Screenshot 2) */
+.bestseller-side-box {
+  background: #FFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.bestseller-side-img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold-light);
+  margin: 6px auto;
+  display: block;
+}
+
+/* Main Products Header Controls (Screenshot 2) */
+.catalog-top-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.controls-left-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.view-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+.view-btn.active {
+  background: var(--spice-brown);
+  color: #FFF;
+  border-color: var(--spice-brown);
+}
+.sort-dropdown-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sort-select-elem {
+  padding: 6px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+  background: #FFF;
+  outline: none;
+  cursor: pointer;
+}
+
+/* 4-Columns Product Grid (Screenshot 2) */
+.products-4col-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 640px) {
+  .products-4col-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1040px) {
+  .products-4col-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.spice-prod-card {
+  background: #FFF;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.spice-prod-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Sale & Discount Badges (Screenshot 2) */
+.card-sale-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #C0292B;
+  color: #FFF;
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.card-save-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #E8A800;
+  color: #FFF;
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Round Wooden Spice Bowl Centerpiece */
+.card-bowl-wrapper {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #FAF6F0;
+  border: 2px solid var(--border-dark);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+.card-bowl-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.spice-prod-card:hover .card-bowl-wrapper img {
+  transform: scale(1.1);
+}
+
+.card-prod-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin-bottom: 4px;
+  min-height: 34px;
+}
+.card-prod-price {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--maroon);
+  margin-bottom: 4px;
+}
+.card-stars-row {
+  color: #E8A800;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+/* Add to cart / Qty stepper */
+.btn-quick-add {
+  width: 100%;
+  padding: 8px;
+  background: var(--spice-brown);
+  color: #FFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-quick-add:hover {
+  background: var(--maroon);
+}
+.qty-stepper-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--cream-soft);
+  border: 1.5px solid var(--spice-brown);
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+.stepper-btn {
+  background: var(--spice-brown);
+  color: #FFF;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.stepper-val {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--maroon);
+}
+
+/* Pagination (Screenshot 2) */
+.catalog-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 36px;
+}
+.page-num-box {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.page-num-box.active {
+  background: var(--spice-brown);
+  color: #FFF;
+  border-color: var(--spice-brown);
+}
+
+/* ─── 7. DUAL PROMOTIONAL BANNERS (Screenshot 1) ─── */
+.section-dual-banners {
+  max-width: 1280px;
+  margin: 30px auto 40px;
+  padding: 0 18px;
+}
+.dual-banners-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 860px) {
+  .dual-banners-grid { grid-template-columns: 1.3fr 1fr; }
+}
+.promo-banner-item {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  background-size: cover;
+  background-position: center;
+  color: #FFF;
+  border: 1.5px solid var(--gold);
+}
+.banner-about-bg {
+  background: linear-gradient(135deg, rgba(84,15,19,0.92), rgba(48,8,11,0.92)), url('public/images/spices/banner_about.jpg');
+}
+.banner-recipes-bg {
+  background: linear-gradient(135deg, rgba(43,22,11,0.92), rgba(77,38,18,0.92)), url('public/images/spices/banner_recipes.jpg');
+}
+
+/* Circular Seal Badge */
+.seal-badge-1990 {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px dashed var(--gold-light);
+  background: rgba(201,136,10,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(-10deg);
+}
+
+/* ─── 8. NEWSLETTER & FOOTER (Screenshot 1) ─── */
+.newsletter-bar {
+  background: #FFF;
+  border-top: 1.5px solid var(--border);
+  border-bottom: 1.5px solid var(--border);
+  padding: 22px 18px;
+}
+.nl-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.nl-left-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nl-input-group {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  max-width: 440px;
+}
+.nl-input-group input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  font-size: 12.5px;
+  outline: none;
+}
+.nl-subscribe-btn {
+  padding: 10px 22px;
+  background: var(--maroon);
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.site-footer {
+  background: #20080A;
+  color: #E2CFBE;
+  padding: 36px 18px 80px;
+  font-size: 12.5px;
+}
+
+/* ─── CART SLIDE-OUT DRAWER & MODALS ─── */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+.drawer-backdrop.open { opacity: 1; visibility: visible; }
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 420px;
+  background: #FFF;
+  z-index: 210;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -6px 0 25px rgba(0,0,0,0.25);
+}
+.drawer-backdrop.open .cart-drawer { transform: translateX(0); }
+.drawer-header {
+  padding: 16px 20px;
+  background: var(--maroon);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.drawer-body { flex: 1; overflow-y: auto; padding: 16px 20px; }
+.drawer-footer { padding: 16px 20px; background: var(--cream); border-top: 1.5px solid var(--border); }
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 300;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+@media (min-width: 600px) { .modal-overlay { align-items: center; } }
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal-box {
+  background: #FFF;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  border-radius: 24px 24px 0 0;
+  overflow-y: auto;
+  padding: 24px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+@media (min-width: 600px) { .modal-box { border-radius: 18px; } }
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 84px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #36090B;
+  color: #FFF;
+  border: 1px solid var(--gold);
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- ─── 1. TOP ANNOUNCEMENT BAR (Screenshot 1) ─── -->
+<div class="top-announcement">
+  <div class="ann-left">
+    <div class="ann-item"><span class="icon">🌿</span><span data-i18n="ann_purity">100% Pure & Natural</span></div>
+    <span class="ann-sep">|</span>
+    <div class="ann-item"><span class="icon">🚫</span><span data-i18n="ann_colors">No Artificial Colors</span></div>
+    <span class="ann-sep">|</span>
+    <div class="ann-item"><span class="icon">🔬</span><span data-i18n="ann_lab">Lab Tested for Purity</span></div>
+  </div>
+  <div class="ann-right">
+    <span>🚚</span> <span data-i18n="ann_delivery">Free Delivery on orders above ₹499</span>
+  </div>
+</div>
+
+<!-- ─── 2. MAIN HEADER (Screenshot 1) ─── -->
+<header class="site-header">
+  <div class="header-container">
+    <!-- Brand Crest -->
+    <a class="brand-logo-crest" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <div class="crest-badge">
+        <span class="crest-title">SHUDH</span>
+        <span class="crest-sub">— MASALE — EST. 1990</span>
+      </div>
+      <div class="brand-name-block">
+        <span class="brand-heading-main">Lalbaug Masalawale</span>
+        <span class="brand-slogan-sub" data-i18n="header_slogan">शुद्ध मसाले • स्वाद जो याद रहे</span>
+      </div>
+    </a>
+
+    <!-- Navigation Menu -->
+    <nav>
+      <ul class="nav-menu">
+        <li><a class="active" onclick="window.scrollTo({top:0,behavior:'smooth'})" data-i18n="nav_home">HOME</a></li>
+        <li><a onclick="openModal('mAbout')" data-i18n="nav_about">ABOUT US</a></li>
+        <li><a onclick="scrollToSection('catalogSection')" data-i18n="nav_products">OUR PRODUCTS ▾</a></li>
+        <li><a onclick="openModal('mRecipes')" data-i18n="nav_recipes">RECIPES</a></li>
+        <li><a onclick="scrollToSection('trustSection')" data-i18n="nav_quality">QUALITY</a></li>
+        <li><a onclick="openModal('mContact')" data-i18n="nav_contact">CONTACT US</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <!-- English & Marathi Selector -->
+      <div class="lang-switch-pill" title="Switch Language / भाषा बदला">
+        <button class="lang-btn" id="langBtnEn" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-btn active" id="langBtnMr" onclick="switchLanguage('mr')">मराठी</button>
+      </div>
+
+      <!-- Search Trigger -->
+      <button class="icon-btn" onclick="scrollToSection('catalogSection')" title="Search Spices">🔍</button>
+
+      <!-- Track Orders Button -->
+      <button class="icon-btn" onclick="openModal('mOrdersTracker')" title="My Orders">👤</button>
+
+      <!-- Cart Button with Live Badge -->
+      <button class="icon-btn" onclick="openCartDrawer()" title="Shopping Cart">
+        🛒
+        <span class="cart-badge-count" id="headerCartBadge" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ─── 3. HERO SECTION (Screenshot 1) ─── -->
+<section class="hero-wrapper" id="heroSection">
+  <div class="hero-overlay-tint"></div>
+  <div class="hero-inner">
+    <div class="hero-text-col">
+      <h1 class="hero-title-main" data-i18n="hero_title">
+        Shuddh Masale,<br/>Swaad Jo Yaad Rahe
+      </h1>
+      <p class="hero-subtitle-p" data-i18n="hero_subtitle">
+        1990 से, हम आपके खाने में घोल रहे हैं शुद्धता, खुशबू और असली भारतीय स्वाद।
+      </p>
+      <button class="btn-shop-now" onclick="scrollToSection('catalogSection')">
+        <span data-i18n="hero_shop_now">SHOP NOW</span> <span>→</span>
+      </button>
+    </div>
+    <div class="hero-packets-card">
+      <img src="public/images/spices/hero_packets.jpg" class="hero-packets-img" alt="Shudh Masale Pouches" onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&auto=format&fit=crop&q=80'"/>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. TRUST BADGES STRIP (Screenshot 1) ─── -->
+<div class="trust-strip" id="trustSection">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-ico">🌿</div>
+      <div class="trust-title" data-i18n="tb_1">100% शुद्ध मसाले</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🥣</div>
+      <div class="trust-title" data-i18n="tb_2">पारंपरिक तरीके से तैयार</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🛡️</div>
+      <div class="trust-title" data-i18n="tb_3">बिना मिलावट के 100% भरोसा</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🔬</div>
+      <div class="trust-title" data-i18n="tb_4">लैब टेस्टेड फॉर प्यूरिटी</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🚚</div>
+      <div class="trust-title" data-i18n="tb_5">₹499 से ऊपर की खरीद पर फ्री डिलीवरी</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🌾</div>
+      <div class="trust-title" data-i18n="tb_6">सीधे भारतीय खेतों से</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 5. SHOP BY CATEGORY (Screenshot 1 Circular Bowls) ─── -->
+<section class="section-category-bowls" id="categorySection">
+  <div class="section-ornate-header">
+    <div class="floret-decor">— ❖ —</div>
+    <h2 class="section-heading-text" data-i18n="cat_title">SHOP BY CATEGORY</h2>
+  </div>
+
+  <div class="bowls-row">
+    <!-- 1. Mirch Powder -->
+    <div class="bowl-card" onclick="filterByCategory('Chili')">
+      <div class="bowl-img-wrap"><img src="public/images/spices/bowl_mirch.png" alt="मिर्च पाउडर" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&auto=format&fit=crop&q=80'"/></div>
+      <div class="bowl-name" data-i18n="bowl_mirch">मिर्च पाउडर</div>
+    </div>
+    <!-- 2. Dhaniya Powder -->
+    <div class="bowl-card" onclick="filterByCategory('Coriander')">
+      <div class="bowl-img-wrap"><img src="public/images/spices/bowl_dhaniya.png" alt="धनिया पाउडर" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&auto=format&fit=crop&q=80'"/></div>
+      <div class="bowl-name" data-i18n="bowl_dhaniya">धनिया पाउडर</div>
+    </div>
+    <!-- 3. Haldi Powder -->
+    <div class="bowl-card" onclick="filterByCategory('Turmeric')">
+      <div class="bowl-img-wrap"><img src="public/images/spices/bowl_haldi.png" alt="हल्दी पाउडर" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&auto=format&fit=crop&q=80'"/></div>
+      <div class="bowl-name" data-i18n="bowl_haldi">हल्दी पाउडर</div>
+    </div>
+    <!-- 4. Garam Masala -->
+    <div class="bowl-card" onclick="filterByCategory('Garam')">
+      <div class="bowl-img-wrap"><img src="public/images/spices/bowl_garam.png" alt="गरम मसाला" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&auto=format&fit=crop&q=80'"/></div>
+      <div class="bowl-name" data-i18n="bowl_garam">गरम मसाला</div>
+    </div>
+    <!-- 5. Kitchen King -->
+    <div class="bowl-card" onclick="filterByCategory('Kitchen')">
+      <div class="bowl-img-wrap"><img src="public/images/spices/bowl_kitchen_king.png" alt="किचन किंग मसाला" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&auto=format&fit=crop&q=80'"/></div>
+      <div class="bowl-name" data-i18n="bowl_kitchen">किचन किंग मसाला</div>
+    </div>
+    <!-- 6. Meat Masala -->
+    <div class="bowl-card" onclick="filterByCategory('Meat')">
+      <div class="bowl-img-wrap"><img src="public/images/spices/bowl_meat.png" alt="मीट मसाला" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&auto=format&fit=crop&q=80'"/></div>
+      <div class="bowl-name" data-i18n="bowl_meat">मीट मसाला</div>
+    </div>
+    <!-- 7. View All -->
+    <div class="bowl-card" onclick="filterByCategory('all')">
+      <div class="bowl-img-wrap" style="background:var(--cream-soft); font-size:24px">❖</div>
+      <div class="bowl-name" data-i18n="bowl_all">सभी उत्पाद</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. PRODUCTS CATALOG (Screenshot 2 exact match) ─── -->
+<section class="catalog-page-container" id="catalogSection">
+  <div class="catalog-breadcrumbs-bar">
+    <h2 class="catalog-big-title" data-i18n="catalog_header">Products</h2>
+    <div class="catalog-crumb" data-i18n="catalog_breadcrumb">Home / Products</div>
+  </div>
+
+  <div class="catalog-layout-grid">
+    <!-- LEFT SIDEBAR FILTERS (Screenshot 2 exact design) -->
+    <aside class="left-filter-sidebar">
+      <!-- 1. Category Pill -->
+      <div class="filter-group-card">
+        <div class="pill-header-brown" data-i18n="pill_cat">Category</div>
+        <ul class="filter-items-list" id="sidebarCategoryList">
+          <li class="filter-item-li active" onclick="filterByCategory('all')"><span data-i18n="sb_all">All Spices</span></li>
+          <li class="filter-item-li" onclick="filterByCategory('Masalas')"><span data-i18n="sb_masalas">Masalas</span></li>
+          <li class="filter-item-li" onclick="filterByCategory('Chat')"><span data-i18n="sb_chat">Chat Masalas</span></li>
+          <li class="filter-item-li" onclick="filterByCategory('Pepper')"><span data-i18n="sb_pepper">Pepper Powder</span></li>
+          <li class="filter-item-li" onclick="filterByCategory('Cooking')"><span data-i18n="sb_cooking">Cooking Essentials</span></li>
+          <li class="filter-item-li" onclick="filterByCategory('Refined')"><span data-i18n="sb_oil">Refined Oil</span></li>
+          <li class="filter-item-li" onclick="filterByCategory('Whole')"><span data-i18n="sb_whole">Whole Spices</span></li>
+          <li class="filter-item-li" onclick="filterByCategory('Clove')"><span data-i18n="sb_clove">Clove & Cinnamon</span></li>
+        </ul>
+      </div>
+
+      <!-- 2. Shop By Weight Pill -->
+      <div class="filter-group-card">
+        <div class="pill-header-brown" data-i18n="pill_weight">Shop By Weight</div>
+        <ul class="filter-items-list">
+          <li class="filter-item-li" onclick="filterByWeight('250')">250 gm</li>
+          <li class="filter-item-li" onclick="filterByWeight('500')">500 gm</li>
+          <li class="filter-item-li" onclick="filterByWeight('1kg')">1 kg</li>
+          <li class="filter-item-li" onclick="filterByWeight('2kg')">2 kg</li>
+          <li class="filter-item-li" onclick="filterByWeight('5kg')">5 kg</li>
+        </ul>
+      </div>
+
+      <!-- 3. Shop By Price Pill -->
+      <div class="filter-group-card">
+        <div class="pill-header-brown" data-i18n="pill_price">Shop By Price</div>
+        <ul class="filter-items-list">
+          <li class="filter-item-li" onclick="filterByPrice(0, 250)">₹100 — ₹250</li>
+          <li class="filter-item-li" onclick="filterByPrice(250, 500)">₹250 — ₹500</li>
+          <li class="filter-item-li" onclick="filterByPrice(500, 750)">₹500 — ₹750</li>
+          <li class="filter-item-li" onclick="filterByPrice(750, 999999)">₹750 — ₹1000+</li>
+        </ul>
+      </div>
+
+      <!-- 4. Shop By Brand Pill -->
+      <div class="filter-group-card">
+        <div class="pill-header-brown" data-i18n="pill_brand">Shop By Brand</div>
+        <ul class="filter-items-list">
+          <li class="filter-item-li" onclick="filterByCategory('all')">Lalbaug Masalawale</li>
+          <li class="filter-item-li" onclick="filterByCategory('all')">Shudh Heritage</li>
+          <li class="filter-item-li" onclick="filterByCategory('all')">Malvani Kitchen</li>
+        </ul>
+      </div>
+
+      <!-- 5. Best Sellers Pill & Card (Screenshot 2) -->
+      <div class="filter-group-card">
+        <div class="pill-header-brown" data-i18n="pill_bestseller">Best Sellers</div>
+        <div class="bestseller-side-box">
+          <span style="font-size:9px; background:#BA181B; color:#FFF; font-weight:800; padding:2px 6px; border-radius:4px">SALE</span>
+          <img src="public/images/spices/pippali_pepper.png" class="bestseller-side-img" alt="Pippali Pepper" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&auto=format&fit=crop&q=80'"/>
+          <div style="font-size:12px; font-weight:700; color:var(--text-dark)">Pippali Pepper</div>
+          <div style="font-size:13px; font-weight:800; color:var(--maroon)">₹429.00</div>
+          <div style="color:#E8A800; font-size:10px">★★★★★</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN PRODUCTS CATALOG (Screenshot 2 exact 4 columns) -->
+    <main>
+      <div class="catalog-top-controls">
+        <div class="controls-left-icons">
+          <div class="view-btn active" title="Grid View">☵</div>
+          <div class="view-btn" title="Compact View">☷</div>
+        </div>
+        <div class="sort-dropdown-box">
+          <span style="font-size:11.5px; color:var(--text-mid); font-weight:600" data-i18n="sort_label">Sort by:</span>
+          <select class="sort-select-elem" id="sortSelectElem" onchange="handleSort(this.value)">
+            <option value="featured" data-i18n="sort_opt_featured"># Featured</option>
+            <option value="low" data-i18n="sort_opt_low">Price: Low to High</option>
+            <option value="high" data-i18n="sort_opt_high">Price: High to Low</option>
+            <option value="name" data-i18n="sort_opt_name">Name: A to Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 4 Columns Grid -->
+      <div class="products-4col-grid" id="productGridContainer">
+        <!-- Rendered dynamically with 20 demo sample items from screenshots -->
+      </div>
+
+      <!-- Pagination (Screenshot 2) -->
+      <div class="catalog-pagination">
+        <div class="page-num-box">◀</div>
+        <div class="page-num-box active">1</div>
+        <div class="page-num-box">2</div>
+        <div class="page-num-box">3</div>
+        <div class="page-num-box">▶</div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ─── 7. DUAL PROMOTIONAL BANNERS (Screenshot 1) ─── -->
+<section class="section-dual-banners">
+  <div class="dual-banners-grid">
+    <!-- Banner 1: About Shudh Masale -->
+    <div class="promo-banner-item banner-about-bg">
+      <div>
+        <div style="font-size:10.5px; letter-spacing:1.2px; font-weight:800; color:var(--gold-light)" data-i18n="ban1_top">ABOUT SHUDH MASALE</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:24px; font-weight:800; margin:4px 0 8px" data-i18n="ban1_title">परंपरा से स्वाद तक</h3>
+        <p style="font-size:12px; line-height:1.6; color:#F5EDE2; max-width:380px" data-i18n="ban1_desc">
+          1990 से हम आपके खाने में घोल रहे हैं शुद्धता, खुशबू और असली भारतीय स्वाद।
+        </p>
+      </div>
+      <button class="btn-shop-now" style="align-self:flex-start; margin-top:14px; padding:9px 20px; font-size:12px" onclick="openModal('mAbout')" data-i18n="ban1_btn">
+        Visit site ↗
+      </button>
+      <div class="seal-badge-1990">
+        <span style="font-size:7.5px; font-weight:800">TRUSTED</span>
+        <span style="font-family:'Cinzel',serif; font-size:14px; font-weight:900; color:var(--gold-light)">1990</span>
+        <span style="font-size:7px; font-weight:800">SINCE</span>
+      </div>
+    </div>
+
+    <!-- Banner 2: Try Our Recipes -->
+    <div class="promo-banner-item banner-recipes-bg">
+      <div>
+        <div style="font-size:10.5px; letter-spacing:1.2px; font-weight:800; color:var(--gold-light)" data-i18n="ban2_top">TRY OUR RECIPES</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:24px; font-weight:800; margin:4px 0 8px" data-i18n="ban2_title">स्वादिष्ट रेसिपी</h3>
+        <p style="font-size:12px; line-height:1.6; color:#F5EDE2; max-width:320px" data-i18n="ban2_desc">
+          बेहतरीन रेसिपी के साथ अपने खाने को बनाएं और भी खास।
+        </p>
+      </div>
+      <button class="btn-shop-now" style="align-self:flex-start; margin-top:14px; padding:9px 20px; font-size:12px" onclick="openModal('mRecipes')" data-i18n="ban2_btn">
+        EXPLORE RECIPES →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 8. NEWSLETTER & FOOTER (Screenshot 1) ─── -->
+<div class="newsletter-bar">
+  <div class="nl-inner">
+    <div class="nl-left-group">
+      <span style="font-size:32px">✉️</span>
+      <div>
+        <div style="font-weight:800; font-size:13.5px; color:var(--maroon)" data-i18n="nl_heading">STAY UPDATED</div>
+        <div style="font-size:11.5px; color:var(--text-mid)" data-i18n="nl_text">नए उत्पाद, ऑफर और रेसिपी के लिए हमारे साथ जुड़े रहें।</div>
+      </div>
+    </div>
+    <div class="nl-input-group">
+      <input type="email" id="nlEmailInput" placeholder="अपना ईमेल पता दर्ज करें / Enter your email..."/>
+      <button class="nl-subscribe-btn" onclick="toast('🎉 सबस्क्राईब झाल्याबद्दल धन्यवाद!'); document.getElementById('nlEmailInput').value='';" data-i18n="nl_btn">SUBSCRIBE</button>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700">
+      <span style="color:var(--text-mid)">FOLLOW US:</span>
+      <span style="cursor:pointer">🔵</span>
+      <span style="cursor:pointer">📸</span>
+      <span style="cursor:pointer">▶️</span>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div style="max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px">
+    <div>
+      <b style="font-family:'Cinzel',serif; font-size:16px; color:#FFF">SHUDH MASALE — Lalbaug Masalawale</b>
+      <div style="color:#AFA094; font-size:11.5px; margin-top:4px">100% Pure & Natural Spices • Direct From Indian Farms • Est. 1990</div>
+    </div>
+    <div style="display:flex; gap:16px">
+      <a onclick="window.scrollTo({top:0,behavior:'smooth'})" style="color:#E2CFBE; cursor:pointer" data-i18n="nav_home">Home</a>
+      <a onclick="scrollToSection('catalogSection')" style="color:#E2CFBE; cursor:pointer" data-i18n="nav_products">Products</a>
+      <a onclick="openModal('mRecipes')" style="color:#E2CFBE; cursor:pointer" data-i18n="nav_recipes">Recipes</a>
+      <a onclick="openModal('mContact')" style="color:#E2CFBE; cursor:pointer" data-i18n="nav_contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── 9. CART DRAWER ─── -->
+<div class="drawer-backdrop" id="cartDrawerBackdrop" onclick="closeCartDrawer(event)">
+  <div class="cart-drawer" onclick="event.stopPropagation()">
+    <div class="drawer-header">
+      <div style="font-weight:800; font-size:15px">🛒 <span data-i18n="cart_title">तुमची Cart (Shopping Bag)</span></div>
+      <button onclick="closeCartDrawer()" style="background:none; border:none; color:#FFF; font-size:20px; cursor:pointer">✕</button>
+    </div>
+    <div class="drawer-body" id="cartDrawerItems"></div>
+    <div class="drawer-footer" id="cartDrawerFooter">
+      <div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:6px">
+        <span data-i18n="cart_subtotal">Subtotal:</span>
+        <b id="cartSubtotalVal">₹0</b>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:10px">
+        <span data-i18n="cart_shipping">Shipping:</span>
+        <b style="color:var(--success)" data-i18n="cart_free">FREE</b>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:16px; font-weight:800; color:var(--maroon); border-top:1.5px solid var(--border); padding-top:8px; margin-bottom:14px">
+        <span data-i18n="cart_total">Total:</span>
+        <span id="cartTotalVal">₹0</span>
+      </div>
+      <button class="btn-shop-now" style="width:100%; justify-content:center; border-radius:10px" onclick="openCheckoutModal()" data-i18n="btn_checkout">
+        पुढे जा — Checkout करा →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 10. CHECKOUT MODAL ─── -->
+<div class="modal-overlay" id="mCheckout">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('mCheckout')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:14px">
+      🛍️ <span data-i18n="checkout_heading">Order Checkout</span>
+    </div>
+
+    <div style="margin-bottom:12px">
+      <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_name">नाव (Full Name) *</label>
+      <input type="text" id="custNameInput" style="width:100%; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px" placeholder="उदा. राहुल तांबडे / Rahul Tambade"/>
+    </div>
+    <div style="margin-bottom:12px">
+      <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_phone">मोबाईल नंबर (10-Digit Mobile) *</label>
+      <input type="tel" id="custPhoneInput" style="width:100%; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px" placeholder="10 अंकी मोबाईल नंबर"/>
+    </div>
+    <div style="margin-bottom:12px">
+      <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_addr">डिलिव्हरी पत्ता (Full Delivery Address) *</label>
+      <textarea id="custAddressInput" style="width:100%; min-height:70px; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px" placeholder="फ्लॅट क्र., इमारत, रस्ता, शहर, पिन कोड"></textarea>
+    </div>
+
+    <div style="background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:12px; margin-bottom:14px">
+      <div style="font-size:12px; font-weight:700; color:var(--maroon); margin-bottom:6px" data-i18n="co_summary">Order Summary</div>
+      <div id="checkoutSummaryList" style="font-size:11.5px; color:var(--text-mid)"></div>
+      <div style="display:flex; justify-content:space-between; font-weight:800; font-size:14px; color:var(--maroon); border-top:1px solid var(--border); padding-top:6px; margin-top:6px">
+        <span data-i18n="co_total">एकूण देय रक्कम:</span>
+        <span id="checkoutTotalPayable">₹0</span>
+      </div>
+    </div>
+
+    <div style="background:#FFF9E6; border:1px solid #ECC87A; border-radius:8px; padding:8px 10px; font-size:11.5px; color:#785200; margin-bottom:14px">
+      💵 <b>Payment:</b> <span data-i18n="co_cash">Cash / UPI on Delivery. आत्ता कार्ड पेमेंटची गरज नाही.</span>
+    </div>
+
+    <button class="btn-shop-now" id="btnPlaceOrderSubmit" style="width:100%; justify-content:center; border-radius:10px" onclick="submitOrderFinal()" data-i18n="btn_confirm_order">
+      ✅ Order Confirm करा
+    </button>
+  </div>
+</div>
+
+<!-- ─── 11. TRACK ORDERS MODAL ─── -->
+<div class="modal-overlay" id="mOrdersTracker">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('mOrdersTracker')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:14px">
+      📦 <span data-i18n="track_title">माझे Orders तपासा</span>
+    </div>
+    <div style="display:flex; gap:8px; margin-bottom:14px">
+      <input type="tel" id="lookupPhoneInput" placeholder="10 अंकी मोबाईल नंबर..." style="flex:1; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px"/>
+      <button class="btn-shop-now" style="padding:0 18px; border-radius:8px" onclick="searchMyOrders()" data-i18n="btn_search">शोधा</button>
+    </div>
+    <div id="trackedOrdersList"></div>
+  </div>
+</div>
+
+<!-- ─── 12. RECIPES MODAL ─── -->
+<div class="modal-overlay" id="mRecipes">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('mRecipes')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:14px">
+      🍲 <span data-i18n="recipes_title">स्वादिष्ट व अस्सल रेसिपीज</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <div style="background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:12px">
+        <b style="color:var(--maroon)">१. कोल्हापुरी झणझणीत मिसळ</b>
+        <p style="font-size:12px; line-height:1.6; color:var(--text-dark); margin-top:4px">
+          तेलात जिरे, मोहरी, कांदा, आलं-लसूण परतून घ्या. त्यामध्ये आमचा <b>मिसळ मसाला</b> व <b>काश्मिरी मिरची पावडर</b> घालून लालबुंद तर्री तयार करा!
+        </p>
+      </div>
+      <div style="background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:12px">
+        <b style="color:var(--maroon)">२. मालवणी चिकन / मटन सुक्का</b>
+        <p style="font-size:12px; line-height:1.6; color:var(--text-dark); margin-top:4px">
+          भाजलेले खोबरे आणि कांद्याचे वाटण करून तेलात आमचा खास <b>मालवणी मसाला</b> परता. मंद आचेवर शिजवून गरमागरम भाकरीसोबत आस्वाद घ्या!
+        </p>
+      </div>
+      <div style="background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:12px">
+        <b style="color:var(--maroon)">३. शाही मसाला चहा</b>
+        <p style="font-size:12px; line-height:1.6; color:var(--text-dark); margin-top:4px">
+          हिरवी वेलची, सुंठ, काळीमिरी व दालचिनीचा सुरेख संगम असलेला आमचा <b>चहा मसाला</b> उकळत्या चहामध्ये चिमूटभर टाका.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 13. ABOUT & CONTACT MODALS ─── -->
+<div class="modal-overlay" id="mAbout">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('mAbout')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:14px">
+      ℹ️ <span data-i18n="about_heading">Lalbaug Masalawale — Shudh Masale</span>
+    </div>
+    <div style="font-size:13px; line-height:1.8; color:var(--text-dark)">
+      १९९० पासून, आम्ही महाराष्ट्रातील घराघरात शुद्धता आणि अस्सल चव पोहोचवत आहोत. आमचे सर्व मसाले उत्कृष्ट दर्जाचे, खडे मसाले पारंपरिक पद्धतीने कुटून, कोणतीही रासायनिक प्रक्रिया किंवा कृत्रिम रंग न मिसळता तयार केले जातात.
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="mContact">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('mContact')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:14px">
+      📞 <span data-i18n="contact_heading">संपर्क साधा (Contact Us)</span>
+    </div>
+    <div style="font-size:13.5px; line-height:2.2">
+      📞 <b>Phone:</b> <a href="tel:+919876543210" style="color:var(--maroon); text-decoration:none">+91 98765 43210</a><br/>
+      📱 <b>WhatsApp:</b> <a href="https://wa.me/919876543210" target="_blank" style="color:var(--success); text-decoration:none; font-weight:700">WhatsApp वर चॅट करा</a><br/>
+      ✉️ <b>Email:</b> info@lalbaugmasalawale.com<br/>
+      🏪 <b>Main Outlet:</b> लालबाग, मुंबई — ४०००१२.
+    </div>
+  </div>
+</div>
+
+<!-- ─── CLIENT LOGIC & DEMO SAMPLE PRODUCTS (Screenshot 2 exact items) ─── -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, query, where, orderBy, limit, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAyUBjstgyGlhdnkl0n_be1iewHxh2Z3FQ",
+  authDomain: "lalbaugmasalawale.firebaseapp.com",
+  projectId: "lalbaugmasalawale",
+  storageBucket: "lalbaugmasalawale.firebasestorage.app",
+  messagingSenderId: "594235623374",
+  appId: "1:594235623374:web:24adfc90e87553a93f8d9f"
+};
+const fbApp = initializeApp(firebaseConfig);
+const db = getFirestore(fbApp);
+
+// ─── 20 EXACT DEMO SAMPLE PRODUCTS MATCHING SCREENSHOT 2 ──────
+const DEMO_SPICES = [
+  { id: 'ds_1', name: 'Barberry', nameMr: 'बारबेरी (Barberry)', category: 'Whole', weight: '250', price: 285.00, img: 'public/images/spices/peppercorns_round.png', rating: 4.8, sale: true, save: '10%' },
+  { id: 'ds_2', name: 'Black Cardamom', nameMr: 'काळी मोठी वेलची', category: 'Whole', weight: '250', price: 369.00, img: 'public/images/spices/black_cardamom.png', rating: 5.0, sale: false, save: null },
+  { id: 'ds_3', name: 'Black Mustard', nameMr: 'काळी मोहरी', category: 'Cooking', weight: '500', price: 209.00, img: 'public/images/spices/peppercorns_round.png', rating: 4.7, sale: true, save: '15%' },
+  { id: 'ds_4', name: 'Black Sesame Seeds', nameMr: 'काळे तीळ', category: 'Cooking', weight: '250', price: 195.00, img: 'public/images/spices/cumin_seeds.png', rating: 4.8, sale: true, save: '8%' },
+  { id: 'ds_5', name: 'Cardamom', nameMr: 'हिरवी वेलची (Cardamom)', category: 'Whole', weight: '250', price: 897.00, img: 'public/images/spices/green_cardamom.png', rating: 5.0, sale: true, save: '8%' },
+  { id: 'ds_6', name: 'Cinnamon Sticks', nameMr: 'दालचिनी (Cinnamon)', category: 'Clove', weight: '250', price: 421.00, img: 'public/images/spices/cinnamon_sticks.png', rating: 4.9, sale: false, save: null },
+  { id: 'ds_7', name: 'Cloves 250 Gm', nameMr: 'लवंग (Cloves)', category: 'Clove', weight: '250', price: 299.00, img: 'public/images/spices/cloves.png', rating: 4.9, sale: false, save: null },
+  { id: 'ds_8', name: 'Coriander 1 Kg', nameMr: 'धने पावडर (Coriander)', category: 'Cooking', weight: '1kg', price: 197.00, img: 'public/images/spices/bowl_dhaniya.png', rating: 4.8, sale: true, save: '24%' },
+  { id: 'ds_9', name: 'Cubeb Pepper', nameMr: 'कबाब चिनी (Cubeb)', category: 'Pepper', weight: '250', price: 295.00, img: 'public/images/spices/peppercorns_round.png', rating: 4.7, sale: false, save: null },
+  { id: 'ds_10', name: 'Dill Seeds 250 Gm', nameMr: 'सुवा / बाळंतशेप (Dill)', category: 'Cooking', weight: '250', price: 209.00, img: 'public/images/spices/cumin_seeds.png', rating: 4.8, sale: false, save: null },
+  { id: 'ds_11', name: 'Dried Ginger', nameMr: 'सुंठ (Dried Ginger)', category: 'Cooking', weight: '250', price: 299.00, img: 'public/images/spices/dried_ginger_slices.png', rating: 4.9, sale: false, save: null },
+  { id: 'ds_12', name: 'Dried Rosemary', nameMr: 'रोझमेरी (Dried Rosemary)', category: 'Cooking', weight: '100', price: 449.00, img: 'public/images/spices/bay_leaves.png', rating: 4.6, sale: false, save: null },
+  { id: 'ds_13', name: 'Fennel Seeds', nameMr: 'बडीशेप (Fennel Seeds)', category: 'Cooking', weight: '500', price: 185.00, img: 'public/images/spices/cumin_seeds.png', rating: 4.9, sale: false, save: null },
+  { id: 'ds_14', name: 'Fenugreek Dal', nameMr: 'मेथी दाणे / डाळ', category: 'Cooking', weight: '500', price: 165.00, img: 'public/images/spices/bowl_haldi.png', rating: 4.7, sale: true, save: '12%' },
+  { id: 'ds_15', name: 'Green Peppercorns', nameMr: 'हिरवी मिरी (Green Pepper)', category: 'Pepper', weight: '250', price: 349.00, img: 'public/images/spices/peppercorns_round.png', rating: 4.8, sale: false, save: null },
+  { id: 'ds_16', name: 'Nutmeg 250 Gm', nameMr: 'जायफळ (Nutmeg)', category: 'Whole', weight: '250', price: 199.00, img: 'public/images/spices/nutmeg.png', rating: 4.9, sale: true, save: '15%' },
+  { id: 'ds_17', name: 'Pimento 250 Gm', nameMr: 'पिमेंटो ऑलस्पाइस', category: 'Pepper', weight: '250', price: 429.00, img: 'public/images/spices/peppercorns_round.png', rating: 4.8, sale: true, save: '14%' },
+  { id: 'ds_18', name: 'Pippali Pepper', nameMr: 'पिंपळी (Pippali Pepper)', category: 'Pepper', weight: '250', price: 429.00, img: 'public/images/spices/pippali_pepper.png', rating: 4.9, sale: true, save: '12%' },
+  { id: 'ds_19', name: 'Red Chili Pepper', nameMr: 'लाल सुकी मिरची (Dry Chili)', category: 'Chili', weight: '500', price: 799.00, img: 'public/images/spices/dry_red_chili.png', rating: 4.9, sale: false, save: null },
+  { id: 'ds_20', name: 'Star Anise 250 Gm', nameMr: 'चक्रफूल (Star Anise)', category: 'Whole', weight: '250', price: 299.00, img: 'public/images/spices/star_anise.png', rating: 5.0, sale: false, save: null }
+];
+
+// ─── BILINGUAL I18N DICTIONARY ────────────────────────────────
+const I18N = {
+  mr: {
+    ann_purity: "१००% शुद्ध आणि नैसर्गिक",
+    ann_colors: "कोणतेही कृत्रिम रंग नाही",
+    ann_lab: "लॅब टेस्टेड फॉर प्युरिटी",
+    ann_delivery: "₹४९९ वरील ऑर्डर्सवर मोफत डिलिव्हरी",
+    header_slogan: "शुद्ध मसाले • स्वाद जो याद रहे",
+    nav_home: "मुखपृष्ठ",
+    nav_about: "आमच्याबद्दल",
+    nav_products: "आमची उत्पादने ▾",
+    nav_recipes: "रेसिपीज",
+    nav_quality: "गुणवत्ता",
+    nav_contact: "संपर्क",
+    hero_title: "शुद्ध मसाले,<br/>स्वाद जो याद रहे",
+    hero_subtitle: "१९९० पासून, आम्ही तुमच्या जेवणात मिसळत आहोत शुद्धता, सुगंध आणि अस्सल भारतीय स्वाद.",
+    hero_shop_now: "SHOP NOW",
+    tb_1: "100% शुद्ध मसाले",
+    tb_2: "पारंपरिक तरीके से तैयार",
+    tb_3: "बिना मिलावट के 100% भरोसा",
+    tb_4: "लैब टेस्टेड फॉर प्यूरिटी",
+    tb_5: "₹499 से ऊपर की खरीद पर फ्री डिलीवरी",
+    tb_6: "सीधे भारतीय खेतों से",
+    cat_title: "SHOP BY CATEGORY",
+    bowl_mirch: "मिर्च पाउडर",
+    bowl_dhaniya: "धनिया पाउडर",
+    bowl_haldi: "हल्दी पाउडर",
+    bowl_garam: "गरम मसाला",
+    bowl_kitchen: "किचन किंग मसाला",
+    bowl_meat: "मीट मसाला",
+    bowl_all: "सभी उत्पाद",
+    catalog_header: "Products (मसाले)",
+    catalog_breadcrumb: "Home / Products",
+    pill_cat: "Category (श्रेणी)",
+    pill_weight: "Shop By Weight",
+    pill_price: "Shop By Price",
+    pill_brand: "Shop By Brand",
+    pill_bestseller: "Best Sellers",
+    sb_all: "सर्व मसाले (All)",
+    sb_masalas: "Masalas (मसाले)",
+    sb_chat: "Chat Masalas",
+    sb_pepper: "Pepper Powder",
+    sb_cooking: "Cooking Essentials",
+    sb_oil: "Refined Oil",
+    sb_whole: "Whole Spices (खडे मसाले)",
+    sb_clove: "Clove & Cinnamon",
+    sort_label: "Sort by:",
+    sort_opt_featured: "# Featured / लोकप्रिय",
+    sort_opt_low: "Price: Low to High",
+    sort_opt_high: "Price: High to Low",
+    sort_opt_name: "Name: A to Z",
+    ban1_top: "ABOUT SHUDH MASALE",
+    ban1_title: "परंपरा से स्वाद तक",
+    ban1_desc: "1990 से हम आपके खाने में घोल रहे हैं शुद्धता, खुशबू और असली भारतीय स्वाद।",
+    ban1_btn: "Visit site ↗",
+    ban2_top: "TRY OUR RECIPES",
+    ban2_title: "स्वादिष्ट रेसिपी",
+    ban2_desc: "बेहतरीन रेसिपी के साथ अपने खाने को बनाएं और भी खास।",
+    ban2_btn: "EXPLORE RECIPES →",
+    nl_heading: "STAY UPDATED",
+    nl_text: "नए उत्पाद, ऑफर और रेसिपी के लिए हमारे साथ जुड़े रहें।",
+    nl_btn: "SUBSCRIBE",
+    cart_title: "तुमची Cart (Shopping Bag)",
+    cart_subtotal: "उपएकूण (Subtotal):",
+    cart_shipping: "डिलिव्हरी शुल्क:",
+    cart_free: "मोफत (FREE)",
+    cart_total: "एकूण रक्कम:",
+    btn_checkout: "पुढे जा — Checkout करा →",
+    checkout_heading: "Order Checkout",
+    lbl_name: "नाव (Full Name) *",
+    lbl_phone: "मोबाईल नंबर (10-Digit Mobile) *",
+    lbl_addr: "डिलिव्हरी पत्ता (Full Delivery Address) *",
+    co_summary: "Order Summary",
+    co_total: "एकूण देय रक्कम:",
+    co_cash: "Cash / UPI on Delivery. आत्ता कार्ड पेमेंटची गरज नाही.",
+    btn_confirm_order: "✅ Order Confirm करा",
+    track_title: "माझे Orders तपासा",
+    btn_search: "शोधा",
+    recipes_title: "स्वादिष्ट व अस्सल रेसिपीज",
+    about_heading: "Lalbaug Masalawale — Shudh Masale",
+    contact_heading: "संपर्क साधा (Contact Us)"
+  },
+  en: {
+    ann_purity: "100% Pure & Natural",
+    ann_colors: "No Artificial Colors",
+    ann_lab: "Lab Tested for Purity",
+    ann_delivery: "Free Delivery on orders above ₹499",
+    header_slogan: "Pure Spices • Taste to Remember",
+    nav_home: "HOME",
+    nav_about: "ABOUT US",
+    nav_products: "OUR PRODUCTS ▾",
+    nav_recipes: "RECIPES",
+    nav_quality: "QUALITY",
+    nav_contact: "CONTACT US",
+    hero_title: "Shuddh Masale,<br/>Swaad Jo Yaad Rahe",
+    hero_subtitle: "Since 1990, blending authentic purity, aroma, and rich Indian heritage into your daily meals.",
+    hero_shop_now: "SHOP NOW",
+    tb_1: "100% Pure Spices",
+    tb_2: "Traditional Grinding",
+    tb_3: "100% Trust & Purity",
+    tb_4: "Lab Tested for Purity",
+    tb_5: "Free Delivery on orders above ₹499",
+    tb_6: "Directly from Indian Farms",
+    cat_title: "SHOP BY CATEGORY",
+    bowl_mirch: "Mirch Powder",
+    bowl_dhaniya: "Dhaniya Powder",
+    bowl_haldi: "Haldi Powder",
+    bowl_garam: "Garam Masala",
+    bowl_kitchen: "Kitchen King",
+    bowl_meat: "Meat Masala",
+    bowl_all: "View All",
+    catalog_header: "Products",
+    catalog_breadcrumb: "Home / Products",
+    pill_cat: "Category",
+    pill_weight: "Shop By Weight",
+    pill_price: "Shop By Price",
+    pill_brand: "Shop By Brand",
+    pill_bestseller: "Best Sellers",
+    sb_all: "All Spices",
+    sb_masalas: "Masalas",
+    sb_chat: "Chat Masalas",
+    sb_pepper: "Pepper Powder",
+    sb_cooking: "Cooking Essentials",
+    sb_oil: "Refined Oil",
+    sb_whole: "Whole Spices",
+    sb_clove: "Clove & Cinnamon",
+    sort_label: "Sort by:",
+    sort_opt_featured: "# Featured",
+    sort_opt_low: "Price: Low to High",
+    sort_opt_high: "Price: High to Low",
+    sort_opt_name: "Name: A to Z",
+    ban1_top: "ABOUT SHUDH MASALE",
+    ban1_title: "From Tradition to Taste",
+    ban1_desc: "Since 1990, blending authentic purity, rich aroma, and authentic Indian taste.",
+    ban1_btn: "Visit site ↗",
+    ban2_top: "TRY OUR RECIPES",
+    ban2_title: "Delicious Recipes",
+    ban2_desc: "Make your everyday food extraordinary with our signature spice blends.",
+    ban2_btn: "EXPLORE RECIPES →",
+    nl_heading: "STAY UPDATED",
+    nl_text: "Join us for new seasonal spices, festive offers & authentic recipes.",
+    nl_btn: "SUBSCRIBE",
+    cart_title: "Your Cart (Shopping Bag)",
+    cart_subtotal: "Subtotal:",
+    cart_shipping: "Shipping:",
+    cart_free: "FREE",
+    cart_total: "Total:",
+    btn_checkout: "Proceed to Checkout →",
+    checkout_heading: "Order Checkout",
+    lbl_name: "Full Name *",
+    lbl_phone: "Mobile Number (10-Digit) *",
+    lbl_addr: "Full Delivery Address *",
+    co_summary: "Order Summary",
+    co_total: "Total Payable:",
+    co_cash: "Cash / UPI on Delivery. No online card required.",
+    btn_confirm_order: "✅ Confirm Order",
+    track_title: "Track My Orders",
+    btn_search: "Search",
+    recipes_title: "Delicious & Authentic Recipes",
+    about_heading: "Lalbaug Masalawale — Shudh Masale",
+    contact_heading: "Contact Us"
+  }
+};
+
+let currentLang = localStorage.getItem('lm_lang') || 'mr';
+let activeFilterCat = 'all';
+let activeWeight = 'all';
+let minPrice = 0;
+let maxPrice = 999999;
+let activeSort = 'featured';
+let cart = JSON.parse(localStorage.getItem('lm_cart') || '[]');
+
+function toast(msg, dur=2600) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), dur);
+}
+window.toast = toast;
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lm_lang', lang);
+  document.documentElement.lang = lang;
+
+  document.getElementById('langBtnEn').classList.toggle('active', lang === 'en');
+  document.getElementById('langBtnMr').classList.toggle('active', lang === 'mr');
+
+  const dict = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (dict[k]) el.innerHTML = dict[k];
+  });
+
+  renderProducts();
+  renderCart();
+}
+window.switchLanguage = function(lang) {
+  applyLanguage(lang);
+  toast(lang === 'mr' ? 'मराठी भाषा निवडली गेली' : 'Switched to English');
+};
+
+// ─── RENDER PRODUCTS GRID (4-Columns matching Screenshot 2) ───
+function renderProducts() {
+  const container = document.getElementById('productGridContainer');
+  if (!container) return;
+
+  let list = [...DEMO_SPICES];
+
+  if (activeFilterCat !== 'all') {
+    list = list.filter(p => p.category.toLowerCase().includes(activeFilterCat.toLowerCase()) || p.name.toLowerCase().includes(activeFilterCat.toLowerCase()));
+  }
+
+  if (activeWeight !== 'all') {
+    list = list.filter(p => p.weight === activeWeight);
+  }
+
+  list = list.filter(p => p.price >= minPrice && p.price <= maxPrice);
+
+  if (activeSort === 'low') list.sort((a,b) => a.price - b.price);
+  else if (activeSort === 'high') list.sort((a,b) => b.price - a.price);
+  else if (activeSort === 'name') list.sort((a,b) => a.name.localeCompare(b.name));
+
+  container.innerHTML = list.map(p => {
+    const title = currentLang === 'mr' ? p.nameMr : p.name;
+    const inCart = cart.find(c => c.id === p.id);
+    return `
+      <div class="spice-prod-card">
+        ${p.sale ? '<span class="card-sale-badge">SALE</span>' : ''}
+        ${p.save ? `<span class="card-save-badge">Save ${p.save}</span>` : ''}
+
+        <div class="card-bowl-wrapper">
+          <img src="${p.img}" alt="${title}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&auto=format&fit=crop&q=80'"/>
+        </div>
+
+        <div class="card-prod-title">${title}</div>
+        <div class="card-prod-price">₹${p.price.toFixed(2)}</div>
+        <div class="card-stars-row">★★★★★</div>
+
+        <div style="width:100%; margin-top:auto">
+          ${inCart
+            ? `<div class="qty-stepper-box">
+                 <button class="stepper-btn" onclick="updateQty('${p.id}', -1)">−</button>
+                 <span class="stepper-val">${inCart.qty}</span>
+                 <button class="stepper-btn" onclick="updateQty('${p.id}', 1)">+</button>
+               </div>`
+            : `<button class="btn-quick-add" onclick="addToCart('${p.id}')">
+                 + ${currentLang === 'mr' ? 'Cart मध्ये टाका' : 'Add to Cart'}
+               </button>`}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+window.filterByCategory = function(c) {
+  activeFilterCat = c;
+  document.querySelectorAll('.filter-item-li').forEach(li => li.classList.remove('active'));
+  document.querySelectorAll('.bowl-card').forEach(b => b.classList.remove('active'));
+  renderProducts();
+  scrollToSection('catalogSection');
+};
+
+window.filterByWeight = function(w) {
+  activeWeight = w;
+  renderProducts();
+};
+
+window.filterByPrice = function(min, max) {
+  minPrice = min;
+  maxPrice = max;
+  renderProducts();
+};
+
+window.handleSort = function(s) {
+  activeSort = s;
+  renderProducts();
+};
+
+// ─── CART MANAGEMENT ──────────────────────────────────────────
+function saveCart() {
+  localStorage.setItem('lm_cart', JSON.stringify(cart));
+  updateCartBadge();
+  renderCart();
+  renderProducts();
+}
+
+function updateCartBadge() {
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  const badge = document.getElementById('headerCartBadge');
+  if (badge) {
+    if (count > 0) {
+      badge.style.display = 'flex';
+      badge.textContent = count;
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+}
+
+window.addToCart = function(id) {
+  const p = DEMO_SPICES.find(x => x.id === id);
+  if (!p) return;
+  const existing = cart.find(c => c.id === id);
+  if (existing) existing.qty += 1;
+  else cart.push({ id: p.id, name: p.name, nameMr: p.nameMr, price: p.price, img: p.img, qty: 1 });
+  saveCart();
+  toast(`✅ ${currentLang === 'mr' ? p.nameMr : p.name} added!`);
+  openCartDrawer();
+};
+
+window.updateQty = function(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  saveCart();
+};
+
+window.openCartDrawer = function() {
+  renderCart();
+  document.getElementById('cartDrawerBackdrop').classList.add('open');
+};
+window.closeCartDrawer = function(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('cartDrawerBackdrop').classList.remove('open');
+};
+
+function renderCart() {
+  const list = document.getElementById('cartDrawerItems');
+  const footer = document.getElementById('cartDrawerFooter');
+  if (!list) return;
+
+  if (cart.length === 0) {
+    list.innerHTML = `<div style="text-align:center;padding:40px 10px;color:var(--text-mid)"><div style="font-size:36px;margin-bottom:8px">🛒</div>${currentLang === 'mr' ? 'तुमची Cart रिकामी आहे' : 'Your cart is empty'}</div>`;
+    if (footer) footer.style.display = 'none';
+    return;
+  }
+
+  if (footer) footer.style.display = 'block';
+
+  list.innerHTML = cart.map(it => `
+    <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+      <img src="${it.img}" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid var(--border)" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=300&auto=format&fit=crop&q=80'"/>
+      <div style="flex:1">
+        <div style="font-size:13px;font-weight:700">${currentLang === 'mr' ? it.nameMr : it.name}</div>
+        <div style="font-size:11.5px;color:var(--text-mid)">₹${it.price.toFixed(2)}</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:4px">
+          <button onclick="updateQty('${it.id}',-1)" style="width:22px;height:22px;background:var(--cream-soft);border:1px solid var(--border);border-radius:4px;cursor:pointer;font-weight:800">−</button>
+          <span style="font-size:12px;font-weight:800">${it.qty}</span>
+          <button onclick="updateQty('${it.id}',1)" style="width:22px;height:22px;background:var(--cream-soft);border:1px solid var(--border);border-radius:4px;cursor:pointer;font-weight:800">+</button>
+        </div>
+      </div>
+      <div style="font-weight:800;font-size:13px;color:var(--maroon)">₹${(it.price * it.qty).toFixed(2)}</div>
+    </div>
+  `).join('');
+
+  const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+  document.getElementById('cartSubtotalVal').textContent = `₹${total.toFixed(2)}`;
+  document.getElementById('cartTotalVal').textContent = `₹${total.toFixed(2)}`;
+}
+
+// ─── CHECKOUT & ORDER PLACEMENT ───────────────────────────────
+window.openCheckoutModal = function() {
+  closeCartDrawer();
+  if (cart.length === 0) return;
+
+  const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+  document.getElementById('checkoutSummaryList').innerHTML = cart.map(i => `
+    <div style="display:flex;justify-content:space-between;padding:2px 0">
+      <span>${currentLang === 'mr' ? i.nameMr : i.name} × ${i.qty}</span>
+      <b>₹${(i.price * i.qty).toFixed(2)}</b>
+    </div>
+  `).join('');
+  document.getElementById('checkoutTotalPayable').textContent = `₹${total.toFixed(2)}`;
+  openModal('mCheckout');
+};
+
+window.submitOrderFinal = async function() {
+  const name = document.getElementById('custNameInput').value.trim();
+  const phone = document.getElementById('custPhoneInput').value.trim();
+  const addr = document.getElementById('custAddressInput').value.trim();
+
+  if (!name || !/^\d{10}$/.test(phone) || !addr) {
+    toast(currentLang === 'mr' ? '❌ कृपया सर्व माहिती आणि १० अंकी मोबाईल भरा' : '❌ Please fill all fields with 10-digit phone');
+    return;
+  }
+
+  const btn = document.getElementById('btnPlaceOrderSubmit');
+  btn.disabled = true;
+  btn.textContent = '⏳ Submitting...';
+
+  const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+  const orderData = {
+    customerName: name,
+    customerPhone: phone,
+    address: addr,
+    items: cart.map(i => ({ productId: i.id, name: i.name, nameMr: i.nameMr, price: i.price, qty: i.qty })),
+    totalAmount: total,
+    status: 'placed',
+    deliveryType: 'delivery',
+    createdAt: serverTimestamp()
+  };
+
+  try {
+    const ref = await addDoc(collection(db, 'orders'), orderData);
+    localStorage.setItem('lm_custPhone', phone);
+    cart = [];
+    saveCart();
+    closeModal('mCheckout');
+    toast(`🎉 Order Confirmed! ID: #${ref.id.slice(-6).toUpperCase()}`, 4000);
+  } catch(e) {
+    toast('❌ ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = currentLang === 'mr' ? '✅ Order Confirm करा' : '✅ Confirm Order';
+  }
+};
+
+// ─── SEARCH MY ORDERS ─────────────────────────────────────────
+window.searchMyOrders = async function() {
+  const phone = document.getElementById('lookupPhoneInput').value.trim();
+  if (!/^\d{10}$/.test(phone)) {
+    toast(currentLang === 'mr' ? 'कृपया १० अंकी मोबाईल नंबर टाका' : 'Enter 10-digit phone');
+    return;
+  }
+  const list = document.getElementById('trackedOrdersList');
+  list.innerHTML = '<div style="text-align:center;padding:20px">⏳ Searching...</div>';
+
+  try {
+    const q = query(collection(db, 'orders'), where('customerPhone', '==', phone), orderBy('createdAt', 'desc'), limit(15));
+    const snap = await getDocs(q);
+    const orders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+    if (orders.length === 0) {
+      list.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-mid)">कोणतेही orders सापडले नाहीत</div>';
+      return;
+    }
+
+    list.innerHTML = orders.map(o => `
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;font-weight:800;font-size:13px;color:var(--maroon)">
+          <span>#${o.id.slice(-6).toUpperCase()}</span>
+          <span>${o.status.toUpperCase()}</span>
+        </div>
+        <div style="font-size:11.5px;margin:4px 0">${(o.items||[]).map(i=>`${i.name} × ${i.qty}`).join(', ')}</div>
+        <div style="font-weight:800;font-size:13px;text-align:right">₹${o.totalAmount || 0}</div>
+      </div>
+    `).join('');
+  } catch(e) {
+    list.innerHTML = `<div style="color:var(--error);font-size:12px">${e.message}</div>`;
+  }
+};
+
+// ─── MODALS & UTILS ───────────────────────────────────────────
+window.openModal = function(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.add('open');
+};
+window.closeModal = function(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.remove('open');
+};
+window.scrollToSection = function(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    const yOffset = -70;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+};
+
+// ─── INIT ─────────────────────────────────────────────────────
+(function init() {
+  applyLanguage(currentLang);
+  updateCartBadge();
+})();
+</script>
+</body>
+</html>

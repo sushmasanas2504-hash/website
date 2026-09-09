@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Lalbaug Masalawale — Management Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --maroon: #5C1014;
+  --deep-red: #7A1A22;
+  --saffron: #D45124;
+  --saffron-bright: #E8501A;
+  --gold: #C9880A;
+  --gold-light: #ECC87A;
+  --cream: #FFF9F0;
+  --cream-card: #FFFFFF;
+  --cream-soft: #F7EDE1;
+  --border: #E8D7C3;
+  --border-gold: #D6A856;
+  --text-dark: #2B160B;
+  --text-mid: #7C6656;
+  --text-muted: #9E8877;
+  --success: #1E7B4E;
+  --error: #C0292B;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 2px 8px rgba(92, 16, 20, 0.06);
+  --shadow-md: 0 6px 20px rgba(92, 16, 20, 0.1);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+input, select, textarea, button { font-family: inherit; }
+
+/* Header & Top Navigation */
+.topnav {
+  background: #FFF;
+  border-bottom: 1.5px solid var(--border);
+  padding: 12px 18px;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.topnav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #7A1A22, #47080B);
+  border: 1.5px solid var(--gold);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 900;
+  font-family: 'Cinzel', serif;
+}
+.topnav-title {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--maroon);
+}
+.topnav-sub {
+  font-size: 10px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Language Switcher */
+.lang-toggle {
+  display: flex;
+  background: var(--cream-soft);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 2px;
+}
+.lang-btn {
+  border: none;
+  background: none;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-mid);
+  cursor: pointer;
+  border-radius: 16px;
+  transition: var(--transition);
+}
+.lang-btn.active {
+  background: var(--maroon);
+  color: #FFF;
+}
+
+/* Pages Control */
+.page { display: none; min-height: calc(100vh - 70px); }
+.page.active { display: block; }
+.scroll-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: var(--transition);
+}
+.btn-p {
+  background: var(--maroon);
+  color: #FFF;
+  border: 1px solid var(--gold);
+  box-shadow: 0 3px 10px rgba(92,16,20,0.25);
+}
+.btn-p:hover { background: var(--saffron-bright); }
+.btn-s {
+  background: #FFF;
+  color: var(--text-dark);
+  border: 1.5px solid var(--border);
+}
+.btn-s:hover { border-color: var(--maroon); }
+
+.bsm {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: #FFF;
+  transition: var(--transition);
+}
+.bsm:hover { border-color: var(--maroon); }
+.bsm.bgreen {
+  background: var(--success);
+  color: #FFF;
+  border: none;
+}
+.bsm.berror {
+  background: #FFF;
+  color: var(--error);
+  border-color: #F8D7DA;
+}
+.bsm.berror:hover {
+  background: var(--error);
+  color: #FFF;
+}
+
+/* Form Styles */
+.form-group { margin-bottom: 14px; }
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 13.5px;
+  background: #FFF;
+  outline: none;
+  transition: var(--transition);
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--saffron);
+}
+
+/* Cards & Layout */
+.card {
+  background: #FFF;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* KPI Dashboard Cards */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.kpi {
+  background: linear-gradient(145deg, #FFFFFF, #FFF9F0);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  border: 1.5px solid var(--border-gold);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.kpi-val {
+  font-family: 'Cinzel', serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--maroon);
+}
+.kpi-lbl {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-mid);
+  margin-top: 4px;
+}
+
+/* Dashboard Navigation Tiles */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .tile-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.tile {
+  background: #FFF;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.tile:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.tile-ico { font-size: 32px; margin-bottom: 8px; }
+.tile-lbl {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.tile-sub {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.st-placed { background: #FFF3CD; color: #8A6D00; }
+.st-confirmed { background: #D6EAF8; color: #1565C0; }
+.st-ready { background: #E1D5F5; color: #5B2D8E; }
+.st-out { background: #FDE0C8; color: var(--saffron); }
+.st-completed { background: #D4EFDF; color: #1E7B4E; }
+.st-cancelled { background: #FADBD8; color: var(--error); }
+
+/* Orders List & Row */
+.order-row {
+  background: #FFF;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.order-row:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-2px);
+}
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  scrollbar-width: thin;
+}
+.ftab {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #FFF;
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.ftab.on {
+  background: var(--maroon);
+  color: #FFF;
+  border-color: var(--maroon);
+}
+
+/* Modals */
+.moverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
+  z-index: 200;
+  align-items: flex-end;
+  justify-content: center;
+}
+@media (min-width: 600px) {
+  .moverlay { align-items: center; }
+}
+.moverlay.open { display: flex; }
+.modal {
+  background: #FFF;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 22px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+@media (min-width: 600px) {
+  .modal { border-radius: 18px; }
+}
+.mclose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mtitle {
+  font-family: 'Cinzel', serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--maroon);
+  margin-bottom: 16px;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #36090B;
+  color: #FFF;
+  border: 1px solid var(--gold);
+  padding: 10px 22px;
+  border-radius: 28px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 9999;
+  opacity: 0;
+  transition: .3s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Messages */
+.msg {
+  font-size: 12.5px;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: none;
+}
+.msg.show { display: block; }
+.msg.e { background: #FDECEA; color: var(--error); border: 1px solid #FADBD8; }
+.msg.s { background: #E6F7F5; color: var(--success); border: 1px solid #A3E4D7; }
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2.5px solid rgba(255,255,255,.4);
+  border-top-color: #FFF;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+.spinner-dark {
+  border-color: rgba(0,0,0,.15);
+  border-top-color: var(--maroon);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--maroon);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.back-btn:hover { background: var(--cream-soft); }
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- ─── TOPNAV ─── -->
+<nav class="topnav">
+  <div class="topnav-left">
+    <div class="brand-icon">LM</div>
+    <div>
+      <div class="topnav-title">Lalbaug Masalawale</div>
+      <div class="topnav-sub" data-i18n="mgmt_portal">Management Portal</div>
+    </div>
+  </div>
+  <div class="topnav-right">
+    <!-- Language Switcher: EN / MR -->
+    <div class="lang-toggle">
+      <button class="lang-btn" id="adminLangEn" onclick="switchAdminLang('en')">EN</button>
+      <button class="lang-btn active" id="adminLangMr" onclick="switchAdminLang('mr')">मराठी</button>
+    </div>
+    <button class="bsm berror" id="logoutBtn" onclick="doLogout()" style="display:none" data-i18n="btn_logout">लॉगआउट</button>
+  </div>
+</nav>
+
+<!-- ─── 1. LOGIN PAGE ─── -->
+<div class="page active" id="pLogin">
+  <div class="scroll-body" style="max-width:400px; padding-top:50px; text-align:center">
+    <div style="font-size:48px; margin-bottom:8px">🌶️</div>
+    <div style="font-family:'Cinzel',serif; font-weight:800; font-size:20px; color:var(--maroon); margin-bottom:4px">Lalbaug Masalawale</div>
+    <div style="font-size:12.5px; color:var(--text-mid); margin-bottom:24px" data-i18n="login_subtitle">व्यवस्थापक / Owner Login</div>
+
+    <div class="card" style="text-align:left">
+      <div class="form-group">
+        <label data-i18n="lbl_email">ईमेल (Email ID)</label>
+        <input type="email" id="loginEmail" placeholder="admin@lalbaugmasale.com"/>
+      </div>
+      <div class="form-group">
+        <label data-i18n="lbl_password">पासवर्ड (Password)</label>
+        <input type="password" id="loginPassword" placeholder="••••••••"/>
+      </div>
+      <button class="btn btn-p" id="loginBtn" onclick="doLogin()" data-i18n="btn_login">लॉगिन करा →</button>
+      <div class="msg" id="loginMsg"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 2. DASHBOARD PAGE ─── -->
+<div class="page" id="pDash">
+  <div class="scroll-body">
+    <!-- Welcome Strip -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px">
+      <div>
+        <h2 style="font-family:'Cinzel',serif; font-size:20px; color:var(--maroon)" data-i18n="dash_welcome">स्वागत आहे (Welcome)</h2>
+        <div style="font-size:12px; color:var(--text-mid)" id="userGreeting">Admin Dashboard</div>
+      </div>
+      <button class="bsm" onclick="goPage('pOrders')" data-i18n="btn_view_live">⚡ Live Orders</button>
+    </div>
+
+    <!-- KPI Metrics -->
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-val" id="kpiToday">0</div>
+        <div class="kpi-lbl" data-i18n="kpi_today">आजच्या Orders</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val" id="kpiPending" style="color:var(--saffron-bright)">0</div>
+        <div class="kpi-lbl" data-i18n="kpi_pending">Pending Orders</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val" id="kpiRevenue">₹0</div>
+        <div class="kpi-lbl" data-i18n="kpi_revenue">आजचा महसूल (Revenue)</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-val" id="kpiProducts">0</div>
+        <div class="kpi-lbl" data-i18n="kpi_products">सक्रिय उत्पादने (Products)</div>
+      </div>
+    </div>
+
+    <!-- Management Tiles -->
+    <div class="tile-grid">
+      <div class="tile" onclick="goPage('pOrders')">
+        <div class="tile-ico">🛒</div>
+        <div class="tile-lbl" data-i18n="tile_orders">Orders व्यवस्थापन</div>
+        <div class="tile-sub" data-i18n="tile_orders_sub">Live orders, स्थिती बदला</div>
+      </div>
+      <div class="tile" onclick="goPage('pProducts')">
+        <div class="tile-ico">🧂</div>
+        <div class="tile-lbl" data-i18n="tile_products">Products (मसाले)</div>
+        <div class="tile-sub" data-i18n="tile_products_sub">किंमत, वजन, फोटो बदला</div>
+      </div>
+      <div class="tile" onclick="goPage('pCategories')">
+        <div class="tile-ico">🗂️</div>
+        <div class="tile-lbl" data-i18n="tile_categories">Categories (श्रेणी)</div>
+        <div class="tile-sub" data-i18n="tile_categories_sub">नवीन श्रेणी जोडा / हटवा</div>
+      </div>
+      <div class="tile" onclick="goPage('pShops')">
+        <div class="tile-ico">🏪</div>
+        <div class="tile-lbl" data-i18n="tile_shops">पिकअप दुकाने (Shops)</div>
+        <div class="tile-sub" data-i18n="tile_shops_sub">Store pickup पत्ते</div>
+      </div>
+      <div class="tile" onclick="goPage('pStoreInfo')">
+        <div class="tile-ico">ℹ️</div>
+        <div class="tile-lbl" data-i18n="tile_storeinfo">Store माहिती व संपर्क</div>
+        <div class="tile-sub" data-i18n="tile_storeinfo_sub">फोन, WhatsApp, अटी</div>
+      </div>
+      <div class="tile" onclick="goPage('pStaff')">
+        <div class="tile-ico">👥</div>
+        <div class="tile-lbl" data-i18n="tile_staff">कर्मचारी (Staff)</div>
+        <div class="tile-sub" data-i18n="tile_staff_sub">नवीन स्टाफ लॉगिन तयार करा</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 3. ORDERS PAGE ─── -->
+<div class="page" id="pOrders">
+  <div class="scroll-body">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px">
+      <button class="back-btn" onclick="goPage('pDash')">←</button>
+      <h2 style="font-family:'Cinzel',serif; font-size:18px; color:var(--maroon); flex:1" data-i18n="orders_heading">🛒 Orders व्यवस्थापन</h2>
+    </div>
+
+    <!-- Search input -->
+    <div class="form-group">
+      <input type="text" id="orderSearchInput" placeholder="ग्राहक नाव किंवा मोबाईल नंबरने शोधा..." oninput="handleOrderSearch(this.value)"/>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs" id="orderFilterTabs"></div>
+
+    <!-- Orders List Container -->
+    <div id="ordersListContainer"></div>
+  </div>
+</div>
+
+<!-- ─── 4. ORDER DETAIL MODAL ─── -->
+<div class="moverlay" id="mOrderDetail">
+  <div class="modal">
+    <button class="mclose" onclick="closeM('mOrderDetail')">✕</button>
+    <p class="mtitle" data-i18n="order_detail_title">🛒 Order तपशील</p>
+    <div id="orderDetailContent"></div>
+
+    <div class="form-group" style="margin-top:16px">
+      <label data-i18n="change_status_lbl">ऑर्डर स्थिती बदला (Update Status):</label>
+      <select id="orderStatusSelect">
+        <option value="placed" data-i18n="st_placed">🟡 नवीन (Placed)</option>
+        <option value="confirmed" data-i18n="st_confirmed">🔵 निश्चित (Confirmed)</option>
+        <option value="ready" data-i18n="st_ready">🟣 पॅक / तयार (Ready)</option>
+        <option value="out" data-i18n="st_out">🟠 डिलिव्हरीसाठी बाहेर / पिकअप तयार (Out for Delivery)</option>
+        <option value="completed" data-i18n="st_completed">🟢 पूर्ण झाले (Completed)</option>
+        <option value="cancelled" data-i18n="st_cancelled">🔴 रद्द (Cancelled)</option>
+      </select>
+    </div>
+
+    <button class="btn btn-p" onclick="saveOrderStatus()" data-i18n="btn_save_status">💾 स्थिती Update करा</button>
+    <button class="btn btn-s" onclick="window.print()" style="margin-top:6px" data-i18n="btn_print_bill">🖨️ पावती Print करा</button>
+    <div class="msg" id="orderDetailMsg"></div>
+  </div>
+</div>
+
+<!-- ─── 5. PRODUCTS PAGE ─── -->
+<div class="page" id="pProducts">
+  <div class="scroll-body">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <button class="back-btn" onclick="goPage('pDash')">←</button>
+        <h2 style="font-family:'Cinzel',serif; font-size:18px; color:var(--maroon)" data-i18n="products_heading">🧂 Products (मसाले)</h2>
+      </div>
+      <button class="bsm bgreen" onclick="openProductModal(null)" data-i18n="btn_new_product">+ नवीन Product</button>
+    </div>
+
+    <div id="productsListContainer"></div>
+  </div>
+</div>
+
+<!-- ─── 6. PRODUCT MODAL ─── -->
+<div class="moverlay" id="mProduct">
+  <div class="modal">
+    <button class="mclose" onclick="closeM('mProduct')">✕</button>
+    <p class="mtitle" id="productModalTitle" data-i18n="modal_add_product">+ नवीन Product जोडा</p>
+
+    <div class="form-group">
+      <label data-i18n="prod_form_name">उत्पादनाचे नाव (Product Name) *</label>
+      <input type="text" id="prodNameInput" placeholder="उदा. काश्मिरी लाल मिरची पावडर"/>
+    </div>
+    <div class="form-group">
+      <label data-i18n="prod_form_cat">श्रेणी (Category) *</label>
+      <select id="prodCategorySelect"></select>
+    </div>
+    <div style="grid-template-columns:1fr 1fr; display:grid; gap:10px">
+      <div class="form-group">
+        <label data-i18n="prod_form_price">किंमत ₹ (Price) *</label>
+        <input type="number" id="prodPriceInput" min="0" placeholder="140"/>
+      </div>
+      <div class="form-group">
+        <label data-i18n="prod_form_unit">एकक / वजन (Unit) *</label>
+        <input type="text" id="prodUnitInput" placeholder="उदा. 250g, 500g, 1kg"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label data-i18n="prod_form_photo">फोटो (Photo)</label>
+      <div style="display:flex; align-items:center; gap:12px">
+        <div id="prodPhotoPreview" style="width:50px; height:50px; border-radius:8px; border:1px solid var(--border); background:var(--cream); display:flex; align-items:center; justify-content:center; overflow:hidden">
+          🧂
+        </div>
+        <label class="bsm bgreen" style="cursor:pointer">
+          📷 <span data-i18n="btn_upload">अपलोड करा</span>
+          <input type="file" accept="image/*" onchange="handleProductPhotoUpload(this)" style="display:none"/>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label style="display:flex; align-items:center; gap:8px; cursor:pointer">
+        <input type="checkbox" id="prodActiveInput" checked style="width:auto"/>
+        <span data-i18n="prod_active_lbl">Active (ग्राहकांना स्टोअरवर दिसेल)</span>
+      </label>
+    </div>
+
+    <button class="btn btn-p" onclick="saveProductData()" data-i18n="btn_save_product">💾 Product जतन करा</button>
+    <div class="msg" id="productFormMsg"></div>
+  </div>
+</div>
+
+<!-- ─── 7. CATEGORIES PAGE ─── -->
+<div class="page" id="pCategories">
+  <div class="scroll-body">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px">
+      <button class="back-btn" onclick="goPage('pDash')">←</button>
+      <h2 style="font-family:'Cinzel',serif; font-size:18px; color:var(--maroon)" data-i18n="cat_heading">🗂️ Categories (श्रेणी व्यवस्थापन)</h2>
+    </div>
+
+    <div class="card">
+      <label style="font-size:12.5px; font-weight:700; margin-bottom:8px; display:block" data-i18n="add_cat_lbl">नवीन Category जोडा:</label>
+      <div style="display:flex; gap:8px">
+        <input type="text" id="newCategoryInput" placeholder="उदा. सांबार व रस्सम मसाले"/>
+        <button class="bsm bgreen" style="padding:0 16px" onclick="addNewCategory()" data-i18n="btn_add">+ जोडा</button>
+      </div>
+    </div>
+
+    <div id="categoriesListContainer"></div>
+  </div>
+</div>
+
+<!-- ─── 8. SHOPS (PICKUP LOCATIONS) PAGE ─── -->
+<div class="page" id="pShops">
+  <div class="scroll-body">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <button class="back-btn" onclick="goPage('pDash')">←</button>
+        <h2 style="font-family:'Cinzel',serif; font-size:18px; color:var(--maroon)" data-i18n="shops_heading">🏪 पिकअप दुकाने (Pickup Locations)</h2>
+      </div>
+      <button class="bsm bgreen" onclick="openShopModal(null)" data-i18n="btn_new_shop">+ नवीन दुकान</button>
+    </div>
+
+    <div id="shopsListContainer"></div>
+  </div>
+</div>
+
+<!-- ─── 9. SHOP MODAL ─── -->
+<div class="moverlay" id="mShop">
+  <div class="modal">
+    <button class="mclose" onclick="closeM('mShop')">✕</button>
+    <p class="mtitle" id="shopModalTitle" data-i18n="modal_add_shop">+ नवीन दुकान जोडा</p>
+
+    <div class="form-group">
+      <label data-i18n="shop_form_name">दुकानाचे नाव (Shop Name) *</label>
+      <input type="text" id="shopNameInput" placeholder="उदा. Lalbaug Main Outlet"/>
+    </div>
+    <div class="form-group">
+      <label data-i18n="shop_form_address">पत्ता (Full Address) *</label>
+      <textarea id="shopAddressInput" placeholder="दुकान क्र., इमारत, रस्ता, लालबाग, मुंबई"></textarea>
+    </div>
+    <div class="form-group">
+      <label data-i18n="shop_form_phone">फोन नंबर (Phone)</label>
+      <input type="text" id="shopPhoneInput" placeholder="+91 98765 43210"/>
+    </div>
+    <div class="form-group">
+      <label style="display:flex; align-items:center; gap:8px; cursor:pointer">
+        <input type="checkbox" id="shopActiveInput" checked style="width:auto"/>
+        <span data-i18n="shop_active_lbl">Active (ग्राहकांना पिकअपसाठी दिसेल)</span>
+      </label>
+    </div>
+
+    <button class="btn btn-p" onclick="saveShopData()" data-i18n="btn_save_shop">💾 दुकान जतन करा</button>
+    <div class="msg" id="shopFormMsg"></div>
+  </div>
+</div>
+
+<!-- ─── 10. STORE INFO & SETTINGS ─── -->
+<div class="page" id="pStoreInfo">
+  <div class="scroll-body">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px">
+      <button class="back-btn" onclick="goPage('pDash')">←</button>
+      <h2 style="font-family:'Cinzel',serif; font-size:18px; color:var(--maroon)" data-i18n="storeinfo_heading">ℹ️ Store माहिती व सेटिंग्ज</h2>
+    </div>
+
+    <div class="card">
+      <div class="form-group">
+        <label data-i18n="si_about">About Us (आमच्याबद्दल माहिती)</label>
+        <textarea id="storeAboutInput" style="min-height:90px" placeholder="मसाले आणि परंपरेबद्दल माहिती..."></textarea>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+        <div class="form-group">
+          <label data-i18n="si_phone">संपर्क फोन (Contact Phone)</label>
+          <input type="text" id="storePhoneInput" placeholder="+91 98765 43210"/>
+        </div>
+        <div class="form-group">
+          <label data-i18n="si_whatsapp">WhatsApp नंबर</label>
+          <input type="text" id="storeWhatsappInput" placeholder="+91 98765 43210"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-i18n="si_email">ईमेल पत्ता (Email Address)</label>
+        <input type="email" id="storeEmailInput" placeholder="info@lalbaugmasalawale.com"/>
+      </div>
+      <div class="form-group">
+        <label data-i18n="si_terms">अटी व शर्ती (Terms & Conditions)</label>
+        <textarea id="storeTermsInput" style="min-height:90px" placeholder="डिलिव्हरी व रिटर्न पॉलिसी..."></textarea>
+      </div>
+
+      <button class="btn btn-p" onclick="saveStoreSettings()" data-i18n="btn_save_settings">💾 Settings Save करा</button>
+      <div class="msg" id="storeSettingsMsg"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 11. STAFF MANAGEMENT ─── -->
+<div class="page" id="pStaff">
+  <div class="scroll-body">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <button class="back-btn" onclick="goPage('pDash')">←</button>
+        <h2 style="font-family:'Cinzel',serif; font-size:18px; color:var(--maroon)" data-i18n="staff_heading">👥 Staff (कर्मचारी लॉगिन)</h2>
+      </div>
+      <button class="bsm bgreen" onclick="openM('mStaff')" data-i18n="btn_new_staff">+ नवीन Staff</button>
+    </div>
+
+    <div id="staffListContainer"></div>
+  </div>
+</div>
+
+<!-- STAFF MODAL -->
+<div class="moverlay" id="mStaff">
+  <div class="modal">
+    <button class="mclose" onclick="closeM('mStaff')">✕</button>
+    <p class="mtitle" data-i18n="modal_add_staff">+ नवीन Staff लॉगिन जोडा</p>
+
+    <div class="form-group">
+      <label data-i18n="staff_form_name">कर्मचाऱ्याचे नाव (Staff Name) *</label>
+      <input type="text" id="staffNameInput" placeholder="उदा. विशाल पाटील"/>
+    </div>
+    <div class="form-group">
+      <label data-i18n="staff_form_email">ईमेल पत्ता (Email ID) *</label>
+      <input type="email" id="staffEmailInput" placeholder="staff@lalbaugmasale.com"/>
+    </div>
+    <div class="form-group">
+      <label data-i18n="staff_form_pass">पासवर्ड (Password) * (किमान 6 अक्षरे)</label>
+      <input type="text" id="staffPasswordInput" placeholder="किमान 6 अक्षरी पासवर्ड"/>
+    </div>
+
+    <button class="btn btn-p" onclick="saveNewStaff()" data-i18n="btn_save_staff">💾 Staff लॉगिन तयार करा</button>
+    <div class="msg" id="staffFormMsg"></div>
+  </div>
+</div>
+
+<!-- ─── CONFIRMATION DIALOG ─── -->
+<div class="moverlay" id="mConfirm">
+  <div class="modal" style="max-width:380px; text-align:center">
+    <div style="font-size:40px; margin-bottom:8px">⚠️</div>
+    <p class="mtitle" id="confirmTitle" style="text-align:center" data-i18n="confirm_title">खात्री करा</p>
+    <p style="font-size:13px; color:var(--text-mid); margin-bottom:18px" id="confirmMsg"></p>
+    <div style="display:flex; gap:10px">
+      <button class="btn btn-s" style="margin-top:0" onclick="confirmResolve(false)" data-i18n="btn_cancel">रद्द करा</button>
+      <button class="btn btn-p" style="margin-top:0; background:var(--error)" onclick="confirmResolve(true)" data-i18n="btn_confirm">होय, पुढे जा</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── JAVASCRIPT / FIREBASE LOGIC ─── -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, createUserWithEmailAndPassword }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, getDocs, setDoc, addDoc, updateDoc, deleteDoc,
+  collection, query, where, orderBy, onSnapshot, serverTimestamp, limit }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAyUBjstgyGlhdnkl0n_be1iewHxh2Z3FQ",
+  authDomain: "lalbaugmasalawale.firebaseapp.com",
+  projectId: "lalbaugmasalawale",
+  storageBucket: "lalbaugmasalawale.firebasestorage.app",
+  messagingSenderId: "594235623374",
+  appId: "1:594235623374:web:24adfc90e87553a93f8d9f"
+};
+
+const fbApp = initializeApp(firebaseConfig);
+const auth = getAuth(fbApp);
+const db = getFirestore(fbApp);
+
+// ─── ADMIN I18N STRINGS ───────────────────────────────────────
+const ADMIN_I18N = {
+  mr: {
+    mgmt_portal: "व्यवस्थापन पोर्टल",
+    btn_logout: "लॉगआउट",
+    login_subtitle: "व्यवस्थापक / Owner Login",
+    lbl_email: "ईमेल (Email ID)",
+    lbl_password: "पासवर्ड (Password)",
+    btn_login: "लॉगिन करा →",
+    dash_welcome: "व्यवस्थापक डॅशबोर्ड",
+    btn_view_live: "⚡ Live Orders",
+    kpi_today: "आजच्या Orders",
+    kpi_pending: "Pending Orders",
+    kpi_revenue: "एकूण महसूल",
+    kpi_products: "सक्रिय उत्पादने",
+    tile_orders: "Orders व्यवस्थापन",
+    tile_orders_sub: "Live orders, स्थिती बदला",
+    tile_products: "Products (मसाले)",
+    tile_products_sub: "किंमत, वजन, फोटो बदला",
+    tile_categories: "Categories (श्रेणी)",
+    tile_categories_sub: "नवीन श्रेणी जोडा / हटवा",
+    tile_shops: "पिकअप दुकाने (Shops)",
+    tile_shops_sub: "Store pickup पत्ते",
+    tile_storeinfo: "Store माहिती व संपर्क",
+    tile_storeinfo_sub: "फोन, WhatsApp, अटी",
+    tile_staff: "कर्मचारी (Staff)",
+    tile_staff_sub: "नवीन स्टाफ लॉगिन तयार करा",
+    orders_heading: "🛒 Orders व्यवस्थापन",
+    order_detail_title: "🛒 Order तपशील",
+    change_status_lbl: "ऑर्डर स्थिती बदला (Update Status):",
+    btn_save_status: "💾 स्थिती Update करा",
+    btn_print_bill: "🖨️ पावती Print करा",
+    products_heading: "🧂 Products (मसाले)",
+    btn_new_product: "+ नवीन Product",
+    modal_add_product: "+ नवीन Product जोडा",
+    prod_form_name: "उत्पादनाचे नाव *",
+    prod_form_cat: "श्रेणी (Category) *",
+    prod_form_price: "किंमत ₹ *",
+    prod_form_unit: "एकक / वजन (Unit) *",
+    prod_form_photo: "फोटो (Photo)",
+    btn_upload: "अपलोड करा",
+    prod_active_lbl: "Active (ग्राहकांना स्टोअरवर दिसेल)",
+    btn_save_product: "💾 Product जतन करा",
+    cat_heading: "🗂️ Categories (श्रेणी व्यवस्थापन)",
+    add_cat_lbl: "नवीन Category जोडा:",
+    btn_add: "+ जोडा",
+    shops_heading: "🏪 पिकअप दुकाने (Pickup Locations)",
+    btn_new_shop: "+ नवीन दुकान",
+    modal_add_shop: "+ नवीन दुकान जोडा",
+    shop_form_name: "दुकानाचे नाव *",
+    shop_form_address: "पत्ता (Address) *",
+    shop_form_phone: "फोन नंबर",
+    shop_active_lbl: "Active (ग्राहकांना पिकअपसाठी दिसेल)",
+    btn_save_shop: "💾 दुकान जतन करा",
+    storeinfo_heading: "ℹ️ Store माहिती व सेटिंग्ज",
+    si_about: "About Us (आमच्याबद्दल माहिती)",
+    si_phone: "संपर्क फोन (Contact Phone)",
+    si_whatsapp: "WhatsApp नंबर",
+    si_email: "ईमेल पत्ता",
+    si_terms: "अटी व शर्ती (Terms & Conditions)",
+    btn_save_settings: "💾 Settings Save करा",
+    staff_heading: "👥 Staff (कर्मचारी लॉगिन)",
+    btn_new_staff: "+ नवीन Staff",
+    modal_add_staff: "+ नवीन Staff लॉगिन जोडा",
+    staff_form_name: "कर्मचाऱ्याचे नाव *",
+    staff_form_email: "ईमेल पत्ता *",
+    staff_form_pass: "पासवर्ड (किमान 6 अक्षरे) *",
+    btn_save_staff: "💾 Staff लॉगिन तयार करा",
+    confirm_title: "खात्री करा",
+    btn_cancel: "रद्द करा",
+    btn_confirm: "होय, पुढे जा",
+    st_placed: "🟡 नवीन (Placed)",
+    st_confirmed: "🔵 निश्चित (Confirmed)",
+    st_ready: "🟣 तयार (Ready)",
+    st_out: "🟠 डिलिव्हरीसाठी बाहेर (Out for Delivery)",
+    st_completed: "🟢 पूर्ण झाले (Completed)",
+    st_cancelled: "🔴 रद्द (Cancelled)"
+  },
+  en: {
+    mgmt_portal: "Management Portal",
+    btn_logout: "Logout",
+    login_subtitle: "Owner & Staff Portal Login",
+    lbl_email: "Email ID",
+    lbl_password: "Password",
+    btn_login: "Login →",
+    dash_welcome: "Management Dashboard",
+    btn_view_live: "⚡ Live Orders",
+    kpi_today: "Today's Orders",
+    kpi_pending: "Pending Orders",
+    kpi_revenue: "Total Revenue",
+    kpi_products: "Active Products",
+    tile_orders: "Orders Manager",
+    tile_orders_sub: "Live orders & status update",
+    tile_products: "Products (Spices)",
+    tile_products_sub: "Edit price, weight, photos",
+    tile_categories: "Categories",
+    tile_categories_sub: "Add or manage categories",
+    tile_shops: "Pickup Shops",
+    tile_shops_sub: "Manage pickup outlets",
+    tile_storeinfo: "Store Info & Contact",
+    tile_storeinfo_sub: "Phone, WhatsApp, policies",
+    tile_staff: "Staff Accounts",
+    tile_staff_sub: "Manage employee credentials",
+    orders_heading: "🛒 Orders Manager",
+    order_detail_title: "🛒 Order Details",
+    change_status_lbl: "Update Order Status:",
+    btn_save_status: "💾 Update Status",
+    btn_print_bill: "🖨️ Print Receipt",
+    products_heading: "🧂 Products Management",
+    btn_new_product: "+ New Product",
+    modal_add_product: "+ Add New Product",
+    prod_form_name: "Product Name *",
+    prod_form_cat: "Category *",
+    prod_form_price: "Price ₹ *",
+    prod_form_unit: "Weight / Unit *",
+    prod_form_photo: "Product Photo",
+    btn_upload: "Upload",
+    prod_active_lbl: "Active (Visible on Storefront)",
+    btn_save_product: "💾 Save Product",
+    cat_heading: "🗂️ Categories Manager",
+    add_cat_lbl: "Add New Category:",
+    btn_add: "+ Add",
+    shops_heading: "🏪 Store Pickup Locations",
+    btn_new_shop: "+ New Shop",
+    modal_add_shop: "+ Add New Shop",
+    shop_form_name: "Shop Name *",
+    shop_form_address: "Full Address *",
+    shop_form_phone: "Phone Number",
+    shop_active_lbl: "Active (Available for pickup)",
+    btn_save_shop: "💾 Save Shop",
+    storeinfo_heading: "ℹ️ Store Info & Settings",
+    si_about: "About Us Text",
+    si_phone: "Contact Phone",
+    si_whatsapp: "WhatsApp Number",
+    si_email: "Email Address",
+    si_terms: "Terms & Conditions",
+    btn_save_settings: "💾 Save Settings",
+    staff_heading: "👥 Staff Credentials",
+    btn_new_staff: "+ New Staff",
+    modal_add_staff: "+ Add New Staff User",
+    staff_form_name: "Staff Full Name *",
+    staff_form_email: "Email ID *",
+    staff_form_pass: "Password (Min 6 chars) *",
+    btn_save_staff: "💾 Create Staff Login",
+    confirm_title: "Confirm Action",
+    btn_cancel: "Cancel",
+    btn_confirm: "Yes, Proceed",
+    st_placed: "🟡 Placed",
+    st_confirmed: "🔵 Confirmed",
+    st_ready: "🟣 Ready",
+    st_out: "🟠 Out for Delivery / Pickup",
+    st_completed: "🟢 Completed",
+    st_cancelled: "🔴 Cancelled"
+  }
+};
+
+let currentAdminLang = localStorage.getItem('lm_admin_lang') || 'mr';
+
+function applyAdminLang(lang) {
+  currentAdminLang = lang;
+  localStorage.setItem('lm_admin_lang', lang);
+  document.documentElement.lang = lang;
+
+  document.getElementById('adminLangEn').classList.toggle('active', lang === 'en');
+  document.getElementById('adminLangMr').classList.toggle('active', lang === 'mr');
+
+  const dict = ADMIN_I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) el.innerHTML = dict[key];
+  });
+
+  renderOrderFilterTabs();
+  renderOrders();
+}
+
+window.switchAdminLang = function(lang) {
+  applyAdminLang(lang);
+  toast(lang === 'mr' ? 'मराठी भाषा निवडली गेली' : 'Switched to English');
+};
+
+// ─── UTILITIES & HELPERS ──────────────────────────────────────
+const $ = id => document.getElementById(id);
+let currentUser = null;
+let toastTimer = null;
+function toast(msg, dur = 2600) {
+  const el = $('toast');
+  if (!el) return;
+  if (toastTimer) clearTimeout(toastTimer);
+  el.textContent = msg;
+  el.classList.add('show');
+  toastTimer = setTimeout(() => { el.classList.remove('show'); toastTimer = null; }, dur);
+}
+function showMsg(id, txt, cls) { const e = $(id); if (!e) return; e.textContent = txt; e.className = 'msg show ' + cls; }
+function hideMsg(id) { const e = $(id); if (e) { e.textContent = ''; e.className = 'msg'; } }
+function openM(id) { const e = $(id); if (e) e.classList.add('open'); }
+function closeM(id) { const e = $(id); if (e) e.classList.remove('open'); }
+window.openM = openM; window.closeM = closeM;
+
+let confirmPromiseResolver = null;
+function confirmDialog(title, msg) {
+  $('confirmTitle').textContent = title;
+  $('confirmMsg').textContent = msg;
+  openM('mConfirm');
+  return new Promise(res => { confirmPromiseResolver = res; });
+}
+window.confirmResolve = function(v) {
+  closeM('mConfirm');
+  if (confirmPromiseResolver) confirmPromiseResolver(v);
+  confirmPromiseResolver = null;
+};
+
+window.goPage = function(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = $(id);
+  if (!page) return;
+  page.classList.add('active');
+  window.scrollTo(0, 0);
+
+  if (id === 'pDash') loadDashboardMetrics();
+  if (id === 'pOrders') { renderOrderFilterTabs(); startOrdersListener(); }
+  if (id === 'pProducts') renderProductsList();
+  if (id === 'pCategories') renderCategoriesList();
+  if (id === 'pShops') renderShopsList();
+  if (id === 'pStoreInfo') loadStoreSettings();
+  if (id === 'pStaff') renderStaffList();
+};
+
+// ─── AUTHENTICATION ───────────────────────────────────────────
+window.doLogin = async function() {
+  const email = $('loginEmail').value.trim();
+  const pw = $('loginPassword').value;
+  if (!email || !pw) {
+    showMsg('loginMsg', currentAdminLang === 'mr' ? '❌ कृपया ईमेल आणि पासवर्ड टाका' : '❌ Please enter email and password', 'e');
+    return;
+  }
+  const btn = $('loginBtn');
+  btn.disabled = true;
+  btn.innerHTML = `<span class="spinner"></span> ${currentAdminLang === 'mr' ? 'लॉगिन करत आहोत...' : 'Logging in...'}`;
+  hideMsg('loginMsg');
+
+  try {
+    await signInWithEmailAndPassword(auth, email, pw);
+  } catch (e) {
+    const errMsg = e.code === 'auth/invalid-credential'
+      ? (currentAdminLang === 'mr' ? 'चुकीचा ईमेल किंवा पासवर्ड' : 'Invalid email or password')
+      : e.message;
+    showMsg('loginMsg', '❌ ' + errMsg, 'e');
+    btn.disabled = false;
+    btn.innerHTML = currentAdminLang === 'mr' ? 'लॉगिन करा →' : 'Login →';
+  }
+};
+
+window.doLogout = async function() {
+  stopOrdersListener();
+  await signOut(auth);
+};
+
+onAuthStateChanged(auth, async user => {
+  if (user) {
+    try {
+      const snap = await getDoc(doc(db, 'users', user.uid));
+      currentUser = snap.exists() ? { id: user.uid, ...snap.data() } : { id: user.uid, email: user.email, name: 'Admin', role: 'admin' };
+      $('userGreeting').textContent = `${currentUser.name || 'Admin'} (${currentUser.role || 'Admin'})`;
+      $('logoutBtn').style.display = 'block';
+      await Promise.all([loadCategoriesCache(), loadShopsCache()]);
+      goPage('pDash');
+    } catch (e) {
+      showMsg('loginMsg', '❌ ' + e.message, 'e');
+    } finally {
+      const btn = $('loginBtn');
+      if (btn) { btn.disabled = false; btn.innerHTML = 'लॉगिन करा →'; }
+    }
+  } else {
+    currentUser = null;
+    $('logoutBtn').style.display = 'none';
+    stopOrdersListener();
+    goPage('pLogin');
+  }
+});
+
+// ─── DASHBOARD METRICS ────────────────────────────────────────
+async function loadDashboardMetrics() {
+  try {
+    const snap = await getDocs(query(collection(db, 'orders'), orderBy('createdAt', 'desc'), limit(150)));
+    const orders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const todayOrders = orders.filter(o => (o.createdAt?.toDate?.() || new Date()).toISOString().slice(0, 10) === todayStr);
+    const pending = orders.filter(o => ['placed', 'confirmed', 'ready', 'out'].includes(o.status));
+    const revenue = todayOrders.filter(o => o.status !== 'cancelled').reduce((s, o) => s + (o.totalAmount || 0), 0);
+
+    $('kpiToday').textContent = todayOrders.length;
+    $('kpiPending').textContent = pending.length;
+    $('kpiRevenue').textContent = `₹${revenue.toFixed(0)}`;
+
+    const pSnap = await getDocs(collection(db, 'products'));
+    $('kpiProducts').textContent = pSnap.size || 0;
+  } catch (e) { console.warn('KPI error:', e.message); }
+}
+
+// ─── ORDERS MANAGEMENT (LIVE LISTENER) ────────────────────────
+let unsubOrders = null;
+let orderFilter = 'active';
+let orderSearchQuery = '';
+let ordersCache = [];
+
+function renderOrderFilterTabs() {
+  const wrap = $('orderFilterTabs');
+  if (!wrap) return;
+  const isMr = currentAdminLang === 'mr';
+  const tabs = [
+    ['active', isMr ? '⏳ चालू (Active)' : '⏳ Active'],
+    ['placed', isMr ? '🟡 नवीन (Placed)' : '🟡 Placed'],
+    ['confirmed', isMr ? '🔵 निश्चित (Confirmed)' : '🔵 Confirmed'],
+    ['ready', isMr ? '🟣 तयार (Ready)' : '🟣 Ready'],
+    ['out', isMr ? '🟠 डिलिव्हरी (Out)' : '🟠 Out for Delivery'],
+    ['completed', isMr ? '🟢 पूर्ण (Completed)' : '🟢 Completed'],
+    ['cancelled', isMr ? '🔴 रद्द (Cancelled)' : '🔴 Cancelled'],
+    ['all', isMr ? 'सर्व (All)' : 'All']
+  ];
+  wrap.innerHTML = tabs.map(([f, l]) => `<div class="ftab ${orderFilter === f ? 'on' : ''}" onclick="setOrderFilter('${f}')">${l}</div>`).join('');
+}
+window.setOrderFilter = function(f) {
+  orderFilter = f;
+  renderOrderFilterTabs();
+  renderOrders();
+};
+
+window.handleOrderSearch = function(q) {
+  orderSearchQuery = q.toLowerCase();
+  renderOrders();
+};
+
+function startOrdersListener() {
+  if (unsubOrders) return;
+  $('ordersListContainer').innerHTML = '<div style="text-align:center;padding:30px"><span class="spinner spinner-dark"></span></div>';
+  try {
+    const q = query(collection(db, 'orders'), orderBy('createdAt', 'desc'), limit(150));
+    unsubOrders = onSnapshot(q, snap => {
+      ordersCache = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      renderOrders();
+    }, e => {
+      $('ordersListContainer').innerHTML = `<div class="msg show e">${e.message}</div>`;
+    });
+  } catch (e) { console.warn(e.message); }
+}
+function stopOrdersListener() { if (unsubOrders) { unsubOrders(); unsubOrders = null; } }
+
+function renderOrders() {
+  const container = $('ordersListContainer');
+  if (!container) return;
+
+  let filtered = [...ordersCache];
+
+  // Status Filter
+  if (orderFilter === 'active') {
+    filtered = filtered.filter(o => ['placed', 'confirmed', 'ready', 'out'].includes(o.status));
+  } else if (orderFilter !== 'all') {
+    filtered = filtered.filter(o => o.status === orderFilter);
+  }
+
+  // Text Search
+  if (orderSearchQuery.trim()) {
+    filtered = filtered.filter(o =>
+      (o.customerName || '').toLowerCase().includes(orderSearchQuery) ||
+      (o.customerPhone || '').includes(orderSearchQuery) ||
+      (o.id || '').toLowerCase().includes(orderSearchQuery)
+    );
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<div style="text-align:center;padding:40px;color:var(--text-mid)">${currentAdminLang === 'mr' ? 'कोणतेही orders सापडले नाहीत' : 'No orders found'}</div>`;
+    return;
+  }
+
+  const STATUS_CLASSES = { placed:'st-placed', confirmed:'st-confirmed', ready:'st-ready', out:'st-out', completed:'st-completed', cancelled:'st-cancelled' };
+  const STATUS_LABELS = {
+    placed: currentAdminLang === 'mr' ? '🟡 नवीन' : '🟡 Placed',
+    confirmed: currentAdminLang === 'mr' ? '🔵 निश्चित' : '🔵 Confirmed',
+    ready: currentAdminLang === 'mr' ? '🟣 पॅक/तयार' : '🟣 Ready',
+    out: currentAdminLang === 'mr' ? '🟠 डिलिव्हरी' : '🟠 Out',
+    completed: currentAdminLang === 'mr' ? '🟢 पूर्ण' : '🟢 Completed',
+    cancelled: currentAdminLang === 'mr' ? '🔴 रद्द' : '🔴 Cancelled'
+  };
+
+  container.innerHTML = filtered.map(o => {
+    const dt = o.createdAt?.toDate ? o.createdAt.toDate() : new Date();
+    const dstr = dt.toLocaleDateString('en-IN') + ' ' + dt.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+    const itemsCount = (o.items || []).length;
+    const itemsShort = (o.items || []).map(i => `${i.nameMr || i.name} × ${i.qty}`).join(', ');
+
+    return `
+      <div class="order-row" onclick="openOrderDetail('${o.id}')">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px">
+          <div>
+            <span style="font-weight:800; font-size:14px; color:var(--maroon)">${o.customerName || 'ग्राहक'}</span>
+            <span style="font-size:12px; color:var(--text-mid); margin-left:6px">📞 <a href="tel:${o.customerPhone}" onclick="event.stopPropagation()" style="color:inherit;text-decoration:none"><b>${o.customerPhone || '–'}</b></a></span>
+          </div>
+          <span class="status-badge ${STATUS_CLASSES[o.status] || ''}">${STATUS_LABELS[o.status] || o.status}</span>
+        </div>
+        <div style="font-size:12px; color:var(--text-dark); margin-bottom:4px">${itemsShort}</div>
+        <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-mid); border-top:1px dashed var(--border); padding-top:6px">
+          <span>${o.deliveryType === 'pickup' ? '🏪 Store Pickup' : '🚚 Home Delivery'} • ${itemsCount} items</span>
+          <span style="font-weight:800; font-size:12.5px; color:var(--maroon)">₹${o.totalAmount || 0}</span>
+        </div>
+        <div style="font-size:10px; color:var(--text-muted); margin-top:2px">${dstr} • ID: #${o.id.slice(-6).toUpperCase()}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+let activeOrderId = null;
+window.openOrderDetail = function(id) {
+  const o = ordersCache.find(x => x.id === id);
+  if (!o) return;
+  activeOrderId = id;
+
+  const itemsList = (o.items || []).map(i => `
+    <div style="display:flex; justify-content:space-between; font-size:12.5px; padding:5px 0; border-bottom:1px solid var(--border)">
+      <span>${i.nameMr || i.name} (${i.unit || ''}) × ${i.qty}</span>
+      <b>₹${(i.price * i.qty).toFixed(2)}</b>
+    </div>
+  `).join('');
+
+  $('orderDetailContent').innerHTML = `
+    <div style="background:var(--cream); border:1.5px solid var(--border); border-radius:12px; padding:12px; margin-bottom:12px; font-size:13px; line-height:1.8">
+      <div><b>ग्राहक (Customer):</b> ${o.customerName || '–'}</div>
+      <div><b>फोन (Phone):</b> <a href="tel:${o.customerPhone}" style="color:var(--maroon);font-weight:700">${o.customerPhone || '–'}</a></div>
+      <div><b>प्रकार (Type):</b> ${o.deliveryType === 'pickup' ? `🏪 Pickup — ${o.pickupShopName || 'Main Store'}` : `🚚 Delivery — ${o.address || '–'}`}</div>
+      ${o.notes ? `<div><b>टीप (Notes):</b> ${o.notes}</div>` : ''}
+    </div>
+    <div style="margin-bottom:12px">${itemsList}</div>
+    <div style="display:flex; justify-content:space-between; font-weight:800; font-size:15px; color:var(--maroon); border-top:2px solid var(--border); padding-top:8px">
+      <span>एकूण रक्कम (Total):</span>
+      <span>₹${o.totalAmount || 0}</span>
+    </div>
+  `;
+
+  $('orderStatusSelect').value = o.status || 'placed';
+  hideMsg('orderDetailMsg');
+  openM('mOrderDetail');
+};
+
+window.saveOrderStatus = async function() {
+  if (!activeOrderId) return;
+  const newStatus = $('orderStatusSelect').value;
+  try {
+    await updateDoc(doc(db, 'orders', activeOrderId), {
+      status: newStatus,
+      updatedAt: serverTimestamp()
+    });
+    toast(currentAdminLang === 'mr' ? '✅ ऑर्डर स्थिती अपडेट झाली' : '✅ Order status updated');
+    closeM('mOrderDetail');
+  } catch (e) {
+    showMsg('orderDetailMsg', '❌ ' + e.message, 'e');
+  }
+};
+
+// ─── PRODUCTS MANAGEMENT ──────────────────────────────────────
+let productsCache = [];
+let editingProductId = null;
+let productPhotoDraft = null;
+
+async function renderProductsList() {
+  const container = $('productsListContainer');
+  container.innerHTML = '<div style="text-align:center;padding:30px"><span class="spinner spinner-dark"></span></div>';
+  try {
+    const snap = await getDocs(collection(db, 'products'));
+    productsCache = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    productsCache.sort((a, b) => a.name.localeCompare(b.name));
+
+    if (productsCache.length === 0) {
+      container.innerHTML = `<div style="text-align:center;padding:30px;color:var(--text-mid)">${currentAdminLang === 'mr' ? 'कोणतेही Product जोडलेले नाही' : 'No products found'}</div>`;
+      return;
+    }
+
+    container.innerHTML = productsCache.map(p => `
+      <div class="card" style="display:flex; align-items:center; gap:12px">
+        ${p.photo
+          ? `<img src="${p.photo}" style="width:48px;height:48px;border-radius:10px;object-fit:cover;border:1px solid var(--border)"/>`
+          : `<div style="width:48px;height:48px;border-radius:10px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:22px">🧂</div>`}
+        <div style="flex:1">
+          <div style="font-weight:800; font-size:13.5px">${p.name} ${p.active === false ? '<span style="color:var(--error);font-size:10px">(Inactive)</span>' : ''}</div>
+          <div style="font-size:11.5px; color:var(--text-mid)">${p.category || '–'} • ₹${p.price} / ${p.unit || ''}</div>
+        </div>
+        <button class="bsm" onclick="openProductModal('${p.id}')">✏️ Edit</button>
+        <button class="bsm berror" onclick="deleteProduct('${p.id}')">🗑️</button>
+      </div>
+    `).join('');
+  } catch (e) {
+    container.innerHTML = `<div class="msg show e">${e.message}</div>`;
+  }
+}
+
+window.openProductModal = function(id) {
+  editingProductId = id || null;
+  productPhotoDraft = null;
+  const p = id ? productsCache.find(x => x.id === id) : null;
+
+  $('productModalTitle').textContent = p ? (currentAdminLang === 'mr' ? '✏️ Product Edit करा' : '✏️ Edit Product') : (currentAdminLang === 'mr' ? '+ नवीन Product' : '+ New Product');
+  $('prodNameInput').value = p?.name || '';
+  $('prodPriceInput').value = p?.price ?? '';
+  $('prodUnitInput').value = p?.unit || '250g';
+  $('prodActiveInput').checked = p?.active !== false;
+
+  // Category select
+  $('prodCategorySelect').innerHTML = categoriesCache.map(c => `
+    <option value="${c}" ${p?.category === c ? 'selected' : ''}>${c}</option>
+  `).join('') || '<option value="Masalas">Masalas</option>';
+
+  $('prodPhotoPreview').innerHTML = p?.photo
+    ? `<img src="${p.photo}" style="width:100%;height:100%;object-fit:cover"/>`
+    : '🧂';
+
+  hideMsg('productFormMsg');
+  openM('mProduct');
+};
+
+window.handleProductPhotoUpload = function(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    productPhotoDraft = e.target.result;
+    $('prodPhotoPreview').innerHTML = `<img src="${productPhotoDraft}" style="width:100%;height:100%;object-fit:cover"/>`;
+  };
+  reader.readAsDataURL(file);
+};
+
+window.saveProductData = async function() {
+  const name = $('prodNameInput').value.trim();
+  const price = parseFloat($('prodPriceInput').value) || 0;
+  const unit = $('prodUnitInput').value.trim() || '250g';
+  const category = $('prodCategorySelect').value;
+  const active = $('prodActiveInput').checked;
+
+  if (!name || price <= 0) {
+    showMsg('productFormMsg', currentAdminLang === 'mr' ? '❌ कृपया नाव आणि योग्य किंमत टाका' : '❌ Please enter name and valid price', 'e');
+    return;
+  }
+
+  const data = {
+    name, price, unit, category, active,
+    updatedAt: serverTimestamp()
+  };
+
+  const existing = editingProductId ? productsCache.find(x => x.id === editingProductId) : null;
+  if (productPhotoDraft) data.photo = productPhotoDraft;
+  else if (existing?.photo) data.photo = existing.photo;
+
+  showMsg('productFormMsg', currentAdminLang === 'mr' ? '⏳ जतन करत आहोत...' : 'Saving...', 's');
+
+  try {
+    if (editingProductId) {
+      await updateDoc(doc(db, 'products', editingProductId), data);
+    } else {
+      data.createdAt = serverTimestamp();
+      await addDoc(collection(db, 'products'), data);
+    }
+    toast(currentAdminLang === 'mr' ? '✅ Product जतन झाला' : '✅ Product saved');
+    closeM('mProduct');
+    renderProductsList();
+  } catch (e) {
+    showMsg('productFormMsg', '❌ ' + e.message, 'e');
+  }
+};
+
+window.deleteProduct = async function(id) {
+  if (!await confirmDialog(
+    currentAdminLang === 'mr' ? 'Product हटवा' : 'Delete Product',
+    currentAdminLang === 'mr' ? 'हे product कायमचे हटवायचे आहे का?' : 'Are you sure you want to delete this product?'
+  )) return;
+
+  try {
+    await deleteDoc(doc(db, 'products', id));
+    toast(currentAdminLang === 'mr' ? '🗑️ Product हटवला' : '🗑️ Product deleted');
+    renderProductsList();
+  } catch (e) { toast('❌ ' + e.message); }
+};
+
+// ─── CATEGORIES MANAGEMENT ────────────────────────────────────
+let categoriesCache = [];
+
+async function loadCategoriesCache() {
+  try {
+    const snap = await getDoc(doc(db, 'settings', 'categories'));
+    categoriesCache = snap.exists() ? (snap.data().list || []) : [];
+  } catch (e) { categoriesCache = []; }
+}
+
+function renderCategoriesList() {
+  const container = $('categoriesListContainer');
+  if (!container) return;
+
+  if (categoriesCache.length === 0) {
+    container.innerHTML = `<div style="text-align:center;padding:20px;color:var(--text-mid)">${currentAdminLang === 'mr' ? 'अद्याप कोणतीही category नाही' : 'No categories found'}</div>`;
+    return;
+  }
+
+  container.innerHTML = categoriesCache.map((c, i) => `
+    <div class="card" style="display:flex; justify-content:space-between; align-items:center">
+      <span style="font-weight:700; font-size:13.5px">${i + 1}. ${c}</span>
+      <button class="bsm berror" onclick="deleteCategory('${c.replace(/'/g, "\\'")}')">🗑️</button>
+    </div>
+  `).join('');
+}
+
+window.addNewCategory = async function() {
+  const input = $('newCategoryInput');
+  const name = input.value.trim();
+  if (!name) { toast('❌ नाव भरा'); return; }
+  if (categoriesCache.includes(name)) { toast('⚠️ ही श्रेणी आधीच अस्तित्वात आहे'); return; }
+
+  categoriesCache.push(name);
+  renderCategoriesList();
+  input.value = '';
+
+  try {
+    await setDoc(doc(db, 'settings', 'categories'), { list: categoriesCache, updatedAt: serverTimestamp() });
+    toast('✅ Category जोडली');
+  } catch (e) {
+    toast('❌ ' + e.message);
+  }
+};
+
+window.deleteCategory = async function(name) {
+  if (!await confirmDialog(
+    currentAdminLang === 'mr' ? 'Category हटवा' : 'Delete Category',
+    `"${name}" ${currentAdminLang === 'mr' ? 'ही category हटवायची?' : 'delete this category?'}`
+  )) return;
+
+  categoriesCache = categoriesCache.filter(c => c !== name);
+  renderCategoriesList();
+
+  try {
+    await setDoc(doc(db, 'settings', 'categories'), { list: categoriesCache, updatedAt: serverTimestamp() });
+    toast('🗑️ Category हटवली');
+  } catch (e) { toast('❌ ' + e.message); }
+};
+
+// ─── SHOPS MANAGEMENT ─────────────────────────────────────────
+let shopsCache = [];
+let editingShopId = null;
+
+async function loadShopsCache() {
+  try {
+    const snap = await getDocs(collection(db, 'shops'));
+    shopsCache = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  } catch (e) { shopsCache = []; }
+}
+
+function renderShopsList() {
+  const container = $('shopsListContainer');
+  if (!container) return;
+
+  if (shopsCache.length === 0) {
+    container.innerHTML = `<div style="text-align:center;padding:20px;color:var(--text-mid)">${currentAdminLang === 'mr' ? 'कोणतेही दुकान जोडलेले नाही' : 'No shops found'}</div>`;
+    return;
+  }
+
+  container.innerHTML = shopsCache.map(s => `
+    <div class="card">
+      <div style="font-weight:800; font-size:14px; color:var(--maroon)">${s.name} ${s.active === false ? '<span style="color:var(--error);font-size:10px">(Inactive)</span>' : ''}</div>
+      <div style="font-size:12px; color:var(--text-mid); margin:4px 0">${s.address || '–'}</div>
+      <div style="font-size:11.5px; color:var(--text-dark)">📞 ${s.phone || '–'}</div>
+      <div style="display:flex; gap:8px; margin-top:10px">
+        <button class="bsm" onclick="openShopModal('${s.id}')">✏️ Edit</button>
+        <button class="bsm berror" onclick="deleteShop('${s.id}')">🗑️ हटवा</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+window.openShopModal = function(id) {
+  editingShopId = id || null;
+  const s = id ? shopsCache.find(x => x.id === id) : null;
+
+  $('shopModalTitle').textContent = s ? (currentAdminLang === 'mr' ? '✏️ दुकान Edit करा' : '✏️ Edit Shop') : (currentAdminLang === 'mr' ? '+ नवीन दुकान' : '+ New Shop');
+  $('shopNameInput').value = s?.name || '';
+  $('shopAddressInput').value = s?.address || '';
+  $('shopPhoneInput').value = s?.phone || '';
+  $('shopActiveInput').checked = s?.active !== false;
+
+  hideMsg('shopFormMsg');
+  openM('mShop');
+};
+
+window.saveShopData = async function() {
+  const name = $('shopNameInput').value.trim();
+  const address = $('shopAddressInput').value.trim();
+  const phone = $('shopPhoneInput').value.trim();
+  const active = $('shopActiveInput').checked;
+
+  if (!name || !address) {
+    showMsg('shopFormMsg', currentAdminLang === 'mr' ? '❌ कृपया नाव आणि पत्ता भरा' : '❌ Please enter name and address', 'e');
+    return;
+  }
+
+  const data = { name, address, phone, active, updatedAt: serverTimestamp() };
+  try {
+    if (editingShopId) {
+      await updateDoc(doc(db, 'shops', editingShopId), data);
+    } else {
+      data.createdAt = serverTimestamp();
+      await addDoc(collection(db, 'shops'), data);
+    }
+    await loadShopsCache();
+    toast(currentAdminLang === 'mr' ? '✅ दुकान जतन झाले' : '✅ Shop saved');
+    closeM('mShop');
+    renderShopsList();
+  } catch (e) {
+    showMsg('shopFormMsg', '❌ ' + e.message, 'e');
+  }
+};
+
+window.deleteShop = async function(id) {
+  if (!await confirmDialog(
+    currentAdminLang === 'mr' ? 'दुकान हटवा' : 'Delete Shop',
+    currentAdminLang === 'mr' ? 'हे पिकअप दुकान हटवायचे?' : 'Delete this pickup location?'
+  )) return;
+
+  try {
+    await deleteDoc(doc(db, 'shops', id));
+    await loadShopsCache();
+    toast(currentAdminLang === 'mr' ? '🗑️ दुकान हटवले' : '🗑️ Shop deleted');
+    renderShopsList();
+  } catch (e) { toast('❌ ' + e.message); }
+};
+
+// ─── STORE INFO & SETTINGS ────────────────────────────────────
+async function loadStoreSettings() {
+  try {
+    const snap = await getDoc(doc(db, 'settings', 'storeInfo'));
+    const d = snap.exists() ? snap.data() : {};
+    $('storeAboutInput').value = d.about || '';
+    $('storePhoneInput').value = d.contactPhone || '';
+    $('storeWhatsappInput').value = d.whatsapp || '';
+    $('storeEmailInput').value = d.email || '';
+    $('storeTermsInput').value = d.terms || '';
+  } catch (e) { console.warn(e.message); }
+}
+
+window.saveStoreSettings = async function() {
+  const data = {
+    about: $('storeAboutInput').value.trim(),
+    contactPhone: $('storePhoneInput').value.trim(),
+    whatsapp: $('storeWhatsappInput').value.trim(),
+    email: $('storeEmailInput').value.trim(),
+    terms: $('storeTermsInput').value.trim(),
+    updatedAt: serverTimestamp()
+  };
+
+  showMsg('storeSettingsMsg', currentAdminLang === 'mr' ? '⏳ Save करत आहोत...' : 'Saving...', 's');
+  try {
+    await setDoc(doc(db, 'settings', 'storeInfo'), data, { merge: true });
+    toast(currentAdminLang === 'mr' ? '✅ Settings जतन झाल्या' : '✅ Settings saved');
+    hideMsg('storeSettingsMsg');
+  } catch (e) {
+    showMsg('storeSettingsMsg', '❌ ' + e.message, 'e');
+  }
+};
+
+// ─── STAFF MANAGEMENT ─────────────────────────────────────────
+async function renderStaffList() {
+  const container = $('staffListContainer');
+  container.innerHTML = '<div style="text-align:center;padding:24px"><span class="spinner spinner-dark"></span></div>';
+  try {
+    const snap = await getDocs(collection(db, 'users'));
+    const staff = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+    if (staff.length === 0) {
+      container.innerHTML = `<div style="text-align:center;padding:20px;color:var(--text-mid)">${currentAdminLang === 'mr' ? 'कोणीही कर्मचारी नाही' : 'No staff found'}</div>`;
+      return;
+    }
+
+    container.innerHTML = staff.map(s => `
+      <div class="card" style="display:flex; justify-content:space-between; align-items:center">
+        <div>
+          <div style="font-weight:800; font-size:13.5px">${s.name || '–'}</div>
+          <div style="font-size:11px; color:var(--text-mid)">${s.email || ''} • <b>${s.role || 'staff'}</b></div>
+        </div>
+        ${s.id !== currentUser?.id
+          ? `<button class="bsm berror" onclick="deleteStaff('${s.id}')">🗑️ हटवा</button>`
+          : `<span style="font-size:11px; font-weight:700; color:var(--gold)">तुम्ही (You)</span>`}
+      </div>
+    `).join('');
+  } catch (e) {
+    container.innerHTML = `<div class="msg show e">${e.message}</div>`;
+  }
+}
+
+window.saveNewStaff = async function() {
+  const name = $('staffNameInput').value.trim();
+  const email = $('staffEmailInput').value.trim();
+  const pw = $('staffPasswordInput').value;
+
+  if (!name || !email || !pw || pw.length < 6) {
+    showMsg('staffFormMsg', currentAdminLang === 'mr' ? '❌ सर्व माहिती व किमान 6 अक्षरी पासवर्ड भरा' : '❌ Please fill all fields and min 6-char password', 'e');
+    return;
+  }
+
+  showMsg('staffFormMsg', currentAdminLang === 'mr' ? '⏳ तयार करत आहोत...' : 'Creating...', 's');
+  try {
+    const secondaryApp = initializeApp(firebaseConfig, 'StaffApp_' + Date.now());
+    const secondaryAuth = getAuth(secondaryApp);
+    let newUid;
+    try {
+      const cred = await createUserWithEmailAndPassword(secondaryAuth, email, pw);
+      newUid = cred.user.uid;
+      await signOut(secondaryAuth);
+    } finally {
+      const { deleteApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+      await deleteApp(secondaryApp).catch(() => {});
+    }
+
+    await setDoc(doc(db, 'users', newUid), {
+      name, email, role: 'staff', createdAt: serverTimestamp()
+    });
+
+    toast(currentAdminLang === 'mr' ? '✅ नवीन Staff तयार झाला' : '✅ Staff user created');
+    closeM('mStaff');
+    renderStaffList();
+  } catch (e) {
+    showMsg('staffFormMsg', '❌ ' + (e.code === 'auth/email-already-in-use' ? 'हा ईमेल आधीच वापरात आहे' : e.message), 'e');
+  }
+};
+
+window.deleteStaff = async function(id) {
+  if (!await confirmDialog(
+    currentAdminLang === 'mr' ? 'Staff हटवा' : 'Remove Staff',
+    currentAdminLang === 'mr' ? 'या कर्मचाऱ्याचा access काढायचा आहे का?' : 'Revoke access for this employee?'
+  )) return;
+
+  try {
+    await deleteDoc(doc(db, 'users', id));
+    toast(currentAdminLang === 'mr' ? '🗑️ Staff हटवला' : '🗑️ Staff deleted');
+    renderStaffList();
+  } catch (e) { toast('❌ ' + e.message); }
+};
+
+// ─── INITIALIZATION ───────────────────────────────────────────
+(function init() {
+  applyAdminLang(currentAdminLang);
+})();
+</script>
+</body>
+</html>
