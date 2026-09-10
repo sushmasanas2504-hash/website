@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="mr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Lalbaug Masale | Authentic Spices & Masalas Since 1986</title>
+  <meta name="description" content="Lalbaug Masalawale, Swaad Jo Yaad Rahe. 100% Pure, Stone Pounded Indian Spices, Whole Seeds, and Heritage Regional Masalas direct from Lalbaug, Mumbai." />
+  <link rel="icon" type="image/png" href="/images/lalbaug_logo.png" />
+  <meta name="theme-color" content="#5A0B10" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#5A0B10',
+              crimson: '#7A1A22',
+              dark: '#120F0D',
+              cardDark: '#1A1410',
+              gold: '#C9880A',
+              lightGold: '#ECC87A',
+              cream: '#FAF5ED',
+              border: '#E8DAC6',
+              borderDark: '#3A2D23'
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Cinzel', 'serif'],
+            sans: ['Poppins', 'Noto Sans Devanagari', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    @keyframes pulse-red {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+      50% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+    }
+    .badge-pulse { animation: pulse-red 2s infinite; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #FAF5ED; }
+    .dark ::-webkit-scrollbar-track { background: #120F0D; }
+    ::-webkit-scrollbar-thumb { background: #C9880A; border-radius: 4px; }
+  </style>
+</head>
+
+<body class="bg-[#FAF5ED] dark:bg-[#120F0D] text-[#2C180E] dark:text-[#F3ECE2] font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col">
+
+  <!-- 1. Top Announcement Strip & Demo Switcher Bar -->
+  <div class="bg-[#3B070B] text-[#ECC87A] text-xs py-1.5 px-4 border-b border-[#C9880A]/40 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="font-bold">✨ लालबाग मसालावाले (SINCE 1986) • अस्सल दगडी पाटा वाटलेले मसाले</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <span class="hidden sm:inline">📞 ऑर्डर / मदत: <strong>+91 98201 45678</strong></span>
+        <!-- Button to open Tab 2 (Admin) in New Tab -->
+        <a href="/admin_portal.html" target="_blank" rel="noopener noreferrer" class="px-2.5 py-0.5 rounded-full bg-[#C9880A] text-[#2C180E] font-bold hover:bg-[#ECC87A] transition-colors flex items-center gap-1">
+          🔐 व्यवस्थापक पॅनेल (Admin Portal ↗)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Main Header Navbar -->
+  <header class="sticky top-0 z-40 bg-[#FFFDF9]/95 dark:bg-[#1A1410]/95 backdrop-blur border-b border-[#E8DAC6] dark:border-[#3A2D23] shadow-xs transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+      <!-- Brand Logo & Title -->
+      <a href="/" class="flex items-center gap-3 group">
+        <img src="/images/lalbaug_logo.png" alt="Lalbaug Masalawale Official Logo" class="h-11 sm:h-13 w-auto max-w-[55px] object-contain drop-shadow" onerror="this.src='https://via.placeholder.com/60x60/5A0B10/ECC87A?text=LBM'" />
+        <div>
+          <div class="font-serif font-black text-base sm:text-xl text-[#5A0B10] dark:text-[#FFFDF9] tracking-wider uppercase leading-tight flex items-center gap-1.5">
+            LALBAUG MASALE
+            <span class="text-[9px] font-sans font-bold px-1 py-0.5 rounded bg-[#C9880A]/20 text-[#C9880A]">TM</span>
+          </div>
+          <p class="text-[10px] sm:text-xs text-[#8B5A2B] dark:text-[#ECC87A] font-semibold">
+            स्वाद जो याद रहे • Since 1986
+          </p>
+        </div>
+      </a>
+
+      <!-- Search, Theme, Language & Cart Controls -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Dark / Light Theme Toggle -->
+        <button onclick="toggleTheme()" class="p-2 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] text-sm bg-white dark:bg-[#241C17] hover:border-[#C9880A] transition-all cursor-pointer" title="Toggle Dark/Light Mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+
+        <!-- Language Pill Switcher -->
+        <div class="bg-[#EFE5D5] dark:bg-[#281F1A] p-0.5 rounded-full border border-[#D4C0A8] dark:border-[#4A3728] flex items-center text-xs font-bold">
+          <button onclick="setLanguage('en')" id="btn-lang-en" class="px-2 py-1 rounded-full text-xs font-bold transition-all">EN</button>
+          <button onclick="setLanguage('mr')" id="btn-lang-mr" class="px-2 py-1 rounded-full text-xs font-bold transition-all bg-[#5A0B10] text-white">मराठी</button>
+        </div>
+
+        <!-- Direct Link to Open Admin in Tab 2 -->
+        <a href="/admin_portal.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#5A0B10] hover:bg-[#7A1A22] text-[#ECC87A] border border-[#C9880A] text-xs font-bold transition-all shadow-xs" title="Open Admin Management Portal in a New Tab">
+          <span>व्यवस्थापक / Admin ↗</span>
+        </a>
+
+        <!-- Cart Trigger Button -->
+        <button onclick="toggleCartDrawer(true)" class="relative p-2 sm:px-3 sm:py-2 rounded-full bg-[#5A0B10] text-[#FFF8E7] hover:bg-[#7A1A22] border border-[#C9880A] flex items-center gap-2 cursor-pointer shadow-sm transition-transform active:scale-95">
+          <span class="text-base">🛍️</span>
+          <span class="hidden sm:inline text-xs font-bold" id="cart-nav-total">₹0</span>
+          <span id="cart-count-badge" class="absolute -top-1.5 -right-1.5 bg-[#DC2626] text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-[#120F0D]">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. Hero Section (Horizontal Banner with Heritage Seal) -->
+  <section class="relative bg-gradient-to-b from-[#FAF5ED] to-[#F3E8D8] dark:from-[#1A1410] dark:to-[#120F0D] py-10 sm:py-14 border-b border-[#E8DAC6] dark:border-[#3A2D23]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-6 space-y-4 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#5A0B10]/10 dark:bg-[#ECC87A]/10 border border-[#5A0B10]/20 dark:border-[#ECC87A]/30 text-[#5A0B10] dark:text-[#ECC87A] text-xs font-bold tracking-wide">
+            <span>✨ मुंबई लालबागची ३८ वर्षांची परंपरा</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#C9880A] text-white font-black">SINCE 1986</span>
+          </div>
+
+          <h1 class="font-serif font-black text-3xl sm:text-4xl lg:text-5xl text-[#5A0B10] dark:text-[#FFFDF9] leading-tight">
+            अस्सल चव, अस्सल सुगंध<br />
+            <span class="text-[#C9880A] italic font-serif">लालबाग मसालावाले</span>
+          </h1>
+
+          <p class="text-sm sm:text-base text-[#6E5B4D] dark:text-[#C5B7A6] max-w-xl mx-auto lg:mx-0">
+            १००% शुद्ध, नैसर्गिक, दगडी पाटा वाटलेले मसाले आणि तयार उत्पादने. आपल्या गरजेनुसार <strong>कस्टम बिल (Custom Weight)</strong> किंवा पारंपरिक <strong>मसाला रेसिपी</strong> थेट ऑनलाइन ऑर्डर करा!
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+            <a href="#products-catalog" class="px-6 py-3 rounded-2xl bg-[#5A0B10] hover:bg-[#7A1A22] text-[#FFF8E7] font-bold text-sm shadow-md transition-transform hover:-translate-y-0.5 flex items-center gap-2">
+              <span>🛒 मसाले खरेदी करा (Catalog)</span>
+            </a>
+            <a href="#custom-bill-section" class="px-5 py-3 rounded-2xl bg-[#C9880A] hover:bg-[#D8940C] text-[#2C180E] font-extrabold text-sm shadow-sm transition-transform hover:-translate-y-0.5 flex items-center gap-1.5">
+              <span>⚖️ कस्टम बिल काउंटर</span>
+            </a>
+            <a href="#masala-recipes-section" class="px-5 py-3 rounded-2xl bg-white dark:bg-[#281F1A] border border-[#D4C0A8] dark:border-[#4A3728] text-[#5A0B10] dark:text-[#ECC87A] font-bold text-sm hover:border-[#5A0B10] transition-colors">
+              <span>📖 मसाला रेसिपी</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Hero Horizontal Visual Card -->
+        <div class="lg:col-span-6">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#C9880A]/40 bg-black aspect-[16/9] group">
+            <img src="/images/hero/lalbaug_hero_horizontal.jpg" alt="Lalbaug Masalawale Traditional Spices Display" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&auto=format&fit=crop&q=80'" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-widest text-[#ECC87A]">Lalbaug, Mumbai</span>
+                  <h3 class="font-serif font-black text-xl sm:text-2xl text-white">Pure & Authentic Heritage Spices</h3>
+                </div>
+                <div class="text-right">
+                  <div class="text-2xl font-black text-[#ECC87A] font-serif">1986</div>
+                  <div class="text-[10px] text-stone-300 uppercase tracking-wider">Established</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Category Bowls Strip (Circular Navigation) -->
+  <section class="py-6 bg-[#FFFDF9] dark:bg-[#1A1410] border-b border-[#E8DAC6] dark:border-[#3A2D23]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-serif font-black text-lg sm:text-xl text-[#5A0B10] dark:text-[#FFFDF9]">
+          मसाला वर्गवारी (Categories)
+        </h2>
+        <span class="text-xs text-[#8B5A2B] dark:text-[#ECC87A] font-semibold">निवडा आणि शोधा</span>
+      </div>
+      <div class="flex items-center gap-4 sm:gap-6 overflow-x-auto pb-2 scrollbar-none" id="categories-container">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Interactive Custom Bill Weight Calculator -->
+  <section id="custom-bill-section" class="py-10 bg-[#FAF5ED] dark:bg-[#16120F] border-b border-[#E8DAC6] dark:border-[#3A2D23]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="bg-white dark:bg-[#1F1813] rounded-3xl p-6 sm:p-8 border-2 border-[#C9880A]/40 shadow-lg">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#E8DAC6] dark:border-[#3A2D23]">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-[#C9880A] text-xs font-bold mb-1">
+              <span>⚖️ थेट वजनानुसार बिल</span>
+            </div>
+            <h2 class="font-serif font-black text-xl sm:text-2xl text-[#5A0B10] dark:text-[#FFFDF9]">
+              कस्टम बिल काउंटर (Custom Weight Calculator)
+            </h2>
+            <p class="text-xs sm:text-sm text-[#6E5B4D] dark:text-[#C5B7A6]">
+              कोणताही मसाला निवडा, हवे ते वजन टाका, दर आपोआप हिशोब होईल!
+            </p>
+          </div>
+          <div class="text-right">
+            <span class="text-xs text-[#8A7B6E]">दुकान काउंटर मोड:</span>
+            <span class="block font-bold text-xs text-emerald-600 dark:text-emerald-400">● थेट दळण व वजन उपलब्ध</span>
+          </div>
+        </div>
+
+        <!-- Interactive Calculator Form -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6 items-end">
+          <div class="space-y-1.5">
+            <label class="block text-xs font-bold text-[#6E5B4D] dark:text-[#C5B7A6]">१. मसाला निवडा (Select Spice):</label>
+            <select id="calc-spice-select" onchange="recalculateCustomBill()" class="w-full p-2.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-[#FAF5ED] dark:bg-[#281F1A] text-xs font-bold text-[#2C180E] dark:text-white">
+              <option value="turmeric" data-rate="360">हळद पावडर (सांगली राजापुरी) - ₹360/kg</option>
+              <option value="chilli" data-rate="580">काश्मिरी लाल तिखट - ₹580/kg</option>
+              <option value="coriander" data-rate="260">धने पावडर (सुगंधी इंदोरी) - ₹260/kg</option>
+              <option value="garam" data-rate="950">शाही गरम मसाला (२१ खडे मसाले) - ₹950/kg</option>
+              <option value="goda" data-rate="780">पारंपरिक गोडा मसाला - ₹780/kg</option>
+              <option value="cardamom" data-rate="3600">हिरवी वेलची (अलेप्पी बोल्ड) - ₹3600/kg</option>
+              <option value="cumin" data-rate="590">जिरे (गावरान सुगंधी) - ₹590/kg</option>
+            </select>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="block text-xs font-bold text-[#6E5B4D] dark:text-[#C5B7A6]">२. हवे ते वजन टाका (Weight in Grams):</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="calc-grams-input" value="350" min="20" max="50000" step="10" oninput="recalculateCustomBill()" class="w-full p-2.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-[#FAF5ED] dark:bg-[#281F1A] text-xs font-bold text-[#2C180E] dark:text-white" />
+              <span class="text-xs font-bold text-[#6E5B4D] dark:text-[#C5B7A6]">ग्रॅम</span>
+            </div>
+          </div>
+
+          <div class="space-y-1.5 bg-[#FAF5ED] dark:bg-[#281F1A] p-2.5 rounded-xl border border-[#E8DAC6] dark:border-[#3A2D23]">
+            <span class="text-[10px] text-[#8A7B6E] block">दर गणना (Calculated Amount):</span>
+            <div class="font-serif font-black text-2xl text-[#5A0B10] dark:text-[#ECC87A]" id="calc-result-price">
+              ₹126.00
+            </div>
+            <span class="text-[10px] text-stone-500" id="calc-rate-breakdown">₹360 / 1000g × 350g</span>
+          </div>
+
+          <div>
+            <button onclick="addCustomBillToCart()" class="w-full py-3 rounded-xl bg-[#1B4332] hover:bg-[#2D6A4F] text-[#D8F3DC] font-bold text-xs shadow-md transition-transform active:scale-95 flex items-center justify-center gap-2">
+              <span>+ कार्टमध्ये जोडा (Add Custom Bill)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Main 4-Columns Product Catalog -->
+  <section id="products-catalog" class="py-12 bg-[#FFFDF9] dark:bg-[#120F0D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <span class="text-xs font-bold text-[#C9880A] uppercase tracking-wider">Lalbaug Masale Heritage</span>
+          <h2 class="font-serif font-black text-2xl sm:text-3xl text-[#5A0B10] dark:text-[#FFFDF9]">
+            आमचे सर्व अस्सल मसाले (Product Catalog)
+          </h2>
+        </div>
+        <!-- Search within catalog -->
+        <div class="relative min-w-[260px]">
+          <input type="text" id="catalog-search" placeholder="मसाल्याचे नाव शोधा (Search)..." oninput="filterCatalog()" class="w-full pl-9 pr-3 py-2 rounded-full border border-[#D4C0A8] dark:border-[#4A3728] bg-white dark:bg-[#1E1713] text-xs font-bold text-[#2C180E] dark:text-white" />
+          <span class="absolute left-3 top-2.5 text-xs text-stone-400">🔍</span>
+        </div>
+      </div>
+
+      <!-- Catalog Grid (18+ authentic items) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="products-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Masala Recipe Blender Section (Custom Formulations) -->
+  <section id="masala-recipes-section" class="py-12 bg-[#FAF5ED] dark:bg-[#181310] border-t border-[#E8DAC6] dark:border-[#3A2D23]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-[#C9880A] uppercase tracking-wider">Custom Formulation</span>
+        <h2 class="font-serif font-black text-2xl sm:text-3xl text-[#5A0B10] dark:text-[#FFFDF9] mt-1">
+          मसाला रेसिपी फॉर्म्युलेटर (Recipe Blender)
+        </h2>
+        <p class="text-xs sm:text-sm text-[#6E5B4D] dark:text-[#C5B7A6] mt-2">
+          आमच्या पारंपरिक १९८६ च्या फॉर्म्युलेशननुसार घटक निवडा, वजन बदला व ताजे दळण ऑर्डर करा!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="recipes-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Footer -->
+  <footer class="mt-auto bg-[#2E0508] text-[#FAF5ED] border-t-2 border-[#C9880A] pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-xs">
+      <div class="space-y-3">
+        <div class="font-serif font-black text-lg text-[#ECC87A]">LALBAUG MASALE™</div>
+        <p class="text-[#D4C0A8] leading-relaxed">
+          स्थापना १९८६, लालबाग, मुंबई. अस्सल शुद्ध भारतीय खडे व दळलेले मसाले.
+        </p>
+        <div class="font-bold text-[#ECC87A]">SINCE 1986 (३८ वर्षांची अखंड सेवा)</div>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="font-serif font-bold text-[#ECC87A] text-sm">दुकानाचे पत्ते व संपर्क</h4>
+        <p class="text-[#D4C0A8]">दुकान क्र. १२, डॉ. आंबेडकर रोड, लालबाग, मुंबई - ४०००१२</p>
+        <p class="text-[#D4C0A8]">📞 फोन: +91 98201 45678</p>
+        <p class="text-[#D4C0A8]">⏰ वेळ: स. ९:०० ते रा. ९:०० (सोमवार बंद)</p>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="font-serif font-bold text-[#ECC87A] text-sm">पोर्टल लिंक (Portals)</h4>
+        <ul class="space-y-1.5 text-[#D4C0A8]">
+          <li><a href="/" class="hover:text-white">🛒 ग्राहक दुकान (Customer Storefront)</a></li>
+          <li><a href="/admin_portal.html" target="_blank" class="hover:text-[#ECC87A] font-bold">🔐 व्यवस्थापक पॅनेल (Admin Portal ↗)</a></li>
+          <li><a href="#custom-bill-section" class="hover:text-white">⚖️ कस्टम वजन बिल काउंटर</a></li>
+          <li><a href="#masala-recipes-section" class="hover:text-white">📖 मसाला रेसिपी फॉर्म्युलेशन</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="font-serif font-bold text-[#ECC87A] text-sm">व्यवस्थापन थेट प्रवेश</h4>
+        <p class="text-[#D4C0A8]">दुकानाचे मालक व मॅनेजर खालील बटणाने थेट ॲडमिन पोर्टल उघडू शकतात:</p>
+        <a href="/admin_portal.html" target="_blank" rel="noopener noreferrer" class="inline-block px-4 py-2 rounded-xl bg-[#C9880A] text-[#2C180E] font-bold text-xs hover:bg-[#ECC87A] transition-colors shadow">
+          थेट व्यवस्थापक पोर्टल उघडा ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 border-t border-white/10 pt-4 text-center text-[11px] text-[#A8988B]">
+      © 1986 - 2026 Lalbaug Masalawale. All Rights Reserved. Swaad Jo Yaad Rahe.
+    </div>
+  </footer>
+
+  <!-- 9. Slide-Over Cart Drawer -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden transition-opacity" onclick="toggleCartDrawer(false)"></div>
+  <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[#FFFDF9] dark:bg-[#1A1410] border-l border-[#E8DAC6] dark:border-[#3A2D23] shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
+    <div class="p-4 border-b border-[#E8DAC6] dark:border-[#3A2D23] flex items-center justify-between bg-[#FAF5ED] dark:bg-[#221B16]">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🛍️</span>
+        <h3 class="font-serif font-bold text-base text-[#5A0B10] dark:text-white">तुमची खरेदी कार्ट (Shopping Cart)</h3>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-1.5 rounded-lg text-stone-400 hover:text-stone-700 text-lg">✕</button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-4 space-y-3" id="cart-items-list">
+      <!-- Dynamic Cart Items -->
+    </div>
+
+    <div class="p-4 border-t border-[#E8DAC6] dark:border-[#3A2D23] bg-[#FAF5ED] dark:bg-[#221B16] space-y-3">
+      <div class="flex items-center justify-between text-xs text-[#6E5B4D] dark:text-[#C5B7A6]">
+        <span>उपएकूण (Subtotal):</span>
+        <span class="font-bold text-sm" id="cart-drawer-subtotal">₹0</span>
+      </div>
+      <div class="flex items-center justify-between text-xs text-[#6E5B4D] dark:text-[#C5B7A6]">
+        <span>डिलिव्हरी शुल्क (Delivery):</span>
+        <span class="text-emerald-600 font-bold" id="cart-drawer-delivery">मोफत (FREE)</span>
+      </div>
+      <div class="flex items-center justify-between text-sm font-bold text-[#5A0B10] dark:text-[#ECC87A] pt-2 border-t border-dashed border-[#D4C0A8]">
+        <span>एकूण देय रक्कम (Grand Total):</span>
+        <span class="font-serif text-xl" id="cart-drawer-grandtotal">₹0</span>
+      </div>
+
+      <button onclick="openCheckoutModal()" class="w-full py-3.5 rounded-2xl bg-[#5A0B10] hover:bg-[#7A1A22] text-[#FFF8E7] font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+        <span>ऑर्डर निश्चित करा (Proceed to Checkout) →</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 10. Checkout Modal -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#1A1410] rounded-3xl border border-[#E8DAC6] dark:border-[#3A2D23] max-w-lg w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#E8DAC6] dark:border-[#3A2D23]">
+        <h3 class="font-serif font-black text-lg text-[#5A0B10] dark:text-[#FFFDF9]">ग्राहकाची माहिती व पत्ता (Checkout)</h3>
+        <button onclick="closeCheckoutModal()" class="text-stone-400 hover:text-stone-700 text-lg">✕</button>
+      </div>
+
+      <form id="checkout-form" onsubmit="submitCustomerOrder(event)" class="space-y-3.5 mt-4 text-xs">
+        <div>
+          <label class="block font-bold text-[#6E5B4D] dark:text-[#C5B7A6] mb-1">पूर्ण नाव (Full Name) *</label>
+          <input type="text" id="cust-name" required placeholder="उदा. अमोल कुलकर्णी" class="w-full p-2.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-[#FAF5ED] dark:bg-[#281F1A] dark:text-white font-bold" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-[#6E5B4D] dark:text-[#C5B7A6] mb-1">मोबाईल नंबर (Phone) *</label>
+            <input type="tel" id="cust-phone" required pattern="[0-9]{10}" placeholder="९८XXXXXXXX" class="w-full p-2.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-[#FAF5ED] dark:bg-[#281F1A] dark:text-white font-bold" />
+          </div>
+          <div>
+            <label class="block font-bold text-[#6E5B4D] dark:text-[#C5B7A6] mb-1">पिनकोड (Pincode) *</label>
+            <input type="text" id="cust-pincode" required placeholder="४०००१२" class="w-full p-2.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-[#FAF5ED] dark:bg-[#281F1A] dark:text-white font-bold" />
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-[#6E5B4D] dark:text-[#C5B7A6] mb-1">पत्ता (Delivery Address) *</label>
+          <textarea id="cust-address" required rows="2" placeholder="घर/फ्लॅट क्र., इमारत, रस्ता, लालबाग/दादर/गिरगाव..." class="w-full p-2.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-[#FAF5ED] dark:bg-[#281F1A] dark:text-white font-bold"></textarea>
+        </div>
+        <div>
+          <label class="block font-bold text-[#6E5B4D] dark:text-[#C5B7A6] mb-1">पेमेंट पर्याय (Payment Option)</label>
+          <select id="cust-payment" class="w-full p-2.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-[#FAF5ED] dark:bg-[#281F1A] dark:text-white font-bold">
+            <option value="cod">Cash on Delivery (घरी आल्यावर रोख)</option>
+            <option value="upi">UPI / Google Pay / PhonePe (स्कॅन करून भरा)</option>
+          </select>
+        </div>
+
+        <div class="p-3 bg-amber-50 dark:bg-amber-950/40 rounded-xl border border-amber-200 dark:border-amber-800 text-[11px] text-amber-900 dark:text-amber-200">
+          💡 <strong>थेट ॲडमिन सिंक:</strong> ऑर्डर सबमिट करताच Tab 2 (व्यवस्थापक पोर्टल) मध्ये लाल रंगात ब्लिंक होईल आणि अलार्म वाजेल!
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-2xl bg-[#1B4332] hover:bg-[#2D6A4F] text-[#D8F3DC] font-black text-sm shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
+          <span>✅ ऑर्डर पूर्ण करा (Place Order)</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 11. Toast Notifications -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- 12. Full Standalone JavaScript Engine -->
+  <script>
+    // Authentic 1986 Catalog Data
+    const SPICES_CATALOG = [
+      { id: 'turmeric-powder', name: 'Turmeric Powder (Haldi)', nameMr: 'हळद पावडर (सांगली राजापुरी)', category: 'Ground Spices', image: '/images/spices/turmeric_powder_hd.jpg', prices: { '100g': 45, '250g': 105, '500g': 190, '1kg': 360 }, defaultWeight: '500g', badge: 'राजापुरी' },
+      { id: 'kashmiri-chilli', name: 'Kashmiri Red Chilli Powder', nameMr: 'काश्मिरी लाल तिखट (रंगदार)', category: 'Ground Spices', image: '/images/spices/kashmiri_chilli_hd.jpg', prices: { '100g': 70, '250g': 160, '500g': 300, '1kg': 580 }, defaultWeight: '250g', badge: 'विशेष रंग' },
+      { id: 'coriander-powder', name: 'Coriander Powder (Dhaniya)', nameMr: 'धने पावडर (सुगंधी इंदोरी)', category: 'Ground Spices', image: '/images/spices/coriander_powder_hd.jpg', prices: { '100g': 35, '250g': 75, '500g': 140, '1kg': 260 }, defaultWeight: '500g' },
+      { id: 'garam-masala', name: 'Lalbaug Shahi Garam Masala', nameMr: 'शाही गरम मसाला (२१ खडे मसाले)', category: 'Masala Blends', image: '/images/spices/garam_masala_hd.jpg', prices: { '50g': 55, '100g': 105, '250g': 250, '500g': 490, '1kg': 950 }, defaultWeight: '100g', badge: 'बेस्टसेलर' },
+      { id: 'goda-masala', name: 'Traditional Goda Masala', nameMr: 'पारंपरिक गोडा मसाला (काळा मसाला)', category: 'Special/Regional Masalas', image: '/images/spices/goda_masala_hd.jpg', prices: { '100g': 90, '250g': 210, '500g': 400, '1kg': 780 }, defaultWeight: '250g', badge: 'पारंपरिक' },
+      { id: 'green-cardamom', name: 'Alleppey Bold Green Cardamom', nameMr: 'हिरवी वेलची (८ मिमी अलेप्पी बोल्ड)', category: 'Whole Spices', image: '/images/spices/green_cardamom_hd.jpg', prices: { '50g': 190, '100g': 370, '250g': 910, '500g': 1800, '1kg': 3600 }, defaultWeight: '100g', badge: '८ मिमी' },
+      { id: 'cumin-seeds', name: 'Cumin Seeds (Unpolished Jeera)', nameMr: 'जिरे (गावरान सुगंधी जिरे)', category: 'Whole Spices', image: '/images/spices/cumin_seeds_hd.jpg', prices: { '100g': 65, '250g': 155, '500g': 300, '1kg': 590 }, defaultWeight: '500g' },
+      { id: 'black-pepper', name: 'Malabar Black Pepper (Tellicherry)', nameMr: 'काळी मिरी (मलबार तेलीचेरी)', category: 'Whole Spices', image: '/images/spices/black_pepper_hd.jpg', prices: { '100g': 110, '250g': 260, '500g': 510, '1kg': 990 }, defaultWeight: '100g' }
+    ];
+
+    const RECIPES_DATA = [
+      { id: 'sunday-masala', name: 'Lalbaug Special Sunday Masala Recipe', nameMr: 'लालबाग स्पेशल संडे मसाला (२१ खडे मसाले)', weight: '1.15 kg', price: 920, desc: '२१ अस्सल खडे मसाले, दगडी पाटा दळण, चिकन, मटन व खास बेतासाठी.' },
+      { id: 'malvani-masala', name: 'Authentic Konkan Malvani Masala', nameMr: 'अस्सल कोकणी मालवणी मसाला (झणझणीत)', weight: '1.0 kg', price: 820, desc: 'तिरुफळ, काश्मिरी मिरची, दगडफूल युक्त अस्सल कोकणी चव.' },
+      { id: 'goda-masala-recipe', name: 'Traditional Maharashtrian Goda Masala', nameMr: 'पारंपरिक महाराष्ट्रीयन गोडा मसाला (काळा)', weight: '1.0 kg', price: 780, desc: 'खोबरे, तीळ, दगडफूल व लवंग-दालचिनी युक्त सुगंधी आमटी मसाला.' }
+    ];
+
+    let cart = JSON.parse(localStorage.getItem('lalbaug_cart_v2') || '[]');
+    let currentLang = localStorage.getItem('lalbaug_lang_v2') || 'mr';
+
+    // BroadcastChannel for Live Synchronization with Tab 2 (Admin)
+    const broadcastChannel = new BroadcastChannel('lalbaug_orders_channel');
+
+    function init() {
+      renderCategories();
+      renderCatalog();
+      renderRecipes();
+      updateCartUI();
+      recalculateCustomBill();
+      setupTheme();
+    }
+
+    // Theme Management
+    function setupTheme() {
+      const savedTheme = localStorage.getItem('lalbaug_theme_v1') || 'light';
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.getElementById('theme-icon').textContent = '☀️';
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('lalbaug_theme_v1', isDark ? 'dark' : 'light');
+      document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+      showToast(isDark ? '🌙 डार्क थीम सुरू केली' : '☀️ लाईट थीम सुरू केली');
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lalbaug_lang_v2', lang);
+      document.getElementById('btn-lang-en').className = lang === 'en' ? 'px-2 py-1 rounded-full text-xs font-bold transition-all bg-[#5A0B10] text-white' : 'px-2 py-1 rounded-full text-xs font-bold transition-all';
+      document.getElementById('btn-lang-mr').className = lang === 'mr' ? 'px-2 py-1 rounded-full text-xs font-bold transition-all bg-[#5A0B10] text-white' : 'px-2 py-1 rounded-full text-xs font-bold transition-all';
+      renderCatalog();
+      renderRecipes();
+    }
+
+    // Render Categories
+    function renderCategories() {
+      const categories = [
+        { id: 'all', icon: '🌶️', label: 'सर्व मसाले (All)' },
+        { id: 'Ground Spices', icon: '🥣', label: 'दळलेले मसाले (Ground)' },
+        { id: 'Whole Spices', icon: '🌿', label: 'खडे मसाले (Whole)' },
+        { id: 'Masala Blends', icon: '✨', label: 'मसाला मिश्रण (Blends)' },
+        { id: 'Special/Regional Masalas', icon: '👑', label: 'प्रादेशिक (Special)' }
+      ];
+
+      const container = document.getElementById('categories-container');
+      container.innerHTML = categories.map(c => `
+        <button onclick="filterByCategory('${c.id}')" class="flex flex-col items-center shrink-0 p-2.5 rounded-2xl border border-[#D4C0A8] dark:border-[#4A3728] hover:border-[#5A0B10] dark:hover:border-[#ECC87A] bg-white dark:bg-[#221B16] transition-all cursor-pointer min-w-[100px]">
+          <span class="text-2xl mb-1">${c.icon}</span>
+          <span class="text-[11px] font-bold text-[#2C180E] dark:text-[#F3ECE2] text-center">${c.label}</span>
+        </button>
+      `).join('');
+    }
+
+    // Render Catalog
+    function renderCatalog(filterCategory = 'all', query = '') {
+      const container = document.getElementById('products-grid');
+      let filtered = SPICES_CATALOG;
+      if (filterCategory !== 'all') filtered = filtered.filter(s => s.category === filterCategory);
+      if (query.trim()) {
+        const q = query.toLowerCase();
+        filtered = filtered.filter(s => s.name.toLowerCase().includes(q) || s.nameMr.includes(q));
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const currentWeight = item.defaultWeight;
+        const currentPrice = item.prices[currentWeight] || 150;
+
+        return `
+          <div class="rounded-3xl border border-[#E8DAC6] dark:border-[#3A2D23] bg-white dark:bg-[#1A1410] p-4 flex flex-col justify-between shadow-xs hover:shadow-lg transition-all">
+            <div class="relative rounded-2xl overflow-hidden aspect-square mb-3 bg-[#FAF5ED]">
+              <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/300x300/FAF5ED/5A0B10?text=${encodeURIComponent(item.name)}'" />
+              ${item.badge ? `<span class="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-[#5A0B10] text-[#FFF8E7] text-[10px] font-black">${item.badge}</span>` : ''}
+            </div>
+
+            <div>
+              <span class="text-[10px] text-[#C9880A] font-bold uppercase">${item.category}</span>
+              <h3 class="font-serif font-black text-sm text-[#2C180E] dark:text-[#FFFDF9] truncate">
+                ${currentLang === 'mr' ? item.nameMr : item.name}
+              </h3>
+
+              <!-- Weight Pill Selector -->
+              <div class="flex items-center gap-1.5 mt-2.5 flex-wrap">
+                ${Object.keys(item.prices).map(w => `
+                  <button onclick="changeProductWeight('${item.id}', '${w}')" id="btn-w-${item.id}-${w}" class="px-2 py-0.5 rounded-lg text-[10px] font-bold border transition-colors ${w === currentWeight ? 'bg-[#5A0B10] text-white border-[#5A0B10]' : 'border-[#D4C0A8] text-stone-600 dark:text-stone-300'}">
+                    ${w}
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-[#E8DAC6] dark:border-[#3A2D23] flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-stone-400 block">किंमत (Price)</span>
+                <span class="font-serif font-black text-lg text-[#5A0B10] dark:text-[#ECC87A]" id="price-${item.id}">₹${currentPrice}</span>
+              </div>
+              <button onclick="addCatalogItemToCart('${item.id}')" class="px-4 py-2 rounded-xl bg-[#5A0B10] hover:bg-[#7A1A22] text-[#FFF8E7] font-bold text-xs shadow-xs transition-transform active:scale-95">
+                + कार्टमध्ये जोडा
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function changeProductWeight(spiceId, weight) {
+      const item = SPICES_CATALOG.find(s => s.id === spiceId);
+      if (!item) return;
+      item.defaultWeight = weight;
+      const price = item.prices[weight] || 100;
+      document.getElementById(`price-${spiceId}`).textContent = `₹${price}`;
+      Object.keys(item.prices).forEach(w => {
+        const btn = document.getElementById(`btn-w-${spiceId}-${w}`);
+        if (btn) {
+          btn.className = w === weight ? 'px-2 py-0.5 rounded-lg text-[10px] font-bold border transition-colors bg-[#5A0B10] text-white border-[#5A0B10]' : 'px-2 py-0.5 rounded-lg text-[10px] font-bold border transition-colors border-[#D4C0A8] text-stone-600 dark:text-stone-300';
+        }
+      });
+    }
+
+    function filterByCategory(catId) {
+      renderCatalog(catId, document.getElementById('catalog-search').value);
+    }
+
+    function filterCatalog() {
+      renderCatalog('all', document.getElementById('catalog-search').value);
+    }
+
+    // Render Recipes
+    function renderRecipes() {
+      const container = document.getElementById('recipes-grid');
+      container.innerHTML = RECIPES_DATA.map(r => `
+        <div class="p-5 rounded-3xl border border-[#E8DAC6] dark:border-[#3A2D23] bg-white dark:bg-[#1A1410] shadow-md flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] font-bold text-[#C9880A] uppercase tracking-wider">१९८६ पारंपरिक रेसिपी</span>
+            <h3 class="font-serif font-black text-base text-[#5A0B10] dark:text-[#FFFDF9] mt-1">${r.nameMr}</h3>
+            <p class="text-xs text-[#6E5B4D] dark:text-[#C5B7A6] mt-2">${r.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#E8DAC6] dark:border-[#3A2D23] flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-stone-400 block">${r.weight} तुकडा</span>
+              <span class="font-serif font-black text-lg text-[#5A0B10] dark:text-[#ECC87A]">₹${r.price}</span>
+            </div>
+            <button onclick="addRecipeToCart('${r.id}')" class="px-4 py-2 rounded-xl bg-[#C9880A] hover:bg-[#D8940C] text-[#2C180E] font-extrabold text-xs shadow-xs">
+              + रेसिपी ऑर्डर करा
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Custom Bill Calculator
+    function recalculateCustomBill() {
+      const select = document.getElementById('calc-spice-select');
+      const ratePerKg = Number(select.options[select.selectedIndex].getAttribute('data-rate')) || 360;
+      const grams = Math.max(10, Number(document.getElementById('calc-grams-input').value) || 100);
+      const total = (ratePerKg / 1000) * grams;
+
+      document.getElementById('calc-result-price').textContent = `₹${total.toFixed(2)}`;
+      document.getElementById('calc-rate-breakdown').textContent = `₹${ratePerKg} / 1000g × ${grams}g`;
+    }
+
+    function addCustomBillToCart() {
+      const select = document.getElementById('calc-spice-select');
+      const spiceName = select.options[select.selectedIndex].text.split('-')[0].trim();
+      const ratePerKg = Number(select.options[select.selectedIndex].getAttribute('data-rate')) || 360;
+      const grams = Math.max(10, Number(document.getElementById('calc-grams-input').value) || 100);
+      const price = Math.round((ratePerKg / 1000) * grams);
+
+      const cartItem = {
+        id: `custom-${Date.now()}`,
+        name: `कस्टम बिल: ${spiceName}`,
+        nameMr: `कस्टम वजन: ${spiceName}`,
+        weight: `${grams}g`,
+        unitPrice: price,
+        quantity: 1,
+        totalPrice: price
+      };
+
+      cart.push(cartItem);
+      saveCart();
+      showToast(`✅ ${spiceName} (${grams}g) कार्टमध्ये जोडले!`);
+      toggleCartDrawer(true);
+    }
+
+    function addCatalogItemToCart(spiceId) {
+      const item = SPICES_CATALOG.find(s => s.id === spiceId);
+      if (!item) return;
+      const weight = item.defaultWeight;
+      const price = item.prices[weight] || 150;
+
+      const existing = cart.find(c => c.id === `${spiceId}-${weight}`);
+      if (existing) {
+        existing.quantity += 1;
+        existing.totalPrice = existing.quantity * existing.unitPrice;
+      } else {
+        cart.push({
+          id: `${spiceId}-${weight}`,
+          name: item.name,
+          nameMr: item.nameMr,
+          weight: weight,
+          unitPrice: price,
+          quantity: 1,
+          totalPrice: price
+        });
+      }
+      saveCart();
+      showToast(`✅ ${item.nameMr} (${weight}) कार्टमध्ये जोडले!`);
+    }
+
+    function addRecipeToCart(recipeId) {
+      const r = RECIPES_DATA.find(x => x.id === recipeId);
+      if (!r) return;
+      cart.push({
+        id: `recipe-${recipeId}-${Date.now()}`,
+        name: r.name,
+        nameMr: r.nameMr,
+        weight: r.weight,
+        unitPrice: r.price,
+        quantity: 1,
+        totalPrice: r.price
+      });
+      saveCart();
+      showToast(`✅ ${r.nameMr} कार्टमध्ये जोडली!`);
+      toggleCartDrawer(true);
+    }
+
+    // Cart Management
+    function saveCart() {
+      localStorage.setItem('lalbaug_cart_v2', JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, i) => sum + i.quantity, 0);
+      const grandTotal = cart.reduce((sum, i) => sum + i.totalPrice, 0);
+
+      document.getElementById('cart-count-badge').textContent = totalCount;
+      document.getElementById('cart-nav-total').textContent = `₹${grandTotal}`;
+      document.getElementById('cart-drawer-subtotal').textContent = `₹${grandTotal}`;
+      document.getElementById('cart-drawer-grandtotal').textContent = `₹${grandTotal}`;
+
+      const listContainer = document.getElementById('cart-items-list');
+      if (cart.length === 0) {
+        listContainer.innerHTML = `
+          <div class="text-center py-12 text-stone-400">
+            <span class="text-3xl">🛒</span>
+            <p class="text-xs mt-2 font-medium">तुमची कार्ट रिकामी आहे</p>
+          </div>
+        `;
+      } else {
+        listContainer.innerHTML = cart.map((item, idx) => `
+          <div class="p-3 rounded-2xl border border-[#E8DAC6] dark:border-[#3A2D23] bg-white dark:bg-[#201914] flex items-center justify-between text-xs">
+            <div>
+              <div class="font-bold text-[#2C180E] dark:text-[#FFFDF9] truncate max-w-[200px]">${item.nameMr}</div>
+              <div class="text-[#8A7B6E] text-[11px]">${item.weight} • ₹${item.unitPrice}</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="changeQty(${idx}, -1)" class="w-6 h-6 rounded-lg bg-stone-100 dark:bg-[#2E241E] text-stone-600 dark:text-stone-300 font-bold flex items-center justify-center">-</button>
+              <span class="font-bold w-4 text-center">${item.quantity}</span>
+              <button onclick="changeQty(${idx}, 1)" class="w-6 h-6 rounded-lg bg-stone-100 dark:bg-[#2E241E] text-stone-600 dark:text-stone-300 font-bold flex items-center justify-center">+</button>
+              <span class="font-bold text-[#5A0B10] dark:text-[#ECC87A] ml-2">₹${item.totalPrice}</span>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function changeQty(index, delta) {
+      if (!cart[index]) return;
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      } else {
+        cart[index].totalPrice = cart[index].quantity * cart[index].unitPrice;
+      }
+      saveCart();
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const overlay = document.getElementById('cart-drawer-overlay');
+      if (open) {
+        overlay.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        overlay.classList.add('hidden');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function openCheckoutModal() {
+      if (cart.length === 0) {
+        showToast('⚠️ कृपया प्रथम कार्टमध्ये मसाले जोडा!');
+        return;
+      }
+      toggleCartDrawer(false);
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    // Submit Customer Order & Broadcast in Real-Time to Tab 2 (Admin)
+    function submitCustomerOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById('cust-name').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim();
+      const address = document.getElementById('cust-address').value.trim();
+      const pincode = document.getElementById('cust-pincode').value.trim();
+      const grandTotal = cart.reduce((sum, i) => sum + i.totalPrice, 0);
+
+      const orderId = `ORD-LBM-${Math.floor(10000 + Math.random() * 90000)}`;
+      const newOrder = {
+        orderId: orderId,
+        customerName: name,
+        phone: phone,
+        address: address,
+        city: 'Mumbai',
+        pincode: pincode,
+        items: [...cart],
+        subtotal: grandTotal,
+        deliveryCharge: 0,
+        grandTotal: grandTotal,
+        status: 'New Order',
+        createdAt: new Date().toISOString(),
+        orderedVia: 'website'
+      };
+
+      // 1. Save to LocalStorage
+      const existingOrders = JSON.parse(localStorage.getItem('lalbaug_orders_v2') || '[]');
+      existingOrders.unshift(newOrder);
+      localStorage.setItem('lalbaug_orders_v2', JSON.stringify(existingOrders));
+
+      // 2. Broadcast immediately to Tab 2 (Admin Portal)
+      try {
+        broadcastChannel.postMessage({
+          type: 'NEW_ORDER',
+          order: newOrder
+        });
+      } catch (err) {
+        console.warn('BroadcastChannel error:', err);
+      }
+
+      // 3. Clear Cart & Close Modal
+      cart = [];
+      saveCart();
+      closeCheckoutModal();
+
+      // 4. Show Celebration Toast
+      showToast(`🎉 ऑर्डर नोंदवली! #${orderId} - धन्यवाद!`, 'success');
+      alert(`✅ अभिनंदन! तुमची ऑर्डर यशस्वीपणे नोंदवली आहे.\n\nऑर्डर क्र: #${orderId}\nग्राहकाचे नाव: ${name}\nरक्कम: ₹${grandTotal}\n\nतुम्ही Tab 2 (व्यवस्थापक पोर्टल) उघडून ही ऑर्डर थेट लाल रंगात ब्लिंक होताना पाहू शकता!`);
+    }
+
+    // Toast Generator
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'px-4 py-2.5 rounded-2xl bg-[#5A0B10] text-[#FFF8E7] text-xs font-bold shadow-2xl border border-[#C9880A] flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0';
+      toast.textContent = message;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      }, 10);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    // Initialize on Page Load
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
