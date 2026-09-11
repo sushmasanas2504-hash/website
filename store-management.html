@@ -1,0 +1,3091 @@
+<!DOCTYPE html>
+<html lang="mr" data-theme="white">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Lalbaug Masale | Est. 1986</title>
+<meta name="description" content="Lalbaug Masale, अस्सल चव, जी जिभेवर रेंगाळेल. 100% Pure & Natural Spices, Stone Pounded, Direct from Indian Farms."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ─── 1. EXACT ADMIN PANNEL MATCHED THEMES (WHITE & DARK) ────── */
+:root, [data-theme="white"], [data-theme="light"], html:not(.dark) {
+  --maroon: #681116;
+  --maroon-dark: #46090D;
+  --deep-red: #8B1B22;
+  --spice-brown: #8A3B08;
+  --spice-brown-hover: #A2450A;
+  --saffron: #D45124;
+  --saffron-bright: #E8501A;
+  --gold: #C9880A;
+  --gold-light: #EFC879;
+  --cream: #FFFFFF;
+  --cream-card: #FFFFFF;
+  --cream-soft: #F9F5EE;
+  --border: #E8DAC6;
+  --border-dark: #D4C0A8;
+  --border-gold: #ECC87A;
+  --text-dark: #2C180E;
+  --text-mid: #6E5B4D;
+  --text-muted: #9E8978;
+  --header-bg: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --page-bg: #FFFFFF;
+  --bowl-bg: #FAF6F0;
+  --input-bg: #FFFFFF;
+  --announcement-bg: #46090D;
+  --announcement-text: #F8E9D2;
+  --footer-bg: #2C070A;
+  --success: #1E7B4E;
+  --error: #C0292B;
+  --shadow-sm: 0 2px 8px rgba(92, 16, 20, 0.06);
+  --shadow-md: 0 6px 18px rgba(92, 16, 20, 0.1);
+  --shadow-lg: 0 12px 32px rgba(92, 16, 20, 0.15);
+  --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* EXACT ADMIN PANNEL DARK THEME (#120F0D / #1A1410 / #281F1A / #ECC87A) */
+[data-theme="dark"], html.dark {
+  --maroon: #ECC87A;
+  --maroon-dark: #120F0D;
+  --deep-red: #ECC87A;
+  --spice-brown: #C9880A;
+  --spice-brown-hover: #EFC879;
+  --saffron: #E8501A;
+  --saffron-bright: #FF6B35;
+  --gold: #C9880A;
+  --gold-light: #ECC87A;
+  --cream: #120F0D;
+  --cream-card: #1A1410;
+  --cream-soft: #281F1A;
+  --border: #3A2D23;
+  --border-dark: #4A3728;
+  --border-gold: #C9880A;
+  --text-dark: #F3ECE2;
+  --text-mid: #C8B8A6;
+  --text-muted: #A09285;
+  --header-bg: #1A1410;
+  --card-bg: #1A1410;
+  --page-bg: #120F0D;
+  --bowl-bg: #281F1A;
+  --input-bg: #281F1A;
+  --announcement-bg: #0D0907;
+  --announcement-text: #F8E9D2;
+  --footer-bg: #0A0705;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.75);
+}
+
+/* Admin-matched dark theme comprehensive component overrides */
+html.dark body, [data-theme="dark"] body {
+  background-color: #120F0D !important;
+  color: #F3ECE2 !important;
+}
+html.dark .site-header, [data-theme="dark"] .site-header {
+  background: #1A1410 !important;
+  border-color: #3A2D23 !important;
+}
+html.dark .nav-menu a, [data-theme="dark"] .nav-menu a {
+  color: #F3ECE2 !important;
+}
+html.dark .nav-menu a:hover, html.dark .nav-menu a.active,
+[data-theme="dark"] .nav-menu a:hover, [data-theme="dark"] .nav-menu a.active {
+  color: #ECC87A !important;
+  background: #281F1A !important;
+}
+html.dark .spice-prod-card, [data-theme="dark"] .spice-prod-card {
+  background: #1A1410 !important;
+  border-color: #3A2D23 !important;
+}
+html.dark .spice-prod-card:hover, [data-theme="dark"] .spice-prod-card:hover {
+  border-color: #ECC87A !important;
+}
+html.dark .card-bowl-wrapper, [data-theme="dark"] .card-bowl-wrapper {
+  background: #281F1A !important;
+  border-color: #3A2D23 !important;
+}
+html.dark .card-prod-title, [data-theme="dark"] .card-prod-title {
+  color: #FFFDF9 !important;
+}
+html.dark .card-curr-price, [data-theme="dark"] .card-curr-price {
+  color: #ECC87A !important;
+}
+html.dark .card-orig-price, [data-theme="dark"] .card-orig-price {
+  color: #A09285 !important;
+}
+html.dark .hero-wrapper, [data-theme="dark"] .hero-wrapper {
+  background: #16110D !important;
+  border-color: #3A2D23 !important;
+}
+html.dark .hero-title-main, [data-theme="dark"] .hero-title-main {
+  color: #ECC87A !important;
+}
+html.dark .hero-subtitle-p, [data-theme="dark"] .hero-subtitle-p {
+  color: #C8B8A6 !important;
+}
+html.dark .trust-strip > div > div, [data-theme="dark"] .trust-strip > div > div {
+  background: #1A1410 !important;
+  border-color: #3A2D23 !important;
+  color: #F3ECE2 !important;
+}
+html.dark .bowl-circle-frame, [data-theme="dark"] .bowl-circle-frame {
+  background: #281F1A !important;
+  border-color: #3A2D23 !important;
+}
+html.dark .bowl-title-lbl, [data-theme="dark"] .bowl-title-lbl {
+  color: #F3ECE2 !important;
+}
+html.dark .modal-box, [data-theme="dark"] .modal-box {
+  background: #1A1410 !important;
+  color: #F3ECE2 !important;
+  border-color: #ECC87A !important;
+}
+html.dark input, html.dark select, html.dark textarea,
+[data-theme="dark"] input, [data-theme="dark"] select, [data-theme="dark"] textarea {
+  background: #281F1A !important;
+  color: #F3ECE2 !important;
+  border-color: #4A3728 !important;
+}
+html.dark input::placeholder, html.dark textarea::placeholder,
+[data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder {
+  color: #A09285 !important;
+}
+html.dark .cart-drawer, [data-theme="dark"] .cart-drawer {
+  background: #1A1410 !important;
+  color: #F3ECE2 !important;
+  border-color: #3A2D23 !important;
+}
+html.dark .cart-item-row, [data-theme="dark"] .cart-item-row {
+  border-color: #3A2D23 !important;
+}
+html.dark .theme-option-card, [data-theme="dark"] .theme-option-card {
+  background: #281F1A !important;
+  border-color: #3A2D23 !important;
+}
+html.dark .theme-option-card.active, [data-theme="dark"] .theme-option-card.active {
+  border-color: #ECC87A !important;
+  background: #34261E !important;
+}
+html.dark .theme-switch-pill-btn, [data-theme="dark"] .theme-switch-pill-btn {
+  background: #281F1A !important;
+  border-color: #4A3728 !important;
+  color: #ECC87A !important;
+}
+html.dark .icon-btn, [data-theme="dark"] .icon-btn {
+  background: #281F1A !important;
+  border-color: #4A3728 !important;
+  color: #ECC87A !important;
+}
+html.dark .floating-theme-btn, [data-theme="dark"] .floating-theme-btn {
+  background: #1A1410 !important;
+  border-color: #ECC87A !important;
+  color: #ECC87A !important;
+}
+html.dark .site-footer, [data-theme="dark"] .site-footer {
+  background: #0A0705 !important;
+  border-color: #3A2D23 !important;
+}
+html.dark .footer-col-title, [data-theme="dark"] .footer-col-title {
+  color: #ECC87A !important;
+}
+html.dark .footer-links-ul a, [data-theme="dark"] .footer-links-ul a {
+  color: #C8B8A6 !important;
+}
+html.dark .footer-links-ul a:hover, [data-theme="dark"] .footer-links-ul a:hover {
+  color: #ECC87A !important;
+}
+html.dark .modal-close-btn, [data-theme="dark"] .modal-close-btn {
+  background: #281F1A !important;
+  border-color: #4A3728 !important;
+  color: #ECC87A !important;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  min-height: 100vh;
+  padding-bottom: 70px;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ─── 1. TOP ANNOUNCEMENT BAR ────────────────────────────────── */
+.top-announcement {
+  background: var(--announcement-bg);
+  color: var(--announcement-text);
+  font-size: 11.5px;
+  padding: 7px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(201, 136, 10, 0.3);
+}
+.ann-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.ann-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+.ann-item span.icon { color: var(--gold-light); }
+.ann-sep { opacity: 0.35; }
+.ann-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--gold-light);
+  white-space: nowrap;
+}
+
+/* ─── 2. MAIN HEADER ─────────────────────────────────────────── */
+.site-header {
+  background: var(--header-bg);
+  border-bottom: 1.5px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* Circular Official Logo (Prominent, text removed) */
+.brand-logo-crest {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.brand-circular-logo {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid var(--gold);
+  box-shadow: 0 4px 14px rgba(92, 16, 20, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #FFF;
+  display: block;
+}
+.brand-circular-logo:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(92, 16, 20, 0.38);
+}
+@media (max-width: 640px) {
+  .brand-circular-logo {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* Nav Menu (Even, Single-Line, Aligned Tabs) */
+.nav-menu {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+}
+@media (min-width: 960px) {
+  .nav-menu { display: flex; }
+}
+.nav-menu li {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 6px 9px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  line-height: 1;
+}
+.nav-menu a:hover, .nav-menu a.active {
+  color: var(--maroon);
+  background: rgba(140, 30, 40, 0.08);
+}
+.nav-menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 8px;
+  right: 8px;
+  height: 2.5px;
+  background: var(--maroon);
+  border-radius: 2px;
+}
+
+/* Header Right Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lang-switch-pill {
+  display: flex;
+  background: var(--cream-soft);
+  border: 1.5px solid var(--border-dark);
+  border-radius: 20px;
+  padding: 2px;
+}
+.lang-btn {
+  border: none;
+  background: none;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-mid);
+  cursor: pointer;
+  border-radius: 16px;
+  transition: var(--transition);
+}
+.lang-btn.active {
+  background: var(--maroon);
+  color: #FFF;
+}
+
+/* Theme Switcher Header Button */
+.theme-switch-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--cream-soft);
+  border: 1.5px solid var(--border-gold);
+  color: var(--text-dark);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.theme-switch-pill-btn:hover {
+  background: var(--border-gold);
+  color: #2C180E;
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--cream-soft);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  transition: var(--transition);
+}
+.icon-btn:hover {
+  background: var(--maroon);
+  color: #FFF;
+  border-color: var(--maroon);
+}
+.cart-badge-count {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background: #C0292B;
+  color: #FFF;
+  font-size: 9.5px;
+  font-weight: 800;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Floating Quick Theme Switcher Button */
+.floating-theme-btn {
+  position: fixed;
+  bottom: 82px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: #FFF;
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 95;
+  transition: var(--transition);
+}
+.floating-theme-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* ─── 3. HERO SECTION ────────────────────────────────────────── */
+.hero-wrapper {
+  position: relative;
+  background: linear-gradient(135deg, rgba(70,9,13,0.06), rgba(201,136,10,0.08));
+  border-bottom: 1.5px solid var(--border);
+  overflow: hidden;
+  padding: 34px 18px 42px;
+}
+.hero-overlay-tint {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(201, 136, 10, 0.12), transparent 60%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+}
+@media (min-width: 860px) {
+  .hero-inner { grid-template-columns: 1.1fr 0.9fr; }
+}
+.hero-text-col { max-width: 580px; }
+.hero-title-main {
+  font-family: 'Playfair Display', 'Cinzel', serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--maroon);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+@media (min-width: 640px) {
+  .hero-title-main { font-size: 46px; }
+}
+.hero-subtitle-p {
+  font-size: 14.5px;
+  color: var(--text-mid);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+.btn-shop-now {
+  background: var(--maroon);
+  color: #FFF;
+  border: 1.5px solid var(--gold);
+  padding: 13px 28px;
+  border-radius: 30px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(92,16,20,0.25);
+  transition: var(--transition);
+}
+.btn-shop-now:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(92,16,20,0.35);
+}
+.hero-packets-card {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(92,16,20,0.24);
+  border: 2.5px solid var(--gold);
+  background: #2C180E;
+}
+.hero-packets-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 660 / 265;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.hero-packets-card:hover .hero-packets-img {
+  transform: scale(1.02);
+}
+
+/* ─── 4. TRUST BADGES STRIP ──────────────────────────────────── */
+.trust-strip {
+  background: var(--card-bg);
+  border-bottom: 1.5px solid var(--border);
+  padding: 18px 12px;
+}
+.trust-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .trust-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .trust-grid { grid-template-columns: repeat(6, 1fr); }
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: left;
+}
+.trust-ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1.5px solid var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--maroon);
+  flex-shrink: 0;
+}
+.trust-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.25;
+}
+
+/* ─── 5. SHOP BY CATEGORY (Circular Bowls) ───────────────────── */
+.section-category-bowls {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 36px 18px 24px;
+}
+.section-ornate-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.floret-decor {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 5px;
+  margin-bottom: 4px;
+}
+.section-heading-text {
+  font-family: 'Playfair Display', 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--maroon);
+  letter-spacing: 0.6px;
+}
+.bowls-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  justify-content: flex-start;
+  scrollbar-width: thin;
+}
+@media (min-width: 960px) {
+  .bowls-row { justify-content: center; }
+}
+.bowl-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 108px;
+  transition: var(--transition);
+}
+.bowl-card:hover { transform: translateY(-3px); }
+.bowl-circle-frame {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 2px solid var(--border-gold);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  transition: var(--transition);
+}
+.bowl-card:hover .bowl-circle-frame, .bowl-card.active .bowl-circle-frame {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(104, 17, 22, 0.2);
+}
+.bowl-circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.bowl-card:hover .bowl-circle-img { transform: scale(1.08); }
+.bowl-title-lbl {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+/* ─── 6. CATALOG SECTION ─────────────────────────────────────── */
+.section-catalog-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px 18px 48px;
+}
+.catalog-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--border);
+}
+.catalog-main-h2 {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--maroon);
+}
+.catalog-breadcrumb-trail {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+.catalog-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 900px) {
+  .catalog-layout-grid { grid-template-columns: 240px 1fr; }
+}
+
+/* Sidebar Filter Accordion */
+.sidebar-filters-col { display: none; }
+@media (min-width: 900px) {
+  .sidebar-filters-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+.filter-card-accordion {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.filter-accordion-header {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--maroon);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-items-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 6px;
+}
+.filter-item-li {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+.filter-item-li:hover, .filter-item-li.active {
+  color: var(--maroon);
+  background: var(--cream-soft);
+  font-weight: 700;
+}
+.filter-item-li::before {
+  content: '•';
+  color: var(--spice-brown);
+  font-size: 14px;
+}
+
+/* Main Products Header Controls */
+.catalog-top-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.sort-dropdown-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sort-select-elem {
+  padding: 6px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+  background: var(--card-bg);
+  outline: none;
+  cursor: pointer;
+}
+
+/* 4-Columns Product Grid */
+.products-4col-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 640px) {
+  .products-4col-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1040px) {
+  .products-4col-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Product Card - Flush edge-to-edge image fit with zero gap up to card border */
+.spice-prod-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 0; /* FLUSH - NO INNER GAP */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden; /* Clips image corners flush with outer card border */
+}
+.spice-prod-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Sale & Discount Badges */
+.card-sale-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #C0292B;
+  color: #FFF;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+.card-save-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #E8A800;
+  color: #FFF;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 6px;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* Rectangular Spice Image Container Fitting flush to card border */
+.card-bowl-wrapper {
+  width: 100%;
+  height: 195px;
+  background: var(--bowl-bg);
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+}
+.card-bowl-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+  display: block;
+}
+.spice-prod-card:hover .card-bowl-wrapper img {
+  transform: scale(1.06);
+}
+
+/* Inner Details Container below the flush image */
+.card-body-details {
+  padding: 12px 14px 14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.card-prod-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin-bottom: 4px;
+  min-height: 36px;
+}
+.card-prod-price {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--maroon);
+  margin-bottom: 4px;
+}
+.card-stars-row {
+  color: #E8A800;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+/* Add to cart / Qty stepper */
+.btn-quick-add {
+  width: 100%;
+  padding: 8.5px;
+  background: var(--spice-brown);
+  color: #FFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-quick-add:hover {
+  background: var(--maroon);
+}
+.qty-stepper-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--cream-soft);
+  border: 1.5px solid var(--spice-brown);
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+.stepper-btn {
+  background: var(--spice-brown);
+  color: #FFF;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.stepper-val {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+/* Weight Customization Pill Buttons in Cart */
+.weight-pill-btn {
+  padding: 3px 7px;
+  font-size: 10.5px;
+  font-weight: 700;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.weight-pill-btn:hover {
+  border-color: var(--gold);
+  background: var(--cream-soft);
+}
+.weight-pill-btn.active {
+  background: var(--maroon);
+  color: #FFF;
+  border-color: var(--maroon);
+}
+.weight-pill-btn.custom-pill {
+  background: #FFF8E7;
+  color: #8B5A2B;
+  border-color: #D4AF37;
+}
+
+/* ─── 7. BANNERS STRIP ───────────────────────────────────────── */
+.promo-banners-strip {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 18px 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 768px) {
+  .promo-banners-strip { grid-template-columns: 1fr 1fr; }
+}
+.promo-banner-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 210px;
+  box-shadow: var(--shadow-md);
+  border: 1.5px solid var(--border);
+}
+.promo-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.promo-banner-card:hover .promo-banner-img {
+  transform: scale(1.04);
+}
+.promo-banner-content {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(30,10,12,0.88), rgba(30,10,12,0.3) 65%, transparent);
+  color: #FFF;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.promo-banner-top-tag {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--gold-light);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.promo-banner-h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #FFF;
+}
+.promo-banner-desc {
+  font-size: 11.5px;
+  color: #E2CFBE;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  max-width: 420px;
+}
+.btn-banner-link {
+  background: var(--gold);
+  color: #2C180E;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: var(--transition);
+}
+.btn-banner-link:hover {
+  background: #FFF;
+  transform: translateX(3px);
+}
+
+/* ─── 8. NEWSLETTER STRIP ────────────────────────────────────── */
+.newsletter-strip {
+  background: var(--maroon-dark);
+  color: #FFF;
+  padding: 38px 18px;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  text-align: center;
+}
+.newsletter-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.nl-h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.nl-desc {
+  font-size: 13px;
+  color: #E8DAC6;
+  margin-bottom: 20px;
+}
+.nl-form-row {
+  display: flex;
+  gap: 8px;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.nl-input {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 25px;
+  border: 1px solid var(--border-gold);
+  font-size: 13px;
+  outline: none;
+}
+.nl-submit-btn {
+  background: var(--gold);
+  color: #2C180E;
+  font-weight: 800;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: var(--transition);
+}
+.nl-submit-btn:hover { background: #FFF; }
+
+/* ─── 9. FOOTER ──────────────────────────────────────────────── */
+.site-footer {
+  background: #1D0A0D;
+  color: #FAF5ED;
+  padding: 40px 18px 24px;
+  border-top: 1.5px solid var(--border-gold);
+}
+.footer-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(232, 218, 198, 0.15);
+}
+@media (min-width: 640px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
+}
+.footer-col-title {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+.footer-links-ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer-links-ul a {
+  color: #D4C0A8;
+  text-decoration: none;
+  font-size: 12.5px;
+  transition: var(--transition);
+}
+.footer-links-ul a:hover { color: #FFF; padding-left: 4px; }
+.footer-bottom-bar {
+  max-width: 1280px;
+  margin: 18px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  color: #A89582;
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .footer-bottom-bar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ─── 10. CART DRAWER & MODALS ───────────────────────────────── */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+.drawer-backdrop.open { opacity: 1; visibility: visible; }
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  z-index: 210;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -6px 0 25px rgba(0,0,0,0.25);
+}
+.drawer-backdrop.open .cart-drawer { transform: translateX(0); }
+.drawer-header {
+  padding: 16px 20px;
+  background: var(--maroon);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.drawer-body { flex: 1; overflow-y: auto; padding: 16px 20px; }
+.drawer-footer { padding: 16px 20px; background: var(--cream-soft); border-top: 1.5px solid var(--border); }
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  z-index: 300;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+@media (min-width: 600px) { .modal-overlay { align-items: center; } }
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal-box {
+  background: var(--card-bg);
+  color: var(--text-dark);
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  border-radius: 24px 24px 0 0;
+  overflow-y: auto;
+  padding: 24px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+@media (min-width: 600px) { .modal-box { border-radius: 18px; } }
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--cream-soft);
+  border: 1px solid var(--border);
+  color: var(--text-dark);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Theme Option Cards */
+.theme-option-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--cream);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 10px;
+}
+.theme-option-card:hover {
+  border-color: var(--gold);
+  transform: translateX(4px);
+}
+.theme-option-card.active {
+  border-color: var(--maroon);
+  background: var(--cream-soft);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.theme-color-swatch {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #FFF;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 84px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #36090B;
+  color: #FFF;
+  border: 1px solid var(--gold);
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- Floating Quick Theme Switcher Button -->
+<button class="floating-theme-btn" id="floatingThemeBtn" onclick="toggleTheme()" title="Toggle White / Dark Theme (पांढरी / डार्क थीम)">
+    <span id="floatingThemeIcon">🌓</span>
+  </button>
+
+<!-- ─── 1. TOP ANNOUNCEMENT BAR ────────────────────────────────── -->
+<div class="top-announcement">
+  <div class="ann-left">
+    <div class="ann-item"><span class="icon">🌿</span><span data-i18n="ann_purity">100% Pure & Natural</span></div>
+    <span class="ann-sep">|</span>
+    <div class="ann-item"><span class="icon">🚫</span><span data-i18n="ann_colors">No Artificial Colors</span></div>
+    <span class="ann-sep">|</span>
+    <div class="ann-item"><span class="icon">🔬</span><span data-i18n="ann_lab">Lab Tested for Purity</span></div>
+  </div>
+  <div class="ann-right">
+    <span>🚚</span> <span data-i18n="ann_delivery">Free Delivery on orders above ₹499</span>
+    <span style="opacity:0.4; margin:0 8px">|</span>
+    <a onclick="openModal('mOrdersTracker')" style="color:#FFF; text-decoration:none; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:4px">📦 <span data-i18n="ann_track_order">Track Order</span></a>
+    <span style="opacity:0.4; margin:0 8px">|</span>
+    <a href="/admin_portal.html" target="_blank" style="color:#FDE68A; text-decoration:none; font-weight:700; display:inline-flex; align-items:center; gap:4px">🔐 <span data-i18n="nav_owner">Owner Portal</span></a>
+  </div>
+</div>
+
+<!-- ─── 2. MAIN HEADER (Enlarged Circular Brand Logo, Text Removed) ─── -->
+<header class="site-header">
+  <div class="header-container">
+    <!-- Circular Brand Logo (Bigger circular logo, text removed as requested) -->
+    <a class="brand-logo-crest" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Lalbaug Masale - Home">
+      <img src="/images/lalbaug_logo.png" alt="Lalbaug Masale" class="brand-circular-logo" onerror="this.src='/images/spices/bowl_garam.png'"/>
+    </a>
+
+    <!-- Navigation Menu (Even, Single-Line, Aligned Tabs) -->
+    <nav>
+      <ul class="nav-menu">
+        <li><a class="active" onclick="window.scrollTo({top:0,behavior:'smooth'})" data-i18n="nav_home">HOME</a></li>
+        <li><a onclick="openModal('mAbout')" data-i18n="nav_about">ABOUT US</a></li>
+        <li><a onclick="scrollToSection('catalogSection')" data-i18n="nav_products">OUR PRODUCTS ▾</a></li>
+        <li><a onclick="openModal('mCustomBill')">⚖️ <span data-i18n="nav_custom_bill">कस्टम बिल</span></a></li>
+        <li><a onclick="openModal('mRecipes')" data-i18n="nav_recipes">RECIPES</a></li>
+        <li><a onclick="openModal('mEnquiry')">✉️ <span data-i18n="nav_enquiry">चौकशी</span></a></li>
+        <li><a onclick="openModal('mOrdersTracker')" style="color:#8A4700; background:#FFF3E0; border:1px solid #ECC87A">📦 <span data-i18n="nav_track_order">TRACK ORDER</span></a></li>
+        <li><a onclick="scrollToSection('trustSection')" data-i18n="nav_quality">QUALITY</a></li>
+        <li><a onclick="openModal('mContact')" data-i18n="nav_contact">CONTACT US</a></li>
+        <li><a href="/admin_portal.html" target="_blank" style="background:#550D11;color:#FDE68A;padding:5px 10px;border-radius:12px;border:1px solid #C9880A;font-weight:700;display:inline-flex;align-items:center;gap:4px" title="व्यवस्थापक पोर्टल (Admin Portal)">🔐 <span data-i18n="nav_owner_pill">व्यवस्थापक ↗</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <!-- Theme Switcher Pill -->
+      <button class="theme-switch-pill-btn" onclick="toggleTheme()" title="Toggle White / Dark Theme (थीम बदला)">
+          <span id="headerThemeIcon">🌓</span>
+          <span id="themePillText" data-i18n="theme_label">थीम</span>
+        </button>
+
+      <!-- English & Marathi Selector -->
+      <div class="lang-switch-pill" title="Switch Language / भाषा बदला">
+        <button class="lang-btn" id="langBtnEn" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-btn active" id="langBtnMr" onclick="switchLanguage('mr')">मराठी</button>
+      </div>
+
+      <!-- Search Trigger -->
+      <button class="icon-btn" onclick="scrollToSection('catalogSection')" title="Search Spices">🔍</button>
+
+      <!-- Track Orders Button -->
+      <button class="icon-btn" onclick="openModal('mOrdersTracker')" title="Track Orders by Mobile / मोबाईलवरून ऑर्डर तपासा">📦</button>
+
+      <!-- Cart Button with Live Badge -->
+      <button class="icon-btn" onclick="openCartDrawer()" title="Shopping Cart">
+        🛒
+        <span class="cart-badge-count" id="headerCartBadge" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ─── 3. HERO SECTION ────────────────────────────────────────── -->
+<section class="hero-wrapper" id="heroSection">
+  <div class="hero-overlay-tint"></div>
+  <div class="hero-inner">
+    <div class="hero-text-col">
+      <h1 class="hero-title-main" data-i18n="hero_title">
+        लालबाग मसाले,<br/>अस्सल चव, जी जिभेवर रेंगाळेल
+      </h1>
+      <p class="hero-subtitle-p" data-i18n="hero_subtitle">
+        १९८६ पासून, आम्ही तुमच्या जेवणात मिसळत आहोत १००% शुद्धता, दरवळणारा सुगंध आणि अस्सल मराठमोळी चव.
+      </p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center">
+        <button class="btn-shop-now" onclick="scrollToSection('catalogSection')">
+          <span data-i18n="hero_shop_now">SHOP NOW</span> <span>→</span>
+        </button>
+        <button class="btn-shop-now" style="background:#C9880A;color:#2C180E;font-weight:800;border:none" onclick="openModal('mCustomBill')">
+          ⚖️ <span data-i18n="hero_custom_bill">कस्टम बिल</span>
+        </button>
+        <button class="btn-shop-now" style="background:transparent;border:2px solid var(--maroon);color:var(--maroon);font-weight:700" onclick="openModal('mEnquiry')">
+          ✉️ <span data-i18n="hero_enquiry">घाऊक चौकशी</span>
+        </button>
+      </div>
+    </div>
+    <div class="hero-packets-card">
+      <img src="public/images/spices/hero_packets.jpg" class="hero-packets-img" alt="Lalbaug Masale - Pure Indian Spices"/>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. TRUST BADGES STRIP ──────────────────────────────────── -->
+<div class="trust-strip" id="trustSection">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-ico">🌿</div>
+      <div class="trust-title" data-i18n="tb_1">100% शुद्ध मसाले</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🥣</div>
+      <div class="trust-title" data-i18n="tb_2">पारंपरिक पद्धतीने तयार</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🛡️</div>
+      <div class="trust-title" data-i18n="tb_3">भेसळमुक्त १००% अस्सल शुद्धता</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🔬</div>
+      <div class="trust-title" data-i18n="tb_4">प्रयोगशाळेत तपासलेली शुद्धता</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🚚</div>
+      <div class="trust-title" data-i18n="tb_5">₹४९९ वरील खरेदीवर मोफत डिलिव्हरी</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-ico">🌾</div>
+      <div class="trust-title" data-i18n="tb_6">थेट भारतीय शेतातून शुद्ध मसाले</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 5. SHOP BY CATEGORY (Circular Bowls) ───────────────────── -->
+<section class="section-category-bowls">
+  <div class="section-ornate-header">
+    <div class="floret-decor">❖ ❖ ❖</div>
+    <h2 class="section-heading-text" data-i18n="cat_title">मसाल्यांचे प्रकार (Shop By Category)</h2>
+  </div>
+
+  <div class="bowls-row">
+    <div class="bowl-card active" onclick="filterByCategory('all')">
+      <div class="bowl-circle-frame">
+        <img src="/images/spices/bowl_garam.png" class="bowl-circle-img" alt="All Spices"/>
+      </div>
+      <span class="bowl-title-lbl" data-i18n="bowl_all">सर्व मसाले</span>
+    </div>
+    <div class="bowl-card" onclick="filterByCategory('Chili')">
+      <div class="bowl-circle-frame">
+        <img src="/images/spices/bowl_mirch.png" class="bowl-circle-img" alt="Mirch Powder"/>
+      </div>
+      <span class="bowl-title-lbl" data-i18n="bowl_mirch">मिरची पावडर</span>
+    </div>
+    <div class="bowl-card" onclick="filterByCategory('Cooking')">
+      <div class="bowl-circle-frame">
+        <img src="/images/spices/bowl_dhaniya.png" class="bowl-circle-img" alt="Dhaniya"/>
+      </div>
+      <span class="bowl-title-lbl" data-i18n="bowl_dhaniya">धने पावडर</span>
+    </div>
+    <div class="bowl-card" onclick="filterByCategory('Cooking')">
+      <div class="bowl-circle-frame">
+        <img src="/images/spices/bowl_haldi.png" class="bowl-circle-img" alt="Haldi"/>
+      </div>
+      <span class="bowl-title-lbl" data-i18n="bowl_haldi">हळद पावडर</span>
+    </div>
+    <div class="bowl-card" onclick="filterByCategory('Whole')">
+      <div class="bowl-circle-frame">
+        <img src="/images/spices/bowl_garam.png" class="bowl-circle-img" alt="Garam Masala"/>
+      </div>
+      <span class="bowl-title-lbl" data-i18n="bowl_garam">गरम मसाला</span>
+    </div>
+    <div class="bowl-card" onclick="filterByCategory('Cooking')">
+      <div class="bowl-circle-frame">
+        <img src="/images/spices/bowl_kitchen_king.png" class="bowl-circle-img" alt="Kitchen King"/>
+      </div>
+      <span class="bowl-title-lbl" data-i18n="bowl_kitchen">शाही किचन मसाला</span>
+    </div>
+    <div class="bowl-card" onclick="filterByCategory('Whole')">
+      <div class="bowl-circle-frame">
+        <img src="/images/spices/bowl_meat.png" class="bowl-circle-img" alt="Meat Masala"/>
+      </div>
+      <span class="bowl-title-lbl" data-i18n="bowl_meat">मीट मसाला</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. CATALOG SECTION (Flush Product Images, No Inner Gap) ── -->
+<section class="section-catalog-container" id="catalogSection">
+  <div class="catalog-title-bar">
+    <div>
+      <h2 class="catalog-main-h2" data-i18n="catalog_header">Products (मसाले)</h2>
+      <div class="catalog-breadcrumb-trail" data-i18n="catalog_breadcrumb">Home / Products</div>
+    </div>
+    <div class="sort-dropdown-box">
+      <label style="font-size:12px;font-weight:700;color:var(--text-mid)" data-i18n="sort_label">Sort by:</label>
+      <select class="sort-select-elem" id="sortSelectElem" onchange="handleSort(this.value)">
+        <option value="featured" data-i18n="sort_opt_featured">Featured / लोकप्रिय</option>
+        <option value="low" data-i18n="sort_opt_low">Price: Low to High</option>
+        <option value="high" data-i18n="sort_opt_high">Price: High to Low</option>
+        <option value="name" data-i18n="sort_opt_name">Name: A to Z</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="catalog-layout-grid">
+    <!-- Sidebar Filters -->
+    <aside class="sidebar-filters-col">
+      <div class="filter-card-accordion">
+        <div class="filter-accordion-header" data-i18n="pill_cat">Category (श्रेणी)</div>
+        <ul class="filter-items-list">
+          <li class="filter-item-li active" onclick="filterByCategory('all')" data-i18n="sb_all">सर्व मसाले (All)</li>
+          <li class="filter-item-li" onclick="filterByCategory('Cooking')" data-i18n="sb_masalas">Masalas (मसाले)</li>
+          <li class="filter-item-li" onclick="filterByCategory('Whole')" data-i18n="sb_whole">Whole Spices (खडे मसाले)</li>
+          <li class="filter-item-li" onclick="filterByCategory('Clove')" data-i18n="sb_clove">Clove & Cinnamon</li>
+          <li class="filter-item-li" onclick="filterByCategory('Pepper')" data-i18n="sb_pepper">Pepper Powder</li>
+          <li class="filter-item-li" onclick="filterByCategory('Chili')">Red Chilli Powder</li>
+        </ul>
+      </div>
+
+      <div class="filter-card-accordion">
+        <div class="filter-accordion-header" data-i18n="pill_weight">Shop By Weight</div>
+        <ul class="filter-items-list">
+          <li class="filter-item-li" onclick="filterByWeight('all')">All Weights</li>
+          <li class="filter-item-li" onclick="filterByWeight('100')">100 Gm</li>
+          <li class="filter-item-li" onclick="filterByWeight('250')">250 Gm</li>
+          <li class="filter-item-li" onclick="filterByWeight('500')">500 Gm</li>
+          <li class="filter-item-li" onclick="filterByWeight('1kg')">1 Kg</li>
+        </ul>
+      </div>
+
+      <div class="filter-card-accordion">
+        <div class="filter-accordion-header" data-i18n="pill_price">Shop By Price</div>
+        <ul class="filter-items-list">
+          <li class="filter-item-li" onclick="filterByPrice(0, 999999)">All Prices</li>
+          <li class="filter-item-li" onclick="filterByPrice(0, 250)">Under ₹250</li>
+          <li class="filter-item-li" onclick="filterByPrice(250, 500)">₹250 - ₹500</li>
+          <li class="filter-item-li" onclick="filterByPrice(500, 999999)">Above ₹500</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main 4-Column Product Grid -->
+    <div>
+      <div class="products-4col-grid" id="productGridContainer">
+        <!-- Rendered dynamically via renderProducts() -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. PROMO BANNERS STRIP ─────────────────────────────────── -->
+<section class="promo-banners-strip">
+  <div class="promo-banner-card">
+    <img src="/images/spices/banner_about.jpg" class="promo-banner-img" alt="About Lalbaug Masale"/>
+    <div class="promo-banner-content">
+      <div class="promo-banner-top-tag" data-i18n="ban1_top">ABOUT LALBAUG MASALE</div>
+      <h3 class="promo-banner-h3" data-i18n="ban1_title">परंपरेपासून अस्सल चवीपर्यंत</h3>
+      <p class="promo-banner-desc" data-i18n="ban1_desc">१९८६ पासून, आम्ही तुमच्या जेवणात मिसळत आहोत १००% शुद्धता, दरवळणारा सुगंध आणि अस्सल मराठमोळी चव.</p>
+      <button class="btn-banner-link" onclick="openModal('mAbout')" data-i18n="ban1_btn">Visit site ↗</button>
+    </div>
+  </div>
+  <div class="promo-banner-card">
+    <img src="/images/spices/banner_recipes.jpg" class="promo-banner-img" alt="Delicious Recipes"/>
+    <div class="promo-banner-content">
+      <div class="promo-banner-top-tag" data-i18n="ban2_top">TRY OUR RECIPES</div>
+      <h3 class="promo-banner-h3" data-i18n="ban2_title">खमंग व रुचकर रेसिपीज</h3>
+      <p class="promo-banner-desc" data-i18n="ban2_desc">खास मराठमोळ्या रेसिपींसह तुमच्या रोजच्या जेवणाला द्या अस्सल घरगुती चव.</p>
+      <button class="btn-banner-link" onclick="openModal('mRecipes')" data-i18n="ban2_btn">EXPLORE RECIPES →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 8. NEWSLETTER STRIP ────────────────────────────────────── -->
+<section class="newsletter-strip">
+  <div class="newsletter-inner">
+    <h3 class="nl-h3" data-i18n="nl_heading">नवीन अपडेट्स मिळवा</h3>
+    <p class="nl-desc" data-i18n="nl_text">नवीन उत्पादने, सणांच्या खास सवलती व खमंग रेसिपींसाठी आमच्याशी जोडलेले राहा.</p>
+    <div class="nl-form-row">
+      <input type="email" class="nl-input" placeholder="Enter your email address..."/>
+      <button class="nl-submit-btn" onclick="toast(currentLang==='mr'?'धन्यवाद! तुम्ही सबस्क्राईब केले आहे.':'Thank you for subscribing!')" data-i18n="nl_btn">सदस्य व्हा</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 9. FOOTER ──────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h4 class="footer-col-title">Lalbaug Masale</h4>
+      <p style="font-size:12.5px;line-height:1.7;color:#D4C0A8;margin-bottom:14px">
+        १९८६ पासून, महाराष्ट्रातील खवय्यांच्या विश्वासास पात्र असलेले अस्सल घरगुती चवीचे खडे व कुटलेले मसाले.
+      </p>
+      <div style="font-size:12px;color:var(--gold-light);font-weight:700">
+        📞 +91 98765 43210 • info@lalbaugmasalawale.com
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-col-title">QUICK LINKS</h4>
+      <ul class="footer-links-ul">
+        <li><a onclick="window.scrollTo({top:0,behavior:'smooth'})" data-i18n="nav_home">Home</a></li>
+        <li><a onclick="openModal('mAbout')" data-i18n="nav_about">About Us</a></li>
+        <li><a onclick="scrollToSection('catalogSection')" data-i18n="nav_products">Our Products</a></li>
+        <li><a onclick="openModal('mCustomBill')" data-i18n="nav_custom_bill">Custom Bill</a></li>
+        <li><a onclick="openModal('mRecipes')" data-i18n="nav_recipes">Recipes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-col-title">HELP & ORDERS</h4>
+      <ul class="footer-links-ul">
+        <li><a onclick="openModal('mOrdersTracker')">📦 <span data-i18n="nav_track_order">Track Order</span></a></li>
+        <li><a onclick="openModal('mEnquiry')">✉️ <span data-i18n="nav_enquiry">Enquiry</span></a></li>
+        <li><a onclick="openModal('mThemeSelector')">🎨 <span data-i18n="theme_label">Change Theme</span></a></li>
+        <li><a onclick="openModal('mContact')" data-i18n="nav_contact">Contact Us</a></li>
+        <li><a href="/admin_portal.html" target="_blank">🔐 <span data-i18n="nav_owner">Admin Portal</span></a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-col-title">MAIN OUTLET</h4>
+      <p style="font-size:12px;line-height:1.6;color:#D4C0A8">
+        लालबाग मसाला गल्ली, डॉ. आंबेडकर रोड, लालबाग, परळ, मुंबई — ४०००१२.
+      </p>
+      <div style="margin-top:10px">
+        <button class="theme-switch-pill-btn" onclick="openModal('mThemeSelector')">
+          🎨 <span data-i18n="theme_change_btn">थीम बदला (Change Theme)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    <div>© 1986–2026 Lalbaug Masale Pvt. Ltd. All rights reserved.</div>
+    <div>100% Purity Guaranteed • Certified FSSAI & Lab Tested</div>
+  </div>
+</footer>
+
+<!-- ─── 10. CART DRAWER (With Weight Customization) ────────────── -->
+<div class="drawer-backdrop" id="cartDrawerBackdrop" onclick="closeCartDrawer(event)">
+  <div class="cart-drawer">
+    <div class="drawer-header">
+      <div style="font-weight:800; font-size:16px; display:flex; align-items:center; gap:8px">
+        <span>🛒</span>
+        <span data-i18n="cart_title">तुमची Cart (Shopping Bag)</span>
+      </div>
+      <button style="background:none;border:none;color:#FFF;font-size:20px;cursor:pointer" onclick="closeCartDrawer()">✕</button>
+    </div>
+    <div class="drawer-body" id="cartDrawerItems">
+      <!-- Items dynamically populated -->
+    </div>
+    <div class="drawer-footer" id="cartDrawerFooter">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px">
+        <span data-i18n="cart_subtotal">उपएकूण (Subtotal):</span>
+        <b id="cartSubtotalVal">₹0.00</b>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:10px">
+        <span data-i18n="cart_shipping">डिलिव्हरी शुल्क:</span>
+        <b style="color:var(--success)" data-i18n="cart_free">मोफत (FREE)</b>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:800;color:var(--maroon);margin-bottom:14px;border-top:1px solid var(--border);padding-top:8px">
+        <span data-i18n="cart_total">एकूण रक्कम:</span>
+        <span id="cartTotalVal">₹0.00</span>
+      </div>
+      <button class="btn-shop-now" style="width:100%;justify-content:center;border-radius:10px" onclick="openCheckoutModal()" data-i18n="btn_checkout">
+        पुढे जा — Checkout करा →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 11. CHECKOUT MODAL ─────────────────────────────────────── -->
+<div class="modal-overlay" id="mCheckout">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('mCheckout')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:14px">
+      🛍️ <span data-i18n="checkout_heading">Order Checkout</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:14px">
+      <div>
+        <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_name">नाव (Full Name) *</label>
+        <input type="text" id="custNameInput" style="width:100%; padding:9px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px" placeholder="उदा. अमोल सावंत"/>
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_phone">मोबाईल नंबर (10-Digit Mobile) *</label>
+        <input type="tel" id="custPhoneInput" maxlength="10" style="width:100%; padding:9px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px" placeholder="उदा. 9820145678"/>
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_addr">डिलिव्हरी पत्ता (Full Delivery Address) *</label>
+        <textarea id="custAddressInput" style="width:100%; min-height:55px; padding:9px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px" placeholder="घर/फ्लॅट क्र., इमारत, रस्ता, लँडमार्क, मुंबई..."></textarea>
+      </div>
+    </div>
+
+    <!-- Order Items Summary -->
+    <div style="background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:10px; margin-bottom:14px">
+      <div style="font-size:11px; font-weight:800; color:var(--maroon); text-transform:uppercase; margin-bottom:6px" data-i18n="co_summary">Order Summary</div>
+      <div id="checkoutSummaryList" style="font-size:12px; display:flex; flex-direction:column; gap:4px; max-height:140px; overflow-y:auto"></div>
+      <div style="display:flex; justify-content:space-between; font-weight:800; font-size:14px; margin-top:8px; border-top:1px dashed var(--border); padding-top:6px">
+        <span data-i18n="co_total">एकूण देय रक्कम:</span>
+        <span id="checkoutTotalPayable" style="color:var(--maroon)">₹0.00</span>
+      </div>
+      <div style="font-size:11px; color:var(--text-mid); margin-top:4px" data-i18n="co_cash">
+        💵 Cash / UPI on Delivery. आत्ता कार्ड पेमेंटची गरज नाही.
+      </div>
+    </div>
+
+    <button class="btn-shop-now" id="btnPlaceOrderSubmit" style="width:100%; justify-content:center; border-radius:10px" onclick="submitOrderFinal()">
+      <span data-i18n="btn_confirm_order">✅ Order Confirm करा</span>
+    </button>
+  </div>
+</div>
+
+<!-- ─── 12. ORDER TRACKER MODAL ────────────────────────────────── -->
+<div class="modal-overlay" id="mOrdersTracker">
+  <div class="modal-box" style="max-width:540px">
+    <button class="modal-close-btn" onclick="closeModal('mOrdersTracker')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:4px; display:flex; align-items:center; gap:8px">
+      <span>📦</span>
+      <span data-i18n="track_title">ऑर्डर ट्रॅक करा (Track Your Order)</span>
+    </div>
+    <p style="font-size:12px; color:var(--text-mid); margin-bottom:14px" data-i18n="track_sub">
+      तुमचा १० अंकी मोबाईल नंबर टाकून तुमच्या ऑर्डरची थेट स्थिती (Live Status) तपासा.
+    </p>
+    <div style="display:flex; gap:8px; margin-bottom:14px">
+      <input type="tel" id="lookupPhoneInput" maxlength="10" placeholder="10 अंकी मोबाईल नंबर (उदा. 9820145678)..." style="flex:1; padding:11px 14px; border:1.5px solid var(--border); border-radius:10px; font-size:13.5px; font-weight:700" onkeypress="if(event.key==='Enter') searchMyOrders()"/>
+      <button class="btn-shop-now" style="padding:0 20px; border-radius:10px; font-size:13px" onclick="searchMyOrders()" data-i18n="btn_search">
+        🔍 शोधा (Track)
+      </button>
+    </div>
+    <div id="trackedOrdersList" style="max-height:380px; overflow-y:auto; padding-right:2px;"></div>
+  </div>
+</div>
+
+<!-- ─── 13. CUSTOM BILL COUNTER MODAL ──────────────────────────── -->
+<div class="modal-overlay" id="mCustomBill">
+  <div class="modal-box" style="max-width:540px">
+    <button class="modal-close-btn" onclick="closeModal('mCustomBill')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:10px; display:flex; align-items:center; gap:8px">
+      <span>⚖️</span>
+      <span data-i18n="custom_bill_heading">कस्टम बिल काउंटर (Custom Bill Calculator)</span>
+    </div>
+    <p style="font-size:12px; color:var(--text-mid); margin-bottom:14px" data-i18n="custom_bill_sub">
+      तुमच्या गरजेनुसार कोणत्याही वजनाचा मसाला निवडा. दर आपोआप मोजला जाईल.
+    </p>
+
+    <div style="margin-bottom:14px; position:relative" id="customSpicePickerWrapper">
+      <label style="display:block; font-size:12px; font-weight:700; margin-bottom:5px" data-i18n="lbl_select_spice">मसाला निवडा (Select Spice) *</label>
+      
+      <!-- Custom Dropdown Trigger with Small Image before name -->
+      <div id="customSpiceTrigger" onclick="toggleCustomSpiceDropdown()" style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 12px; border:1.5px solid var(--border); border-radius:10px; background:var(--card-bg); cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.03); transition:all 0.2s">
+        <div style="display:flex; align-items:center; gap:10px; min-width:0">
+          <img id="customSpiceSelectedImg" src="/images/spices/turmeric_powder_hd.jpg" style="width:34px; height:34px; border-radius:8px; object-fit:cover; border:1px solid var(--border); flex-shrink:0" alt=""/>
+          <div style="min-width:0">
+            <div id="customSpiceSelectedName" style="font-size:13px; font-weight:700; color:var(--text-dark); white-space:nowrap; overflow:hidden; text-overflow:ellipsis">हळद पावडर (सांगली राजापुरी)</div>
+            <div id="customSpiceSelectedRate" style="font-size:11px; font-weight:700; color:var(--maroon)">₹४००/किलो (₹400/kg)</div>
+          </div>
+        </div>
+        <span style="font-size:12px; color:var(--text-mid); flex-shrink:0">▼</span>
+      </div>
+
+      <!-- Hidden Select for native fallback -->
+      <select id="customSpiceSelect" onchange="calculateCustomBill()" style="display:none">
+        <option value="400">हळद पावडर</option>
+      </select>
+
+      <!-- Dropdown Menu with Small Images Before Product Names -->
+      <div id="customSpiceDropdownMenu" style="display:none; position:absolute; top:calc(100% + 4px); left:0; right:0; max-height:220px; overflow-y:auto; background:var(--card-bg); border:1.5px solid var(--border-gold); border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,0.25); z-index:100; padding:4px;">
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:14px">
+      <div>
+        <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_weight_grams">वजन ग्रॅममध्ये (Weight in Grams) *</label>
+        <input type="number" id="customWeightInput" value="500" min="50" step="50" oninput="calculateCustomBill()" style="width:100%; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; font-weight:700; background:var(--card-bg); color:var(--text-dark)" placeholder="उदा. 350"/>
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_quick_weights">जलद वजन निवडा</label>
+        <div style="display:flex; gap:6px; flex-wrap:wrap">
+          <button type="button" class="weight-pill-btn" onclick="setCustomWeight(100)">100g</button>
+          <button type="button" class="weight-pill-btn" onclick="setCustomWeight(250)">250g</button>
+          <button type="button" class="weight-pill-btn" onclick="setCustomWeight(500)">500g</button>
+          <button type="button" class="weight-pill-btn" onclick="setCustomWeight(1000)">1kg</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--cream); border:1.5px solid var(--border-gold); border-radius:12px; padding:12px 14px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center">
+      <div>
+        <div style="font-size:11px; color:var(--text-mid); text-transform:uppercase; font-weight:700" data-i18n="lbl_calc_amount">आपोआप मोजलेली रक्कम (Auto Calculated):</div>
+        <div style="font-size:12px; color:var(--maroon); font-weight:600" id="customRateFormula">₹400/किलो × 500 ग्रॅम</div>
+      </div>
+      <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:var(--maroon)" id="customCalculatedPrice">
+        ₹200
+      </div>
+    </div>
+
+    <button class="btn-shop-now" style="width:100%; justify-content:center; border-radius:10px" onclick="addCustomBillToCart()">
+      🛒 <span data-i18n="btn_add_custom_cart">कार्टमध्ये जोडा (Add Custom Bill to Cart)</span>
+    </button>
+  </div>
+</div>
+
+<!-- ─── 14. BILINGUAL CUSTOMER & WHOLESALE ENQUIRY MODAL ───────── -->
+<div class="modal-overlay" id="mEnquiry">
+  <div class="modal-box" style="max-width:520px">
+    <button class="modal-close-btn" onclick="closeModal('mEnquiry')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:6px; display:flex; align-items:center; gap:8px">
+      <span>✉️</span>
+      <span data-i18n="enquiry_heading">व्यापारी व ग्राहक चौकशी (Wholesale Enquiry)</span>
+    </div>
+    <p style="font-size:12px; color:var(--text-mid); margin-bottom:14px" data-i18n="enquiry_sub">
+      घाऊक खरेदी, हॉटेल सप्लाय किंवा स्पेशल रेसिपीसाठी चौकशी पाठवा.
+    </p>
+
+    <div style="margin-bottom:12px">
+      <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_enq_name">नाव / हॉटेल / प्रतिष्ठान *</label>
+      <input type="text" id="enqNameInput" style="width:100%; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; background:var(--card-bg); color:var(--text-dark)" placeholder="उदा. महेश पाटील (हॉटेल स्वागत)"/>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:12px">
+      <div>
+        <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_phone">मोबाईल नंबर *</label>
+        <input type="tel" id="enqPhoneInput" maxlength="10" style="width:100%; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; background:var(--card-bg); color:var(--text-dark)" placeholder="१० अंकी मोबाईल नंबर..."/>
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_email_opt">ईमेल (पर्यायी)</label>
+        <input type="email" id="enqEmailInput" style="width:100%; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; background:var(--card-bg); color:var(--text-dark)" placeholder="email@gmail.com"/>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:12px">
+      <div>
+        <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_enq_type">चौकशी प्रकार</label>
+        <select id="enqTypeSelect" style="width:100%; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; background:var(--card-bg); color:var(--text-dark)">
+          <option value="wholesale" data-i18n="enq_opt_wholesale">घाऊक खरेदी (Wholesale)</option>
+          <option value="hotel" data-i18n="enq_opt_hotel">हॉटेल / केटरर्स पुरवठा (Hotel / Caterers)</option>
+          <option value="recipe" data-i18n="enq_opt_recipe">कस्टम मसाला रेसिपी (Custom Recipe)</option>
+          <option value="general" data-i18n="enq_opt_general">सामान्य चौकशी (General Enquiry)</option>
+        </select>
+      </div>
+      <div>
+        <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_enq_qty">अंदाजे वजन</label>
+        <input type="text" id="enqQtyInput" style="width:100%; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; background:var(--card-bg); color:var(--text-dark)" placeholder="उदा. २५ किलो"/>
+      </div>
+    </div>
+
+    <div style="margin-bottom:16px">
+      <label style="display:block; font-size:12px; font-weight:700; margin-bottom:4px" data-i18n="lbl_message">संदेश / गरजा *</label>
+      <textarea id="enqMessageInput" style="width:100%; min-height:65px; padding:10px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; background:var(--card-bg); color:var(--text-dark)" placeholder="कोणते मसाले किती प्रमाणात हवे आहेत ते लिहा..."></textarea>
+    </div>
+
+    <button class="btn-shop-now" style="width:100%; justify-content:center; border-radius:10px" onclick="submitEnquiryFinal()">
+      ✉️ <span data-i18n="btn_send_enquiry">चौकशी पाठवा (Send Enquiry)</span>
+    </button>
+  </div>
+</div>
+
+<!-- ─── 15. THEME SELECTOR MODAL ───────────────────────────────── -->
+<div class="modal-overlay" id="mThemeSelector">
+  <div class="modal-box" style="max-width:440px">
+    <button class="modal-close-btn" onclick="closeModal('mThemeSelector')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:4px; display:flex; align-items:center; gap:8px">
+      <span>🎨</span>
+      <span data-i18n="theme_modal_heading">थीम निवडा (Choose Theme)</span>
+    </div>
+    <p style="font-size:12px; color:var(--text-mid); margin-bottom:16px" data-i18n="theme_modal_sub">
+      पांढरी (White) किंवा डार्क (Dark) थीम निवडा.
+    </p>
+
+    <!-- Option 1: White / Light Theme -->
+    <div class="theme-option-card active" id="themeCard_white" onclick="setTheme('white')">
+      <div class="theme-color-swatch" style="background:linear-gradient(135deg, #FFFFFF 50%, #681116 50%); border:2px solid #ECC87A"></div>
+      <div style="flex:1">
+        <div style="font-size:14px; font-weight:800; color:var(--text-dark)" data-i18n="theme_white_title">☀️ पांढरी थीम (White / Light Theme)</div>
+        <div style="font-size:11.5px; color:var(--text-mid)" data-i18n="theme_white_desc">पारंपरिक स्वच्छ, पांढरा आणि अस्सल लालबाग लुक.</div>
+      </div>
+      <span class="theme-check" id="themeCheck_white" style="font-size:18px; font-weight:900; color:var(--maroon)">✓</span>
+    </div>
+
+    <!-- Option 2: Dark Theme -->
+    <div class="theme-option-card" id="themeCard_dark" onclick="setTheme('dark')">
+      <div class="theme-color-swatch" style="background:linear-gradient(135deg, #120E0C 50%, #ECC87A 50%); border:2px solid #ECC87A"></div>
+      <div style="flex:1">
+        <div style="font-size:14px; font-weight:800; color:var(--text-dark)" data-i18n="theme_dark_title">🌙 डार्क थीम (Dark Theme)</div>
+        <div style="font-size:11.5px; color:var(--text-mid)" data-i18n="theme_dark_desc">आधुनिक काळा व सोनेरी लुक — डोळ्यांना आरामदायी.</div>
+      </div>
+      <span class="theme-check" id="themeCheck_dark" style="font-size:18px; font-weight:900; color:var(--maroon); display:none">✓</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 16. RECIPES, ABOUT & CONTACT MODALS ────────────────────── -->
+<div class="modal-overlay" id="mRecipes">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('mRecipes')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:14px">
+      🍲 <span data-i18n="recipes_title">स्वादिष्ट व अस्सल रेसिपीज</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <div style="background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:12px">
+        <b style="color:var(--maroon)">१. कोल्हापुरी झणझणीत मिसळ</b>
+        <p style="font-size:12px; line-height:1.6; color:var(--text-dark); margin-top:4px">
+          तेलात जिरे, मोहरी, कांदा, आलं-लसूण परतून घ्या. त्यामध्ये आमचा <b>मिसळ मसाला</b> व <b>काश्मिरी मिरची पावडर</b> घालून लालबुंद तर्री तयार करा!
+        </p>
+      </div>
+      <div style="background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:12px">
+        <b style="color:var(--maroon)">२. मालवणी चिकन / मटन सुक्का</b>
+        <p style="font-size:12px; line-height:1.6; color:var(--text-dark); margin-top:4px">
+          भाजलेले खोबरे आणि कांद्याचे वाटण करून तेलात आमचा खास <b>मालवणी मसाला</b> परता. मंद आचेवर शिजवून गरमागरम भाकरीसोबत आस्वाद घ्या!
+        </p>
+      </div>
+      <div style="background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:12px">
+        <b style="color:var(--maroon)">३. शाही मसाला चहा</b>
+        <p style="font-size:12px; line-height:1.6; color:var(--text-dark); margin-top:4px">
+          हिरवी वेलची, सुंठ, काळीमिरी व दालचिनीचा सुरेख संगम असलेला आमचा <b>चहा मसाला</b> उकळत्या चहामध्ये चिमूटभर टाका.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="mAbout">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('mAbout')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:14px">
+      ℹ️ <span data-i18n="about_heading">Lalbaug Masale — लालबाग मसाले</span>
+    </div>
+    <div style="font-size:13px; line-height:1.8; color:var(--text-dark)">
+      १९८६ पासून, आम्ही महाराष्ट्रातील घराघरात शुद्धता आणि अस्सल चव पोहोचवत आहोत. आमचे सर्व मसाले उत्कृष्ट दर्जाचे, खडे मसाले पारंपरिक पद्धतीने कुटून, कोणतीी रासायनिक प्रक्रिया किंवा कृत्रिम रंग न मिसळता तयार केले जातात.
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="mContact">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('mContact')">✕</button>
+    <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:800; color:var(--maroon); margin-bottom:14px">
+      📞 <span data-i18n="contact_heading">संपर्क साधा (Contact Us)</span>
+    </div>
+    <div style="font-size:13.5px; line-height:2.2">
+      📞 <b>Phone:</b> <a href="tel:+919876543210" style="color:var(--maroon); text-decoration:none">+91 98765 43210</a><br/>
+      📱 <b>WhatsApp:</b> <a href="https://wa.me/919876543210" target="_blank" style="color:var(--success); text-decoration:none; font-weight:700">WhatsApp वर चॅट करा</a><br/>
+      ✉️ <b>Email:</b> info@lalbaugmasalawale.com<br/>
+      🏪 <b>Main Outlet:</b> लालबाग, मुंबई — ४०००१२.
+    </div>
+  </div>
+</div>
+
+<!-- ─── JAVASCRIPT LOGIC & BILINGUAL DATA ──────────────────────── -->
+<script>
+// ─── 20 EXACT DEMO SPICES WITH ULTRA CRISP HD GENERATED IMAGES ─
+const DEMO_SPICES = [
+  { id: 'ds_1', name: 'Barberry', nameMr: 'बारबेरी (Barberry)', category: 'Whole', weight: '250', price: 285.00, img: '/images/spices/barberry_hd.jpg', rating: 4.8, sale: true, save: '10%' },
+  { id: 'ds_2', name: 'Black Cardamom', nameMr: 'काळी मोठी वेलची', category: 'Whole', weight: '250', price: 369.00, img: '/images/spices/black_cardamom_hd.jpg', rating: 5.0, sale: false, save: null },
+  { id: 'ds_3', name: 'Black Mustard', nameMr: 'काळी मोहरी', category: 'Cooking', weight: '500', price: 209.00, img: '/images/spices/black_pepper_hd.jpg', rating: 4.7, sale: true, save: '15%' },
+  { id: 'ds_4', name: 'Black Sesame Seeds', nameMr: 'काळे तीळ', category: 'Cooking', weight: '250', price: 195.00, img: '/images/spices/cumin_seeds_hd.jpg', rating: 4.8, sale: true, save: '8%' },
+  { id: 'ds_5', name: 'Cardamom', nameMr: 'हिरवी वेलची (Cardamom)', category: 'Whole', weight: '250', price: 897.00, img: '/images/spices/green_cardamom_hd.jpg', rating: 5.0, sale: true, save: '8%' },
+  { id: 'ds_6', name: 'Cinnamon Sticks', nameMr: 'दालचिनी (Cinnamon)', category: 'Clove', weight: '250', price: 421.00, img: '/images/spices/cinnamon_cloves_hd.jpg', rating: 4.9, sale: false, save: null },
+  { id: 'ds_7', name: 'Cloves 250 Gm', nameMr: 'लवंग (Cloves)', category: 'Clove', weight: '250', price: 299.00, img: '/images/spices/cloves_hd.jpg', rating: 4.9, sale: false, save: null },
+  { id: 'ds_8', name: 'Coriander 1 Kg', nameMr: 'धने पावडर (Coriander)', category: 'Cooking', weight: '1kg', price: 197.00, img: '/images/spices/coriander_powder_hd.jpg', rating: 4.8, sale: true, save: '24%' },
+  { id: 'ds_9', name: 'Cubeb Pepper', nameMr: 'कबाब चिनी (Cubeb)', category: 'Pepper', weight: '250', price: 295.00, img: '/images/spices/black_pepper_hd.jpg', rating: 4.7, sale: false, save: null },
+  { id: 'ds_10', name: 'Dill Seeds 250 Gm', nameMr: 'सुवा / बाळंतशेप (Dill)', category: 'Cooking', weight: '250', price: 209.00, img: '/images/spices/dill_seeds_hd.jpg', rating: 4.8, sale: false, save: null },
+  { id: 'ds_11', name: 'Dried Ginger', nameMr: 'सुंठ (Dried Ginger)', category: 'Cooking', weight: '250', price: 299.00, img: '/images/spices/dry_ginger_hd.jpg', rating: 4.9, sale: false, save: null },
+  { id: 'ds_12', name: 'Dried Rosemary', nameMr: 'रोझमेरी (Dried Rosemary)', category: 'Cooking', weight: '100', price: 449.00, img: '/images/spices/bay_leaves.png', rating: 4.6, sale: false, save: null },
+  { id: 'ds_13', name: 'Fennel Seeds', nameMr: 'बडीशेप (Fennel Seeds)', category: 'Cooking', weight: '500', price: 185.00, img: '/images/spices/cumin_seeds_hd.jpg', rating: 4.9, sale: false, save: null },
+  { id: 'ds_14', name: 'Fenugreek Dal', nameMr: 'मेथी दाणे / डाळ', category: 'Cooking', weight: '500', price: 165.00, img: '/images/spices/turmeric_powder_hd.jpg', rating: 4.7, sale: true, save: '12%' },
+  { id: 'ds_15', name: 'Green Peppercorns', nameMr: 'हिरवी मिरी (Green Pepper)', category: 'Pepper', weight: '250', price: 349.00, img: '/images/spices/peppercorns_round.png', rating: 4.8, sale: false, save: null },
+  { id: 'ds_16', name: 'Nutmeg 250 Gm', nameMr: 'जायफळ (Nutmeg)', category: 'Whole', weight: '250', price: 199.00, img: '/images/spices/nutmeg_hd.jpg', rating: 4.9, sale: true, save: '15%' },
+  { id: 'ds_17', name: 'Pimento 250 Gm', nameMr: 'पिमेंटो ऑलस्पाइस', category: 'Pepper', weight: '250', price: 429.00, img: '/images/spices/black_pepper_hd.jpg', rating: 4.8, sale: true, save: '14%' },
+  { id: 'ds_18', name: 'Pippali Pepper', nameMr: 'पिंपळी (Pippali Pepper)', category: 'Pepper', weight: '250', price: 429.00, img: '/images/spices/pippali_pepper_hd.jpg', rating: 4.9, sale: true, save: '12%' },
+  { id: 'ds_19', name: 'Red Chili Pepper', nameMr: 'लाल सुकी मिरची (Dry Chili)', category: 'Chili', weight: '500', price: 799.00, img: '/images/spices/kashmiri_chilli_hd.jpg', rating: 4.9, sale: false, save: null },
+  { id: 'ds_20', name: 'Star Anise 250 Gm', nameMr: 'चक्रफूल (Star Anise)', category: 'Whole', weight: '250', price: 299.00, img: '/images/spices/star_anise_hd.jpg', rating: 5.0, sale: false, save: null }
+];
+
+// ─── BILINGUAL I18N DICTIONARY (100% PURE MARATHI & ENGLISH) ─
+const I18N = {
+  mr: {
+    ann_purity: "१००% शुद्ध आणि नैसर्गिक मसाले",
+    ann_colors: "कोणतेही कृत्रिम रंग नाहीत",
+    ann_lab: "प्रयोगशाळेत तपासलेली शुद्धता",
+    ann_delivery: "₹४९९ वरील ऑर्डर्सवर मोफत डिलिव्हरी",
+    nav_home: "मुखपृष्ठ",
+    nav_about: "आमच्याबद्दल",
+    nav_products: "आमची उत्पादने ▾",
+    nav_custom_bill: "कस्टम बिल",
+    nav_recipes: "रेसिपीज",
+    nav_enquiry: "चौकशी",
+    nav_track_order: "ऑर्डर ट्रॅक करा",
+    ann_track_order: "ऑर्डर ट्रॅक करा",
+    nav_quality: "गुणवत्ता",
+    nav_contact: "संपर्क",
+    nav_owner: "व्यवस्थापक पोर्टल",
+    nav_owner_pill: "व्यवस्थापक (Owner) ↗",
+    theme_label: "थीम",
+    theme_change_btn: "थीम बदला (White / Dark)",
+    theme_modal_heading: "थीम निवडा (Choose Theme)",
+    theme_modal_sub: "पांढरी (White) किंवा डार्क (Dark) थीम निवडा.",
+    theme_white_title: "☀️ पांढरी थीम (White / Light Theme)",
+    theme_white_desc: "पारंपरिक स्वच्छ, पांढरा आणि अस्सल लालबाग लुक.",
+    theme_dark_title: "🌙 डार्क थीम (Dark Theme)",
+    theme_dark_desc: "आधुनिक काळा व सोनेरी लुक — डोळ्यांना आरामदायी.",
+    hero_title: "लालबाग मसाले,<br/>अस्सल चव, जी जिभेवर रेंगाळेल",
+    hero_subtitle: "१९८६ पासून, आम्ही तुमच्या जेवणात मिसळत आहोत १००% शुद्धता, दरवळणारा सुगंध आणि अस्सल मराठमोळी चव.",
+    hero_shop_now: "मसाले खरेदी करा",
+    hero_custom_bill: "कस्टम बिल",
+    hero_enquiry: "घाऊक चौकशी",
+    tb_1: "१००% शुद्ध व अस्सल मसाले",
+    tb_2: "पारंपरिक पद्धतीने तयार",
+    tb_3: "भेसळमुक्त १००% अस्सल शुद्धता",
+    tb_4: "प्रयोगशाळेत तपासलेली शुद्धता",
+    tb_5: "₹४९९ वरील खरेदीवर मोफत डिलिव्हरी",
+    tb_6: "थेट भारतीय शेतातून शुद्ध मसाले",
+    cat_title: "मसाल्यांचे प्रकार (Shop By Category)",
+    bowl_mirch: "मिरची पावडर",
+    bowl_dhaniya: "धने पावडर",
+    bowl_haldi: "हळद पावडर",
+    bowl_garam: "गरम मसाला",
+    bowl_kitchen: "शाही किचन मसाला",
+    bowl_meat: "मीट मसाला",
+    bowl_all: "सर्व मसाले",
+    catalog_header: "मसाले व उत्पादने",
+    catalog_breadcrumb: "मुखपृष्ठ / उत्पादने",
+    pill_cat: "मसाल्यांचे प्रकार (Category)",
+    pill_weight: "वजनानुसार निवडा (Weight)",
+    pill_price: "किमतीनुसार निवडा (Price)",
+    sb_all: "सर्व मसाले (All)",
+    sb_masalas: "मसाले (Masalas)",
+    sb_pepper: "मिरी पावडर (Pepper)",
+    sb_whole: "खडे मसाले (Whole Spices)",
+    sb_clove: "लवंग व दालचिनी",
+    sort_label: "क्रमवारी:",
+    sort_opt_featured: "# लोकप्रिय (Featured)",
+    sort_opt_low: "किंमत: कमी ते जास्त",
+    sort_opt_high: "किंमत: जास्त ते कमी",
+    sort_opt_name: "नाव: अ ते ज्ञ (A to Z)",
+    ban1_top: "लालबाग मसाल्यांविषयी",
+    ban1_title: "परंपरेपासून अस्सल चवीपर्यंत",
+    ban1_desc: "१९८६ पासून आम्ही तुमच्या जेवणात मिसळत आहोत १००% शुद्धता, दरवळणारा सुगंध आणि अस्सल मराठमोळी चव.",
+    ban1_btn: "अधिक माहिती ↗",
+    ban2_top: "आमच्या खास रेसिपीज",
+    ban2_title: "खमंग व रुचकर रेसिपीज",
+    ban2_desc: "खास मराठमोळ्या रेसिपींसह तुमच्या रोजच्या जेवणाला द्या अस्सल घरगुती चव.",
+    ban2_btn: "रेसिपीज पहा →",
+    nl_heading: "नवीन अपडेट्स मिळवा",
+    nl_text: "नवीन उत्पादने, सणांच्या खास सवलती व खमंग रेसिपींसाठी आमच्याशी जोडलेले राहा.",
+    nl_btn: "सदस्य व्हा",
+    cart_title: "तुमची Cart (खरेदी पिशवी)",
+    cart_subtotal: "उपएकूण (Subtotal):",
+    cart_shipping: "डिलिव्हरी शुल्क:",
+    cart_free: "मोफत (FREE)",
+    cart_total: "एकूण रक्कम:",
+    btn_checkout: "पुढे जा — Checkout करा →",
+    checkout_heading: "ऑर्डर Checkout",
+    lbl_name: "नाव (Full Name) *",
+    lbl_phone: "मोबाईल नंबर (10-Digit Mobile) *",
+    lbl_addr: "डिलिव्हरी पत्ता (Full Delivery Address) *",
+    co_summary: "ऑर्डर सारांश",
+    co_total: "एकूण देय रक्कम:",
+    co_cash: "💵 Cash / UPI on Delivery. आधी पैसे भरण्याची गरज नाही.",
+    btn_confirm_order: "✅ Order Confirm करा",
+    track_title: "ऑर्डर ट्रॅक करा (Track Your Order)",
+    track_sub: "तुमचा १० अंकी मोबाईल नंबर टाकून तुमच्या ऑर्डरची थेट स्थिती (Live Status) तपासा.",
+    btn_search: "🔍 शोधा (Track)",
+    recipes_title: "स्वादिष्ट व अस्सल मराठमोळ्या रेसिपीज",
+    about_heading: "लालबाग मसाले — १९८६ पासून अस्सल परंपरा",
+    contact_heading: "संपर्क साधा (Contact Us)",
+    custom_bill_heading: "कस्टम बिल काउंटर (Custom Bill Calculator)",
+    custom_bill_sub: "तुमच्या गरजेनुसार कोणत्याही वजनाचा मसाला निवडा. दर आपोआप मोजला जाईल.",
+    lbl_select_spice: "मसाला निवडा (Select Spice) *",
+    lbl_weight_grams: "वजन ग्रॅममध्ये (Weight in Grams) *",
+    lbl_quick_weights: "जलद वजन निवडा",
+    lbl_calc_amount: "आपोआप मोजलेली रक्कम (Auto Calculated):",
+    btn_add_custom_cart: "कार्टमध्ये जोडा (Add to Cart)",
+    enquiry_heading: "व्यापारी व ग्राहक चौकशी (Wholesale Enquiry)",
+    enquiry_sub: "घाऊक खरेदी, हॉटेल पुरवठा किंवा स्पेशल रेसिपीसाठी चौकशी पाठवा.",
+    lbl_enq_name: "नाव / हॉटेल / प्रतिष्ठान *",
+    enq_name_ph: "उदा. महेश पाटील (हॉटेल स्वागत)",
+    lbl_email_opt: "ईमेल (पर्यायी)",
+    lbl_enq_type: "चौकशी प्रकार",
+    enq_opt_wholesale: "घाऊक खरेदी (Wholesale)",
+    enq_opt_hotel: "हॉटेल / केटरर्स पुरवठा (Hotel / Caterers)",
+    enq_opt_recipe: "कस्टम मसाला रेसिपी (Custom Recipe)",
+    enq_opt_general: "सामान्य चौकशी (General Enquiry)",
+    lbl_enq_qty: "अंदाजे वजन",
+    enq_qty_ph: "उदा. २५ किलो",
+    lbl_message: "संदेश / गरजा *",
+    enq_msg_ph: "कोणते मसाले किती प्रमाणात हवे आहेत ते लिहा...",
+    btn_send_enquiry: "चौकशी पाठवा (Send Enquiry)"
+  },
+  en: {
+    ann_purity: "100% Pure & Natural Spices",
+    ann_colors: "No Artificial Colors",
+    ann_lab: "Lab Tested for Purity",
+    ann_delivery: "Free Delivery on orders above ₹499",
+    nav_home: "HOME",
+    nav_about: "ABOUT US",
+    nav_products: "OUR PRODUCTS ▾",
+    nav_custom_bill: "CUSTOM BILL",
+    nav_recipes: "RECIPES",
+    nav_enquiry: "ENQUIRIES",
+    nav_track_order: "TRACK ORDER",
+    ann_track_order: "Track Order",
+    nav_quality: "QUALITY",
+    nav_contact: "CONTACT",
+    nav_owner: "MANAGEMENT PORTAL",
+    nav_owner_pill: "Management Portal ↗",
+    theme_label: "Theme",
+    theme_change_btn: "Change Theme (White / Dark)",
+    theme_modal_heading: "Choose Website Theme",
+    theme_modal_sub: "Select White or Dark mode according to your preference.",
+    theme_white_title: "☀️ White Theme (Light Mode)",
+    theme_white_desc: "Classic clean white and royal Lalbaug crimson look.",
+    theme_dark_title: "🌙 Dark Theme (Night Mode)",
+    theme_dark_desc: "Sleek modern black and rich gold luxury look.",
+    hero_title: "Lalbaug Masale,<br/>Taste That Lingers in Memory",
+    hero_subtitle: "Since 1986, infusing 100% purity, rich aroma, and traditional homemade flavor into your food.",
+    hero_shop_now: "SHOP NOW",
+    hero_custom_bill: "Custom Bill",
+    hero_enquiry: "Wholesale Enquiry",
+    tb_1: "100% Pure & Authentic Spices",
+    tb_2: "Traditionally Stone Pounded",
+    tb_3: "100% Adulteration Free Guarantee",
+    tb_4: "Lab Tested for Purity",
+    tb_5: "Free Delivery on orders above ₹499",
+    tb_6: "Direct from Indian Farms",
+    cat_title: "SHOP BY CATEGORY",
+    bowl_mirch: "Chili Powder",
+    bowl_dhaniya: "Coriander Powder",
+    bowl_haldi: "Turmeric Powder",
+    bowl_garam: "Garam Masala",
+    bowl_kitchen: "Kitchen King Masala",
+    bowl_meat: "Meat Masala",
+    bowl_all: "All Spices",
+    catalog_header: "Products & Spices",
+    catalog_breadcrumb: "Home / Products",
+    pill_cat: "Category",
+    pill_weight: "Shop By Weight",
+    pill_price: "Shop By Price",
+    sb_all: "All Spices",
+    sb_masalas: "Masalas",
+    sb_pepper: "Pepper Powder",
+    sb_whole: "Whole Spices",
+    sb_clove: "Clove & Cinnamon",
+    sort_label: "Sort by:",
+    sort_opt_featured: "# Featured Spices",
+    sort_opt_low: "Price: Low to High",
+    sort_opt_high: "Price: High to Low",
+    sort_opt_name: "Name: A to Z",
+    ban1_top: "ABOUT LALBAUG MASALE",
+    ban1_title: "From Tradition to Taste",
+    ban1_desc: "Since 1986, blending authentic purity, rich aroma, and traditional homemade flavor.",
+    ban1_btn: "Learn More ↗",
+    ban2_top: "OUR SPECIAL RECIPES",
+    ban2_title: "Delicious Recipes",
+    ban2_desc: "Make your everyday meals memorable with our authentic spice blends.",
+    ban2_btn: "EXPLORE RECIPES →",
+    nl_heading: "STAY UPDATED",
+    nl_text: "Join us for new seasonal spices, festive discounts & authentic recipes.",
+    nl_btn: "SUBSCRIBE",
+    cart_title: "Your Cart (Shopping Bag)",
+    cart_subtotal: "Subtotal:",
+    cart_shipping: "Shipping:",
+    cart_free: "FREE",
+    cart_total: "Total Amount:",
+    btn_checkout: "Proceed to Checkout →",
+    checkout_heading: "Order Checkout",
+    lbl_name: "Full Name *",
+    lbl_phone: "Mobile Number (10-Digit) *",
+    lbl_addr: "Full Delivery Address *",
+    co_summary: "Order Summary",
+    co_total: "Total Payable:",
+    co_cash: "💵 Cash / UPI on Delivery. No advance online payment required.",
+    btn_confirm_order: "✅ Confirm Order",
+    track_title: "Track Your Order (Live Tracker)",
+    track_sub: "Enter your 10-digit mobile number to track live order status.",
+    btn_search: "🔍 Search (Track)",
+    recipes_title: "Delicious & Authentic Recipes",
+    about_heading: "Lalbaug Masale — Since 1986",
+    contact_heading: "Contact Us",
+    custom_bill_heading: "Custom Bill Calculator",
+    custom_bill_sub: "Choose any custom weight for any spice. Rate is auto-calculated.",
+    lbl_select_spice: "Select Spice *",
+    lbl_weight_grams: "Weight in Grams *",
+    lbl_quick_weights: "Quick Weights",
+    lbl_calc_amount: "Auto-Calculated Amount:",
+    btn_add_custom_cart: "Add Custom Bill to Cart",
+    enquiry_heading: "Wholesale & Customer Enquiries",
+    enquiry_sub: "Send enquiry for bulk purchase, hotel supply or custom recipe blend.",
+    lbl_enq_name: "Name / Hotel / Business Name *",
+    enq_name_ph: "e.g. Rajesh Patil (Hotel Swagat)",
+    lbl_email_opt: "Email (Optional)",
+    lbl_enq_type: "Enquiry Type",
+    enq_opt_wholesale: "Wholesale Bulk Purchase",
+    enq_opt_hotel: "Hotel & Restaurant Supply",
+    enq_opt_recipe: "Custom Recipe Blending",
+    enq_opt_general: "General Enquiry",
+    lbl_enq_qty: "Estimated Quantity",
+    enq_qty_ph: "e.g. 25 Kg",
+    lbl_message: "Message / Requirements *",
+    enq_msg_ph: "Please specify required spices and quantities...",
+    btn_send_enquiry: "Send Enquiry"
+  }
+};
+
+let currentLang = localStorage.getItem('lm_lang') || 'mr';
+let currentTheme = localStorage.getItem('lm_theme') || 'white';
+let activeFilterCat = 'all';
+let activeWeight = 'all';
+let minPrice = 0;
+let maxPrice = 999999;
+let activeSort = 'featured';
+let cart = JSON.parse(localStorage.getItem('lm_cart') || '[]');
+
+function toast(msg, dur=2600) {
+  const t = document.getElementById('toast');
+  if (!t || !t.classList) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => { if (t && t.classList) t.classList.remove('show'); }, dur);
+}
+window.toast = toast;
+
+// ─── THEME CONTROLS (EXACT ADMIN PANNEL MATCHED WHITE & DARK) ──
+window.setTheme = function(themeName) {
+  if (themeName !== 'dark') themeName = 'white';
+  currentTheme = themeName;
+  localStorage.setItem('lm_theme', themeName);
+  localStorage.setItem('lalbaug_theme_v1', themeName === 'dark' ? 'dark' : 'light');
+
+  document.documentElement.setAttribute('data-theme', themeName);
+  document.documentElement.classList.toggle('dark', themeName === 'dark');
+
+  const cardWhite = document.getElementById('themeCard_white');
+  const cardDark = document.getElementById('themeCard_dark');
+  const checkWhite = document.getElementById('themeCheck_white');
+  const checkDark = document.getElementById('themeCheck_dark');
+
+  if (cardWhite) cardWhite.classList.toggle('active', themeName === 'white');
+  if (cardDark) cardDark.classList.toggle('active', themeName === 'dark');
+  if (checkWhite) checkWhite.style.display = (themeName === 'white') ? 'inline-block' : 'none';
+  if (checkDark) checkDark.style.display = (themeName === 'dark') ? 'inline-block' : 'none';
+
+  const themePillText = document.getElementById('themePillText');
+  if (themePillText) {
+    themePillText.textContent = themeName === 'white' ? (currentLang === 'mr' ? 'पांढरी थीम' : 'White') : (currentLang === 'mr' ? 'डार्क थीम' : 'Dark');
+  }
+
+  const floatingIcon = document.getElementById('floatingThemeIcon');
+  if (floatingIcon) floatingIcon.textContent = themeName === 'white' ? '🌙' : '☀️';
+
+  const headerIcon = document.getElementById('headerThemeIcon');
+  if (headerIcon) headerIcon.textContent = themeName === 'white' ? '🌙' : '☀️';
+
+  closeModal('mThemeSelector');
+};
+
+window.toggleTheme = function() {
+  const nextTheme = (currentTheme === 'dark') ? 'white' : 'dark';
+  setTheme(nextTheme);
+  toast(currentLang === 'mr' ? `🎨 थीम बदलली: ${nextTheme === 'white' ? 'पांढरी थीम' : 'डार्क थीम'}` : `🎨 Switched to ${nextTheme === 'white' ? 'White Theme' : 'Dark Theme'}`);
+};
+
+// ─── BILINGUAL TRANSLATION LOGIC ──────────────────────────────
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lm_lang', lang);
+  document.documentElement.lang = lang;
+
+  const btnEn = document.getElementById('langBtnEn');
+  const btnMr = document.getElementById('langBtnMr');
+  if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+  if (btnMr) btnMr.classList.toggle('active', lang === 'mr');
+
+  const dict = I18N[lang] || I18N.mr;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (dict[k]) el.innerHTML = dict[k];
+  });
+
+  // Dynamic placeholders for inputs
+  const enqNameInput = document.getElementById('enqNameInput');
+  if (enqNameInput && dict.enq_name_ph) enqNameInput.placeholder = dict.enq_name_ph;
+  const enqPhoneInput = document.getElementById('enqPhoneInput');
+  if (enqPhoneInput && dict.enq_phone_ph) enqPhoneInput.placeholder = dict.enq_phone_ph;
+  const enqQtyInput = document.getElementById('enqQtyInput');
+  if (enqQtyInput && dict.enq_qty_ph) enqQtyInput.placeholder = dict.enq_qty_ph;
+  const enqMsgInput = document.getElementById('enqMessageInput');
+  if (enqMsgInput && dict.enq_msg_ph) enqMsgInput.placeholder = dict.enq_msg_ph;
+  const lookupPhoneInput = document.getElementById('lookupPhoneInput');
+  if (lookupPhoneInput) lookupPhoneInput.placeholder = lang === 'mr' ? '१० अंकी मोबाईल नंबर (उदा. 9820145678)...' : '10-digit mobile number (e.g. 9820145678)...';
+
+  renderProducts();
+  renderCart();
+  initCustomBillDropdown();
+  try {
+    if (typeof calculateCustomBill === 'function') calculateCustomBill();
+  } catch(e) {}
+}
+window.applyLanguage = applyLanguage;
+window.switchLanguage = function(lang) {
+  applyLanguage(lang);
+  toast(lang === 'mr' ? 'मराठी भाषा निवडली गेली' : 'Switched to English');
+};
+
+// ─── RENDER PRODUCTS GRID (Flush Edge-to-Edge Cards) ──────────
+function renderProducts() {
+  const container = document.getElementById('productGridContainer');
+  if (!container) return;
+
+  let list = [...DEMO_SPICES];
+
+  if (activeFilterCat !== 'all') {
+    list = list.filter(p => p.category.toLowerCase().includes(activeFilterCat.toLowerCase()) || p.name.toLowerCase().includes(activeFilterCat.toLowerCase()));
+  }
+
+  if (activeWeight !== 'all') {
+    list = list.filter(p => p.weight === activeWeight);
+  }
+
+  list = list.filter(p => p.price >= minPrice && p.price <= maxPrice);
+
+  if (activeSort === 'low') list.sort((a,b) => a.price - b.price);
+  else if (activeSort === 'high') list.sort((a,b) => b.price - a.price);
+  else if (activeSort === 'name') list.sort((a,b) => a.name.localeCompare(b.name));
+
+  container.innerHTML = list.map(p => {
+    const title = currentLang === 'mr' ? p.nameMr : p.name;
+    const inCart = cart.find(c => c.id === p.id);
+    return `
+      <div class="spice-prod-card">
+        ${p.sale ? '<span class="card-sale-badge">SALE</span>' : ''}
+        ${p.save ? `<span class="card-save-badge">Save ${p.save}</span>` : ''}
+
+        <!-- Flush Image Container Touching Outer Card Border -->
+        <div class="card-bowl-wrapper">
+          <img src="${p.img}" alt="${title}" loading="lazy" onerror="this.src='/images/spices/bowl_garam.png'"/>
+        </div>
+
+        <div class="card-body-details">
+          <div class="card-prod-title">${title}</div>
+          <div class="card-prod-price">₹${p.price.toFixed(2)}</div>
+          <div class="card-stars-row">★★★★★</div>
+
+          <div style="width:100%; margin-top:auto">
+            ${inCart
+              ? `<div class="qty-stepper-box">
+                   <button class="stepper-btn" onclick="updateQty('${p.id}', -1)">−</button>
+                   <span class="stepper-val">${inCart.qty}</span>
+                   <button class="stepper-btn" onclick="updateQty('${p.id}', 1)">+</button>
+                 </div>`
+              : `<button class="btn-quick-add" onclick="addToCart('${p.id}')">
+                   + ${currentLang === 'mr' ? 'Cart मध्ये टाका' : 'Add to Cart'}
+                 </button>`}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+window.filterByCategory = function(c) {
+  activeFilterCat = c;
+  document.querySelectorAll('.filter-item-li').forEach(li => li.classList.remove('active'));
+  document.querySelectorAll('.bowl-card').forEach(b => b.classList.remove('active'));
+  renderProducts();
+  scrollToSection('catalogSection');
+};
+
+window.filterByWeight = function(w) {
+  activeWeight = w;
+  renderProducts();
+};
+
+window.filterByPrice = function(min, max) {
+  minPrice = min;
+  maxPrice = max;
+  renderProducts();
+};
+
+window.handleSort = function(s) {
+  activeSort = s;
+  renderProducts();
+};
+
+// ─── CART MANAGEMENT & WEIGHT CUSTOMIZATION ───────────────────
+function saveCart() {
+  localStorage.setItem('lm_cart', JSON.stringify(cart));
+  updateCartBadge();
+  renderCart();
+  renderProducts();
+}
+
+function updateCartBadge() {
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  const badge = document.getElementById('headerCartBadge');
+  if (badge) {
+    if (count > 0) {
+      badge.style.display = 'flex';
+      badge.textContent = count;
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+}
+
+window.addToCart = function(id) {
+  const p = DEMO_SPICES.find(x => x.id === id);
+  if (!p) return;
+  const existing = cart.find(c => c.id === id);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    let wGrams = 250;
+    if (p.weight) {
+      if (typeof p.weight === 'string' && p.weight.includes('kg')) {
+        wGrams = 1000;
+      } else {
+        const parsed = parseInt(p.weight);
+        if (!isNaN(parsed) && parsed > 0) wGrams = parsed;
+      }
+    }
+    cart.push({
+      id: p.id,
+      name: p.name,
+      nameMr: p.nameMr,
+      price: p.price,
+      basePrice: p.price,
+      baseWeight: wGrams,
+      weightGrams: wGrams,
+      weight: wGrams >= 1000 ? (wGrams / 1000) + 'kg' : wGrams + 'g',
+      img: p.img,
+      qty: 1
+    });
+  }
+  saveCart();
+  toast(`✅ ${currentLang === 'mr' ? p.nameMr : p.name} added!`);
+  openCartDrawer();
+};
+
+window.changeCartWeight = function(id, grams) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  const g = parseInt(grams);
+  if (isNaN(g) || g <= 0) return;
+  const baseP = item.basePrice || item.price;
+  const baseW = item.baseWeight || 250;
+  item.basePrice = baseP;
+  item.baseWeight = baseW;
+  item.weightGrams = g;
+  item.weight = g >= 1000 ? (g / 1000) + 'kg' : g + 'g';
+  item.price = Math.round((baseP / baseW) * g);
+  saveCart();
+};
+
+window.promptCustomWeight = function(id) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  const currentG = item.weightGrams || 250;
+  const input = prompt(currentLang === 'mr' ? 'हवे असलेले वजन ग्रॅममध्ये टाका (उदा. 150, 350, 750, 1500):' : 'Enter desired weight in grams (e.g. 150, 350, 750, 1500):', currentG);
+  if (input !== null) {
+    const g = parseInt(input.trim());
+    if (!isNaN(g) && g > 0) {
+      window.changeCartWeight(id, g);
+    } else {
+      toast(currentLang === 'mr' ? 'कृपया योग्य वजन टाका' : 'Please enter a valid weight');
+    }
+  }
+};
+
+window.updateQty = function(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  saveCart();
+};
+
+window.openCartDrawer = function() {
+  renderCart();
+  document.getElementById('cartDrawerBackdrop').classList.add('open');
+};
+window.closeCartDrawer = function(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('cartDrawerBackdrop').classList.remove('open');
+};
+
+function renderCart() {
+  const list = document.getElementById('cartDrawerItems');
+  const footer = document.getElementById('cartDrawerFooter');
+  if (!list) return;
+
+  if (cart.length === 0) {
+    list.innerHTML = `<div style="text-align:center;padding:40px 10px;color:var(--text-mid)"><div style="font-size:36px;margin-bottom:8px">🛒</div>${currentLang === 'mr' ? 'तुमची Cart रिकामी आहे' : 'Your cart is empty'}</div>`;
+    if (footer) footer.style.display = 'none';
+    return;
+  }
+
+  if (footer) footer.style.display = 'block';
+
+  list.innerHTML = cart.map(it => {
+    const title = currentLang === 'mr' ? (it.nameMr || it.name) : it.name;
+    const curG = it.weightGrams || (it.weight ? (it.weight.includes('kg') ? parseFloat(it.weight) * 1000 : parseInt(it.weight)) : 250);
+    const displayWeight = it.weight || (curG >= 1000 ? (curG / 1000) + 'kg' : curG + 'g');
+    const presetWeights = [100, 250, 500, 1000];
+    const isCustom = !presetWeights.includes(curG);
+
+    const weightPills = presetWeights.map(w => {
+      const label = w >= 1000 ? '1kg' : w + 'g';
+      const activeCls = curG === w ? 'active' : '';
+      return `<button type="button" class="weight-pill-btn ${activeCls}" onclick="changeCartWeight('${it.id}', ${w})">${label}</button>`;
+    }).join('') + `<button type="button" class="weight-pill-btn custom-pill ${isCustom ? 'active' : ''}" onclick="promptCustomWeight('${it.id}')">${isCustom ? `✏️ ${curG}g` : '✏️ Custom'}</button>`;
+
+    return `
+      <div style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start">
+        <img src="${it.img || '/images/spices/bowl_garam.png'}" style="width:56px;height:56px;border-radius:8px;object-fit:cover;border:1px solid var(--border);flex-shrink:0" alt="${title}" onerror="this.src='/images/spices/bowl_garam.png'"/>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13.5px;font-weight:700;color:var(--text-dark);line-height:1.25">${title}</div>
+          <div style="font-size:11.5px;color:var(--text-mid);margin-top:2px">
+            <span style="color:var(--maroon);font-weight:700">₹${it.price.toFixed(2)}</span> / <span style="font-weight:600;color:var(--text-dark)">${displayWeight}</span>
+          </div>
+
+          <!-- Weight Customization Section -->
+          <div style="margin-top:6px">
+            <div style="font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:3px">
+              ⚖️ ${currentLang === 'mr' ? 'वजन निवडा (Customize Weight):' : 'Select Weight:'}
+            </div>
+            <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center">
+              ${weightPills}
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+            <div class="qty-stepper-box" style="width:auto;gap:8px;padding:2px 8px">
+              <button class="stepper-btn" onclick="updateQty('${it.id}',-1)" style="width:22px;height:22px">−</button>
+              <span class="stepper-val" style="font-size:12px">${it.qty}</span>
+              <button class="stepper-btn" onclick="updateQty('${it.id}',1)" style="width:22px;height:22px">+</button>
+            </div>
+            <div style="font-weight:800;font-size:14px;color:var(--maroon)">₹${(it.price * it.qty).toFixed(2)}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+  document.getElementById('cartSubtotalVal').textContent = `₹${total.toFixed(2)}`;
+  document.getElementById('cartTotalVal').textContent = `₹${total.toFixed(2)}`;
+}
+
+// ─── CROSS-TAB BROADCAST CHANNEL ──────────────────────────────
+const orderChannel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('lalbaug_orders_channel') : null;
+
+// ─── CUSTOM BILL SPICES & DROPDOWN WITH SMALL IMAGES ───────────
+const CUSTOM_BILL_SPICES = [
+  { val: 400, img: '/images/spices/turmeric_powder_hd.jpg', name: 'हळद पावडर (सांगली राजापुरी)', nameEn: 'Turmeric Powder (Haldi)', rateMr: '₹४००/किलो', rateEn: '₹400/kg' },
+  { val: 600, img: '/images/spices/kashmiri_chilli_hd.jpg', name: 'काश्मिरी लाल तिखट (रंगदार)', nameEn: 'Kashmiri Red Chilli Powder', rateMr: '₹६००/किलो', rateEn: '₹600/kg' },
+  { val: 280, img: '/images/spices/coriander_powder_hd.jpg', name: 'धने पावडर (सुगंधी इंदोरी)', nameEn: 'Coriander Powder (Dhaniya)', rateMr: '₹२८०/किलो', rateEn: '₹280/kg' },
+  { val: 980, img: '/images/spices/garam_masala_hd.jpg', name: 'शाही गरम मसाला (२१ खडे मसाले)', nameEn: 'Shahi Garam Masala', rateMr: '₹९८०/किलो', rateEn: '₹980/kg' },
+  { val: 800, img: '/images/spices/goda_masala_hd.jpg', name: 'पारंपरिक गोडा मसाला (काळा)', nameEn: 'Traditional Goda Masala', rateMr: '₹८००/किलो', rateEn: '₹800/kg' },
+  { val: 3600, img: '/images/spices/green_cardamom_hd.jpg', name: 'हिरवी वेलची (अलेप्पी बोल्ड)', nameEn: 'Green Cardamom (Alleppey Bold)', rateMr: '₹३६००/किलो', rateEn: '₹3600/kg' },
+  { val: 620, img: '/images/spices/cumin_seeds_hd.jpg', name: 'जिरे (गावरान सुगंधी जिरे)', nameEn: 'Cumin Seeds (Jeera)', rateMr: '₹६२०/किलो', rateEn: '₹620/kg' },
+  { val: 1100, img: '/images/spices/black_pepper_hd.jpg', name: 'काळी मिरी (मलबार तेलीचेरी)', nameEn: 'Malabar Black Pepper', rateMr: '₹११००/किलो', rateEn: '₹1100/kg' },
+  { val: 1280, img: '/images/spices/cinnamon_cloves_hd.jpg', name: 'दालचिनी व लवंग मिश्रण', nameEn: 'Cinnamon & Cloves Blend', rateMr: '₹१२८०/किलो', rateEn: '₹1280/kg' },
+  { val: 1190, img: '/images/spices/star_anise_hd.jpg', name: 'चक्रफूल (Star Anise)', nameEn: 'Star Anise (Chakraphool)', rateMr: '₹११९०/किलो', rateEn: '₹1190/kg' },
+  { val: 800, img: '/images/spices/nutmeg_hd.jpg', name: 'जायफळ (Nutmeg)', nameEn: 'Nutmeg (Jaiphal)', rateMr: '₹८००/किलो', rateEn: '₹800/kg' },
+  { val: 960, img: '/images/spices/dry_ginger_hd.jpg', name: 'सुंठ पावडर (Dry Ginger)', nameEn: 'Dry Ginger (Sunth Powder)', rateMr: '₹९६०/किलो', rateEn: '₹960/kg' }
+];
+let selectedCustomSpiceIdx = 0;
+
+function initCustomBillDropdown() {
+  const menu = document.getElementById('customSpiceDropdownMenu');
+  if (!menu) return;
+  menu.innerHTML = CUSTOM_BILL_SPICES.map((s, idx) => `
+    <div onclick="selectCustomSpice(${idx})" style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;margin-bottom:2px;transition:background 0.15s;${idx === selectedCustomSpiceIdx ? 'background:var(--cream-soft);border:1px solid var(--border-gold);' : ''}" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background='${idx === selectedCustomSpiceIdx ? 'var(--cream-soft)' : 'transparent'}'">
+      <img src="${s.img}" style="width:34px;height:34px;border-radius:6px;object-fit:cover;border:1px solid var(--border);flex-shrink:0" alt="${s.nameEn}" onerror="this.src='/images/spices/bowl_garam.png'"/>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12.5px;font-weight:700;color:var(--text-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+          ${currentLang === 'mr' ? s.name : s.nameEn}
+        </div>
+        <div style="font-size:11px;font-weight:700;color:var(--maroon)">
+          ${currentLang === 'mr' ? s.rateMr : s.rateEn}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+window.toggleCustomSpiceDropdown = function() {
+  const menu = document.getElementById('customSpiceDropdownMenu');
+  if (!menu) return;
+  const isOpen = menu.style.display === 'block';
+  menu.style.display = isOpen ? 'none' : 'block';
+  if (!isOpen) initCustomBillDropdown();
+};
+
+window.selectCustomSpice = function(idx) {
+  if (idx < 0 || idx >= CUSTOM_BILL_SPICES.length) return;
+  selectedCustomSpiceIdx = idx;
+  const s = CUSTOM_BILL_SPICES[idx];
+  const imgEl = document.getElementById('customSpiceSelectedImg');
+  const nameEl = document.getElementById('customSpiceSelectedName');
+  const rateEl = document.getElementById('customSpiceSelectedRate');
+  const selectEl = document.getElementById('customSpiceSelect');
+  if (imgEl) imgEl.src = s.img;
+  if (nameEl) nameEl.textContent = currentLang === 'mr' ? s.name : s.nameEn;
+  if (rateEl) rateEl.textContent = `${currentLang === 'mr' ? s.rateMr : s.rateEn}`;
+  if (selectEl) {
+    selectEl.selectedIndex = idx;
+    selectEl.value = s.val;
+  }
+  const menu = document.getElementById('customSpiceDropdownMenu');
+  if (menu) menu.style.display = 'none';
+  calculateCustomBill();
+};
+
+document.addEventListener('click', function(e) {
+  const wrapper = document.getElementById('customSpicePickerWrapper');
+  const menu = document.getElementById('customSpiceDropdownMenu');
+  if (wrapper && menu && !wrapper.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
+
+window.calculateCustomBill = function() {
+  const spice = CUSTOM_BILL_SPICES[selectedCustomSpiceIdx] || CUSTOM_BILL_SPICES[0];
+  const weightInput = document.getElementById('customWeightInput');
+  const priceDisplay = document.getElementById('customCalculatedPrice');
+  const formulaDisplay = document.getElementById('customRateFormula');
+  if (!weightInput) return;
+
+  const ratePerKg = spice.val || 400;
+  const weightGrams = parseFloat(weightInput.value) || 0;
+  const calculated = Math.round((ratePerKg / 1000) * weightGrams);
+
+  if (priceDisplay) priceDisplay.textContent = '₹' + calculated;
+  if (formulaDisplay) {
+    formulaDisplay.textContent = `₹${ratePerKg}/kg × ${weightGrams}g`;
+  }
+};
+
+window.setCustomWeight = function(grams) {
+  const weightInput = document.getElementById('customWeightInput');
+  if (weightInput) {
+    weightInput.value = grams;
+    calculateCustomBill();
+  }
+};
+
+window.addCustomBillToCart = function() {
+  const spice = CUSTOM_BILL_SPICES[selectedCustomSpiceIdx] || CUSTOM_BILL_SPICES[0];
+  const weightInput = document.getElementById('customWeightInput');
+  if (!weightInput) return;
+
+  const ratePerKg = spice.val || 400;
+  const weightGrams = parseFloat(weightInput.value) || 0;
+  if (weightGrams <= 0) {
+    toast(currentLang === 'mr' ? 'कृपया योग्य वजन टाका' : 'Please enter valid weight');
+    return;
+  }
+
+  const calculated = Math.round((ratePerKg / 1000) * weightGrams);
+  const weightLabel = weightGrams >= 1000 ? (weightGrams / 1000) + 'kg' : weightGrams + 'g';
+
+  const customItem = {
+    id: 'custom_' + Date.now(),
+    name: `${spice.nameEn} (${weightLabel} Custom)`,
+    nameMr: `${spice.name} (${weightLabel} कस्टम)`,
+    price: calculated,
+    basePrice: ratePerKg,
+    baseWeight: 1000,
+    weightGrams: weightGrams,
+    weight: weightLabel,
+    img: spice.img,
+    qty: 1,
+    isCustom: true
+  };
+
+  cart.push(customItem);
+  saveCart();
+  closeModal('mCustomBill');
+  toast(currentLang === 'mr' ? `✅ कस्टम बिल कार्टमध्ये जोडले: ₹${calculated}` : `✅ Custom Bill added: ₹${calculated}`);
+  openCartDrawer();
+};
+
+// ─── BILINGUAL WHOLESALE & CUSTOMER ENQUIRY ───────────────────
+window.submitEnquiryFinal = async function() {
+  const name = document.getElementById('enqNameInput')?.value.trim();
+  const phone = document.getElementById('enqPhoneInput')?.value.trim();
+  const email = document.getElementById('enqEmailInput')?.value.trim();
+  const typeCode = document.getElementById('enqTypeSelect')?.value || 'wholesale';
+  const qty = document.getElementById('enqQtyInput')?.value.trim();
+  const msg = document.getElementById('enqMessageInput')?.value.trim();
+
+  if (!name || !phone || !msg) {
+    toast(currentLang === 'mr' ? 'कृपया नाव, फोन आणि संदेश भरा' : 'Please fill Name, Phone and Message');
+    return;
+  }
+
+  const typeMap = {
+    wholesale: { mr: 'घाऊक खरेदी (Wholesale)', en: 'Wholesale Bulk Purchase' },
+    hotel: { mr: 'हॉटेल / केटरर्स पुरवठा (Hotel / Caterers)', en: 'Hotel & Restaurant Supply' },
+    recipe: { mr: 'कस्टम मसाला रेसिपी (Custom Recipe)', en: 'Custom Recipe Blending' },
+    general: { mr: 'सामान्य चौकशी (General Enquiry)', en: 'General Enquiry' }
+  };
+  const typeObj = typeMap[typeCode] || { mr: typeCode, en: typeCode };
+
+  const enqData = {
+    id: 'ENQ-' + Date.now().toString().slice(-6),
+    customerName: name,
+    name: name,
+    nameEn: name,
+    phone: phone,
+    email: email || '',
+    enquiryType: typeObj.mr,
+    enquiryTypeMr: typeObj.mr,
+    enquiryTypeEn: typeObj.en,
+    quantity: qty || 'Not specified',
+    quantityRequired: qty || 'Not specified',
+    quantityRequiredEn: qty || 'Not specified',
+    message: msg,
+    messageEn: msg,
+    status: 'New',
+    createdAt: new Date().toISOString()
+  };
+
+  try {
+    await fetch('/api/enquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(enqData)
+    });
+  } catch(e) {
+    console.warn('Backend enquiry save error:', e);
+  }
+
+  try {
+    const list = JSON.parse(localStorage.getItem('lalbaug_enquiries_v2') || '[]');
+    list.unshift(enqData);
+    localStorage.setItem('lalbaug_enquiries_v2', JSON.stringify(list));
+  } catch(e) {}
+
+  if (orderChannel) {
+    orderChannel.postMessage({ type: 'NEW_ENQUIRY', enquiry: enqData, timestamp: Date.now() });
+  }
+
+  closeModal('mEnquiry');
+  if (document.getElementById('enqNameInput')) document.getElementById('enqNameInput').value = '';
+  if (document.getElementById('enqPhoneInput')) document.getElementById('enqPhoneInput').value = '';
+  if (document.getElementById('enqEmailInput')) document.getElementById('enqEmailInput').value = '';
+  if (document.getElementById('enqQtyInput')) document.getElementById('enqQtyInput').value = '';
+  if (document.getElementById('enqMessageInput')) document.getElementById('enqMessageInput').value = '';
+
+  toast(currentLang === 'mr' ? '✅ तुमची चौकशी यशस्वीपणे पाठवली गेली! आमची टीम लवकरच संपर्क करेल.' : '✅ Enquiry sent successfully! Our team will contact you soon.', 4000);
+};
+
+// ─── CHECKOUT & ORDER PLACEMENT ───────────────────────────────
+window.openCheckoutModal = function() {
+  closeCartDrawer();
+  if (cart.length === 0) return;
+
+  const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+  document.getElementById('checkoutSummaryList').innerHTML = cart.map(i => {
+    const curG = i.weightGrams || (i.weight ? (i.weight.includes('kg') ? parseFloat(i.weight) * 1000 : parseInt(i.weight)) : 250);
+    const displayWeight = i.weight || (curG >= 1000 ? (curG / 1000) + 'kg' : curG + 'g');
+    const title = currentLang === 'mr' ? (i.nameMr || i.name) : i.name;
+    return `
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px dashed var(--border)">
+        <div>
+          <div style="font-size:12.5px;font-weight:700;color:var(--text-dark)">${title}</div>
+          <div style="font-size:11px;color:var(--text-mid);font-weight:600">${displayWeight} × ${i.qty}</div>
+        </div>
+        <b style="font-size:13px;color:var(--maroon)">₹${(i.price * i.qty).toFixed(2)}</b>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('checkoutTotalPayable').textContent = `₹${total.toFixed(2)}`;
+  openModal('mCheckout');
+};
+
+window.submitOrderFinal = async function() {
+  const name = document.getElementById('custNameInput').value.trim();
+  const phone = document.getElementById('custPhoneInput').value.trim();
+  const addr = document.getElementById('custAddressInput').value.trim();
+
+  if (!name || !/^\d{10}$/.test(phone) || !addr) {
+    toast(currentLang === 'mr' ? '❌ कृपया सर्व माहिती आणि १० अंकी मोबाईल भरा' : '❌ Please fill all fields with 10-digit phone');
+    return;
+  }
+
+  const btn = document.getElementById('btnPlaceOrderSubmit');
+  btn.disabled = true;
+  btn.textContent = currentLang === 'mr' ? '⏳ ऑर्डर पाठवत आहे...' : '⏳ Submitting Order...';
+
+  const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+  const orderId = 'ORD-' + Date.now().toString().slice(-6);
+  const orderData = {
+    id: orderId,
+    orderId: orderId,
+    customerName: name,
+    customerPhone: phone,
+    phone: phone,
+    address: addr,
+    city: 'Mumbai',
+    orderedVia: 'web',
+    items: cart.map(i => {
+      const curG = i.weightGrams || (i.weight ? (i.weight.includes('kg') ? parseFloat(i.weight) * 1000 : parseInt(i.weight)) : 250);
+      const displayWeight = i.weight || (curG >= 1000 ? (curG / 1000) + 'kg' : curG + 'g');
+      return {
+        productId: i.id,
+        name: i.name,
+        nameMr: i.nameMr || i.name,
+        weight: displayWeight,
+        weightGrams: curG,
+        quantity: i.qty,
+        qty: i.qty,
+        price: i.price,
+        totalPrice: i.price * i.qty,
+        image: i.img || '/images/spices/bowl_garam.png'
+      };
+    }),
+    totalAmount: total,
+    grandTotal: total,
+    status: 'received',
+    statusBadge: 'New',
+    deliveryType: 'delivery',
+    timestamp: new Date().toISOString(),
+    createdAt: new Date().toISOString()
+  };
+
+  try {
+    try {
+      const resp = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      });
+      if (resp.ok) {
+        const saved = await resp.json();
+        if (saved && (saved.id || (saved.order && saved.order.id))) {
+          orderData.id = saved.id || saved.order.id;
+        }
+      }
+    } catch(err) {
+      console.warn('Backend save order error:', err);
+    }
+
+    try {
+      const localOrders = JSON.parse(localStorage.getItem('lalbaug_orders_v2') || '[]');
+      localOrders.unshift(orderData);
+      localStorage.setItem('lalbaug_orders_v2', JSON.stringify(localOrders));
+    } catch(e) {}
+
+    if (orderChannel) {
+      orderChannel.postMessage({ type: 'NEW_ORDER', order: orderData, timestamp: Date.now() });
+    }
+
+    localStorage.setItem('lm_custPhone', phone);
+    cart = [];
+    saveCart();
+    closeModal('mCheckout');
+    toast(`🎉 ${currentLang === 'mr' ? 'ऑर्डर यशस्वी झाली!' : 'Order Placed!'} #${orderData.id.slice(-6).toUpperCase()}`, 4500);
+  } catch(e) {
+    toast('❌ ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = currentLang === 'mr' ? '✅ Order Confirm करा' : '✅ Confirm Order';
+  }
+};
+
+// ─── SEARCH & TRACK ORDERS (LIVE 5-STAGE PIPELINE) ────────────
+window.searchMyOrders = async function() {
+  const rawPhone = document.getElementById('lookupPhoneInput').value.trim();
+  const phone = rawPhone.replace(/[^0-9]/g, '').slice(-10);
+  if (phone.length !== 10) {
+    toast(currentLang === 'mr' ? 'कृपया १० अंकी मोबाईल नंबर टाका' : 'Enter 10-digit mobile number');
+    return;
+  }
+
+  localStorage.setItem('lm_custPhone', phone);
+  const list = document.getElementById('trackedOrdersList');
+  list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--maroon);font-weight:700">⏳ ${currentLang === 'mr' ? 'ऑर्डर शोधत आहे...' : 'Searching your orders...'}</div>`;
+
+  try {
+    let orders = [];
+    try {
+      const res = await fetch('/api/orders');
+      if (res.ok) {
+        const data = await res.json();
+        const all = Array.isArray(data) ? data : (data.orders || []);
+        orders = all.filter(o => {
+          const p = (o.customerPhone || o.phone || '').replace(/[^0-9]/g, '').slice(-10);
+          return p === phone;
+        });
+      }
+    } catch (e) {
+      console.warn('Failed to fetch from backend:', e);
+    }
+
+    const local = JSON.parse(localStorage.getItem('lalbaug_orders_v2') || '[]').filter(o => {
+      const p = (o.customerPhone || o.phone || '').replace(/[^0-9]/g, '').slice(-10);
+      return p === phone;
+    });
+
+    const map = new Map();
+    orders.forEach(o => map.set(o.id || o.orderId, o));
+    local.forEach(o => { if (!map.has(o.id || o.orderId)) map.set(o.id || o.orderId, o); });
+    const merged = Array.from(map.values());
+
+    if (merged.length === 0) {
+      list.innerHTML = `
+        <div style="text-align:center;padding:30px 15px;background:var(--cream);border:1.5px dashed var(--border);border-radius:12px">
+          <div style="font-size:32px;margin-bottom:8px">🔍</div>
+          <div style="font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:4px">
+            ${currentLang === 'mr' ? 'कोणतीही ऑर्डर सापडली नाही' : 'No Orders Found'}
+          </div>
+          <p style="font-size:12px;color:var(--text-mid)">
+            ${currentLang === 'mr' ? `+91 ${phone} या मोबाईल नंबरवर कोणतीही ऑर्डर आढळली नाही. कृपया ऑर्डर करताना दिलेला नंबर तपासा.` : `No orders found for +91 ${phone}. Please ensure you entered the mobile number used during checkout.`}
+          </p>
+        </div>
+      `;
+      return;
+    }
+
+    function getStageInfo(status) {
+      const s = (status || '').toLowerCase();
+      if (s.includes('deliver') || s.includes('complete')) return { stage: 5, labelMr: 'डिलिव्हर झाले', labelEn: 'Delivered', color: '#1E7B4E' };
+      if (s.includes('out') || s.includes('dispatch')) return { stage: 4, labelMr: 'डिलिव्हरीसाठी निघाले', labelEn: 'Out for Delivery', color: '#D97706' };
+      if (s.includes('grind') || s.includes('pack') || s.includes('prepar') || s.includes('process')) return { stage: 3, labelMr: 'कुटणे व पॅकिंग चालू', labelEn: 'Grinding & Packing', color: '#8A3B08' };
+      if (s.includes('confirm') || s.includes('accept')) return { stage: 2, labelMr: 'ऑर्डर मंजूर (स्वीकारली)', labelEn: 'Order Confirmed', color: '#2563EB' };
+      return { stage: 1, labelMr: 'ऑर्डर प्राप्त (नवीन)', labelEn: 'Order Placed', color: '#681116' };
+    }
+
+    const stagesList = [
+      { id: 1, icon: '📝', mr: 'नोंदवली', en: 'Placed' },
+      { id: 2, icon: '🌿', mr: 'मंजूर', en: 'Confirmed' },
+      { id: 3, icon: '⚙️', mr: 'पॅकिंग', en: 'Packing' },
+      { id: 4, icon: '🚚', mr: 'डिलिव्हरी', en: 'On Way' },
+      { id: 5, icon: '🏡', mr: 'पोहोचली', en: 'Delivered' }
+    ];
+
+    list.innerHTML = merged.map(o => {
+      const oid = (o.id || o.orderId || '').toString();
+      const displayId = '#' + oid.slice(-6).toUpperCase();
+      const statusInfo = getStageInfo(o.status || o.statusBadge);
+      const curStage = statusInfo.stage;
+      const dateStr = o.createdAt || o.timestamp ? new Date(o.createdAt || o.timestamp).toLocaleDateString(currentLang === 'mr' ? 'mr-IN' : 'en-IN', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'Recent';
+      const items = o.items || [];
+      const totalAmount = o.totalAmount || o.grandTotal || 0;
+
+      const pipelineHtml = `
+        <div style="position:relative;margin:16px 0 12px;padding:0 8px">
+          <div style="position:absolute;top:14px;left:20px;right:20px;height:3px;background:var(--border);z-index:1"></div>
+          <div style="position:absolute;top:14px;left:20px;width:${Math.max(0, Math.min(100, (curStage - 1) * 25))}%;height:3px;background:${statusInfo.color};z-index:2;transition:width 0.5s ease"></div>
+
+          <div style="position:relative;z-index:3;display:flex;justify-content:space-between">
+            ${stagesList.map(st => {
+              const isDone = curStage >= st.id;
+              const isCurrent = curStage === st.id;
+              const circleBg = isDone ? statusInfo.color : 'var(--card-bg)';
+              const circleBorder = isDone ? statusInfo.color : 'var(--border-dark)';
+              const textColor = isDone ? 'var(--text-dark)' : 'var(--text-muted)';
+              const iconText = isDone && curStage > st.id ? '✓' : st.icon;
+
+              return `
+                <div style="display:flex;flex-direction:column;align-items:center;width:48px;text-align:center">
+                  <div style="width:28px;height:28px;border-radius:50%;background:${circleBg};border:2px solid ${circleBorder};color:${isDone ? '#FFF' : 'var(--text-mid)'};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;box-shadow:${isCurrent ? '0 0 0 4px rgba(201,136,10,0.3)' : 'none'};margin-bottom:4px">
+                    ${iconText}
+                  </div>
+                  <span style="font-size:9.5px;font-weight:${isCurrent ? '800' : '600'};color:${textColor};line-height:1.15">
+                    ${currentLang === 'mr' ? st.mr : st.en}
+                  </span>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+
+      const itemsHtml = items.map(it => {
+        const itTitle = currentLang === 'mr' ? (it.nameMr || it.name) : it.name;
+        const itWeight = it.weight || '250g';
+        const itImg = it.image || it.img || '/images/spices/bowl_garam.png';
+        const itPrice = it.totalPrice || (it.price * (it.qty || it.quantity || 1)) || 0;
+        return `
+          <div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed var(--border)">
+            <img src="${itImg}" style="width:36px;height:36px;border-radius:6px;object-fit:cover;border:1px solid var(--border);flex-shrink:0" alt="${itTitle}" onerror="this.src='/images/spices/bowl_garam.png'"/>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:12px;font-weight:700;color:var(--text-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${itTitle}</div>
+              <div style="font-size:11px;color:var(--text-mid)">${itWeight} × ${it.qty || it.quantity || 1}</div>
+            </div>
+            <div style="font-size:12px;font-weight:800;color:var(--maroon)">₹${itPrice}</div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div style="background:var(--card-bg);border:1.5px solid var(--border);border-radius:14px;padding:14px;margin-bottom:14px;box-shadow:var(--shadow-sm)">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--border)">
+            <div>
+              <span style="font-family:'Cinzel',serif;font-size:15px;font-weight:900;color:var(--maroon)">${displayId}</span>
+              <div style="font-size:11px;color:var(--text-mid)">📅 ${dateStr}</div>
+            </div>
+            <span style="background:${statusInfo.color};color:#FFF;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:0.3px">
+              ${currentLang === 'mr' ? statusInfo.labelMr : statusInfo.labelEn}
+            </span>
+          </div>
+
+          ${pipelineHtml}
+
+          <div style="margin:10px 0 6px">
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px">
+              📦 ${currentLang === 'mr' ? 'ऑर्डर केलेले मसाले:' : 'Ordered Spices:'}
+            </div>
+            ${itemsHtml}
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1.5px solid var(--border)">
+            <div>
+              <div style="font-size:11px;color:var(--text-muted)">${currentLang === 'mr' ? 'एकूण देय रक्कम:' : 'Total Amount:'}</div>
+              <div style="font-size:16px;font-weight:900;color:var(--maroon)">₹${totalAmount}</div>
+            </div>
+            <a href="https://wa.me/919876543210?text=${encodeURIComponent(`Hi Lalbaug Masale, I want an update regarding my order ${displayId} for ₹${totalAmount}.`)}" target="_blank" style="background:#25D366;color:#FFF;text-decoration:none;padding:6px 12px;border-radius:20px;font-size:11.5px;font-weight:700;display:inline-flex;align-items:center;gap:5px;box-shadow:0 2px 6px rgba(37,211,102,0.3)">
+              💬 WhatsApp Support
+            </a>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch(e) {
+    list.innerHTML = `<div style="color:var(--error);font-size:12px;padding:10px">${e.message}</div>`;
+  }
+};
+
+// ─── MODALS & UTILS ───────────────────────────────────────────
+window.openModal = function(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.classList.add('open');
+    if (id === 'mOrdersTracker') {
+      const savedPhone = localStorage.getItem('lm_custPhone');
+      const input = document.getElementById('lookupPhoneInput');
+      if (input && savedPhone && !input.value) {
+        input.value = savedPhone;
+        searchMyOrders();
+      }
+    } else if (id === 'mCustomBill') {
+      initCustomBillDropdown();
+      calculateCustomBill();
+    } else if (id === 'mThemeSelector') {
+      setTheme(currentTheme);
+    }
+  }
+};
+window.closeModal = function(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.remove('open');
+};
+window.scrollToSection = function(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    const yOffset = -70;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+};
+
+// ─── INITIALIZATION ───────────────────────────────────────────
+(function init() {
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  applyLanguage(currentLang);
+  updateCartBadge();
+  initCustomBillDropdown();
+  try { calculateCustomBill(); } catch(e) {}
+})();
+</script>
+</body>
+</html>

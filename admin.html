@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="mr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>व्यवस्थापन पोर्टल | Lalbaug Masalawale Management Since 1986</title>
+  <meta name="description" content="Lalbaug Masalawale Live Store Management, Real-time Orders Pipeline, Custom Spice Bill Counter, and Recipes Control Panel." />
+  <link rel="icon" type="image/png" href="/images/lalbaug_logo.png" />
+  <meta name="theme-color" content="#5A0B10" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#5A0B10',
+              crimson: '#7A1A22',
+              dark: '#120F0D',
+              cardDark: '#1A1410',
+              gold: '#C9880A',
+              lightGold: '#ECC87A',
+              cream: '#FAF5ED',
+              border: '#E8DAC6',
+              borderDark: '#3A2D23'
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Cinzel', 'serif'],
+            sans: ['Poppins', 'Noto Sans Devanagari', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Blinking & Glow Animations for Real-time Order Statuses */
+    @keyframes blink-red {
+      0%, 100% { border-color: #DC2626; box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.8), 0 4px 6px -1px rgba(0,0,0,0.1); }
+      50% { border-color: #EF4444; box-shadow: 0 0 16px 4px rgba(239, 68, 68, 0.7), 0 10px 15px -3px rgba(220, 38, 38, 0.4); }
+    }
+    .order-box-blinking-red { animation: blink-red 1.2s infinite ease-in-out; }
+
+    @keyframes blink-blue {
+      0%, 100% { border-color: #2563EB; box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.8); }
+      50% { border-color: #60A5FA; box-shadow: 0 0 14px 3px rgba(96, 165, 250, 0.6); }
+    }
+    .order-box-blinking-blue { animation: blink-blue 1.5s infinite ease-in-out; }
+
+    @keyframes blink-amber {
+      0%, 100% { border-color: #D97706; box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.8); }
+      50% { border-color: #FBBF24; box-shadow: 0 0 14px 3px rgba(251, 191, 36, 0.6); }
+    }
+    .order-box-blinking-amber { animation: blink-amber 1.5s infinite ease-in-out; }
+
+    @keyframes blink-purple {
+      0%, 100% { border-color: #7C3AED; box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.8); }
+      50% { border-color: #A78BFA; box-shadow: 0 0 14px 3px rgba(167, 139, 250, 0.6); }
+    }
+    .order-box-blinking-purple { animation: blink-purple 1.5s infinite ease-in-out; }
+
+    .order-box-glow-green { border-color: #059669; box-shadow: 0 0 12px 2px rgba(16, 185, 129, 0.35); }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #FAF5ED; }
+    .dark ::-webkit-scrollbar-track { background: #120F0D; }
+    ::-webkit-scrollbar-thumb { background: #C9880A; border-radius: 4px; }
+  </style>
+</head>
+
+<body class="bg-[#FDFBF7] dark:bg-[#120F0D] text-[#2C180E] dark:text-[#F3ECE2] font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col">
+
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- SECTION A: AUTHENTICATION LOCK SCREEN (SHOWN WHEN NOT LOGGED IN)         -->
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <div id="auth-screen" class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-[#1F070A] via-[#3B070B] to-[#120F0D] text-white">
+    <div class="max-w-md w-full bg-white dark:bg-[#1A1410] text-[#2C180E] dark:text-[#F3ECE2] rounded-3xl p-8 shadow-2xl border border-[#D4C0A8] dark:border-[#3A2D23] space-y-6">
+      
+      <!-- Top Bar with Language Switcher -->
+      <div class="flex items-center justify-between pb-2 border-b border-stone-100 dark:border-stone-800">
+        <span class="text-[10px] font-bold tracking-widest text-[#C9880A] uppercase">LALBAUG SECURE PORTAL</span>
+        <div class="inline-flex p-1 rounded-xl bg-[#FAF5ED] dark:bg-[#281F1A] border border-[#D4C0A8] dark:border-[#4A3728] shadow-xs">
+          <button type="button" onclick="switchAdminLanguage('en')" id="auth-lang-en" class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300 hover:text-black">EN</button>
+          <button type="button" onclick="switchAdminLanguage('mr')" id="auth-lang-mr" class="px-2.5 py-1 rounded-lg text-xs font-black transition-all bg-[#5A0B10] text-white shadow-xs">मराठी</button>
+        </div>
+      </div>
+
+      <!-- Brand Logo & Header -->
+      <div class="text-center space-y-2">
+        <img src="/images/lalbaug_logo.png" alt="Lalbaug Masalawale Official Logo" class="h-16 w-auto mx-auto drop-shadow" onerror="this.src='https://via.placeholder.com/80x80/5A0B10/ECC87A?text=LBM'" />
+        <h2 class="font-serif font-black text-xl text-[#5A0B10] dark:text-[#FFFDF9] tracking-wider uppercase">
+          LALBAUG MASALE
+        </h2>
+        <p class="text-xs font-bold text-[#8B5A2B] dark:text-[#ECC87A]" data-admin-i18n="portal_title">
+          व्यवस्थापन पोर्टल (SINCE 1986)
+        </p>
+        <p class="text-[11px] text-[#8A7B6E] dark:text-[#A09285]" data-admin-i18n="auth_sub">
+          ऑर्डर्स, कस्टम बिल, रेसिपीज व चौकशी नियंत्रित करण्यासाठी लॉगिन करा.
+        </p>
+      </div>
+
+      <!-- ⚡ 1-Click Quick Login (Hero Button) -->
+      <button onclick="quickLogin()" type="button" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#ECC87A] via-[#C9880A] to-[#ECC87A] text-[#2C180E] font-black text-sm shadow-lg hover:brightness-105 transition-all transform active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-2 border-white dark:border-[#3A2D23]">
+        <span class="text-lg">⚡</span>
+        <span data-admin-i18n="quick_login">1-Click Quick Login (थेट प्रवेश)</span>
+      </button>
+
+      <div class="flex items-center gap-2 my-2">
+        <div class="h-px flex-1 bg-stone-200 dark:bg-stone-800"></div>
+        <span class="text-[10px] text-stone-400 font-bold uppercase tracking-wider" data-admin-i18n="or_enter_pass">किंवा पासवर्ड टाका</span>
+        <div class="h-px flex-1 bg-stone-200 dark:bg-stone-800"></div>
+      </div>
+
+      <!-- Credentials Form -->
+      <form onsubmit="handleManualLogin(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-[#6E5B4D] dark:text-[#C5B7A6] mb-1" data-admin-i18n="lbl_login_id">लॉगिन आयडी (Login ID)</label>
+          <input type="text" id="admin-user" value="admin" class="w-full p-2.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-[#FAF5ED] dark:bg-[#281F1A] dark:text-white font-bold" />
+        </div>
+        <div>
+          <label class="block font-bold text-[#6E5B4D] dark:text-[#C5B7A6] mb-1" data-admin-i18n="lbl_password">पासवर्ड (Password)</label>
+          <input type="password" id="admin-pass" value="lalbaug1986" class="w-full p-2.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-[#FAF5ED] dark:bg-[#281F1A] dark:text-white font-bold" />
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-[#5A0B10] hover:bg-[#7A1A22] text-white font-bold text-xs shadow transition-all" data-admin-i18n="btn_login">
+          प्रवेश करा (Login) →
+        </button>
+      </form>
+
+      <!-- Back to Shop Link -->
+      <div class="text-center pt-2 border-t border-stone-200 dark:border-stone-800">
+        <a href="/customer_storefront.html" target="_blank" rel="noopener noreferrer" class="text-xs text-[#8A7B6E] hover:text-[#5A0B10] dark:hover:text-[#ECC87A] font-bold inline-flex items-center gap-1">
+          <span data-admin-i18n="btn_open_store">← ग्राहक दुकान उघडा (Customer Storefront ↗)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- SECTION B: AUTHENTICATED MANAGEMENT DASHBOARD                           -->
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <div id="dashboard-screen" class="hidden flex-1 flex flex-col">
+    
+    <!-- 1. Top Management Header Bar -->
+    <header class="sticky top-0 z-30 bg-[#FAF5ED] dark:bg-[#1A1410] border-b border-[#E8DAC6] dark:border-[#3A2D23] px-4 sm:px-8 py-3 shadow-xs">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        
+        <!-- Brand Identity -->
+        <div class="flex items-center gap-3">
+          <img src="/images/lalbaug_logo.png" alt="Lalbaug Masalawale Official Logo" class="h-10 sm:h-12 w-auto max-w-[50px] object-contain drop-shadow-xs" onerror="this.src='https://via.placeholder.com/50x50/5A0B10/ECC87A?text=LBM'" />
+          <div>
+            <h1 class="font-serif font-black text-base sm:text-lg text-[#5A0B10] dark:text-[#FFFDF9] tracking-wider uppercase leading-tight">
+              LALBAUG MASALE
+              <span class="text-[9px] font-sans font-bold px-1.5 py-0.5 rounded bg-[#C9880A]/20 text-[#C9880A]">TM</span>
+            </h1>
+            <p class="text-[11px] sm:text-xs text-[#8B5A2B] dark:text-[#ECC87A] font-semibold" data-admin-i18n="portal_title">
+              व्यवस्थापन पोर्टल (SINCE 1986)
+            </p>
+          </div>
+        </div>
+
+        <!-- Controls (Chime, Lang Switcher, Theme, Customer Shop Link, Logout) -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Audio Alert Chime Toggle -->
+          <button onclick="toggleAudioChime()" id="btn-chime" class="p-2 rounded-xl border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 text-[#C9880A] text-xs font-bold transition-all cursor-pointer" title="Toggle New Order Audio Alert Chime" data-admin-i18n="chime_on">
+            🔔 आवाज सुरू
+          </button>
+
+          <!-- Language Switcher Pill -->
+          <div class="inline-flex p-1 rounded-xl bg-white dark:bg-[#281F1A] border border-[#D4C0A8] dark:border-[#4A3728] shadow-2xs">
+            <button type="button" onclick="switchAdminLanguage('en')" id="dash-lang-en" class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300 hover:text-black">EN</button>
+            <button type="button" onclick="switchAdminLanguage('mr')" id="dash-lang-mr" class="px-2.5 py-1 rounded-lg text-xs font-black transition-all bg-[#5A0B10] text-white shadow-xs">मराठी</button>
+          </div>
+
+          <!-- Dark / Light Theme Toggle -->
+          <button onclick="toggleTheme()" class="p-2 rounded-xl bg-white dark:bg-[#281F1A] border border-[#D4C0A8] dark:border-[#4A3728] text-[#2C180E] dark:text-[#ECC87A] shadow-2xs hover:border-[#C9880A] transition-all cursor-pointer">
+            <span id="theme-dash-icon">🌙</span>
+          </button>
+
+          <!-- Go to Customer Shop (Opens in Tab 1 / New Tab) -->
+          <a href="/customer_storefront.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl border border-[#D4C0A8] dark:border-[#3A2D23] text-xs font-bold text-[#6E5B4D] dark:text-[#C5B7A6] hover:text-[#2C180E] dark:hover:text-white hover:bg-stone-100 dark:hover:bg-[#281F1A] transition-colors flex items-center gap-1">
+            <span data-admin-i18n="btn_shop_link">ग्राहक दुकान ↗</span>
+          </a>
+
+          <!-- Logout Button -->
+          <button onclick="logoutAdmin()" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-xs transition-colors cursor-pointer" data-admin-i18n="btn_logout">
+            लॉगआउट
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Main Dashboard Content Area -->
+    <main class="max-w-7xl mx-auto w-full px-4 sm:px-8 py-6 space-y-6 flex-1">
+      
+      <!-- Four KPI Metric Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Card 1: Today's Orders -->
+        <div class="bg-[#FFFDF9] dark:bg-[#1A1410] border border-[#E3CBB5] dark:border-[#3A2D23] rounded-2xl p-4 sm:p-5 shadow-xs">
+          <div class="text-3xl font-serif font-black text-[#5A0B10] dark:text-[#FFFDF9]" id="kpi-total-orders">3</div>
+          <div class="text-xs text-[#7A6B5E] dark:text-[#A09285] font-semibold mt-1" data-admin-i18n="kpi_total_orders">एकूण ऑर्डर्स (Total Orders)</div>
+        </div>
+
+        <!-- Card 2: New Orders (Blinks in Red 🔴 when > 0!) -->
+        <div id="kpi-new-orders-box" class="rounded-2xl p-4 sm:p-5 shadow-xs border transition-all cursor-pointer order-box-blinking-red bg-red-50/90 dark:bg-red-950/40 border-red-500">
+          <div class="flex items-center justify-between">
+            <div class="text-3xl font-serif font-black text-[#DC2626] dark:text-[#EF4444]" id="kpi-new-orders">1</div>
+            <span class="relative flex h-3.5 w-3.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-600"></span>
+            </span>
+          </div>
+          <div class="text-xs text-red-700 dark:text-red-400 font-bold mt-1" data-admin-i18n="kpi_new_orders">नवीन ऑर्डर्स (Action Needed) 🔴</div>
+        </div>
+
+        <!-- Card 3: Total Revenue -->
+        <div class="bg-[#FFFDF9] dark:bg-[#1A1410] border border-[#E3CBB5] dark:border-[#3A2D23] rounded-2xl p-4 sm:p-5 shadow-xs">
+          <div class="text-3xl font-serif font-black text-[#5A0B10] dark:text-[#FFFDF9]" id="kpi-revenue">₹1,735</div>
+          <div class="text-xs text-[#7A6B5E] dark:text-[#A09285] font-semibold mt-1" data-admin-i18n="kpi_total_revenue">एकूण विक्री (Total Revenue)</div>
+        </div>
+
+        <!-- Card 4: Enquiries & Spices -->
+        <div onclick="setViewMode('enquiries')" class="bg-[#FFFDF9] dark:bg-[#1A1410] border border-[#E3CBB5] dark:border-[#3A2D23] rounded-2xl p-4 sm:p-5 shadow-xs cursor-pointer hover:border-[#C9880A] transition-all" title="Click to view Customer Enquiries">
+          <div class="flex items-center justify-between">
+            <div class="text-3xl font-serif font-black text-[#C9880A] dark:text-[#ECC87A]" id="kpi-enquiries-count">0</div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold" data-admin-i18n="kpi_enquiries_menu">चौकशी मेनू →</span>
+          </div>
+          <div class="text-xs text-[#7A6B5E] dark:text-[#A09285] font-semibold mt-1" data-admin-i18n="kpi_enquiries">ग्राहक चौकशी (Customer Enquiries)</div>
+        </div>
+      </div>
+
+      <!-- Action & View Controls Bar -->
+      <div class="bg-[#FFFDF9] dark:bg-[#1A1410] border border-[#E8DAC6] dark:border-[#3A2D23] rounded-2xl p-4 shadow-xs flex flex-wrap items-center justify-between gap-4">
+        
+        <!-- View Switcher (Pipeline Stages | Boxes View | Table View | Enquiries) -->
+        <div class="flex items-center gap-1.5 bg-[#EFE5D5] dark:bg-[#281F1A] p-1 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] flex-wrap">
+          <button onclick="setViewMode('pipeline')" id="btn-view-pipeline" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-[#5A0B10] text-white shadow-xs">
+            <span data-admin-i18n="view_pipeline">📊 १. टप्पे (Pipeline)</span>
+          </button>
+          <button onclick="setViewMode('boxes')" id="btn-view-boxes" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300">
+            <span data-admin-i18n="view_boxes">📦 २. बॉक्सेस (Boxes)</span>
+          </button>
+          <button onclick="setViewMode('table')" id="btn-view-table" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300">
+            <span data-admin-i18n="view_table">📋 ३. टेबल (Table)</span>
+          </button>
+          <button onclick="setViewMode('enquiries')" id="btn-view-enquiries" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300 flex items-center gap-1.5">
+            <span data-admin-i18n="view_enquiries">✉️ ४. ग्राहक चौकशी</span>
+            <span id="badge-enquiries-count" class="px-1.5 py-0.2 rounded-full bg-[#C9880A] text-white text-[10px] font-black">0</span>
+          </button>
+        </div>
+
+        <!-- Real-time Search Box -->
+        <div class="flex items-center gap-2 flex-1 min-w-[200px] max-w-sm">
+          <div class="relative w-full">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-stone-400">🔍</span>
+            <input type="text" id="admin-search-input" oninput="handleAdminSearch(this.value)" placeholder="नाव, फोन किंवा ऑर्डर क्रमांक शोधा..." data-admin-i18n-ph="search_placeholder" class="w-full pl-9 pr-3 py-1.5 rounded-xl border border-[#D4C0A8] dark:border-[#4A3728] bg-white dark:bg-[#201914] text-xs font-medium focus:ring-1 focus:ring-[#C9880A] focus:outline-none" />
+          </div>
+        </div>
+
+        <!-- Status Filter Pills -->
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <button onclick="filterStatus('all')" class="px-2.5 py-1 rounded-full text-xs font-bold border border-[#D4C0A8] bg-white dark:bg-[#221B16] text-stone-700 dark:text-stone-200" data-admin-i18n="filter_all">सर्व</button>
+          <button onclick="filterStatus('New Order')" class="px-2.5 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-300" data-admin-i18n="filter_new">🔴 नवीन</button>
+          <button onclick="filterStatus('Confirmed')" class="px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 border border-blue-300" data-admin-i18n="filter_confirmed">✓ स्वीकारली</button>
+          <button onclick="filterStatus('Preparing')" class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300" data-admin-i18n="filter_preparing">⚙️ दळण</button>
+          <button onclick="filterStatus('Out for Delivery')" class="px-2.5 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700 border border-purple-300" data-admin-i18n="filter_out">🚚 रवाना</button>
+          <button onclick="filterStatus('Delivered')" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 border border-emerald-300" data-admin-i18n="filter_delivered">★ पूर्ण</button>
+        </div>
+
+        <!-- Data Action Buttons (CSV, Print, Demo Data) -->
+        <div class="flex items-center gap-2">
+          <button onclick="exportOrdersCSV()" class="px-3 py-1.5 rounded-xl bg-[#1B4332] hover:bg-[#2D6A4F] text-[#D8F3DC] text-xs font-bold transition-all flex items-center gap-1" data-admin-i18n="btn_csv">
+            📥 CSV डाऊनलोड
+          </button>
+          <button onclick="window.print()" class="px-3 py-1.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-[#201914] text-stone-700 dark:text-stone-200 text-xs font-bold hover:bg-stone-50 transition-all flex items-center gap-1" data-admin-i18n="btn_print">
+            🖨️ प्रिंट
+          </button>
+          <button onclick="openSeedModal()" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#C9880A] to-[#ECC87A] hover:brightness-105 text-[#2C180E] text-xs font-black shadow-xs transition-all flex items-center gap-1.5 cursor-pointer border border-[#B37400]">
+            <span data-admin-i18n="btn_demo_data">🌱 डेमो डेटा पर्याय (Seed Data)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ═════════════════════════════════════════════════════════════════ -->
+      <!-- VIEW CONTAINER: PIPELINE / BOXES / TABLE                          -->
+      <!-- ═════════════════════════════════════════════════════════════════ -->
+      <div id="orders-display-area">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <!-- SEED DEMO DATA MODAL                                              -->
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <div id="seed-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#1A1410] border border-[#D4C0A8] dark:border-[#4A3728] rounded-3xl p-6 max-w-lg w-full shadow-2xl space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-stone-200 dark:border-stone-800">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🌱</span>
+          <div>
+            <h3 class="font-serif font-black text-base text-[#5A0B10] dark:text-[#FFFDF9]" data-admin-i18n="seed_modal_title">डेमो डेटा व्यवस्थापन पर्याय (Seed Demo Data)</h3>
+            <p class="text-[11px] text-stone-500" data-admin-i18n="seed_modal_sub">व्यवस्थापन चाचणीसाठी HD प्रतिमांसह ऑर्डर्स व चौकशी जोडा</p>
+          </div>
+        </div>
+        <button onclick="closeSeedModal()" class="p-1 rounded-lg text-stone-400 hover:text-black dark:hover:text-white text-lg leading-none cursor-pointer">✕</button>
+      </div>
+
+      <div class="space-y-2.5 text-xs">
+        <!-- Option 1: 5 Stage Orders with HD Images -->
+        <button onclick="seedFiveStageOrders()" class="w-full text-left p-3 rounded-2xl bg-[#FAF5ED] dark:bg-[#241C17] border border-[#E8DAC6] dark:border-[#3A2D23] hover:border-[#C9880A] transition-all flex items-start gap-3 cursor-pointer group">
+          <span class="text-2xl group-hover:scale-110 transition-transform">📦</span>
+          <div class="flex-1">
+            <div class="font-bold text-sm text-[#2C180E] dark:text-white" data-admin-i18n="seed_opt_1_title">सर्व ५ टप्प्यांमधील HD ऑर्डर्स जोडा (5 Stage Orders with Images)</div>
+            <div class="text-[11px] text-stone-500 mt-0.5" data-admin-i18n="seed_opt_1_desc">नवीन, स्वीकारली, दळण, रवाना व पूर्ण अशा सर्व ५ टप्प्यांमधील ऑर्डर्स HD मसाल्यांच्या फोटोंसह जोडेल.</div>
+          </div>
+          <span class="px-2 py-1 rounded-lg bg-[#5A0B10] text-white text-[10px] font-bold shrink-0 mt-1">+ जोडा</span>
+        </button>
+
+        <!-- Option 2: Wholesale & Hotel Enquiries -->
+        <button onclick="seedDemoEnquiries()" class="w-full text-left p-3 rounded-2xl bg-[#FAF5ED] dark:bg-[#241C17] border border-[#E8DAC6] dark:border-[#3A2D23] hover:border-[#C9880A] transition-all flex items-start gap-3 cursor-pointer group">
+          <span class="text-2xl group-hover:scale-110 transition-transform">✉️</span>
+          <div class="flex-1">
+            <div class="font-bold text-sm text-[#2C180E] dark:text-white" data-admin-i18n="seed_opt_2_title">घाऊक व हॉटेल चौकशी जोडा (Wholesale & Hotel Enquiries)</div>
+            <div class="text-[11px] text-stone-500 mt-0.5" data-admin-i18n="seed_opt_2_desc">हॉटेल मराठा दरबार, सुमन केटरर्स व इतर मोठ्या ऑर्डर्सच्या चौकशी डेमो डेटा जोडेल.</div>
+          </div>
+          <span class="px-2 py-1 rounded-lg bg-[#5A0B10] text-white text-[10px] font-bold shrink-0 mt-1">+ जोडा</span>
+        </button>
+
+        <!-- Option 3: Reset Default Set -->
+        <button onclick="resetAllDemoData()" class="w-full text-left p-3 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 hover:border-amber-500 transition-all flex items-start gap-3 cursor-pointer group">
+          <span class="text-2xl group-hover:scale-110 transition-transform">🔄</span>
+          <div class="flex-1">
+            <div class="font-bold text-sm text-amber-900 dark:text-amber-300" data-admin-i18n="seed_opt_3_title">सर्व डेटा पूर्ववत करा (Reset to Default Demo Data)</div>
+            <div class="text-[11px] text-amber-800/80 dark:text-amber-400/80 mt-0.5" data-admin-i18n="seed_opt_3_desc">सध्याचा डेटा पुसून सुरुवातीचा ५ ऑर्डर्स + २ चौकशींचा स्वच्छ डेमो डेटा लोड करेल.</div>
+          </div>
+          <span class="px-2 py-1 rounded-lg bg-amber-600 text-white text-[10px] font-bold shrink-0 mt-1">पूर्ववत</span>
+        </button>
+
+        <!-- Option 4: Clear All Orders -->
+        <button onclick="clearAllOrders()" class="w-full text-left p-3 rounded-2xl bg-red-50/70 dark:bg-red-950/30 border border-red-200 dark:border-red-900/60 hover:border-red-500 transition-all flex items-start gap-3 cursor-pointer group">
+          <span class="text-2xl group-hover:scale-110 transition-transform">🗑️</span>
+          <div class="flex-1">
+            <div class="font-bold text-sm text-red-700 dark:text-red-400" data-admin-i18n="seed_opt_4_title">सर्व ऑर्डर्स रिकाम्या करा (Clear All Orders)</div>
+            <div class="text-[11px] text-red-600/80 dark:text-red-400/80 mt-0.5" data-admin-i18n="seed_opt_4_desc">ग्राहक दुकानातून थेट नवीन ऑर्डर तपासून पाहण्यासाठी ऑर्डर्स रिकाम्या करा.</div>
+          </div>
+          <span class="px-2 py-1 rounded-lg bg-red-600 text-white text-[10px] font-bold shrink-0 mt-1">रिकामे</span>
+        </button>
+      </div>
+
+      <div class="pt-3 border-t border-stone-200 dark:border-stone-800 flex justify-end">
+        <button onclick="closeSeedModal()" class="px-4 py-2 rounded-xl bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-200 font-bold text-xs hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors" data-admin-i18n="btn_close">
+          बंद करा (Close)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Toast Container -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- JAVASCRIPT ENGINE WITH REAL-TIME AUDIO SYNTHESIS & CROSS-TAB SYNC     -->
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <script>
+    // Initial State & Demo Orders with Generated HD Spice Images
+    const DEFAULT_DEMO_ORDERS = [
+      {
+        orderId: 'ORD-LBM-94281',
+        customerName: 'Anil Deshmukh',
+        phone: '9820145678',
+        address: 'Flat 402, Sai Shraddha Apts, Lalbaug',
+        city: 'Mumbai',
+        pincode: '400012',
+        items: [
+          { name: 'Turmeric Powder (Haldi)', nameMr: 'हळद पावडर', weight: '500g', unitPrice: 190, quantity: 1, totalPrice: 190, image: '/images/spices/turmeric_powder_hd.jpg' },
+          { name: 'Kashmiri Red Chilli', nameMr: 'काश्मिरी लाल तिखट', weight: '250g', unitPrice: 160, quantity: 1, totalPrice: 160, image: '/images/spices/kashmiri_chilli_hd.jpg' }
+        ],
+        subtotal: 350,
+        deliveryCharge: 0,
+        grandTotal: 350,
+        status: 'Preparing',
+        createdAt: new Date(Date.now() - 3600000 * 2).toISOString(),
+        orderedVia: 'whatsapp'
+      },
+      {
+        orderId: 'ORD-LBM-81052',
+        customerName: 'Priya Kulkarni',
+        phone: '9892318490',
+        address: 'B-12, Charni Road East',
+        city: 'Mumbai',
+        pincode: '400004',
+        items: [
+          { name: 'Traditional Goda Masala', nameMr: 'पारंपरिक गोडा मसाला', weight: '500g', unitPrice: 400, quantity: 1, totalPrice: 400, image: '/images/spices/goda_masala_hd.jpg' },
+          { name: 'Alleppey Bold Green Cardamom', nameMr: 'हिरवी वेलची', weight: '100g', unitPrice: 370, quantity: 1, totalPrice: 370, image: '/images/spices/green_cardamom_hd.jpg' }
+        ],
+        subtotal: 770,
+        deliveryCharge: 0,
+        grandTotal: 770,
+        status: 'Out for Delivery',
+        createdAt: new Date(Date.now() - 3600000 * 5).toISOString(),
+        orderedVia: 'website'
+      },
+      {
+        orderId: 'ORD-LBM-74193',
+        customerName: 'Sanjay Shinde',
+        phone: '9769012345',
+        address: 'Shop 4, Dadar West',
+        city: 'Mumbai',
+        pincode: '400028',
+        items: [
+          { name: 'Lalbaug Shahi Garam Masala', nameMr: 'शाही गरम मसाला', weight: '500g', unitPrice: 490, quantity: 1, totalPrice: 490, image: '/images/spices/garam_masala_hd.jpg' },
+          { name: 'Cumin Seeds (Jeera)', nameMr: 'जिरे गावरान', weight: '250g', unitPrice: 155, quantity: 1, totalPrice: 155, image: '/images/spices/cumin_seeds_hd.jpg' }
+        ],
+        subtotal: 645,
+        deliveryCharge: 0,
+        grandTotal: 645,
+        status: 'New Order',
+        createdAt: new Date().toISOString(),
+        orderedVia: 'website'
+      },
+      {
+        orderId: 'ORD-LBM-65234',
+        customerName: 'Kavita Joshi',
+        phone: '9819234567',
+        address: 'Row House 3, Prabhadevi',
+        city: 'Mumbai',
+        pincode: '400025',
+        items: [
+          { name: 'Cinnamon & Cloves Blend', nameMr: 'दालचिनी व लवंग मिश्रण', weight: '250g', unitPrice: 320, quantity: 1, totalPrice: 320, image: '/images/spices/cinnamon_cloves_hd.jpg' },
+          { name: 'Malabar Black Pepper', nameMr: 'काळी मिरी', weight: '250g', unitPrice: 280, quantity: 1, totalPrice: 280, image: '/images/spices/black_pepper_hd.jpg' }
+        ],
+        subtotal: 600,
+        deliveryCharge: 0,
+        grandTotal: 600,
+        status: 'Confirmed',
+        createdAt: new Date(Date.now() - 1800000).toISOString(),
+        orderedVia: 'website'
+      },
+      {
+        orderId: 'ORD-LBM-51820',
+        customerName: 'Mahesh Patil',
+        phone: '9833445566',
+        address: '102, Shanti Niketan, Girgaon',
+        city: 'Mumbai',
+        pincode: '400004',
+        items: [
+          { name: 'Star Anise (Chakraphool)', nameMr: 'चक्रफूल', weight: '250g', unitPrice: 299, quantity: 1, totalPrice: 299, image: '/images/spices/star_anise_hd.jpg' },
+          { name: 'Nutmeg (Jaiphal)', nameMr: 'जायफळ', weight: '250g', unitPrice: 199, quantity: 1, totalPrice: 199, image: '/images/spices/nutmeg_hd.jpg' },
+          { name: 'Dry Ginger (Sunth)', nameMr: 'सुंठ पावडर', weight: '250g', unitPrice: 240, quantity: 1, totalPrice: 240, image: '/images/spices/dry_ginger_hd.jpg' }
+        ],
+        subtotal: 738,
+        deliveryCharge: 0,
+        grandTotal: 738,
+        status: 'Delivered',
+        createdAt: new Date(Date.now() - 86400000).toISOString(),
+        orderedVia: 'whatsapp'
+      }
+    ];
+
+    let orders = JSON.parse(localStorage.getItem('lalbaug_orders_v2') || 'null');
+    if (!orders || !Array.isArray(orders) || orders.length === 0) {
+      orders = DEFAULT_DEMO_ORDERS;
+      localStorage.setItem('lalbaug_orders_v2', JSON.stringify(orders));
+    }
+
+    const DEFAULT_DEMO_ENQUIRIES = [
+      {
+        id: 'ENQ-LBM-54120',
+        name: 'हॉटेल मराठा दरबार (राजेश साळुंखे)',
+        nameEn: 'Hotel Maratha Darbar (Rajesh Salunkhe)',
+        phone: '9820567890',
+        email: 'marathadarbar@gmail.com',
+        enquiryType: 'हॉटेल / केटरर्स पुरवठा',
+        enquiryTypeEn: 'Hotel / Caterer Supply',
+        quantityRequired: '२५ किलो',
+        quantityRequiredEn: '25 kg',
+        message: 'आम्हाला दरमहा २५ किलो शाही गरम मसाला आणि काश्मिरी लाल तिखट नियमित हवे आहे.',
+        messageEn: 'We need regular monthly supply of 25 kg Shahi Garam Masala and Kashmiri Lal Mirch powder.',
+        status: 'New',
+        createdAt: new Date(Date.now() - 7200000).toISOString()
+      },
+      {
+        id: 'ENQ-LBM-38914',
+        name: 'सुमन केटरर्स (सुरेश सावंत)',
+        nameEn: 'Suman Caterers (Suresh Sawant)',
+        phone: '9930123456',
+        email: 'suman.caterers@yahoo.com',
+        enquiryType: 'घाऊक खरेदी (Wholesale)',
+        enquiryTypeEn: 'Wholesale Bulk Order',
+        quantityRequired: '५० किलो',
+        quantityRequiredEn: '50 kg',
+        message: 'लग्न समारंभासाठी गोडा मसाला आणि हळद पावडरचे घाऊक दर कळवावेत.',
+        messageEn: 'Please share bulk wholesale quotation for Goda Masala and Turmeric Powder for wedding season.',
+        status: 'Contacted',
+        createdAt: new Date(Date.now() - 86400000).toISOString()
+      }
+    ];
+
+    let enquiries = JSON.parse(localStorage.getItem('lalbaug_enquiries_v2') || 'null');
+    if (!enquiries || !Array.isArray(enquiries) || enquiries.length === 0) {
+      enquiries = DEFAULT_DEMO_ENQUIRIES;
+      localStorage.setItem('lalbaug_enquiries_v2', JSON.stringify(enquiries));
+    }
+
+    let currentViewMode = 'pipeline'; // 'pipeline' | 'boxes' | 'table' | 'enquiries'
+    let currentStatusFilter = 'all';
+    let adminSearchQuery = '';
+    let audioChimeEnabled = true;
+    let adminLang = localStorage.getItem('admin_lang') || 'mr';
+
+    // ─── ADMIN BILINGUAL I18N DICTIONARY ──────────────────────────
+    const ADMIN_I18N = {
+      mr: {
+        portal_title: "व्यवस्थापन पोर्टल (SINCE 1986)",
+        auth_sub: "ऑर्डर्स, कस्टम बिल, रेसिपीज व चौकशी नियंत्रित करण्यासाठी लॉगिन करा.",
+        quick_login: "⚡ 1-Click Quick Login (थेट प्रवेश)",
+        or_enter_pass: "किंवा पासवर्ड टाका",
+        lbl_login_id: "लॉगिन आयडी (Login ID)",
+        lbl_password: "पासवर्ड (Password)",
+        btn_login: "प्रवेश करा (Login) →",
+        btn_open_store: "← ग्राहक दुकान उघडा (Customer Storefront ↗)",
+        btn_shop_link: "ग्राहक दुकान ↗",
+        btn_logout: "लॉगआउट",
+        chime_on: "🔔 आवाज सुरू",
+        chime_off: "🔕 आवाज बंद",
+        kpi_total_orders: "एकूण ऑर्डर्स (Total Orders)",
+        kpi_new_orders: "नवीन ऑर्डर्स (Action Needed) 🔴",
+        kpi_total_revenue: "एकूण विक्री (Total Revenue)",
+        kpi_enquiries: "ग्राहक चौकशी (Customer Enquiries)",
+        kpi_enquiries_menu: "चौकशी मेनू →",
+        view_pipeline: "📊 १. टप्पे (Pipeline)",
+        view_boxes: "📦 २. बॉक्सेस (Boxes)",
+        view_table: "📋 ३. टेबल (Table)",
+        view_enquiries: "✉️ ४. ग्राहक चौकशी",
+        filter_all: "सर्व",
+        filter_new: "🔴 नवीन",
+        filter_confirmed: "✓ स्वीकारली",
+        filter_preparing: "⚙️ दळण",
+        filter_out: "🚚 रवाना",
+        filter_delivered: "★ पूर्ण",
+        btn_csv: "📥 CSV डाऊनलोड",
+        btn_print: "🖨️ प्रिंट",
+        btn_demo_data: "🌱 डेमो डेटा पर्याय (Seed Data)",
+        seed_modal_title: "डेमो डेटा व्यवस्थापन पर्याय (Seed Demo Data)",
+        seed_modal_sub: "व्यवस्थापन चाचणीसाठी HD प्रतिमांसह ऑर्डर्स व चौकशी जोडा",
+        seed_opt_1_title: "सर्व ५ टप्प्यांमधील HD ऑर्डर्स जोडा (5 Stage Orders with Images)",
+        seed_opt_1_desc: "नवीन, स्वीकारली, दळण, रवाना व पूर्ण अशा सर्व ५ टप्प्यांमधील ऑर्डर्स HD मसाल्यांच्या फोटोंसह जोडेल.",
+        seed_opt_2_title: "घाऊक व हॉटेल चौकशी जोडा (Wholesale & Hotel Enquiries)",
+        seed_opt_2_desc: "हॉटेल मराठा दरबार, सुमन केटरर्स व इतर मोठ्या ऑर्डर्सच्या चौकशी डेमो डेटा जोडेल.",
+        seed_opt_3_title: "सर्व डेटा पूर्ववत करा (Reset to Default Demo Data)",
+        seed_opt_3_desc: "सध्याचा डेटा पुसून सुरुवातीचा ५ ऑर्डर्स + २ चौकशींचा स्वच्छ डेमो डेटा लोड करेल.",
+        seed_opt_4_title: "सर्व ऑर्डर्स रिकाम्या करा (Clear All Orders)",
+        seed_opt_4_desc: "ग्राहक दुकानातून थेट नवीन ऑर्डर तपासून पाहण्यासाठी ऑर्डर्स रिकाम्या करा.",
+        btn_close: "बंद करा (Close)",
+        search_placeholder: "नाव, फोन किंवा ऑर्डर क्रमांक शोधा...",
+        stage_1: "१. नवीन ऑर्डर (New)",
+        stage_2: "२. स्वीकारली (Confirmed)",
+        stage_3: "३. दळण सुरू (Grinding)",
+        stage_4: "४. डिलिव्हरी रवाना",
+        stage_5: "५. पूर्ण वितरित (Done)",
+        stage_empty: "कोणतीही ऑर्डर नाही",
+        btn_accept: "स्वीकारा →",
+        btn_prepare: "दळण सुरू →",
+        btn_dispatch: "रवाना करा →",
+        btn_complete: "पूर्ण झाली ★",
+        status_done: "पूर्ण ✓",
+        enq_title: "ग्राहक व व्यापारी चौकशी (Customer & Wholesale Enquiries)",
+        enq_sub: "घाऊक खरेदी, केटरर्स पुरवठा व विशेष मसाला ऑर्डर चौकशी यादी",
+        th_date: "चौकशी क्र. / वेळ",
+        th_client: "ग्राहक / संस्था",
+        th_phone: "संपर्क (Call / WA)",
+        th_type_qty: "प्रकार व प्रमाण",
+        th_message: "संदेश / तपशील",
+        th_status: "स्थिती (Status)",
+        th_actions: "कृती",
+        th_order_id: "ऑर्डर क्र.",
+        th_customer: "ग्राहक",
+        th_spices: "मसाले",
+        th_amount: "रक्कम",
+        total_amount_lbl: "एकूण रक्कम",
+        enq_status_new: "🔴 New (नवीन)",
+        enq_status_contacted: "📞 Contacted (संपर्क केला)",
+        enq_status_resolved: "★ Resolved (पूर्ण)",
+        toast_lang_switched: "भाषा बदलली: मराठी",
+        alert_new_order: "🔔 नवीन ऑर्डर प्राप्त झाली!",
+        alert_new_enquiry: "✉️ नवीन ग्राहक चौकशी प्राप्त झाली!"
+      },
+      en: {
+        portal_title: "Management Portal (SINCE 1986)",
+        auth_sub: "Log in to control orders, custom bills, recipes, and enquiries.",
+        quick_login: "⚡ 1-Click Quick Login",
+        or_enter_pass: "Or Enter Password",
+        lbl_login_id: "Login ID",
+        lbl_password: "Password",
+        btn_login: "Login →",
+        btn_open_store: "← Open Customer Storefront ↗",
+        btn_shop_link: "Storefront ↗",
+        btn_logout: "Logout",
+        chime_on: "🔔 Sound ON",
+        chime_off: "🔕 Muted",
+        kpi_total_orders: "Total Orders",
+        kpi_new_orders: "New Orders (Action Needed) 🔴",
+        kpi_total_revenue: "Total Revenue",
+        kpi_enquiries: "Customer Enquiries",
+        kpi_enquiries_menu: "Enquiries Menu →",
+        view_pipeline: "📊 1. Pipeline",
+        view_boxes: "📦 2. Boxes View",
+        view_table: "📋 3. Table View",
+        view_enquiries: "✉️ 4. Enquiries",
+        filter_all: "All",
+        filter_new: "🔴 New",
+        filter_confirmed: "✓ Confirmed",
+        filter_preparing: "⚙️ Preparing",
+        filter_out: "🚚 Out for Delivery",
+        filter_delivered: "★ Delivered",
+        btn_csv: "📥 Download CSV",
+        btn_print: "🖨️ Print",
+        btn_demo_data: "🌱 Seed Demo Data",
+        seed_modal_title: "Demo Data Management Options",
+        seed_modal_sub: "Add orders with HD spice photos & wholesale enquiries for live testing",
+        seed_opt_1_title: "Add 5-Stage Orders with HD Images",
+        seed_opt_1_desc: "Populates orders across New, Confirmed, Preparing, Out for Delivery, and Delivered with real HD photos.",
+        seed_opt_2_title: "Add Wholesale & Hotel Enquiries",
+        seed_opt_2_desc: "Populates bulk B2B enquiries from Hotel Maratha Darbar, Suman Caterers, etc.",
+        seed_opt_3_title: "Reset to Default Demo Data",
+        seed_opt_3_desc: "Restores the clean default set of 5 stage orders + 2 wholesale enquiries.",
+        seed_opt_4_title: "Clear All Orders",
+        seed_opt_4_desc: "Clears all orders so you can test placing brand new orders from the customer storefront.",
+        btn_close: "Close",
+        search_placeholder: "Search customer, phone or Order ID...",
+        stage_1: "1. New Orders (New)",
+        stage_2: "2. Confirmed",
+        stage_3: "3. Preparing / Grinding",
+        stage_4: "4. Out for Delivery",
+        stage_5: "5. Delivered (Done)",
+        stage_empty: "No orders in this stage",
+        btn_accept: "Accept →",
+        btn_prepare: "Start Grinding →",
+        btn_dispatch: "Dispatch →",
+        btn_complete: "Mark Done ★",
+        status_done: "Completed ✓",
+        enq_title: "Customer & Wholesale Enquiries Management",
+        enq_sub: "Bulk purchases, hotel supplies and custom recipe blending enquiries",
+        th_date: "Enquiry ID / Time",
+        th_client: "Customer / Outlet",
+        th_phone: "Contact (Call / WA)",
+        th_type_qty: "Type & Quantity",
+        th_message: "Message / Details",
+        th_status: "Status",
+        th_actions: "Action",
+        th_order_id: "Order ID",
+        th_customer: "Customer",
+        th_spices: "Items / Spices",
+        th_amount: "Amount",
+        total_amount_lbl: "Grand Total",
+        enq_status_new: "🔴 New",
+        enq_status_contacted: "📞 Contacted",
+        enq_status_resolved: "★ Resolved",
+        toast_lang_switched: "Language switched to English",
+        alert_new_order: "🔔 New Order Received!",
+        alert_new_enquiry: "✉️ New Customer Enquiry Received!"
+      }
+    };
+
+    function applyAdminLanguage(lang) {
+      adminLang = lang || 'mr';
+      localStorage.setItem('admin_lang', adminLang);
+      document.documentElement.lang = adminLang;
+
+      // Update Auth screen buttons
+      const authEn = document.getElementById('auth-lang-en');
+      const authMr = document.getElementById('auth-lang-mr');
+      if (authEn && authMr) {
+        if (adminLang === 'en') {
+          authEn.className = 'px-2.5 py-1 rounded-lg text-xs font-black transition-all bg-[#5A0B10] text-white shadow-xs';
+          authMr.className = 'px-2.5 py-1 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300 hover:text-black';
+        } else {
+          authMr.className = 'px-2.5 py-1 rounded-lg text-xs font-black transition-all bg-[#5A0B10] text-white shadow-xs';
+          authEn.className = 'px-2.5 py-1 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300 hover:text-black';
+        }
+      }
+
+      // Update Dashboard header buttons
+      const dashEn = document.getElementById('dash-lang-en');
+      const dashMr = document.getElementById('dash-lang-mr');
+      if (dashEn && dashMr) {
+        if (adminLang === 'en') {
+          dashEn.className = 'px-2.5 py-1 rounded-lg text-xs font-black transition-all bg-[#5A0B10] text-white shadow-xs';
+          dashMr.className = 'px-2.5 py-1 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300 hover:text-black';
+        } else {
+          dashMr.className = 'px-2.5 py-1 rounded-lg text-xs font-black transition-all bg-[#5A0B10] text-white shadow-xs';
+          dashEn.className = 'px-2.5 py-1 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300 hover:text-black';
+        }
+      }
+
+      const dict = ADMIN_I18N[adminLang] || ADMIN_I18N.mr;
+
+      // Update Chime Button text
+      const chimeBtn = document.getElementById('btn-chime');
+      if (chimeBtn) {
+        chimeBtn.textContent = audioChimeEnabled ? dict.chime_on : dict.chime_off;
+      }
+
+      // Update static data-admin-i18n elements
+      document.querySelectorAll('[data-admin-i18n]').forEach(el => {
+        const key = el.getAttribute('data-admin-i18n');
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+
+      // Update placeholder attributes
+      document.querySelectorAll('[data-admin-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-admin-i18n-ph');
+        if (dict[key]) el.placeholder = dict[key];
+      });
+
+      renderOrders();
+      updateKPIs();
+    }
+
+    function switchAdminLanguage(lang) {
+      applyAdminLanguage(lang);
+      const dict = ADMIN_I18N[lang] || ADMIN_I18N.mr;
+      showToast(dict.toast_lang_switched);
+    }
+
+    // Cross-Tab Broadcast Channel: Real-Time Listening from Tab 1 (Storefront)
+    const broadcastChannel = new BroadcastChannel('lalbaug_orders_channel');
+
+    broadcastChannel.onmessage = (event) => {
+      // 1. New Order from Customer
+      if (event.data?.type === 'NEW_ORDER' && event.data.order) {
+        const incoming = event.data.order;
+        const incomingId = incoming.orderId || incoming.id;
+        incoming.orderId = incomingId;
+        incoming.id = incomingId;
+        incoming.phone = incoming.phone || incoming.customerPhone || '';
+        incoming.address = incoming.address || 'Address provided';
+        incoming.city = incoming.city || 'Mumbai';
+        incoming.grandTotal = incoming.grandTotal || incoming.totalAmount || 0;
+        incoming.status = incoming.status || 'received';
+        incoming.items = (incoming.items || []).map(i => ({
+          nameMr: i.nameMr || i.name || 'मसाला',
+          name: i.name || i.nameMr || 'Spice',
+          weight: i.weight || '250g',
+          quantity: i.quantity || i.qty || 1,
+          totalPrice: i.totalPrice || (i.price * (i.quantity || i.qty || 1)),
+          image: i.image || i.img || '/images/spices/bowl_garam.png'
+        }));
+
+        if (!orders.some(o => (o.orderId || o.id) === incomingId)) {
+          orders.unshift(incoming);
+          localStorage.setItem('lalbaug_orders_v2', JSON.stringify(orders));
+        }
+
+        if (audioChimeEnabled) playOrderAlertChime();
+        renderOrders();
+        updateKPIs();
+        const dict = ADMIN_I18N[adminLang] || ADMIN_I18N.mr;
+        showToast(`${dict.alert_new_order} #${incoming.orderId} (₹${incoming.grandTotal})`);
+      }
+
+      // 2. New Enquiry from Customer
+      if (event.data?.type === 'NEW_ENQUIRY' && event.data.enquiry) {
+        const incomingEnq = event.data.enquiry;
+        if (!enquiries.some(e => e.id === incomingEnq.id)) {
+          enquiries.unshift(incomingEnq);
+          localStorage.setItem('lalbaug_enquiries_v2', JSON.stringify(enquiries));
+        }
+
+        if (audioChimeEnabled) playOrderAlertChime();
+        updateKPIs();
+        if (currentViewMode === 'enquiries') renderOrders();
+        const dict = ADMIN_I18N[adminLang] || ADMIN_I18N.mr;
+        showToast(`${dict.alert_new_enquiry} ${incomingEnq.name}`);
+      }
+    };
+
+    // Load Live Orders and Enquiries from Backend API (Port 5000)
+    function loadBackendData() {
+      fetch('/api/orders')
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && Array.isArray(data.orders) && data.orders.length > 0) {
+            const serverIds = new Set(data.orders.map(o => o.orderId));
+            const localOnly = orders.filter(o => !serverIds.has(o.orderId));
+            orders = [...data.orders, ...localOnly];
+            localStorage.setItem('lalbaug_orders_v2', JSON.stringify(orders));
+            renderOrders();
+            updateKPIs();
+          }
+        })
+        .catch(err => console.warn('[Backend] Orders API offline or waiting:', err));
+
+      fetch('/api/enquiries')
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && Array.isArray(data.enquiries) && data.enquiries.length > 0) {
+            enquiries = data.enquiries;
+            localStorage.setItem('lalbaug_enquiries_v2', JSON.stringify(enquiries));
+            updateKPIs();
+            if (currentViewMode === 'enquiries') renderOrders();
+          }
+        })
+        .catch(err => console.warn('[Backend] Enquiries API offline or waiting:', err));
+    }
+
+    // Web Audio API Synthesizer (High Quality 2-Tone Melodic Chime: E5 -> A5)
+    function playOrderAlertChime() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(659.25, ctx.currentTime); // E5
+        osc.frequency.setValueAtTime(880.00, ctx.currentTime + 0.12); // A5
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.4);
+      } catch (e) {
+        console.warn('Audio chime error:', e);
+      }
+    }
+
+    function toggleAudioChime() {
+      audioChimeEnabled = !audioChimeEnabled;
+      const btn = document.getElementById('btn-chime');
+      const dict = ADMIN_I18N[adminLang] || ADMIN_I18N.mr;
+      if (audioChimeEnabled) {
+        btn.textContent = dict.chime_on;
+        btn.className = 'p-2 rounded-xl border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 text-[#C9880A] text-xs font-bold transition-all cursor-pointer';
+        playOrderAlertChime();
+        showToast(adminLang === 'mr' ? '🔔 आवाज सुरू केला' : '🔔 Sound turned ON');
+      } else {
+        btn.textContent = dict.chime_off;
+        btn.className = 'p-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-[#201914] text-stone-400 text-xs font-bold transition-all cursor-pointer';
+        showToast(adminLang === 'mr' ? '🔕 आवाज बंद केला' : '🔕 Sound muted');
+      }
+    }
+
+    // Authentication Handlers
+    function quickLogin() {
+      sessionStorage.setItem('lalbaug_admin_logged_in', 'true');
+      showDashboard();
+      playOrderAlertChime();
+      showToast(adminLang === 'mr' ? '✅ व्यवस्थापन लॉगिन यशस्वी!' : '✅ Management login successful!');
+    }
+
+    function handleManualLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('admin-user').value.trim();
+      const pass = document.getElementById('admin-pass').value.trim();
+      if ((user === 'admin' || user === 'lalbaug') && (pass === 'lalbaug1986' || pass === '1986')) {
+        sessionStorage.setItem('lalbaug_admin_logged_in', 'true');
+        showDashboard();
+        playOrderAlertChime();
+        showToast(adminLang === 'mr' ? '✅ व्यवस्थापन लॉगिन यशस्वी!' : '✅ Management login successful!');
+      } else {
+        alert(adminLang === 'mr' ? '❌ अवैध लॉगिन आयडी किंवा पासवर्ड!\n\nवापरा: admin / lalbaug1986' : '❌ Invalid login ID or password!\n\nUse: admin / lalbaug1986');
+      }
+    }
+
+    function logoutAdmin() {
+      sessionStorage.removeItem('lalbaug_admin_logged_in');
+      document.getElementById('auth-screen').classList.remove('hidden');
+      document.getElementById('dashboard-screen').classList.add('hidden');
+      showToast(adminLang === 'mr' ? 'लॉगआउट यशस्वी!' : 'Logged out successfully!');
+    }
+
+    function showDashboard() {
+      document.getElementById('auth-screen').classList.add('hidden');
+      document.getElementById('dashboard-screen').classList.remove('hidden');
+      loadBackendData();
+      renderOrders();
+      updateKPIs();
+    }
+
+    function handleAdminSearch(val) {
+      adminSearchQuery = (val || '').toLowerCase().trim();
+      renderOrders();
+    }
+
+    // Status Helper Details (Bilingual)
+    function getStatusMeta(status) {
+      const dict = ADMIN_I18N[adminLang] || ADMIN_I18N.mr;
+      const normStatus = (status === 'received' || status === 'New Order') ? 'New Order' : status;
+      switch (normStatus) {
+        case 'New Order':
+          return {
+            label: adminLang === 'mr' ? 'नवीन ऑर्डर' : 'New Order',
+            icon: '🔴',
+            border: 'order-box-blinking-red border-red-500',
+            badge: 'bg-red-600 text-white',
+            next: 'Confirmed',
+            nextLabel: dict.btn_accept
+          };
+        case 'Confirmed':
+          return {
+            label: adminLang === 'mr' ? 'स्वीकारली' : 'Confirmed',
+            icon: '✓',
+            border: 'order-box-blinking-blue border-blue-500',
+            badge: 'bg-blue-600 text-white',
+            next: 'Preparing',
+            nextLabel: dict.btn_prepare
+          };
+        case 'Preparing':
+          return {
+            label: adminLang === 'mr' ? 'मसाला दळण सुरू' : 'Preparing / Grinding',
+            icon: '⚙️',
+            border: 'order-box-blinking-amber border-amber-500',
+            badge: 'bg-amber-600 text-white',
+            next: 'Out for Delivery',
+            nextLabel: dict.btn_dispatch
+          };
+        case 'Out for Delivery':
+          return {
+            label: adminLang === 'mr' ? 'डिलिव्हरीसाठी रवाना' : 'Out for Delivery',
+            icon: '🚚',
+            border: 'order-box-blinking-purple border-purple-500',
+            badge: 'bg-purple-600 text-white',
+            next: 'Delivered',
+            nextLabel: dict.btn_complete
+          };
+        case 'Delivered':
+          return {
+            label: adminLang === 'mr' ? 'पूर्ण (Delivered)' : 'Delivered (Done)',
+            icon: '★',
+            border: 'order-box-glow-green border-emerald-500',
+            badge: 'bg-emerald-600 text-white',
+            next: null,
+            nextLabel: null
+          };
+        default:
+          return {
+            label: status,
+            icon: '📦',
+            border: 'border-stone-300',
+            badge: 'bg-stone-600 text-white',
+            next: null,
+            nextLabel: null
+          };
+      }
+    }
+
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      ['pipeline', 'boxes', 'table', 'enquiries'].forEach(m => {
+        const btn = document.getElementById(`btn-view-${m}`);
+        if (btn) {
+          btn.className = m === mode ? 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-[#5A0B10] text-white shadow-xs' : 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-stone-600 dark:text-stone-300';
+        }
+      });
+      renderOrders();
+    }
+
+    function filterStatus(status) {
+      currentStatusFilter = status;
+      renderOrders();
+    }
+
+    // Render Orders & Enquiries
+    
+    // Bilingual Enquiry Translation Helpers
+    const ENQUIRY_TYPE_MAP = {
+      'हॉटेल / केटरर्स पुरवठा': 'Hotel / Caterer Supply',
+      'घाऊक खरेदी (Wholesale)': 'Wholesale Bulk Order',
+      'घाऊक खरेदी': 'Wholesale Bulk Order',
+      'कस्टम मसाला रेसिपी तयार करणे': 'Custom Recipe Blending',
+      'नवीन मसाला फॉर्म्युला / कस्टमायझेशन': 'Custom Spice Blend / Customization',
+      'किराणा दुकान पुनर्विक्री': 'Retail Shop Resale',
+      'किरकोळ ग्राहक चौकशी': 'Retail Customer Enquiry',
+      'इतर': 'Other'
+    };
+
+    const ENQUIRY_QTY_MAP = {
+      '२५ किलो': '25 kg',
+      '५० किलो': '50 kg',
+      '१० किलो': '10 kg',
+      '१०० किलो': '100 kg',
+      '५० किलो / महिना': '50 kg / month'
+    };
+
+    const ENQUIRY_NAME_MAP = {
+      'हॉटेल मराठा दरबार (राजेश साळुंखे)': 'Hotel Maratha Darbar (Rajesh Salunkhe)',
+      'सुमन केटरर्स (सुरेश सावंत)': 'Suman Caterers (Suresh Sawant)',
+      'अन्नपूर्णा मेस (श्रीमती वंदना जोशी)': 'Annapurna Mess (Mrs. Vandana Joshi)'
+    };
+
+    const ENQUIRY_MSG_MAP = {
+      'आम्हाला दरमहा २५ किलो शाही गरम मसाला आणि काश्मिरी लाल तिखट नियमित हवे आहे.': 'We need regular monthly supply of 25 kg Shahi Garam Masala and Kashmiri Lal Mirch powder.',
+      'लग्न समारंभासाठी गोडा मसाला आणि हळद पावडरचे घाऊक दर कळवावेत.': 'Please share bulk wholesale quotation for Goda Masala and Turmeric Powder for wedding season.',
+      'आमच्या खानावळीसाठी खास मालवणी मसाला व कांदा लसूण मसाला एकत्र कुटून हवा आहे.': 'We require custom ground Malvani Masala and Kanda Lasun Masala blended specifically for our restaurant mess.'
+    };
+
+    function getLocalizedEnquiryName(enq, lang) {
+      if (!enq) return '';
+      if (lang === 'en') {
+        return enq.nameEn || ENQUIRY_NAME_MAP[enq.name] || enq.name || '';
+      }
+      return enq.name || enq.nameEn || '';
+    }
+
+    function getLocalizedEnquiryType(enq, lang) {
+      if (!enq) return '';
+      if (lang === 'en') {
+        return enq.enquiryTypeEn || ENQUIRY_TYPE_MAP[enq.enquiryType] || enq.enquiryType || 'General Enquiry';
+      }
+      return enq.enquiryType || enq.enquiryTypeEn || 'चौकशी';
+    }
+
+    function getLocalizedEnquiryQty(enq, lang) {
+      if (!enq || !enq.quantityRequired) return '-';
+      if (lang === 'en') {
+        if (enq.quantityRequiredEn) return 'Qty: ' + enq.quantityRequiredEn;
+        if (ENQUIRY_QTY_MAP[enq.quantityRequired]) return 'Qty: ' + ENQUIRY_QTY_MAP[enq.quantityRequired];
+        const converted = String(enq.quantityRequired)
+          .replace(/[०-९]/g, d => '०१२३४५६७८९'.indexOf(d))
+          .replace(/किलो/g, 'kg');
+        return 'Qty: ' + converted;
+      }
+      return 'वजन: ' + enq.quantityRequired;
+    }
+
+    function getLocalizedEnquiryMessage(enq, lang) {
+      if (!enq) return '-';
+      if (lang === 'en') {
+        return enq.messageEn || ENQUIRY_MSG_MAP[enq.message] || enq.message || '-';
+      }
+      return enq.message || enq.messageEn || '-';
+    }
+
+    function renderOrders() {
+      const container = document.getElementById('orders-display-area');
+      if (!container) return;
+      const dict = ADMIN_I18N[adminLang] || ADMIN_I18N.mr;
+
+      // VIEW 4: CUSTOMER ENQUIRIES MODULE
+      if (currentViewMode === 'enquiries') {
+        let filteredEnquiries = enquiries;
+        if (adminSearchQuery) {
+          filteredEnquiries = filteredEnquiries.filter(e =>
+            (e.id && e.id.toLowerCase().includes(adminSearchQuery)) ||
+            (e.name && e.name.toLowerCase().includes(adminSearchQuery)) ||
+            (e.phone && e.phone.includes(adminSearchQuery)) ||
+            (e.message && e.message.toLowerCase().includes(adminSearchQuery))
+          );
+        }
+
+        container.innerHTML = `
+          <div class="space-y-4">
+            <div class="flex items-center justify-between flex-wrap gap-3 bg-white dark:bg-[#1A1410] p-4 rounded-2xl border border-[#E8DAC6] dark:border-[#3A2D23]">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">✉️</span>
+                <div>
+                  <h3 class="font-serif font-black text-sm sm:text-base text-[#5A0B10] dark:text-[#FFFDF9]">${dict.enq_title}</h3>
+                  <p class="text-[11px] text-stone-500">${dict.enq_sub}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300">
+                  ${adminLang === 'mr' ? 'एकूण' : 'Total'}: ${filteredEnquiries.length} ${adminLang === 'mr' ? 'चौकशी' : 'Enquiries'}
+                </span>
+              </div>
+            </div>
+
+            <div class="rounded-3xl border border-[#E8DAC6] dark:border-[#3A2D23] overflow-hidden bg-white dark:bg-[#1A1410] shadow-xs">
+              <table class="w-full text-left text-xs">
+                <thead class="bg-[#FAF5ED] dark:bg-[#281F1A] text-stone-600 dark:text-stone-300 font-bold border-b border-[#E8DAC6] dark:border-[#3A2D23]">
+                  <tr>
+                    <th class="p-3.5">${dict.th_date}</th>
+                    <th class="p-3.5">${dict.th_client}</th>
+                    <th class="p-3.5">${dict.th_phone}</th>
+                    <th class="p-3.5">${dict.th_type_qty}</th>
+                    <th class="p-3.5">${dict.th_message}</th>
+                    <th class="p-3.5">${dict.th_status}</th>
+                    <th class="p-3.5 text-right">${dict.th_actions}</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-[#E8DAC6]/50 dark:divide-[#3A2D23]">
+                  ${filteredEnquiries.length === 0 ? `
+                    <tr><td colspan="7" class="text-center py-12 text-stone-400 font-bold">${adminLang === 'mr' ? 'कोणतीही चौकशी उपलब्ध नाही' : 'No enquiries found'}</td></tr>
+                  ` : filteredEnquiries.map(enq => `
+                    <tr class="hover:bg-[#FAF5ED]/50 dark:hover:bg-[#281F1A]/50">
+                      <td class="p-3.5 font-mono">
+                        <span class="font-bold text-[#5A0B10] dark:text-[#ECC87A]">#${enq.id}</span>
+                        <div class="text-[10px] text-stone-400">${new Date(enq.createdAt).toLocaleDateString()} ${new Date(enq.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                      </td>
+                      <td class="p-3.5">
+                        <div class="font-bold text-[#2C180E] dark:text-white">${getLocalizedEnquiryName(enq, adminLang)}</div>
+                        ${enq.email ? `<div class="text-[10px] text-stone-500">${enq.email}</div>` : ''}
+                      </td>
+                      <td class="p-3.5">
+                        <div class="flex items-center gap-1.5 font-bold">
+                          <a href="tel:${enq.phone}" class="px-2 py-0.5 rounded bg-stone-100 dark:bg-stone-800 hover:bg-emerald-50 text-stone-700 dark:text-stone-200">📞 ${enq.phone}</a>
+                          <a href="https://wa.me/91${enq.phone.replace(/[^0-9]/g, '')}?text=Namaskar%20${encodeURIComponent(getLocalizedEnquiryName(enq, adminLang))},%20Lalbaug%20Masalawale%20here%20regarding%20your%20enquiry" target="_blank" class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold hover:bg-emerald-200">WA</a>
+                        </div>
+                      </td>
+                      <td class="p-3.5">
+                        <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[10px] font-bold block w-fit mb-1">${getLocalizedEnquiryType(enq, adminLang)}</span>
+                        <span class="text-[11px] text-stone-600 dark:text-stone-300 font-medium">${getLocalizedEnquiryQty(enq, adminLang)}</span>
+                      </td>
+                      <td class="p-3.5 max-w-xs text-[11px] text-stone-600 dark:text-stone-300">${getLocalizedEnquiryMessage(enq, adminLang)}</td>
+                      <td class="p-3.5">
+                        <select onchange="updateEnquiryStatus('${enq.id}', this.value)" class="p-1 rounded-lg border border-[#D4C0A8] dark:border-[#3A2D23] bg-white dark:bg-[#281F1A] font-bold text-xs">
+                          <option value="New" ${enq.status === 'New' ? 'selected' : ''}>${dict.enq_status_new}</option>
+                          <option value="Contacted" ${enq.status === 'Contacted' ? 'selected' : ''}>${dict.enq_status_contacted}</option>
+                          <option value="Resolved" ${enq.status === 'Resolved' ? 'selected' : ''}>${dict.enq_status_resolved}</option>
+                        </select>
+                      </td>
+                      <td class="p-3.5 text-right">
+                        <button onclick="deleteEnquiry('${enq.id}')" class="p-1.5 text-red-600 hover:bg-red-50 rounded-lg" title="Delete Enquiry">🗑️</button>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      let filtered = orders;
+      if (currentStatusFilter !== 'all') {
+        filtered = filtered.filter(o => o.status === currentStatusFilter || (currentStatusFilter === 'New Order' && o.status === 'received'));
+      }
+      if (adminSearchQuery) {
+        filtered = filtered.filter(o =>
+          (o.orderId && o.orderId.toLowerCase().includes(adminSearchQuery)) ||
+          (o.customerName && o.customerName.toLowerCase().includes(adminSearchQuery)) ||
+          (o.phone && o.phone.toLowerCase().includes(adminSearchQuery)) ||
+          (o.items && o.items.some(i => (i.name && i.name.toLowerCase().includes(adminSearchQuery)) || (i.nameMr && i.nameMr.includes(adminSearchQuery))))
+        );
+      }
+
+      if (currentViewMode === 'pipeline') {
+        // VIEW 1: 5 PIPELINE STAGES SEPARATED BY VERTICAL DASHED LINES
+        const STAGES = [
+          { status: 'New Order', title: dict.stage_1, color: 'border-t-4 border-red-500' },
+          { status: 'Confirmed', title: dict.stage_2, color: 'border-t-4 border-blue-500' },
+          { status: 'Preparing', title: dict.stage_3, color: 'border-t-4 border-amber-500' },
+          { status: 'Out for Delivery', title: dict.stage_4, color: 'border-t-4 border-purple-500' },
+          { status: 'Delivered', title: dict.stage_5, color: 'border-t-4 border-emerald-500' }
+        ];
+
+        container.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-3 bg-white dark:bg-[#1A1410] rounded-3xl p-4 border border-[#E8DAC6] dark:border-[#3A2D23] shadow-xs">
+            ${STAGES.map((st, idx) => {
+              const stageOrders = filtered.filter(o => o.status === st.status || (st.status === 'New Order' && o.status === 'received'));
+              const hasBorderRight = idx < 4 ? 'md:border-r-2 md:border-r-dashed md:border-r-[#D4C0A8] dark:md:border-r-[#4A3728]' : '';
+
+              return `
+                <div class="flex flex-col min-h-[440px] bg-[#FAF5ED]/60 dark:bg-[#201914] rounded-2xl p-3 ${st.color} ${hasBorderRight}">
+                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-[#E8DAC6] dark:border-[#3A2D23]">
+                    <span class="font-serif font-black text-xs text-[#2C180E] dark:text-white">${st.title}</span>
+                    <span class="px-2 py-0.5 rounded-full bg-stone-200 dark:bg-stone-800 text-[10px] font-bold">${stageOrders.length}</span>
+                  </div>
+
+                  <div class="flex-1 space-y-2.5 overflow-y-auto max-h-[500px]">
+                    ${stageOrders.length === 0 ? `
+                      <div class="text-center py-10 text-stone-400 text-xs">${dict.stage_empty}</div>
+                    ` : stageOrders.map(ord => {
+                      const meta = getStatusMeta(ord.status);
+                      return `
+                        <div class="rounded-xl p-3 bg-white dark:bg-[#281F1A] border ${meta.border} shadow-2xs space-y-2">
+                          <div class="flex items-center justify-between">
+                            <span class="font-mono font-bold text-xs text-[#5A0B10] dark:text-[#ECC87A]">#${ord.orderId}</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded ${ord.orderedVia === 'whatsapp' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'} font-bold">
+                              ${ord.orderedVia === 'whatsapp' ? 'WA' : 'Web'}
+                            </span>
+                          </div>
+
+                          <div>
+                            <div class="font-bold text-xs text-[#2C180E] dark:text-white truncate">${ord.customerName}</div>
+                            <div class="text-[10px] text-stone-500">${ord.phone}</div>
+                          </div>
+
+                          <!-- Spice Thumbnails & Names -->
+                          <div class="space-y-1.5">
+                            <div class="flex items-center gap-1.5 overflow-x-auto py-0.5">
+                              ${ord.items.map(i => `
+                                <div class="relative shrink-0" title="${adminLang === 'mr' ? (i.nameMr || i.name) : (i.name || i.nameMr)} (${i.weight}) × ${i.quantity}">
+                                  <img src="${i.image || '/images/spices/bowl_garam.png'}" onerror="this.src='/images/spices/bowl_garam.png'" class="w-8 h-8 rounded-lg object-cover border border-[#E8DAC6] dark:border-[#3A2D23] shadow-2xs" alt="${i.name || ''}">
+                                  <span class="absolute -top-1 -right-1 bg-[#5A0B10] text-white text-[9px] font-bold px-1 rounded-full leading-tight">×${i.quantity}</span>
+                                </div>
+                              `).join('')}
+                            </div>
+                            <div class="text-[11px] text-stone-600 dark:text-stone-300 font-medium leading-tight">
+                              ${ord.items.map(i => `${adminLang === 'mr' ? (i.nameMr || i.name) : (i.name || i.nameMr)} (${i.weight})`).join(', ')}
+                            </div>
+                          </div>
+
+                          <div class="pt-2 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between">
+                            <span class="font-serif font-black text-xs text-[#5A0B10] dark:text-[#ECC87A]">₹${ord.grandTotal}</span>
+                            ${meta.next ? `
+                              <button onclick="advanceStage('${ord.orderId}', '${meta.next}')" class="px-2 py-0.5 rounded-lg bg-[#5A0B10] hover:bg-[#7A1A22] text-white text-[10px] font-bold">
+                                ${meta.nextLabel}
+                              </button>
+                            ` : `<span class="text-[10px] text-emerald-600 font-bold">${dict.status_done}</span>`}
+                          </div>
+                        </div>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      } else if (currentViewMode === 'boxes') {
+        // VIEW 2: BOXES VIEW (EACH WITH ITS DISTINCT COLOR BLINK)
+        container.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            ${filtered.map(ord => {
+              const meta = getStatusMeta(ord.status);
+              return `
+                <div class="rounded-3xl border-2 p-5 bg-white dark:bg-[#1A1410] shadow-md flex flex-col justify-between ${meta.border}">
+                  <div class="flex items-center justify-between pb-3 mb-3 border-b border-[#E8DAC6] dark:border-[#3A2D23]">
+                    <div class="flex items-center gap-2">
+                      <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-current opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-current"></span>
+                      </span>
+                      <span class="px-2.5 py-0.5 rounded-full text-xs font-black ${meta.badge}">${meta.label}</span>
+                    </div>
+                    <span class="font-mono font-bold text-xs text-[#5A0B10] dark:text-[#ECC87A]">#${ord.orderId}</span>
+                  </div>
+
+                  <div class="space-y-2 text-xs">
+                    <div>
+                      <div class="font-bold text-sm text-[#2C180E] dark:text-white">${ord.customerName}</div>
+                      <div class="text-stone-500">📞 ${ord.phone} • 📍 ${ord.address}, ${ord.city}</div>
+                    </div>
+
+                    <div class="p-2.5 rounded-xl bg-[#FAF5ED] dark:bg-[#241C17] space-y-1.5">
+                      ${ord.items.map(i => `
+                        <div class="flex items-center justify-between gap-2">
+                          <div class="flex items-center gap-2 min-w-0">
+                            <img src="${i.image || '/images/spices/bowl_garam.png'}" onerror="this.src='/images/spices/bowl_garam.png'" class="w-7 h-7 rounded-lg object-cover border border-[#E8DAC6] dark:border-[#3A2D23] shrink-0" alt="">
+                            <span class="truncate">${adminLang === 'mr' ? (i.nameMr || i.name) : (i.name || i.nameMr)} (${i.weight}) × ${i.quantity}</span>
+                          </div>
+                          <span class="font-bold shrink-0">₹${i.totalPrice}</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+
+                  <div class="mt-4 pt-3 border-t border-[#E8DAC6] dark:border-[#3A2D23] flex items-center justify-between">
+                    <div>
+                      <span class="text-[10px] text-stone-400 block">${dict.total_amount_lbl}</span>
+                      <span class="font-serif font-black text-xl text-[#5A0B10] dark:text-[#ECC87A]">₹${ord.grandTotal}</span>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                      ${meta.next ? `
+                        <button onclick="advanceStage('${ord.orderId}', '${meta.next}')" class="px-3 py-1.5 rounded-xl bg-[#5A0B10] hover:bg-[#7A1A22] text-white font-bold text-xs">
+                          ${meta.nextLabel}
+                        </button>
+                      ` : ''}
+                      <button onclick="deleteOrder('${ord.orderId}')" class="p-1.5 text-red-600 hover:bg-red-50 rounded-lg" title="Delete">🗑️</button>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      } else {
+        // VIEW 3: DATA TABLE VIEW
+        container.innerHTML = `
+          <div class="rounded-3xl border border-[#E8DAC6] dark:border-[#3A2D23] overflow-hidden bg-white dark:bg-[#1A1410] shadow-xs">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-[#FAF5ED] dark:bg-[#281F1A] text-stone-600 dark:text-stone-300 font-bold border-b border-[#E8DAC6] dark:border-[#3A2D23]">
+                <tr>
+                  <th class="p-3.5">${dict.th_order_id}</th>
+                  <th class="p-3.5">${dict.th_customer}</th>
+                  <th class="p-3.5">${dict.th_spices}</th>
+                  <th class="p-3.5">${dict.th_amount}</th>
+                  <th class="p-3.5">${dict.th_status}</th>
+                  <th class="p-3.5 text-right">${dict.th_actions}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#E8DAC6]/50 dark:divide-[#3A2D23]">
+                ${filtered.map(ord => `
+                  <tr class="hover:bg-[#FAF5ED]/50 dark:hover:bg-[#281F1A]/50">
+                    <td class="p-3.5 font-mono font-bold text-[#5A0B10] dark:text-[#ECC87A]">#${ord.orderId}</td>
+                    <td class="p-3.5">
+                      <div class="font-bold text-[#2C180E] dark:text-white">${ord.customerName}</div>
+                      <div class="text-[10px] text-stone-500">${ord.phone}</div>
+                    </td>
+                    <td class="p-3.5 max-w-xs">
+                      <div class="flex items-center gap-2">
+                        <div class="flex -space-x-2 shrink-0 overflow-hidden py-0.5">
+                          ${ord.items.slice(0, 3).map(i => `
+                            <img src="${i.image || '/images/spices/bowl_garam.png'}" onerror="this.src='/images/spices/bowl_garam.png'" class="w-7 h-7 rounded-full object-cover border-2 border-white dark:border-[#1A1410] shadow-xs" title="${adminLang === 'mr' ? (i.nameMr || i.name) : (i.name || i.nameMr)}">
+                          `).join('')}
+                        </div>
+                        <span class="truncate text-stone-700 dark:text-stone-300 font-medium">${ord.items.map(i => `${adminLang === 'mr' ? (i.nameMr || i.name) : (i.name || i.nameMr)} (${i.weight})`).join(', ')}</span>
+                      </div>
+                    </td>
+                    <td class="p-3.5 font-serif font-black text-sm text-[#5A0B10] dark:text-[#ECC87A]">₹${ord.grandTotal}</td>
+                    <td class="p-3.5">
+                      <select onchange="updateOrderStatus('${ord.orderId}', this.value)" class="p-1 rounded-lg border border-[#D4C0A8] dark:border-[#3A2D23] bg-white dark:bg-[#281F1A] font-bold text-xs">
+                        <option value="New Order" ${ord.status === 'New Order' || ord.status === 'received' ? 'selected' : ''}>${dict.stage_1}</option>
+                        <option value="Confirmed" ${ord.status === 'Confirmed' ? 'selected' : ''}>${dict.stage_2}</option>
+                        <option value="Preparing" ${ord.status === 'Preparing' ? 'selected' : ''}>${dict.stage_3}</option>
+                        <option value="Out for Delivery" ${ord.status === 'Out for Delivery' ? 'selected' : ''}>${dict.stage_4}</option>
+                        <option value="Delivered" ${ord.status === 'Delivered' ? 'selected' : ''}>${dict.stage_5}</option>
+                      </select>
+                    </td>
+                    <td class="p-3.5 text-right">
+                      <button onclick="deleteOrder('${ord.orderId}')" class="p-1.5 text-red-600 hover:bg-red-50 rounded-lg">🗑️</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+    }
+
+    function advanceStage(orderId, nextStatus) {
+      updateOrderStatus(orderId, nextStatus);
+    }
+
+    function updateOrderStatus(orderId, newStatus) {
+      const ord = orders.find(o => o.orderId === orderId);
+      if (ord) {
+        ord.status = newStatus;
+        localStorage.setItem('lalbaug_orders_v2', JSON.stringify(orders));
+        renderOrders();
+        updateKPIs();
+        showToast(adminLang === 'mr' ? `ऑर्डर #${orderId} स्थिती बदलली: ${newStatus}` : `Order #${orderId} status updated: ${newStatus}`);
+
+        // Persist update to Express Backend API
+        fetch(`/api/orders/${orderId}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus })
+        }).catch(err => console.warn('[Admin Backend] Order update failed:', err));
+      }
+    }
+
+    function deleteOrder(orderId) {
+      const confirmMsg = adminLang === 'mr' ? `तुम्हाला ऑर्डर #${orderId} हटवायची आहे का?` : `Do you want to delete order #${orderId}?`;
+      if (confirm(confirmMsg)) {
+        orders = orders.filter(o => o.orderId !== orderId);
+        localStorage.setItem('lalbaug_orders_v2', JSON.stringify(orders));
+        renderOrders();
+        updateKPIs();
+        showToast(adminLang === 'mr' ? `ऑर्डर #${orderId} हटवली.` : `Order #${orderId} deleted.`);
+
+        // Persist delete to Express Backend API
+        fetch(`/api/orders/${orderId}`, { method: 'DELETE' })
+          .catch(err => console.warn('[Admin Backend] Order delete failed:', err));
+      }
+    }
+
+    function updateEnquiryStatus(id, newStatus) {
+      const enq = enquiries.find(e => e.id === id);
+      if (enq) {
+        enq.status = newStatus;
+        localStorage.setItem('lalbaug_enquiries_v2', JSON.stringify(enquiries));
+        renderOrders();
+        updateKPIs();
+        showToast(adminLang === 'mr' ? `चौकशी #${id} स्थिती बदलली: ${newStatus}` : `Enquiry #${id} status updated: ${newStatus}`);
+
+        // Persist update to Express Backend API
+        fetch(`/api/enquiries/${id}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus })
+        }).catch(err => console.warn('[Admin Backend] Enquiry update failed:', err));
+      }
+    }
+
+    function deleteEnquiry(id) {
+      const confirmMsg = adminLang === 'mr' ? `तुम्हाला चौकशी #${id} हटवायची आहे का?` : `Do you want to delete enquiry #${id}?`;
+      if (confirm(confirmMsg)) {
+        enquiries = enquiries.filter(e => e.id !== id);
+        localStorage.setItem('lalbaug_enquiries_v2', JSON.stringify(enquiries));
+        renderOrders();
+        updateKPIs();
+        showToast(adminLang === 'mr' ? `चौकशी #${id} हटवली.` : `Enquiry #${id} deleted.`);
+
+        // Persist delete to Express Backend API
+        fetch(`/api/enquiries/${id}`, { method: 'DELETE' })
+          .catch(err => console.warn('[Admin Backend] Enquiry delete failed:', err));
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // SEED DEMO DATA & TESTING MODAL HANDLERS
+    // ═══════════════════════════════════════════════════════════════
+    function openSeedModal() {
+      const modal = document.getElementById('seed-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeSeedModal() {
+      const modal = document.getElementById('seed-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function seedFiveStageOrders() {
+      const freshOrders = [
+        {
+          orderId: 'ORD-LBM-' + Math.floor(10000 + Math.random() * 90000),
+          customerName: 'राजेश कदम (Rajesh Kadam)',
+          phone: '9820145678',
+          address: '१०२, साई दर्शन, लालबाग',
+          city: 'मुंबई',
+          pincode: '400012',
+          items: [
+            { name: 'Turmeric Powder (Haldi)', nameMr: 'हळद पावडर', weight: '500g', unitPrice: 190, quantity: 1, totalPrice: 190, image: '/images/spices/turmeric_powder_hd.jpg' },
+            { name: 'Kashmiri Red Chilli', nameMr: 'काश्मिरी लाल तिखट', weight: '250g', unitPrice: 160, quantity: 1, totalPrice: 160, image: '/images/spices/kashmiri_chilli_hd.jpg' }
+          ],
+          subtotal: 350,
+          deliveryCharge: 0,
+          grandTotal: 350,
+          status: 'New Order',
+          createdAt: new Date().toISOString(),
+          orderedVia: 'website'
+        },
+        {
+          orderId: 'ORD-LBM-' + Math.floor(10000 + Math.random() * 90000),
+          customerName: 'कविता जोशी (Kavita Joshi)',
+          phone: '9819234567',
+          address: 'फ्लॅट ४०२, प्रभादेवी',
+          city: 'मुंबई',
+          pincode: '400025',
+          items: [
+            { name: 'Cinnamon & Cloves Blend', nameMr: 'दालचिनी व लवंग मिश्रण', weight: '250g', unitPrice: 320, quantity: 1, totalPrice: 320, image: '/images/spices/cinnamon_cloves_hd.jpg' },
+            { name: 'Malabar Black Pepper', nameMr: 'काळी मिरी', weight: '250g', unitPrice: 280, quantity: 1, totalPrice: 280, image: '/images/spices/black_pepper_hd.jpg' }
+          ],
+          subtotal: 600,
+          deliveryCharge: 0,
+          grandTotal: 600,
+          status: 'Confirmed',
+          createdAt: new Date(Date.now() - 1800000).toISOString(),
+          orderedVia: 'whatsapp'
+        },
+        {
+          orderId: 'ORD-LBM-' + Math.floor(10000 + Math.random() * 90000),
+          customerName: 'अनिल देशमुख (Anil Deshmukh)',
+          phone: '9820987654',
+          address: '१४, परळ नाका',
+          city: 'मुंबई',
+          pincode: '400012',
+          items: [
+            { name: 'Lalbaug Shahi Garam Masala', nameMr: 'शाही गरम मसाला', weight: '500g', unitPrice: 490, quantity: 1, totalPrice: 490, image: '/images/spices/garam_masala_hd.jpg' },
+            { name: 'Cumin Seeds (Jeera)', nameMr: 'गावरान जिरे', weight: '250g', unitPrice: 155, quantity: 1, totalPrice: 155, image: '/images/spices/cumin_seeds_hd.jpg' }
+          ],
+          subtotal: 645,
+          deliveryCharge: 0,
+          grandTotal: 645,
+          status: 'Preparing',
+          createdAt: new Date(Date.now() - 7200000).toISOString(),
+          orderedVia: 'website'
+        },
+        {
+          orderId: 'ORD-LBM-' + Math.floor(10000 + Math.random() * 90000),
+          customerName: 'प्रिया कुलकर्णी (Priya Kulkarni)',
+          phone: '9892318490',
+          address: 'बी-१२, चर्नी रोड पूर्व',
+          city: 'मुंबई',
+          pincode: '400004',
+          items: [
+            { name: 'Traditional Goda Masala', nameMr: 'पारंपरिक गोडा मसाला', weight: '500g', unitPrice: 400, quantity: 1, totalPrice: 400, image: '/images/spices/goda_masala_hd.jpg' },
+            { name: 'Alleppey Bold Green Cardamom', nameMr: 'हिरवी वेलची', weight: '100g', unitPrice: 370, quantity: 1, totalPrice: 370, image: '/images/spices/green_cardamom_hd.jpg' }
+          ],
+          subtotal: 770,
+          deliveryCharge: 0,
+          grandTotal: 770,
+          status: 'Out for Delivery',
+          createdAt: new Date(Date.now() - 14400000).toISOString(),
+          orderedVia: 'whatsapp'
+        },
+        {
+          orderId: 'ORD-LBM-' + Math.floor(10000 + Math.random() * 90000),
+          customerName: 'महेश पाटील (Mahesh Patil)',
+          phone: '9833445566',
+          address: '१०२, शांती निकेतन, गिरगाव',
+          city: 'मुंबई',
+          pincode: '400004',
+          items: [
+            { name: 'Star Anise (Chakraphool)', nameMr: 'चक्रफूल', weight: '250g', unitPrice: 299, quantity: 1, totalPrice: 299, image: '/images/spices/star_anise_hd.jpg' },
+            { name: 'Nutmeg (Jaiphal)', nameMr: 'जायफळ', weight: '250g', unitPrice: 199, quantity: 1, totalPrice: 199, image: '/images/spices/nutmeg_hd.jpg' },
+            { name: 'Dry Ginger (Sunth)', nameMr: 'सुंठ पावडर', weight: '250g', unitPrice: 240, quantity: 1, totalPrice: 240, image: '/images/spices/dry_ginger_hd.jpg' }
+          ],
+          subtotal: 738,
+          deliveryCharge: 0,
+          grandTotal: 738,
+          status: 'Delivered',
+          createdAt: new Date(Date.now() - 86400000).toISOString(),
+          orderedVia: 'website'
+        }
+      ];
+
+      orders = [...freshOrders, ...orders];
+      localStorage.setItem('lalbaug_orders_v2', JSON.stringify(orders));
+      closeSeedModal();
+      renderOrders();
+      updateKPIs();
+      playOrderAlertChime();
+      showToast(adminLang === 'mr' ? '✅ ५ टप्प्यांमधील HD ऑर्डर्स जोडल्या!' : '✅ 5-Stage HD orders added successfully!');
+    }
+
+    function seedDemoEnquiries() {
+      const freshEnqs = [
+        {
+          id: 'ENQ-LBM-' + Math.floor(10000 + Math.random() * 90000),
+          name: 'हॉटेल मराठा दरबार (राजेश साळुंखे)',
+          nameEn: 'Hotel Maratha Darbar (Rajesh Salunkhe)',
+          phone: '9820567890',
+          email: 'marathadarbar@gmail.com',
+          enquiryType: 'हॉटेल / केटरर्स पुरवठा',
+          enquiryTypeEn: 'Hotel / Caterer Supply',
+          quantityRequired: '२५ किलो',
+          quantityRequiredEn: '25 kg',
+          message: 'आम्हाला दरमहा २५ किलो शाही गरम मसाला आणि काश्मिरी लाल तिखट नियमित हवे आहे.',
+          messageEn: 'We need regular monthly supply of 25 kg Shahi Garam Masala and Kashmiri Lal Mirch powder.',
+          status: 'New',
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 'ENQ-LBM-' + Math.floor(10000 + Math.random() * 90000),
+          name: 'सुमन केटरर्स (सुरेश सावंत)',
+          nameEn: 'Suman Caterers (Suresh Sawant)',
+          phone: '9930123456',
+          email: 'suman.caterers@yahoo.com',
+          enquiryType: 'घाऊक खरेदी (Wholesale)',
+          enquiryTypeEn: 'Wholesale Bulk Order',
+          quantityRequired: '५० किलो',
+          quantityRequiredEn: '50 kg',
+          message: 'लग्न समारंभासाठी गोडा मसाला आणि हळद पावडरचे घाऊक दर कळवावेत.',
+          messageEn: 'Please share bulk wholesale quotation for Goda Masala and Turmeric Powder for wedding season.',
+          status: 'Contacted',
+          createdAt: new Date(Date.now() - 3600000).toISOString()
+        },
+        {
+          id: 'ENQ-LBM-' + Math.floor(10000 + Math.random() * 90000),
+          name: 'अन्नपूर्णा मेस (श्रीमती वंदना जोशी)',
+          nameEn: 'Annapurna Mess (Mrs. Vandana Joshi)',
+          phone: '9870112233',
+          email: 'annapurnamess@gmail.com',
+          enquiryType: 'कस्टम मसाला रेसिपी तयार करणे',
+          enquiryTypeEn: 'Custom Recipe Blending',
+          quantityRequired: '१० किलो',
+          quantityRequiredEn: '10 kg',
+          message: 'आमच्या खानावळीसाठी खास मालवणी मसाला व कांदा लसूण मसाला एकत्र कुटून हवा आहे.',
+          messageEn: 'We require custom ground Malvani Masala and Kanda Lasun Masala blended specifically for our restaurant mess.',
+          status: 'New',
+          createdAt: new Date(Date.now() - 7200000).toISOString()
+        }
+      ];
+
+      enquiries = [...freshEnqs, ...enquiries];
+      localStorage.setItem('lalbaug_enquiries_v2', JSON.stringify(enquiries));
+      closeSeedModal();
+      updateKPIs();
+      if (currentViewMode === 'enquiries') renderOrders();
+      playOrderAlertChime();
+      showToast(adminLang === 'mr' ? '✅ ३ घाऊक व हॉटेल चौकशी जोडल्या!' : '✅ 3 Wholesale & hotel enquiries added!');
+    }
+
+    function resetAllDemoData() {
+      orders = JSON.parse(JSON.stringify(DEFAULT_DEMO_ORDERS));
+      enquiries = JSON.parse(JSON.stringify(DEFAULT_DEMO_ENQUIRIES));
+      localStorage.setItem('lalbaug_orders_v2', JSON.stringify(orders));
+      localStorage.setItem('lalbaug_enquiries_v2', JSON.stringify(enquiries));
+      closeSeedModal();
+      renderOrders();
+      updateKPIs();
+      showToast(adminLang === 'mr' ? '🔄 सर्व डेटा मूळ डेमो स्थितीवर पूर्ववत केला.' : '🔄 Reset to clean default demo data.');
+    }
+
+    function clearAllOrders() {
+      if (confirm(adminLang === 'mr' ? 'तुम्हाला खात्री आहे का सर्व ऑर्डर्स रिकाम्या करायच्या आहेत?' : 'Are you sure you want to clear all orders?')) {
+        orders = [];
+        localStorage.setItem('lalbaug_orders_v2', JSON.stringify(orders));
+        closeSeedModal();
+        renderOrders();
+        updateKPIs();
+        showToast(adminLang === 'mr' ? '🗑️ सर्व ऑर्डर्स रिकाम्या केल्या.' : '🗑️ All orders cleared.');
+      }
+    }
+
+    function seedDemoOrders() {
+      seedFiveStageOrders();
+    }
+
+    function updateKPIs() {
+      const newOrdersCount = orders.filter(o => o.status === 'New Order' || o.status === 'received').length;
+      const totalRev = orders.reduce((sum, o) => sum + o.grandTotal, 0);
+
+      document.getElementById('kpi-total-orders').textContent = orders.length;
+      document.getElementById('kpi-new-orders').textContent = newOrdersCount;
+      document.getElementById('kpi-revenue').textContent = `₹${totalRev.toLocaleString()}`;
+
+      const enqEl = document.getElementById('kpi-enquiries-count');
+      if (enqEl) enqEl.textContent = enquiries.length;
+      const badgeEnq = document.getElementById('badge-enquiries-count');
+      if (badgeEnq) badgeEnq.textContent = enquiries.length;
+
+      const newBox = document.getElementById('kpi-new-orders-box');
+      if (newOrdersCount > 0) {
+        newBox.className = 'rounded-2xl p-4 sm:p-5 shadow-xs border transition-all cursor-pointer order-box-blinking-red bg-red-50/90 dark:bg-red-950/40 border-red-500';
+      } else {
+        newBox.className = 'rounded-2xl p-4 sm:p-5 shadow-xs border transition-all cursor-pointer bg-[#FFFDF9] dark:bg-[#1A1410] border-[#E3CBB5] dark:border-[#3A2D23]';
+      }
+    }
+
+    // Export CSV
+    function exportOrdersCSV() {
+      const headers = ['Order ID', 'Date', 'Customer Name', 'Phone', 'Address', 'Items', 'Total (INR)', 'Channel', 'Status'];
+      const rows = orders.map(o => [
+        `"${o.orderId}"`,
+        `"${new Date(o.createdAt).toLocaleString()}"`,
+        `"${o.customerName}"`,
+        `"${o.phone}"`,
+        `"${o.address}, ${o.city}"`,
+        `"${o.items.map(i => `${i.nameMr || i.name} (${i.weight}) x${i.quantity}`).join('; ')}"`,
+        o.grandTotal,
+        `"${o.orderedVia || 'website'}"`,
+        `"${o.status}"`
+      ]);
+
+      const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `lalbaug_orders_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast(adminLang === 'mr' ? '📥 ऑर्डर्स CSV फाईल डाऊनलोड झाली!' : '📥 Orders CSV file downloaded!');
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('lalbaug_theme_v1', isDark ? 'dark' : 'light');
+      document.getElementById('theme-dash-icon').textContent = isDark ? '☀️' : '🌙';
+      showToast(isDark ? (adminLang === 'mr' ? '🌙 डार्क थीम सुरू' : '🌙 Dark mode enabled') : (adminLang === 'mr' ? '☀️ लाईट थीम सुरू' : '☀️ Light mode enabled'));
+    }
+
+    function showToast(msg) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'px-4 py-2.5 rounded-2xl bg-[#5A0B10] text-[#FFF8E7] text-xs font-bold shadow-2xl border border-[#C9880A] flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0';
+      toast.textContent = msg;
+      container.appendChild(toast);
+      setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+    // Explicit Window Exports for Inline Event Handlers
+    window.switchAdminLanguage = switchAdminLanguage;
+    window.applyAdminLanguage = applyAdminLanguage;
+    window.toggleAudioChime = toggleAudioChime;
+    window.quickLogin = quickLogin;
+    window.handleManualLogin = handleManualLogin;
+    window.logoutAdmin = logoutAdmin;
+    window.showDashboard = showDashboard;
+    window.setViewMode = setViewMode;
+    window.filterStatus = filterStatus;
+    window.handleAdminSearch = handleAdminSearch;
+    window.advanceStage = advanceStage;
+    window.updateOrderStatus = updateOrderStatus;
+    window.deleteOrder = deleteOrder;
+    window.updateEnquiryStatus = updateEnquiryStatus;
+    window.deleteEnquiry = deleteEnquiry;
+    window.seedDemoOrders = seedDemoOrders;
+    window.openSeedModal = openSeedModal;
+    window.closeSeedModal = closeSeedModal;
+    window.seedFiveStageOrders = seedFiveStageOrders;
+    window.seedDemoEnquiries = seedDemoEnquiries;
+    window.resetAllDemoData = resetAllDemoData;
+    window.clearAllOrders = clearAllOrders;
+    window.exportOrdersCSV = exportOrdersCSV;
+    window.toggleTheme = toggleTheme;
+    window.showToast = showToast;
+    window.getStatusMeta = getStatusMeta;
+    window.renderOrders = renderOrders;
+    window.updateKPIs = updateKPIs;
+
+    // Auto-login check, Language initialization, and Backend Sync on mount
+    window.addEventListener('DOMContentLoaded', () => {
+      // Initialize saved or default language (Marathi or English)
+      applyAdminLanguage(adminLang);
+
+      loadBackendData();
+
+      const savedTheme = localStorage.getItem('lalbaug_theme_v1') || 'light';
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.getElementById('theme-dash-icon').textContent = '☀️';
+      }
+
+      const isLoggedIn = sessionStorage.getItem('lalbaug_admin_logged_in') === 'true';
+      if (isLoggedIn) {
+        showDashboard();
+      }
+    });
+  </script>
+</body>
+</html>
